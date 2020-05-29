@@ -1,0 +1,17 @@
+# Ignore folders.
+.cloud
+.storage
+ssl
+tts
+
+# Ignore files
+.google.token
+.spotify-token-cache
+home-assistant_v2.db*
+zigbee.db
+home-assistant.log
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml

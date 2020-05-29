@@ -1,0 +1,1886 @@
+{
+    "data": {
+        "config": {
+            "custom_header": {
+                "all_tabs_css": "padding: 0 15px;",
+                "button_icons": {
+                    "options": "mdi:death-star-variant"
+                },
+                "chevrons": false,
+                "compact_mode": true,
+                "header_text": "Home of Kevin Broh-Kahn"
+            },
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "browser_mod.popup",
+                                        "service_data": {
+                                            "card": {
+                                                "entities": [
+                                                    "light.bed_light",
+                                                    "light.kitchen_lights",
+                                                    "light.ceiling_lights"
+                                                ],
+                                                "type": "entities"
+                                            },
+                                            "deviceID": [
+                                                "this",
+                                                "dashboard"
+                                            ],
+                                            "title": "Popup example"
+                                        }
+                                    },
+                                    "type": "custom:clock-card"
+                                },
+                                {
+                                    "entity": "weather.openweathermap",
+                                    "name": "Home",
+                                    "show_forecast": true,
+                                    "type": "weather-forecast"
+                                },
+                                {
+                                    "control": {
+                                        "_headings": false,
+                                        "_icons": true,
+                                        "_names": true,
+                                        "hvac": {
+                                            "name": "test"
+                                        }
+                                    },
+                                    "decimals": 0,
+                                    "entity": "climate.hallway_thermostat",
+                                    "label": {
+                                        "state": "State",
+                                        "temperature": "Temp"
+                                    },
+                                    "name": false,
+                                    "sensors": [
+                                        {
+                                            "attribute": "current_humidity",
+                                            "entity": "climate.hallway_thermostat",
+                                            "name": "Humid",
+                                            "unit": "%"
+                                        }
+                                    ],
+                                    "step_layout": "column",
+                                    "step_size": 1,
+                                    "style": "ha-card {\n  --st-font-size-m: 16px;\n  --st-font-size-xl: 36px;\n}\n",
+                                    "type": "custom:simple-thermostat"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:home",
+                    "path": "home",
+                    "title": "Home"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.kitchen",
+                                            "icon": "mdi:fridge-outline",
+                                            "name": "Kitchen",
+                                            "type": "light"
+                                        },
+                                        {
+                                            "entity": "light.hallway",
+                                            "icon": "mdi:door-open",
+                                            "name": "Hallway",
+                                            "type": "light"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.dining",
+                                            "icon": "mdi:table-chair",
+                                            "name": "Dining Room",
+                                            "type": "light"
+                                        },
+                                        {
+                                            "entity": "light.living_room",
+                                            "icon": "mdi:sofa",
+                                            "name": "Living Room",
+                                            "type": "light"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "icon": "mdi:palette",
+                                            "name": "Main",
+                                            "type": "light"
+                                        },
+                                        {
+                                            "entity": "light.theater",
+                                            "icon": "mdi:theater",
+                                            "name": "Theater",
+                                            "type": "light"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.office",
+                                            "icon": "mdi:briefcase",
+                                            "name": "Office",
+                                            "type": "light"
+                                        },
+                                        {
+                                            "entity": "light.master",
+                                            "icon": "mdi:bed-king",
+                                            "name": "Master",
+                                            "type": "light"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:lightbulb",
+                    "path": "lights",
+                    "title": "Lights"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "card": {
+                                                "entity": "var.people_home",
+                                                "hold_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.users_home"
+                                                },
+                                                "icon": "mdi:account-minus",
+                                                "name": "Away",
+                                                "show_icon": true,
+                                                "show_name": true,
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.users_away"
+                                                },
+                                                "type": "button"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "var.people_home",
+                                                    "state": "on"
+                                                }
+                                            ],
+                                            "type": "conditional"
+                                        },
+                                        {
+                                            "card": {
+                                                "entity": "var.people_home",
+                                                "hold_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.users_away"
+                                                },
+                                                "icon": "mdi:account-plus",
+                                                "name": "Home",
+                                                "show_icon": true,
+                                                "show_name": true,
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.users_home"
+                                                },
+                                                "type": "button"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "var.people_home",
+                                                    "state": "off"
+                                                }
+                                            ],
+                                            "type": "conditional"
+                                        },
+                                        {
+                                            "card": {
+                                                "entity": "switch.office_peripherals",
+                                                "hold_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.start_the_office"
+                                                },
+                                                "icon": "mdi:monitor-speaker-off",
+                                                "name": "Office",
+                                                "show_icon": true,
+                                                "show_name": true,
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.stop_the_office"
+                                                },
+                                                "type": "button"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "switch.office_peripherals",
+                                                    "state": "on"
+                                                }
+                                            ],
+                                            "type": "conditional"
+                                        },
+                                        {
+                                            "card": {
+                                                "entity": "switch.office_peripherals",
+                                                "hold_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.stop_the_office"
+                                                },
+                                                "name": "Office",
+                                                "show_icon": true,
+                                                "show_name": true,
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.start_the_office"
+                                                },
+                                                "type": "button"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "switch.office_peripherals",
+                                                    "state": "off"
+                                                }
+                                            ],
+                                            "type": "conditional"
+                                        },
+                                        {
+                                            "card": {
+                                                "entity": "switch.theater_peripherals",
+                                                "hold_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.start_the_theater"
+                                                },
+                                                "icon": "mdi:google-controller-off",
+                                                "name": "Theater",
+                                                "show_icon": true,
+                                                "show_name": true,
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.stop_the_theater"
+                                                },
+                                                "type": "button"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "switch.theater_peripherals",
+                                                    "state": "on"
+                                                }
+                                            ],
+                                            "type": "conditional"
+                                        },
+                                        {
+                                            "card": {
+                                                "entity": "switch.theater_peripherals",
+                                                "hold_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.stop_the_theater"
+                                                },
+                                                "name": "Theater",
+                                                "show_icon": true,
+                                                "show_name": true,
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.start_the_theater"
+                                                },
+                                                "type": "button"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "switch.theater_peripherals",
+                                                    "state": "off"
+                                                }
+                                            ],
+                                            "type": "conditional"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "detail": 2,
+                                            "entity": "sensor.glances_cpu_used",
+                                            "graph": "line",
+                                            "hours_to_show": 12,
+                                            "name": "CPU Used",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "detail": 2,
+                                            "entity": "sensor.glances_ram_used_percent",
+                                            "graph": "line",
+                                            "hours_to_show": 12,
+                                            "name": "RAM Used",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.kbkpc",
+                                            "icon": "mdi:tablet",
+                                            "name": "Office",
+                                            "type": "entity-button"
+                                        },
+                                        {
+                                            "entity": "switch.fountain",
+                                            "type": "entity-button"
+                                        },
+                                        {
+                                            "entity": "switch.firestone",
+                                            "type": "entity-button"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.living_room_monitor_watts",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "switch.living_room_monitor",
+                                            "secondary_info": "last-changed",
+                                            "toggle": true,
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.office_peripherals_watts",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "switch.office_peripherals",
+                                            "secondary_info": "last-changed",
+                                            "toggle": true,
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.theater_peripherals_watts",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "switch.theater_peripherals",
+                                            "secondary_info": "last-changed",
+                                            "toggle": true,
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entity": "switch.theater_speakers",
+                                            "secondary_info": "last-changed",
+                                            "toggle": true,
+                                            "type": "custom:multiple-entity-row"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "state_color": true,
+                                    "type": "entities"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:flash",
+                    "path": "power",
+                    "title": "Lights"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.theater_tv",
+                                    "hide": {
+                                        "controls": true,
+                                        "power": true,
+                                        "volume": true
+                                    },
+                                    "shortcuts": {
+                                        "buttons": [
+                                            {
+                                                "data": {
+                                                    "command": [
+                                                        "power"
+                                                    ],
+                                                    "entity_id": "remote.theater_tv"
+                                                },
+                                                "icon": "mdi:power",
+                                                "id": "remote.send_command",
+                                                "type": "service"
+                                            },
+                                            {
+                                                "data": {
+                                                    "command": [
+                                                        "volume_down"
+                                                    ],
+                                                    "entity_id": "remote.theater_tv"
+                                                },
+                                                "icon": "mdi:volume-medium",
+                                                "id": "remote.send_command",
+                                                "type": "service"
+                                            },
+                                            {
+                                                "data": {
+                                                    "command": [
+                                                        "volume_up"
+                                                    ],
+                                                    "entity_id": "remote.theater_tv"
+                                                },
+                                                "icon": "mdi:volume-high",
+                                                "id": "remote.send_command",
+                                                "type": "service"
+                                            }
+                                        ],
+                                        "column_height": 72,
+                                        "columns": 3
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "card": {
+                                        "cards": [
+                                            {
+                                                "cards": [
+                                                    {
+                                                        "entity": "media_player.theater_tv",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:television-play",
+                                                        "name": "Roku",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "rest_command.hue_box_set_execution",
+                                                            "service_data": {
+                                                                "payload": "\"hdmiSource\": \"input1\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
+                                                            }
+                                                        },
+                                                        "type": "entity-button"
+                                                    },
+                                                    {
+                                                        "entity": "media_player.theater_tv",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:playstation",
+                                                        "name": "PS4",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "rest_command.hue_box_set_execution",
+                                                            "service_data": {
+                                                                "payload": "\"hdmiSource\": \"input2\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
+                                                            }
+                                                        },
+                                                        "type": "entity-button"
+                                                    },
+                                                    {
+                                                        "entity": "media_player.theater_tv",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:cast",
+                                                        "name": "Cast",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "rest_command.hue_box_set_execution",
+                                                            "service_data": {
+                                                                "payload": "\"hdmiSource\": \"input3\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
+                                                            }
+                                                        },
+                                                        "type": "entity-button"
+                                                    }
+                                                ],
+                                                "type": "horizontal-stack"
+                                            },
+                                            {
+                                                "entity": "media_player.theater_stick",
+                                                "hide": {
+                                                    "controls": true,
+                                                    "power": true,
+                                                    "volume": true
+                                                },
+                                                "shortcuts": {
+                                                    "buttons": [
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "home"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:home",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "up"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:chevron-up",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "backspace"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:backspace",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "left"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:chevron-left",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "select"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:check",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "right"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:chevron-right",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "back"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:arrow-left",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "down"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:chevron-down",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "info"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:asterisk",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "reverse"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:rewind",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "play"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:play",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        },
+                                                        {
+                                                            "data": {
+                                                                "command": [
+                                                                    "forward"
+                                                                ],
+                                                                "entity_id": "remote.theater_stick"
+                                                            },
+                                                            "icon": "mdi:fast-forward",
+                                                            "id": "remote.send_command",
+                                                            "type": "service"
+                                                        }
+                                                    ],
+                                                    "column_height": 72,
+                                                    "columns": 3
+                                                },
+                                                "type": "custom:mini-media-player"
+                                            },
+                                            {
+                                                "cards": [
+                                                    {
+                                                        "entity": "media_player.theater_tv",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:wave",
+                                                        "name": "Subtle",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "rest_command.hue_box_set_execution",
+                                                            "service_data": {
+                                                                "payload": "\"cycleIntensity\": \"previous\""
+                                                            }
+                                                        },
+                                                        "type": "entity-button"
+                                                    },
+                                                    {
+                                                        "entity": "media_player.theater_tv",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:waves",
+                                                        "name": "Intense",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "rest_command.hue_box_set_execution",
+                                                            "service_data": {
+                                                                "payload": "\"cycleIntensity\": \"next\""
+                                                            }
+                                                        },
+                                                        "type": "entity-button"
+                                                    },
+                                                    {
+                                                        "entity": "media_player.theater_tv",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:panorama-wide-angle",
+                                                        "name": "Widescreen",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "rest_command.hue_box_set_execution",
+                                                            "service_data": {
+                                                                "payload": "\"hueTarget\": \"groups/11\""
+                                                            }
+                                                        },
+                                                        "type": "entity-button"
+                                                    }
+                                                ],
+                                                "type": "horizontal-stack"
+                                            },
+                                            {
+                                                "cards": [
+                                                    {
+                                                        "entity": "media_player.theater_tv",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:brightness-5",
+                                                        "name": "Darker",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "rest_command.hue_box_set_execution",
+                                                            "service_data": {
+                                                                "payload": "{\"incrementBrightness\": -10}"
+                                                            }
+                                                        },
+                                                        "type": "entity-button"
+                                                    },
+                                                    {
+                                                        "entity": "media_player.theater_tv",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:brightness-7",
+                                                        "name": "Brighter",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "rest_command.hue_box_set_execution",
+                                                            "service_data": {
+                                                                "payload": "{\"incrementBrightness\": 10}"
+                                                            }
+                                                        },
+                                                        "type": "entity-button"
+                                                    },
+                                                    {
+                                                        "entity": "media_player.theater_tv",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:lightbulb-group-off",
+                                                        "name": "Sync Off",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "rest_command.hue_box_set_execution",
+                                                            "service_data": {
+                                                                "payload": "\"syncActive\": false"
+                                                            }
+                                                        },
+                                                        "type": "entity-button"
+                                                    }
+                                                ],
+                                                "type": "horizontal-stack"
+                                            }
+                                        ],
+                                        "type": "vertical-stack"
+                                    },
+                                    "conditions": [
+                                        {
+                                            "entity": "media_player.theater_tv",
+                                            "state_not": "standby"
+                                        },
+                                        {
+                                            "entity": "media_player.theater_tv",
+                                            "state_not": "unavailable"
+                                        }
+                                    ],
+                                    "type": "conditional"
+                                },
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.spotify",
+                                    "hide": {
+                                        "icon": true,
+                                        "power": true
+                                    },
+                                    "info": "short",
+                                    "shortcuts": {
+                                        "attribute": "source",
+                                        "buttons": [
+                                            {
+                                                "icon": "mdi:laptop-windows",
+                                                "id": "SDSA-PC",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:sofa",
+                                                "id": "Dining Group",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:bed-king",
+                                                "id": "Master",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:cellphone-android",
+                                                "id": "Galaxy Note10+",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "icon": "mdi:laptop",
+                                                "id": "KBK-NOTEBOOK",
+                                                "type": "source"
+                                            },
+                                            {
+                                                "data": {
+                                                    "card": {
+                                                        "entity": "media_player.dining",
+                                                        "hide": {
+                                                            "controls": true,
+                                                            "icon": true,
+                                                            "power": true,
+                                                            "source": true,
+                                                            "volume": true
+                                                        },
+                                                        "speaker_group": {
+                                                            "entities": [
+                                                                {
+                                                                    "entity_id": "media_player.dining",
+                                                                    "name": "Dining"
+                                                                },
+                                                                {
+                                                                    "entity_id": "media_player.kitchen",
+                                                                    "name": "Kitchen"
+                                                                },
+                                                                {
+                                                                    "entity_id": "media_player.living_room",
+                                                                    "name": "Living Room"
+                                                                }
+                                                            ],
+                                                            "expanded": true,
+                                                            "platform": "soundtouch",
+                                                            "show_group_count": true
+                                                        },
+                                                        "type": "custom:mini-media-player"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Group"
+                                                },
+                                                "icon": "mdi:speaker-multiple",
+                                                "id": "browser_mod.popup",
+                                                "type": "service"
+                                            }
+                                        ],
+                                        "column_height": 72,
+                                        "columns": 3,
+                                        "hide_when_off": true
+                                    },
+                                    "source": "icon",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "card": {
+                                        "entities": [
+                                            {
+                                                "entity": "media_player.dining",
+                                                "group": true,
+                                                "hide": {
+                                                    "controls": true,
+                                                    "info": true,
+                                                    "power": true
+                                                },
+                                                "name": "Dining",
+                                                "type": "custom:mini-media-player"
+                                            },
+                                            {
+                                                "entity": "media_player.kitchen",
+                                                "group": true,
+                                                "hide": {
+                                                    "controls": true,
+                                                    "info": true,
+                                                    "power": true
+                                                },
+                                                "name": "Kitchen",
+                                                "type": "custom:mini-media-player"
+                                            },
+                                            {
+                                                "entity": "media_player.living_room",
+                                                "group": true,
+                                                "hide": {
+                                                    "controls": true,
+                                                    "info": true,
+                                                    "power": true
+                                                },
+                                                "name": "Living",
+                                                "type": "custom:mini-media-player"
+                                            }
+                                        ],
+                                        "type": "entities"
+                                    },
+                                    "conditions": [
+                                        {
+                                            "entity": "media_player.dining",
+                                            "state": "playing"
+                                        }
+                                    ],
+                                    "type": "conditional"
+                                },
+                                {
+                                    "card": {
+                                        "entities": [
+                                            {
+                                                "entity": "media_player.master_echo_dot",
+                                                "group": true,
+                                                "hide": {
+                                                    "controls": true,
+                                                    "info": true,
+                                                    "power": true
+                                                },
+                                                "name": "Master Echo",
+                                                "type": "custom:mini-media-player"
+                                            },
+                                            {
+                                                "entity": "media_player.master_bath_echo_dot",
+                                                "group": true,
+                                                "hide": {
+                                                    "controls": true,
+                                                    "info": true,
+                                                    "power": true
+                                                },
+                                                "name": "Master Bath",
+                                                "type": "custom:mini-media-player"
+                                            }
+                                        ],
+                                        "type": "entities"
+                                    },
+                                    "conditions": [
+                                        {
+                                            "entity": "sensor.spotify_source",
+                                            "state": "Master"
+                                        }
+                                    ],
+                                    "type": "conditional"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:play-circle",
+                    "path": "entertainment",
+                    "title": "Entertainment"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Fushimi Inari.jpg",
+                                            "name": "Fushimi Inari",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Fushimi Inari"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Flower Festival.jpg",
+                                            "name": "Flower Festival",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Flower Festival"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Katsura.jpg",
+                                            "name": "Katsura",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Katsura"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Mori Pink Balloons.jpg",
+                                            "name": "Mori Pink Balloons",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Mori Pink Balloons"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Buddha in Temple.jpg",
+                                            "name": "Buddha in Temple",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Buddha in Temple"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Robot Restaurant.jpg",
+                                            "name": "Robot Restaurant",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Robot Restaurant"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Traffic Cones.jpg",
+                                            "name": "Traffic Cones",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Traffic Cones"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Night Dragon.jpg",
+                                            "name": "Night Dragon",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Night Dragon"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Miyajima Cruise.jpg",
+                                            "name": "Miyajima Cruise",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Miyajima Cruise"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Osaka.jpg",
+                                            "name": "Osaka",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Osaka"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Buddha.jpg",
+                                            "name": "Buddha",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Buddha"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Sento Entrance.jpg",
+                                            "name": "Sento Entrance",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Sento Entrance"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Flower Fuji.jpg",
+                                            "name": "Flower Fuji",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Flower Fuji"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Sento Bridge.jpg",
+                                            "name": "Sento Bridge",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Sento Bridge"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Wild Flowers.jpg",
+                                            "name": "Wild Flowers",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Wild Flowers"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Bamboo Forest.jpg",
+                                            "name": "Bamboo Forest",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Bamboo Forest"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Mori Flowers.jpg",
+                                            "name": "Mori Flowers",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Mori Flowers"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Mori Green Balloons.jpg",
+                                            "name": "Mori Green Balloons",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Mori Green Balloons"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Kodaiji Forest at Night.jpg",
+                                            "name": "Kodaiji Forest at Night",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Kodaiji Forest at Night"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Kodaiji at Night.jpg",
+                                            "name": "Kodaiji at Night",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Kodaiji at Night"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Grand Turk.jpg",
+                                            "name": "Grand Turk",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Grand Turk"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Himeji.jpg",
+                                            "name": "Himeji",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Himeji"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Mori Turqoise Balloons.jpg",
+                                            "name": "Mori Turqoise Balloons",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Mori Turqoise Balloons"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/White Temple.jpg",
+                                            "name": "White Temple",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "White Temple"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Mori Rain.jpg",
+                                            "name": "Mori Rain",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Mori Rain"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Phuket.jpg",
+                                            "name": "Phuket",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Phuket"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Pallet Town.jpg",
+                                            "name": "Pallet Town",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Pallet Town"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Manly Beach.jpg",
+                                            "name": "Manly Beach",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Manly Beach"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Ice Cave.jpg",
+                                            "name": "Ice Cave",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Ice Cave"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Ginza.jpg",
+                                            "name": "Ginza",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Ginza"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/12 Apostles.jpg",
+                                            "name": "12 Apostles",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "12 Apostles"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/White Temple Info.jpg",
+                                            "name": "White Temple Info",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "White Temple Info"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Arashiyama.jpg",
+                                            "name": "Arashiyama",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Arashiyama"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Flower Stripes.jpg",
+                                            "name": "Flower Stripes",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Flower Stripes"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Kimono Forest.jpg",
+                                            "name": "Kimono Forest",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Kimono Forest"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Fuji Over Flowers.jpg",
+                                            "name": "Fuji Over Flowers",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Fuji Over Flowers"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Miyajima Sunset.jpg",
+                                            "name": "Miyajima Sunset",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Miyajima Sunset"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Cambodian Sunset.jpg",
+                                            "name": "Cambodian Sunset",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Cambodian Sunset"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Australian Sunrise.jpg",
+                                            "name": "Australian Sunrise",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Australian Sunrise"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "light.main",
+                                            "image": "local/images/huescenes/Gion.jpg",
+                                            "name": "Gion",
+                                            "show_state": false,
+                                            "state_filter": {
+                                                "off": "brightness(50%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-serviceh",
+                                                "service": "hue.hue_activate_scene",
+                                                "service_data": {
+                                                    "group_name": "Main",
+                                                    "scene_name": "Gion"
+                                                }
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:palette",
+                    "path": "scenes",
+                    "title": "Scenes"
+                }
+            ]
+        }
+    },
+    "key": "lovelace.lovelace_phone",
+    "version": 1
+}

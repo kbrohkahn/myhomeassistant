@@ -1,0 +1,664 @@
+lights_home_daylight:
+  alias: Lights when Home at Daylight
+  sequence:
+  - data:
+      brightness: 250
+    service: script.kitchen_daytime_lights
+  - data:
+      entity_id:
+      - light.hallway
+      - light.dining
+      - light.office
+      - light.living_room
+      - light.master
+      - light.theater
+    service: light.turn_off
+kitchen_daytime_lights:
+  alias: Kitchen Daytime Light
+  sequence:
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 30) % 360}}'
+      - 80
+      transition: 1
+    entity_id: light.kitchen_strips
+    service: light.turn_on
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
+      - 80
+    entity_id: light.kitchen_forward
+    service: light.turn_on
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
+      - 80
+    entity_id: light.kitchen_left
+    service: light.turn_on
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
+      - 80
+    entity_id: light.kitchen_mid_left
+    service: light.turn_on
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
+      - 80
+    entity_id: light.kitchen_mid_right
+    service: light.turn_on
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
+      - 80
+    entity_id: light.kitchen_right
+    service: light.turn_on
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
+      - 80
+    entity_id: light.kitchen_overhead
+    service: light.turn_on
+hallway_daytime_lights:
+  alias: Hallway Daytime Light
+  sequence:
+  - data_template:
+      brightness: '{{ ((12 - (now().hour - 14) % 24) | abs / 12 * 192 + 63) | int
+        }}'
+      hs_color:
+      - '{{ ((12 - (now().hour - 14) % 24) | abs / 12 * 250) | int }}'
+      - 80
+    entity_id: light.hallway
+    service: light.turn_on
+kitchen_daytime_lights_by_sun:
+  alias: Kitchen Daytime Lights By Sun
+  sequence:
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ (120 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
+        ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
+        ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
+        ) / 360 * 180) % 360}}'
+      - 80
+    entity_id: light.kitchen_overhead
+    service: light.turn_on
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ (180 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
+        ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
+        ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
+        ) / 360 * 180) % 360 }}'
+      - 80
+    entity_id: light.kitchen_strips
+    service: light.turn_on
+lights_home_sunset:
+  alias: Lights when Home at Sunset
+  sequence:
+  - data:
+      brightness: 128
+      entity_id:
+      - light.kitchen_overhead
+      rgb_color:
+      - 233
+      - 233
+      - 0
+    service: light.turn_on
+  - data:
+      brightness: 128
+      rgb_color:
+      - 128
+      - 64
+      - 0
+    entity_id:
+    - light.kitchen_strips
+    - light.hallway
+    service: light.turn_on
+  - data:
+      entity_id:
+      - light.dining
+      - light.office
+      - light.living_room
+      - light.master
+      - light.theater
+    service: light.turn_off
+lights_away_daylight:
+  alias: Lights when Away at Daylight
+  sequence:
+  - data:
+      entity_id:
+      - light.kitchen
+      - light.hallway
+      - light.dining
+      - light.office
+      - light.living_room
+      - light.master
+      - light.theater
+    service: light.turn_off
+lights_away_sunset:
+  alias: Lights when Away at Sunset
+  sequence:
+  - data:
+      entity_id:
+      - light.dining
+      - light.office
+      - light.living_room
+      - light.master
+      - light.theater
+    service: light.turn_off
+  - data:
+      brightness: 128
+      entity_id:
+      - light.kitchen
+      - light.hallway
+      rgb_color:
+      - 233
+      - 233
+      - 0
+    service: light.turn_on
+users_away:
+  alias: Users Away
+  sequence:
+  - data:
+      entity_id:
+      - media_player.theater_tv
+      - media_player.theater_stick
+      - media_player.office_tv
+    service: media_player.turn_off
+  - service_template: "{%- if state_attr('sun.sun', 'elevation') > 6 -%}\n  script.lights_away_daylight\n\
+      {%- else -%}\n  script.lights_away_sunset\n{%- endif -%}"
+  - data:
+      entity_id:
+      - switch.firestone
+      - switch.fountain
+      - switch.living_room_monitor
+      - switch.office_peripherals
+      - switch.theater_peripherals
+      - switch.theater_speakers
+      - switch.master_bath_fan
+      - switch.master_bath_light
+      - switch.hallway_bath_fan
+      - switch.hallway_bath_light
+      - switch.laundry_light
+    service: switch.turn_off
+  - data: {}
+    entity_id: media_player.dining
+    service: media_player.media_stop
+  - data: {}
+    service: script.kill_bose_group
+  - data:
+      entity_id: var.people_home
+      value: 'off'
+    service: var.set
+users_home:
+  alias: Users Home
+  sequence:
+  - data:
+      value: 'on'
+    entity_id: var.people_home
+    service: var.set
+  - service_template: "{%- if state_attr('sun.sun', 'elevation') > 6 -%}\n  script.lights_home_daylight\n\
+      {%- else -%}\n  script.lights_home_sunset\n{%- endif -%}"
+  - entity_id:
+    - switch.living_room_monitor
+    service: switch.turn_on
+  - data: {}
+    service: script.create_bose_group
+  - delay: 00:00:05
+  - data:
+      source: Dining Group
+    entity_id: media_player.spotify
+    service: media_player.select_source
+  - after: '9:00'
+    before: '18:00'
+    condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  - data: {}
+    service: script.start_the_office
+bedtime:
+  alias: Bedtime
+  sequence:
+  - data:
+      brightness: 128
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    entity_id: light.master_surround
+    service: light.turn_on
+  - data:
+      brightness: 255
+      rgb_color:
+      - 255
+      - 255
+      - 128
+    entity_id: light.master_bedside
+    service: light.turn_on
+  - data: {}
+    entity_id:
+    - light.living_room
+    - light.dining
+    - light.theater
+    service: light.turn_off
+  - data: {}
+    entity_id: media_player.theater_tv
+    service: media_player.turn_off
+  - entity_id:
+    - switch.living_room_monitor
+    - switch.office_peripherals
+    - switch.theater_peripherals
+    - switch.theater_speakers
+    - switch.firestone
+    - switch.fountain
+    service: switch.turn_off
+  - data: {}
+    service: script.kill_bose_group
+  - data:
+      value: 'on'
+    entity_id: var.bedtime_announced
+    service: var.set
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_right
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_mid_right
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_mid_left
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_left
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_forward
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_strips
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_hallway
+    service: light.turn_off
+browser_sound_effect:
+  alias: Browser Sound Effect
+  sequence:
+  - data_template:
+      payload: '{"audio": "http://10.0.0.10:8123/local/audio/{{ sound_effect_filename
+        }}"}'
+      topic: wallpanel/galaxytabs/command
+    service: mqtt.publish
+  - data_template:
+      payload: '{"audio": "http://10.0.0.10:8123/local/audio/{{ sound_effect_filename
+        }}"}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
+  - data_template:
+      media_content_id: /local/audio/{{ sound_effect_filename }}
+      media_content_type: music
+    entity_id: media_player.kbkpc
+    service: media_player.play_media
+  - data:
+      volume_level: 0.7
+    entity_id:
+    - media_player.dining_echo_dot
+    - media_player.master_echo_dot
+    service: media_player.volume_set
+  - data_template:
+      ignore_bose_volume: '{{ ignore_bose_volume }}'
+    service: script.maybe_lower_bose_volume
+  - timeout: 00:00:05
+    wait_template: '{{ is_state(''media_player.kbkpc'', ''standby'') }}'
+  - data:
+      volume_level: 0.4
+    entity_id:
+    - media_player.dining_echo_dot
+    - media_player.master_echo_dot
+    service: media_player.volume_set
+spotify_next_song:
+  alias: Spotify Next Song
+  sequence:
+  - data: {}
+    entity_id: media_player.spotify
+    service: media_player.media_next_track
+play_on_bose:
+  alias: Play on Bose
+  sequence:
+  - data: {}
+    service: script.create_bose_group
+  - data:
+      source: Dining Group
+    entity_id: media_player.spotify
+    service: media_player.select_source
+good_morning:
+  alias: Good Morning
+  sequence:
+  - data:
+      volume_level: 0.4
+    entity_id:
+    - media_player.dining
+    - media_player.kitchen
+    - media_player.living_room
+    service: media_player.volume_set
+  - data:
+      payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+      topic: wallpanel/galaxytabs/command
+    service: mqtt.publish
+  - data:
+      payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
+  - data:
+      payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+      topic: wallpanel/galaxys8/command
+    service: mqtt.publish
+  - data:
+      payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+      topic: wallpanel/galaxys8plus/command
+    service: mqtt.publish
+  - data:
+      value: 'off'
+    entity_id: var.bedtime_announced
+    service: var.set
+  - data: {}
+    entity_id:
+    - switch.living_room_monitor
+    service: switch.turn_on
+add_to_shopping_list:
+  alias: Add to shopping list
+  sequence:
+  - data_template:
+      items:
+      - '{{ item }}'
+      list_id: Shopping List
+    service: ourgroceries.add_to_list
+next_song:
+  alias: Next Song
+  sequence:
+  - data: {}
+    entity_id: media_player.spotify
+    service: media_player.media_next_track
+wake_up:
+  alias: Wake Up
+  sequence:
+  - data:
+      payload: '{"wake": true}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
+  - data:
+      payload: '{"wake": true}'
+      topic: wallpanel/galaxytabs/command
+    service: mqtt.publish
+  - data:
+      payload: '{"wake": true}'
+      topic: wallpanel/galaxys8/command
+    service: mqtt.publish
+  - data:
+      payload: '{"wake": true}'
+      topic: wallpanel/galaxys8plus/command
+    service: mqtt.publish
+  - entity_id:
+    - light.kbkpc
+    - light.galaxytaba
+    - light.galaxytabs
+    - light.galaxys8
+    - light.galaxys8plus
+    service: light.turn_on
+kill_bose_group:
+  alias: Kill Bose Group
+  sequence:
+  - condition: template
+    value_template: '{{ state_attr("media_player.dining", "soundtouch_zone") != None
+      }}'
+  - data:
+      master: media_player.dining
+      slaves:
+      - media_player.kitchen
+      - media_player.living_room
+    service: soundtouch.remove_zone_slave
+  - data: {}
+    entity_id:
+    - media_player.dining
+    - media_player.kitchen
+    - media_player.living_room
+    service: media_player.turn_off
+create_bose_group:
+  alias: Create Bose Group
+  sequence:
+  - condition: template
+    value_template: '{{ state_attr(''media_player.dining'', ''soundtouch_group'')
+      == None }}'
+  - data:
+      master: media_player.dining
+      slaves:
+      - media_player.living_room
+      - media_player.kitchen
+    service: soundtouch.create_zone
+  - data:
+      master: media_player.dining
+      slaves:
+      - media_player.living_room
+      - media_player.kitchen
+    service: soundtouch.add_zone_slave
+spotify_to_phone:
+  alias: Spotify To Phone
+  sequence:
+  - data:
+      source: Galaxy Note10+
+    entity_id: media_player.spotify
+    service: media_player.select_source
+start_the_office:
+  alias: Start the Office
+  sequence:
+  - data: {}
+    entity_id:
+    - switch.office_peripherals
+    - switch.fountain
+    - switch.firestone
+    service: switch.turn_on
+  - data: {}
+    entity_id: light.kbkpc
+    service: light.turn_on
+  - data:
+      brightness: 255
+    service: script.office_daytime_lights
+  - delay: 00:00:30
+  - data:
+      brightness: 255
+    service: script.office_daytime_lights
+  - timeout: 00:00:30
+    wait_template: '{{ is_state(''media_player.office_tv'', ''standby'') }}'
+  - data: {}
+    entity_id: media_player.office_tv
+    service: media_player.turn_on
+stop_the_office:
+  alias: Stop the Office
+  sequence:
+  - data: {}
+    entity_id: media_player.office_tv
+    service: media_player.turn_off
+  - data: {}
+    entity_id:
+    - light.kbkpc
+    - light.office
+    service: light.turn_off
+  - data: {}
+    entity_id:
+    - switch.fountain
+    - switch.firestone
+    service: switch.turn_off
+  - delay: 00:05:00
+  - condition: state
+    entity_id: media_player.office_tv
+    state: standby
+  - data: {}
+    entity_id: switch.office_peripherals
+    service: switch.turn_off
+office_daytime_lights:
+  alias: Office Daytime Lights
+  sequence:
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
+      - 80
+    entity_id: light.office_strips
+    service: light.turn_on
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 30) % 360}}'
+      - 80
+    entity_id: light.office_tv_strip
+    service: light.turn_on
+  - data_template:
+      brightness: '{{ brightness }}'
+    entity_id: light.office_white
+    service: light.turn_on
+start_the_theater:
+  alias: Start the Theater
+  sequence:
+  - data: {}
+    entity_id:
+    - switch.theater_peripherals
+    - switch.theater_speakers
+    service: switch.turn_on
+  - delay: 00:00:30
+  - timeout: 00:00:30
+    wait_template: '{{ is_state(''media_player.theater_tv'', ''standby'') }}'
+  - data: {}
+    entity_id: media_player.theater_tv
+    service: media_player.turn_on
+stop_the_theater:
+  alias: Stop the Theater
+  sequence:
+  - data: {}
+    entity_id: media_player.theater_tv
+    service: media_player.turn_off
+  - data: {}
+    entity_id:
+    - switch.theater_speakers
+    service: switch.turn_off
+  - delay: 00:05:00
+  - condition: state
+    entity_id: media_player.theater_tv
+    state: standby
+  - data: {}
+    entity_id: switch.theater_peripherals
+    service: switch.turn_off
+maybe_lower_bose_volume:
+  alias: Maybe Lower Bose Volume
+  sequence:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: media_player.dining
+      state: playing
+    - condition: template
+      value_template: '{{ not ignore_bose_volume }}'
+  - data_template:
+      volume_level: '{{ state_attr(''media_player.dining'', ''volume_level'') * 0.5
+        }}'
+    entity_id: media_player.dining
+    service: media_player.volume_set
+  - data_template:
+      volume_level: '{{ state_attr(''media_player.kitchen'', ''volume_level'') * 0.5
+        }}'
+    entity_id: media_player.kitchen
+    service: media_player.volume_set
+  - data_template:
+      volume_level: '{{ state_attr(''media_player.living_room'', ''volume_level'')
+        * 0.5 }}'
+    entity_id: media_player.living_room
+    service: media_player.volume_set
+  - timeout: 00:00:05
+    wait_template: '{{ is_state(''media_player.galaxytaba'', ''idle'') }}'
+  - data_template:
+      volume_level: '{{ state_attr(''media_player.dining'', ''volume_level'') * 2.0
+        }}'
+    entity_id: media_player.dining
+    service: media_player.volume_set
+  - data_template:
+      volume_level: '{{ state_attr(''media_player.kitchen'', ''volume_level'') * 2.0
+        }}'
+    entity_id: media_player.kitchen
+    service: media_player.volume_set
+  - data_template:
+      volume_level: '{{ state_attr(''media_player.living_room'', ''volume_level'')
+        * 2.0 }}'
+    entity_id: media_player.living_room
+    service: media_player.volume_set
+play_on_sdsa_pc:
+  alias: Play on SDSA-PC
+  sequence:
+  - data:
+      source: SDSA-PC
+    entity_id: media_player.spotify
+    service: media_player.select_source
+main_lights_random_scene:
+  alias: Main Lights Random Scene
+  sequence:
+  - service: hue.hue_activate_scene
+    data_template:
+      group_name: Main
+      scene_name: '{{ [ ''Fushimi Inari'', ''Flower Festival'', ''Katsura'', ''Mori
+        Pink Balloons'', ''Buddha in Temple'', ''Robot Restaurant'', ''Traffic Cones'',
+        ''Night Dragon'', ''Miyajima Cruise'', ''Osaka'', ''Buddha'', ''Sento Entrance'',
+        ''Flower Fuji'', ''Sento Bridge'', ''Wild Flowers'', ''Bamboo Forest'', ''Mori
+        Flowers'', ''Mori Green Balloons'', ''Kodaiji Forest at Night'', ''Kodaiji
+        at Night'', ''Grand Turk'', ''Himeji'', ''Mori Turqoise Balloons'', ''White
+        Temple'', ''Mori Rain'', ''Phuket'', ''Pallet Town'', ''Manly Beach'', ''Ice
+        Cave'', ''Ginza'', ''12 Apostles'', ''White Temple Info'', ''Arashiyama'',
+        ''Flower Stripes'', ''Kimono Forest'', ''Fuji Over Flowers'', ''Miyajima Sunset'',
+        ''Cambodian Sunset'', ''Australian Sunrise'', ''Gion'' ] | random }}'
+test:
+  alias: Test
+  sequence:
+  - entity_id:
+    - light.kitchen_right
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_mid_right
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_mid_left
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_left
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_forward
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_strips
+    service: light.turn_off
+  - delay: 00:00:01
+  - entity_id:
+    - light.kitchen_hallway
+    service: light.turn_off

@@ -1,0 +1,277 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+http:
+  base_url: https://home.broh-kahn.com
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - 10.0.0.10
+  cors_allowed_origins:
+    - https://home.broh-kahn.com
+  #ssl_certificate: /ssl/fullchain.pem
+  #ssl_key: /ssl/privkey.pem
+  #ssl_profile: intermediate
+
+recorder:
+  db_url: !secret db_location
+#  purge_keep_days: 3
+#  commit_interval: 5
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+weather:
+  - platform: openweathermap
+    api_key: !secret openweathermap_apikey
+
+
+
+hue:
+  bridges:
+    - host: 10.0.0.115
+
+discovery:
+  ignore:
+  enable:
+#    - roku
+#    - belkin_wemo
+#    - google_cast
+#    - bose_soundtouch
+#    - google_cast
+#    - philips_hue
+
+browser_mod:
+  devices:
+    edfcb7de_6e5ac694:
+      name: raspberrypi
+    9587de98_f3e0363b: 
+      name: galaxytabs
+    3fd3f6fc_97244c8c:
+      name: galaxytaba
+    fce8bed9_e2c25f63:
+      name: galaxys8
+    5b4db3ab_90038bc4:
+      name: galaxys8plus
+    e5b7e858_980a8ae7:
+      name: kbkpc
+      
+var:
+  people_home:
+    initial_value: on
+    icon: mdi:home-account
+  bedtime_announced:
+    initial_value: off
+    icon: mdi:sleep
+
+auto_backup:
+  auto_purge: true
+
+
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 1
+  platform: smart_life
+
+rest_command:
+  hue_box_set_execution:
+    url: 'https://10.0.0.152/api/v1/execution'
+    verify_ssl: false
+    method: PUT
+    headers: 
+      content-type: 'application/json'
+      authorization: !secret hueBoxToken
+    payload: '{ {{ payload }} }'
+
+
+
+ourgroceries:
+  username: !secret our_groceries_username
+  password: !secret our_groceries_password
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+alexa:
+  smart_home:
+    filter:
+      include_domains:
+        script
+        
+unified_remote:
+  host: 10.0.0.1
+  port: 9510
+  retry_delay: 5
+
+
+
+mobile_app:
+
+badnest:
+  issue_token: !secret badnest_issue_token
+  cookie: !secret badnest_cookie
+  region: us
+  
+climate:
+  - platform: badnest
+    scan_interval: 10
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+camera:
+  - platform: badnest
+  - platform: mjpeg
+    mjpeg_url: http://10.0.0.120:2971/camera/stream
+    name: Galaxy Tab 2 Camera
+  - platform: mjpeg
+    mjpeg_url: http://10.0.0.121:2971/camera/stream
+    name: Galaxy Tab S Camera
+  - platform: mjpeg
+    mjpeg_url: http://10.0.0.122:2971/camera/stream
+    name: Galaxy Tab A Camera
+  - platform: mjpeg
+    mjpeg_url: http://10.0.0.123:2971/camera/stream
+    name: Galaxy S8 Camera
+  - platform: mjpeg
+    mjpeg_url: http://10.0.0.124:2971/camera/stream
+    name: Galaxy S8 Plus A Camera
+
+sensor:
+  - platform: badnest
+
+#   - platform: systemmonitor
+#     resources:
+#       - type: disk_use_percent
+#         arg: /
+#       - type: memory_use_percent
+#       - type: processor_use
+#       - type: throughput_network_in
+#         arg: enp3s0
+#       - type: throughput_network_out
+#         arg: enp3s0
+
+  - platform: openweathermap
+    api_key: !secret openweathermap_apikey
+    forecast: false
+    monitored_conditions:
+      - clouds
+      - weather_code
+
+  - platform: template
+    sensors:
+      theater_peripherals_watts:
+        friendly_name_template: "{{ states.switch.vesync_switch.theater_peripherals}} Current Consumption"
+        value_template: '{{ states.switch.theater_peripherals.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      office_peripherals_watts:
+        friendly_name_template: "{{ states.switch.vesync_switch.office_peripherals}} Current Consumption"
+        value_template: '{{ states.switch.office_peripherals.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      living_room_monitor_watts:
+        friendly_name_template: "{{ states.switch.vesync_switch.living_room_monitor}} Current Consumption"
+        value_template: '{{ states.switch.living_room_monitor.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      fountain_watts:
+        friendly_name_template: "{{ states.switch.vesync_switch.fountain}} Current Consumption"
+        value_template: '{{ states.switch.fountain.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      spotify_source:
+        friendly_name: "Spotify Source"
+        value_template: "{{ state_attr('media_player.spotify', 'source') }}"
+      ups_watts:
+        friendly_name_template: "UPS Current Consumption"
+        value_template: '{{ states("sensor.ups_load") | float * 330 / 100  }}' # 330 watts is peak load
+        unit_of_measurement: 'W'
+      hallway_humidity:
+        friendly_name_template: "Hallway Thermostat Humidity"
+        value_template: '{{ state_attr("climate.hallway_thermostat", "current_humidity") }}'
+        unit_of_measurement: '%'
+
+  - platform: nut
+    name: "UPS"
+    host: a0d7b954-nut
+    username: !secret nut_username
+    password: !secret nut_password
+    resources:
+      - battery.charge
+      - battery.runtime
+      - ups.load
+      - ups.status
+
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs/sensor/light"
+    name: "Galaxy Tab S Light Level"
+    unit_of_measurement: "lx"
+    value_template: ''
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs/sensor/magneticField"
+    name: "Galaxy Tab S Magnetic Field"
+    unit_of_measurement: "uT"
+    value_template: ''
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs/sensor/battery"
+    name: "Galaxy Tab S Battery Level"
+    unit_of_measurement: "%"
+    value_template: ''
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs/sensor/pressure"
+    name: "Galaxy Tab S Pressure"
+    unit_of_measurement: "hPa"
+    value_template: ''
+
+binary_sensor:
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytab2/sensor/motion"
+    name: "Galaxy Tab 2 Motion"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion 
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytaba/sensor/motion"
+    name: "Galaxy Tab A Motion"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion 
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs/sensor/motion"
+    name: "Galaxy Tab S Motion"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion 
+  - platform: mqtt
+    state_topic: "wallpanel/galaxys8/sensor/motion"
+    name: "Galaxy S8 Motion"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion 
+  - platform: mqtt
+    state_topic: "wallpanel/galaxys8plus/sensor/motion"
+    name: "Galaxy S8 Plus Motion"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion 
+
+
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+frontend:
+  themes: !include_dir_merge_named themes

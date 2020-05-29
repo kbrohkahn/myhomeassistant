@@ -1,0 +1,16 @@
+version: '2'
+services:
+  homeassistant:
+    # customisable name
+    container_name: home-assistant
+
+    # must be image for your platform, this is the rpi3 variant
+    image: homeassistant/qemux86-64-homeassistant
+    volumes:
+      - /usr/share/hassio/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      # your usb device forwarding to the docker image
+      - /dev/ttyUSB1:/dev/ttyUSB1
+    restart: always
+    network_mode: host

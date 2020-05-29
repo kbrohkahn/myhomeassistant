@@ -1,0 +1,93 @@
+{
+    "data": {
+        "items": [
+            {
+                "id": "e146ad08848445afbaa7a2a9794db8db",
+                "type": "module",
+                "url": "/hacsfiles/spotify-card/spotify-card.js"
+            },
+            {
+                "id": "cafffe5283c243f5bf91f5e1686c82bc",
+                "type": "module",
+                "url": "/hacsfiles/roku-card/roku-card.js"
+            },
+            {
+                "id": "9a265d131cdc4ac6b8e4e803d0534275",
+                "type": "js",
+                "url": "local/clock-card.js"
+            },
+            {
+                "id": "cff0e705fe7c458eb225ccf2cd3bef15",
+                "type": "module",
+                "url": "/hacsfiles/simple-thermostat/simple-thermostat.js"
+            },
+            {
+                "id": "ced532654c5e45449e6d335cc6e1d8c6",
+                "type": "js",
+                "url": "/hacsfiles/our-groceries-card/our-groceries-card.js"
+            },
+            {
+                "id": "b64daf9bb73949c291729f132461fb31",
+                "type": "module",
+                "url": "/hacsfiles/atomic_calendar/atomic_calendar.js"
+            },
+            {
+                "id": "3d79439ae22c486089197752cf50a2a3",
+                "type": "module",
+                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js"
+            },
+            {
+                "id": "5cbc644802e346759b39c93dbfe3df5e",
+                "type": "module",
+                "url": "local/clock-card-vertical.js"
+            },
+            {
+                "id": "436ddfbdaf204e9691827646d0e4dc5d",
+                "type": "module",
+                "url": "local/light-group.js"
+            },
+            {
+                "id": "081f8e4a50bb49449a0171f7e3824c77",
+                "type": "module",
+                "url": "local/thermostat-text.js"
+            },
+            {
+                "id": "2151a17561c84c7dbfd4c0cf4a5f4d0b",
+                "type": "module",
+                "url": "local/weather-text.js"
+            },
+            {
+                "id": "1fa22bccfa094eb1af92f0e5c35e3307",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-card-mod/card-mod.js"
+            },
+            {
+                "id": "ee67d481200d4994b139cd28ad34e061",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js"
+            },
+            {
+                "id": "375bffdb563b4aeaaacc034fdb6579ba",
+                "type": "css",
+                "url": "local/custom.css"
+            },
+            {
+                "id": "ed682469317f4abe91c4b64ec4015e04",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-html-card/html-card.js"
+            },
+            {
+                "id": "71c82eb532d34c02ae253a855923b6ea",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-layout-card/layout-card.js"
+            },
+            {
+                "id": "7ec360feb4614cdf8c6215da8343bec4",
+                "type": "module",
+                "url": "/hacsfiles/custom-header/custom-header.js"
+            }
+        ]
+    },
+    "key": "lovelace_resources",
+    "version": 1
+}

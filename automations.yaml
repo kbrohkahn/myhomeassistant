@@ -1,0 +1,905 @@
+- id: sunset
+  alias: Sunset
+  trigger:
+  - event: sunset
+    offset: -00:15:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: light.home
+    state: 'off'
+  action:
+  - service: script.lights_away_sunset
+- id: nightlight
+  alias: Nightlight
+  trigger:
+  - at: '23:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: var.people_home
+    state: 'off'
+  action:
+  - data:
+      entity_id:
+      - light.kitchen
+      - light.dining
+      - light.living_room
+      - light.theater
+      - light.office
+      - light.master
+    service: light.turn_off
+  - data:
+      brightness_pct: 10
+      entity_id: light.hallway
+    service: light.turn_on
+- id: sunrise
+  alias: Sunrise
+  trigger:
+  - event: sunrise
+    offset: +00:05:00
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: light.home
+    service: light.turn_off
+- id: ifttt_request
+  alias: IFTTT Request
+  description: ''
+  trigger:
+  - event_data:
+      action: call_service
+    event_type: ifttt_webhook_received
+    platform: event
+  condition: []
+  action:
+  - data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+    service_template: '{{ trigger.event.data.service }}'
+- id: closet_door_closed
+  alias: Closet Door Closed
+  description: ''
+  trigger:
+  - device_id: 3cc3dafe6a6f4387a70c01e9b61df7e5
+    domain: binary_sensor
+    entity_id: binary_sensor.master_closet_door_ias_zone
+    platform: device
+    type: turned_off
+  condition: []
+  action:
+  - entity_id: light.master_closet
+    service: light.turn_off
+- id: closet_door_opened
+  alias: Closet Door Opened
+  description: ''
+  trigger:
+  - device_id: 3cc3dafe6a6f4387a70c01e9b61df7e5
+    domain: binary_sensor
+    entity_id: binary_sensor.master_closet_door_ias_zone
+    platform: device
+    type: turned_on
+  condition: []
+  action:
+  - entity_id: light.master_closet
+    service: light.turn_on
+- id: front_door_opened
+  alias: Front Door Opened
+  description: ''
+  trigger:
+  - device_id: 77984a7f835c47eaa6ea202de2a2439a
+    domain: binary_sensor
+    entity_id: binary_sensor.kitchen_door_ias_zone
+    platform: device
+    type: opened
+  condition: []
+  action:
+  - data_template:
+      media_content_type: sound
+      sound_effect_filename: "{% if is_state('person.kevin_broh_kahn', 'home') %}\n\
+        \  jabba-the-hutt-laughing.mp3\n{%- else -%}\n  jabba-the-hutt-laughing.mp3\n\
+        {%- endif -%}\n"
+    service: script.browser_sound_effect
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: var.people_home
+      state: 'off'
+    - condition: template
+      value_template: '{{ (as_timestamp(now()) - as_timestamp(state_attr(''script.users_away'',
+        ''last_triggered''))) | float > 60 }}'
+  - service: script.users_home
+  - condition: state
+    entity_id: person.kevin_broh_kahn
+    state: not_home
+  - data:
+      message: Front Door Opened
+      title: Hass Home Alert
+    service: notify.mobile_app_kevin_s_galaxy_note_10
+- id: balcony_door_opened
+  alias: Balcony Door Opened
+  description: ''
+  trigger:
+  - device_id: e6b451a64db041879a28fa4d3e4c5776
+    domain: binary_sensor
+    entity_id: binary_sensor.balcony_door_ias_zone
+    platform: device
+    type: turned_on
+  condition: []
+  action:
+  - data:
+      sound_effect_filename: jabba-the-hutt-laughing.mp3
+    entity_id: climate.hallway_thermostat
+    service: script.browser_sound_effect
+- id: front_door_closed
+  alias: Front Door Closed
+  description: ''
+  trigger:
+  - device_id: 77984a7f835c47eaa6ea202de2a2439a
+    domain: binary_sensor
+    entity_id: binary_sensor.kitchen_door_ias_zone
+    platform: device
+    type: not_opened
+  condition: []
+  action:
+  - delay: 00:00:05
+  - timeout: 00:00:25
+    wait_template: '{{ is_state(''binary_sensor.galaxy_tab_a_motion'', ''on'') }}'
+  - condition: state
+    entity_id: binary_sensor.galaxy_tab_a_motion
+    state: 'off'
+  - service: script.users_away
+- id: hallway_motion_start_hallway_lights
+  alias: Hallway Motion Start - Lights
+  description: ''
+  trigger:
+  - device_id: bbf915110dab4fdda2020a2477de5ac3
+    domain: binary_sensor
+    entity_id: binary_sensor.hallway_motion_sensor_ias_zone
+    platform: device
+    type: turned_on
+  condition:
+  - condition: state
+    entity_id: light.hallway
+    state: 'off'
+  action:
+  - data:
+      brightness: 250
+    entity_id: light.hallway
+    service: script.hallway_daytime_lights
+- id: hallway_motion_stop
+  alias: Hallway Motion Stop
+  description: ''
+  trigger:
+  - device_id: bbf915110dab4fdda2020a2477de5ac3
+    domain: binary_sensor
+    entity_id: binary_sensor.hallway_motion_sensor_ias_zone
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
+    platform: device
+    type: turned_off
+  condition:
+  - condition: template
+    value_template: '{{ as_timestamp(states.light.hallway.last_changed) - as_timestamp(state_attr(''script.hallway_daytime_lights'',
+      ''last_triggered'')) + 3 < 6 }}'
+  action:
+  - data: {}
+    entity_id: light.hallway
+    service: light.turn_off
+- id: master_motion_stop
+  alias: Master Motion Stop
+  description: ''
+  trigger:
+  - device_id: e9e01a613b63405f8164871d518ed327
+    domain: binary_sensor
+    entity_id: binary_sensor.master_motion_sensor_ias_zone
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 45
+    platform: device
+    type: no_motion
+  condition:
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
+  - condition: state
+    entity_id: light.master
+    state: 'on'
+  - condition: template
+    value_template: '{{ as_timestamp(states.light.master.last_changed) - as_timestamp(state_attr(''automation.master_motion_start_lights'',
+      ''last_triggered'')) + 3 < 6 }}'
+  - condition: template
+    value_template: '{{ state_attr(''light.master'', ''brightness'') == 250 }}'
+  action:
+  - data: {}
+    entity_id: light.master
+    service: light.turn_off
+  - data:
+      payload: '{"wake": false, "camera": false}'
+      topic: wallpanel/galaxytabs/command
+    service: mqtt.publish
+- id: master_bath_door_opened_lights
+  alias: Master Bath Door Opened - Lights
+  description: ''
+  trigger:
+  - device_id: cb50914109a14e08be30c6bf865afd4c
+    domain: binary_sensor
+    entity_id: binary_sensor.master_bath_door_ias_zone
+    platform: device
+    type: opened
+  condition: []
+  action:
+  - data: {}
+    entity_id: switch.master_bath_light
+    service: switch.turn_on
+  - timeout: 01:00:00
+    wait_template: '{{ is_state(''binary_sensor.master_bath_door_ias_zone'', ''off'')
+      }}'
+  - data: {}
+    entity_id:
+    - switch.master_bath_fan
+    - switch.master_bath_light
+    service: switch.turn_off
+- id: master_bath_door_opened_music
+  alias: Master Bath Door Opened - Music
+  description: ''
+  trigger:
+  - device_id: cb50914109a14e08be30c6bf865afd4c
+    domain: binary_sensor
+    entity_id: binary_sensor.samjin_multi_7ca80a01_ias_zone
+    platform: device
+    type: opened
+  condition:
+  - condition: state
+    entity_id: person.kevin_broh_kahn
+    state: home
+  - condition: state
+    entity_id: media_player.spotify
+    state: playing
+  action:
+  - data:
+      source: Master
+    entity_id: media_player.spotify
+    service: media_player.select_source
+  - timeout: 00:00:01
+    wait_template: '{{ is_state(''binary_sensor.master_bath_multipurpose_sensor_contact'',
+      ''off'') }}'
+  - wait_template: '{{ is_state(''binary_sensor.master_bath_multipurpose_sensor_contact'',
+      ''off'') }}'
+  - data:
+      source: Dining Group
+    entity_id: media_player.spotify
+    service: media_player.select_source
+- id: office_motion_start_music
+  alias: Office Motion Start - Music
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_s8_plus_motion
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: template
+    value_template: '{{ not is_state_attr(''media_player.spotify'', ''source'', ''SDSA-PC'')
+      }}'
+  - condition: state
+    entity_id: person.kevin_broh_kahn
+    state: home
+  - condition: state
+    entity_id: media_player.spotify
+    state: playing
+  - after: '9:00:00'
+    before: '18:00:00'
+    condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data:
+      source: SDSA-PC
+    entity_id: media_player.spotify
+    service: media_player.select_source
+- id: perform_auto_backup
+  alias: Perform Auto Backup
+  trigger:
+    platform: time_pattern
+    hours: /3
+  action:
+    service: auto_backup.snapshot_partial
+    data_template:
+      name: 'AutoBackup: {{ now().strftime(''%a, %-I:%M %p (%d/%m/%Y)'') }}'
+      addons:
+      - core_mariadb
+      - core_mosquitto
+      folders:
+      - homeassistant
+      - share
+      - ssl
+      keep_days: 2
+- id: perform_daily_backup
+  alias: Perform Daily Backup
+  trigger:
+    platform: time
+    at: 02:30:00
+  condition:
+    condition: time
+    weekday:
+    - tue
+    - wed
+    - thu
+    - fri
+    - sat
+    - sun
+  action:
+    service: auto_backup.snapshot_full
+    data_template:
+      name: 'DailyBackup: {{ now().strftime(''%A, %B %-d, %Y'') }}'
+      keep_days: 7
+- id: perform_weekly_backup
+  alias: Perform Weekly Backup
+  trigger:
+    platform: time
+    at: 02:30:00
+  condition:
+    condition: time
+    weekday:
+    - mon
+  action:
+    service: auto_backup.snapshot_full
+    data_template:
+      name: 'WeeklyBackup: {{ now().strftime(''%A, %B %-d, %Y'') }}'
+      keep_days: 28
+- id: master_motion_start_music
+  alias: Master Motion Start - Music
+  description: ''
+  trigger:
+  - device_id: e9e01a613b63405f8164871d518ed327
+    domain: binary_sensor
+    entity_id: binary_sensor.master_motion_sensor_ias_zone
+    platform: device
+    type: motion
+  condition:
+  - condition: state
+    entity_id: media_player.spotify
+    state: playing
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: media_player.master
+      state: standby
+    - condition: template
+      value_template: '{{ not is_state_attr(''media_player.spotify'', ''source'',
+        ''Master'') }}'
+  - condition: state
+    entity_id: person.kevin_broh_kahn
+    state: home
+  - condition: state
+    entity_id: var.people_home
+    state: 'on'
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
+  - condition: template
+    value_template: '{{ not is_state_attr(''media_player.spotify'', ''source'', ''Galaxy
+      Note10+'') }}'
+  action:
+  - data:
+      source: Master
+    entity_id: media_player.spotify
+    service: media_player.select_source
+  - delay: 00:00:05
+- id: kitchen_motion_start_music
+  alias: Kitchen Motion Start - Music
+  description: ''
+  trigger:
+  - device_id: 111dfefb876743e793023c747acff883
+    domain: binary_sensor
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    platform: device
+    type: motion
+  condition:
+  - condition: state
+    entity_id: media_player.spotify
+    state: playing
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: media_player.dining
+      state: 'off'
+    - condition: state
+      entity_id: media_player.dining
+      state: paused
+    - condition: state
+      entity_id: media_player.dining
+      state: unavailable
+  - condition: state
+    entity_id: person.kevin_broh_kahn
+    state: home
+  - condition: state
+    entity_id: var.people_home
+    state: 'on'
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
+  - condition: template
+    value_template: '{{ not is_state_attr(''media_player.spotify'', ''source'', ''Galaxy
+      Note10+'') }}'
+  action:
+  - data: {}
+    entity_id: media_player.spotify
+    service: script.play_on_bose
+  - delay: 00:00:05
+- id: kitchen_motion_stop_after_bedtime
+  alias: Kitchen Motion Stop After Bedtime
+  description: ''
+  trigger:
+  - device_id: 111dfefb876743e793023c747acff883
+    domain: binary_sensor
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 15
+    platform: device
+    type: no_motion
+  condition:
+  - condition: state
+    entity_id: light.kitchen
+    state: 'on'
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'on'
+  action:
+  - data: {}
+    entity_id: light.kitchen
+    service: light.turn_off
+  - data:
+      payload: '{"wake": false, "camera": false}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
+- id: front_door_knock
+  alias: Front Door Knock
+  description: ''
+  trigger:
+  - device_id: 77984a7f835c47eaa6ea202de2a2439a
+    domain: binary_sensor
+    entity_id: binary_sensor.kitchen_door_accelerometer
+    platform: device
+    type: moving
+  condition: []
+  action:
+  - data:
+      sound_effect_filename: lonely-hello.mp3
+    entity_id: media_player.kevin_s_alexa_app_for_pc
+    service: script.browser_sound_effect
+- id: kitchen_motion_stop_dashboard
+  alias: Kitchen Motion Stop - Dashboard
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_a_motion
+    for: 00:00:25
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      deviceID:
+      - galaxytaba
+      navigation_path: /lovelace/home
+    service: browser_mod.navigate
+- id: keep_idiot_echo_bluetooth_connected
+  alias: Keep Idiot Echo Bluetooth Connected
+  description: ''
+  trigger:
+  - minutes: /7
+    platform: time_pattern
+  condition:
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
+  - condition: state
+    entity_id: media_player.galaxytaba
+    state: idle
+  action:
+  - data:
+      volume_level: 0
+    entity_id:
+    - media_player.dining_echo_dot
+    - media_player.master_echo_dot
+    service: media_player.volume_set
+  - data:
+      ignore_bose_volume: true
+      sound_effect_filename: 1-second-silence.mp3
+    service: script.browser_sound_effect
+  - data:
+      volume_level: 0.4
+    entity_id:
+    - media_player.dining_echo_dot
+    - media_player.master_echo_dot
+    service: media_player.volume_set
+- id: laundry_door_opened
+  alias: Laundry Door Opened
+  description: ''
+  trigger:
+  - device_id: 2d24486fbbbf44c484116c71b19d9b40
+    domain: binary_sensor
+    entity_id: binary_sensor.laundry_door_ias_zone
+    platform: device
+    type: opened
+  condition: []
+  action:
+  - data: {}
+    entity_id: switch.laundry_light
+    service: switch.turn_on
+- id: laundry_door_closed
+  alias: Laundry Door Closed
+  description: ''
+  trigger:
+  - device_id: 2d24486fbbbf44c484116c71b19d9b40
+    domain: binary_sensor
+    entity_id: binary_sensor.laundry_door_ias_zone
+    platform: device
+    type: not_opened
+  condition: []
+  action:
+  - data: {}
+    entity_id: switch.laundry_light
+    service: switch.turn_off
+- id: hallway_bath_door_opened
+  alias: Hallway Bath Door Opened
+  description: ''
+  trigger:
+  - device_id: b09b9ee0a7894216ba2830aea941bd0a
+    domain: binary_sensor
+    entity_id: binary_sensor.hallway_bath_door_ias_zone
+    platform: device
+    type: opened
+  condition: []
+  action:
+  - data: {}
+    entity_id:
+    - switch.hallway_bath_fan
+    - switch.hallway_bath_light
+    service: switch.turn_off
+- id: hallway_bath_door_motion
+  alias: Hallway Bath Door Motion
+  description: ''
+  trigger:
+  - device_id: b09b9ee0a7894216ba2830aea941bd0a
+    domain: binary_sensor
+    entity_id: binary_sensor.hallway_bath_door_accelerometer
+    platform: device
+    type: moving
+  condition:
+  - condition: device
+    device_id: b09b9ee0a7894216ba2830aea941bd0a
+    domain: binary_sensor
+    entity_id: binary_sensor.hallway_bath_door_ias_zone
+    type: is_open
+  - condition: state
+    entity_id: switch.hallway_bath_light
+    state: 'off'
+  action:
+  - data: {}
+    entity_id: switch.hallway_bath_light
+    service: switch.turn_on
+  - timeout: 00:02:00
+    wait_template: '{{ is_state(''binary_sensor.hallway_bath_door_ias_zone'', ''off'')
+      }}'
+  - condition: device
+    device_id: b09b9ee0a7894216ba2830aea941bd0a
+    domain: binary_sensor
+    entity_id: binary_sensor.hallway_bath_door_ias_zone
+    type: is_open
+  - data: {}
+    entity_id: switch.hallway_bath_light
+    service: switch.turn_off
+- id: office_motion_on
+  alias: Office Motion On
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_s8_plus_motion
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.kbkpc
+    service: light.turn_on
+- id: hallway_bath_light_on
+  alias: Hallway Bath Light On
+  description: ''
+  trigger:
+  - entity_id: switch.hallway_bath_light
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: device
+    device_id: b09b9ee0a7894216ba2830aea941bd0a
+    domain: binary_sensor
+    entity_id: binary_sensor.hallway_bath_door_ias_zone
+    type: is_open
+  action:
+  - timeout: 00:02:00
+    wait_template: '{{ is_state(''binary_sensor.hallway_bath_door_ias_zone'', ''off'')
+      }}'
+  - condition: device
+    device_id: b09b9ee0a7894216ba2830aea941bd0a
+    domain: binary_sensor
+    entity_id: binary_sensor.hallway_bath_door_ias_zone
+    type: is_open
+  - data: {}
+    entity_id: switch.hallway_bath_light
+    service: switch.turn_off
+- id: bose_auto_off
+  alias: Bose Auto Off
+  description: ''
+  trigger:
+  - entity_id: media_player.dining
+    for: 00:01:00
+    from: playing
+    platform: state
+    to: 'off'
+  - entity_id: media_player.dining
+    for: 00:01:00
+    from: playing
+    platform: state
+    to: standby
+  condition:
+  - condition: template
+    value_template: '{{ states(''media_player.dining'') != ''playing''}}'
+  action:
+  - data: {}
+    service: script.kill_bose_group
+- id: kitchen_light_color_refresh
+  alias: Kitchen Light Color Refresh
+  description: ''
+  trigger:
+  - minutes: /5
+    platform: time_pattern
+  condition:
+  - condition: state
+    entity_id: light.kitchen
+    state: 'on'
+  - condition: template
+    value_template: '{{ as_timestamp(states.light.kitchen.last_updated) - as_timestamp(state_attr(''script.kitchen_daytime_lights'',
+      ''last_triggered'')) < 1 }}'
+  action:
+  - data:
+      brightness: 250
+    service: script.kitchen_daytime_lights
+- id: hallway_light_color_refresh
+  alias: Hallway Light Color Refresh
+  description: ''
+  trigger:
+  - minutes: /5
+    platform: time_pattern
+  condition:
+  - condition: state
+    entity_id: light.hallway
+    state: 'on'
+  - condition: template
+    value_template: '{{ as_timestamp(states.light.hallway.last_updated) - as_timestamp(state_attr(''script.hallway_daytime_lights'',
+      ''last_triggered''))  < 1 }}'
+  action:
+  - data:
+      brightness: 250
+    service: script.hallway_daytime_lights
+- id: kitchen_motion_stop_during_day
+  alias: Kitchen Motion Stop During Day
+  description: ''
+  trigger:
+  - device_id: 111dfefb876743e793023c747acff883
+    domain: binary_sensor
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    platform: device
+    type: no_motion
+  condition:
+  - condition: template
+    value_template: '{{ as_timestamp(states.light.kitchen.last_changed) - as_timestamp(state_attr(''script.kitchen_daytime_lights'',
+      ''last_triggered'')) + 3 < 6 }}'
+  - condition: template
+    value_template: '{{ state_attr(''light.kitchen'', ''brightness'') == 250 }}'
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
+  - condition: state
+    entity_id: light.kitchen
+    state: 'on'
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: light.dining
+      state: 'off'
+    - condition: state
+      entity_id: light.living_room
+      state: 'off'
+  action:
+  - data:
+      transition: 3
+    entity_id: light.kitchen
+    service: light.turn_off
+  - data:
+      payload: '{"wake": false, "camera": false}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
+- id: thermostat_fan_schedule
+  alias: Thermostat Fan Schedule
+  description: ''
+  trigger:
+  - hours: /2
+    platform: time_pattern
+  condition:
+  - after: '9:00'
+    before: '18:00'
+    condition: time
+  - condition: template
+    value_template: '{{ state_attr(''climate.hallway_thermostat'', ''current_temperature'')
+      > 66 }}'
+  action:
+  - data:
+      fan_mode: 'on'
+    entity_id: climate.hallway_thermostat
+    service: climate.set_fan_mode
+  - delay: 00:15:00
+  - data:
+      fan_mode: 'off'
+    entity_id: climate.hallway_thermostat
+    service: climate.set_fan_mode
+- id: kitchen_motion_start_lights
+  alias: Kitchen Motion Start - Lights
+  description: ''
+  trigger:
+  - device_id: 111dfefb876743e793023c747acff883
+    domain: binary_sensor
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    platform: device
+    type: motion
+  condition:
+  - condition: state
+    entity_id: light.kitchen
+    state: 'off'
+  action:
+  - data:
+      brightness: 250
+    service: script.kitchen_daytime_lights
+  - data:
+      payload: '{"wake": true, "camera": true}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
+- id: master_motion_start_lights
+  alias: 'Master Motion Start '
+  description: ''
+  trigger:
+  - device_id: e9e01a613b63405f8164871d518ed327
+    domain: binary_sensor
+    entity_id: binary_sensor.master_motion_sensor_ias_zone
+    platform: device
+    type: motion
+  condition:
+  - condition: state
+    entity_id: light.master
+    state: 'off'
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
+  - condition: or
+    conditions:
+    - above: '802'
+      condition: numeric_state
+      entity_id: sensor.owm_weather_code
+    - below: '800'
+      condition: numeric_state
+      entity_id: sensor.owm_weather_code
+    - condition: template
+      value_template: '{{ is_state(''sun.sun'', ''below_horizon'') }}'
+  action:
+  - data:
+      payload: '{"wake": true, "camera": true}'
+      topic: wallpanel/galaxytabs/command
+    service: mqtt.publish
+  - data:
+      brightness: 250
+    entity_id: light.master
+    service: light.turn_on
+- id: dining_echo_dot_starts_playing
+  alias: Dining Echo Dot Starts Playing
+  description: ''
+  trigger:
+  - entity_id: media_player.dining_echo_dot
+    from: standby
+    platform: state
+    to: playing
+  - entity_id: media_player.dining_echo_dot
+    from: 'off'
+    platform: state
+    to: playing
+  condition: []
+  action:
+  - data: {}
+    service: script.play_on_bose
+- id: '1588345296750'
+  alias: Start the Office when WFH
+  description: ''
+  trigger:
+  - at: '8:55'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: person.kevin_broh_kahn
+    state: home
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data: {}
+    service: script.start_the_office
+- id: master_bath_door_opened
+  alias: Master Bath Door Opened
+  description: ''
+  trigger:
+  - device_id: cb50914109a14e08be30c6bf865afd4c
+    domain: binary_sensor
+    entity_id: binary_sensor.master_bath_door_ias_zone
+    platform: device
+    type: opened
+  condition: []
+  action:
+  - data: {}
+    entity_id:
+    - switch.master_bath_fan
+    - switch.master_bath_light
+    service: switch.turn_off
+- id: master_bath_door_motion
+  alias: Master Bath Door Motion
+  description: ''
+  trigger:
+  - device_id: cb50914109a14e08be30c6bf865afd4c
+    domain: binary_sensor
+    entity_id: binary_sensor.master_bath_door_accelerometer
+    platform: device
+    type: moving
+  condition:
+  - condition: state
+    entity_id: switch.master_bath_light
+    state: 'off'
+  action:
+  - data: {}
+    entity_id: switch.master_bath_light
+    service: switch.turn_on
+- id: master_bath_door_motion_with_light_on
+  alias: Master Bath Door Motion with Light On
+  description: ''
+  trigger:
+  - device_id: cb50914109a14e08be30c6bf865afd4c
+    domain: binary_sensor
+    entity_id: binary_sensor.master_bath_door_accelerometer
+    platform: device
+    type: moving
+  condition:
+  - condition: state
+    entity_id: switch.master_bath_light
+    state: 'on'
+  action:
+  - data: {}
+    entity_id:
+    - switch.master_bath_light
+    - switch.master_bath_fan
+    service: switch.turn_off

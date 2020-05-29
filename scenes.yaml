@@ -1,0 +1,77 @@
+- id: kitchen_a
+  name: Kitchen A
+  entities:
+    light.kitchen_forward:
+      brightness: 10
+      rgb_color:
+      - 250
+      - 128
+      - 255
+      state: 'on'
+    light.kitchen_left:
+      brightness: 10
+      rgb_color:
+      - 200
+      - 128
+      - 255
+      state: 'on'
+    light.kitchen_mid_left:
+      brightness: 10
+      rgb_color:
+      - 150
+      - 128
+      - 255
+      state: 'on'
+    light.kitchen_mid_right:
+      brightness: 10
+      rgb_color:
+      - 100
+      - 128
+      - 255
+      state: 'on'
+    light.kitchen_right:
+      brightness: 10
+      rgb_color:
+      - 50
+      - 128
+      - 255
+      state: 'on'
+- id: kitchen_b
+  name: Kitchen B
+  entities:
+    light.kitchen_forward:
+      brightness: 255
+      rgb_color:
+      - 250
+      - 255
+      - 255
+      state: 'on'
+    light.kitchen_left:
+      brightness: 255
+      rgb_color:
+      - 200
+      - 255
+      - 255
+      state: 'on'
+    light.kitchen_mid_left:
+      brightness: 255
+      rgb_color:
+      - 150
+      - 255
+      - 255
+      state: 'on'
+    light.kitchen_mid_right:
+      brightness: 255
+      rgb_color:
+      - 100
+      - 255
+      - 255
+      state: 'on'
+    light.kitchen_right:
+      brightness: 255
+      rgb_color:
+      - 50
+      - 255
+      - 255
+      state: 'on'
+      

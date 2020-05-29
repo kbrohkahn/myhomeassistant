@@ -1,0 +1,17 @@
+
+tv_samsung_q6_series_65:
+  hide_if_away: false
+  icon:
+  mac: BT_CC:6E:A4:4B:C1:93
+  name: '[TV] Samsung Q6 Series (65)'
+  picture:
+  track: false
+
+tv_samsung_q6_series_49:
+  hide_if_away: false
+  icon:
+  mac: BT_70:2A:D5:55:F2:35
+  name: '[TV] Samsung Q6 Series (49)'
+  picture:
+  track: false
+  
