@@ -14,7 +14,7 @@ lights_home_daylight:
       - light.theater
     service: light.turn_off
 kitchen_daytime_lights:
-  alias: Kitchen Daytime Light
+  alias: Kitchen Daytime Lights
   sequence:
   - data_template:
       brightness: '{{ brightness }}'
@@ -170,12 +170,6 @@ lights_away_sunset:
 users_away:
   alias: Users Away
   sequence:
-  - data:
-      entity_id:
-      - media_player.theater_tv
-      - media_player.theater_stick
-      - media_player.office_tv
-    service: media_player.turn_off
   - service_template: "{%- if state_attr('sun.sun', 'elevation') > 6 -%}\n  script.lights_away_daylight\n\
       {%- else -%}\n  script.lights_away_sunset\n{%- endif -%}"
   - data:
@@ -192,6 +186,8 @@ users_away:
       - switch.hallway_bath_light
       - switch.laundry_light
     service: switch.turn_off
+  - entity_id: media_player.theater_stick
+    service: media_player.turn_off
   - data: {}
     entity_id: media_player.dining
     service: media_player.media_stop
@@ -662,3 +658,25 @@ test:
   - entity_id:
     - light.kitchen_hallway
     service: light.turn_off
+run_the_fan:
+  alias: Run the fan
+  sequence:
+  - data:
+      fan_mode: 'on'
+    entity_id: climate.hallway_thermostat
+    service: climate.set_fan_mode
+stop_the_fan:
+  alias: Stop the fan
+  sequence:
+  - data:
+      fan_mode: 'off'
+    entity_id: climate.hallway_thermostat
+    service: climate.set_fan_mode
+run_script_from_popup:
+  alias: Run Script From Popup
+  sequence:
+  - data_template:
+      entity_id: '{{ script_id }}'
+    service: script.turn_on
+  - data: {}
+    service: browser_mod.close_popup

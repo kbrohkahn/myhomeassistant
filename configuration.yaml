@@ -55,7 +55,7 @@ browser_mod:
       name: galaxys8
     5b4db3ab_90038bc4:
       name: galaxys8plus
-    e5b7e858_980a8ae7:
+    40c4c093_22f08f4a:
       name: kbkpc
       
 var:
@@ -233,6 +233,15 @@ sensor:
     name: "Galaxy Tab S Pressure"
     unit_of_measurement: "hPa"
     value_template: ''
+
+  - platform: rest
+    resource: https://stats.foldingathome.org/api/donor/kbkrunner
+    name: Folding at Home Points
+    value_template: '{{ value_json.credit }}'
+  - platform: rest
+    resource: https://stats.foldingathome.org/api/donor/kbkrunner
+    name: Folding at Home Work Units
+    value_template: '{{ value_json.wus }}'
 
 binary_sensor:
   - platform: mqtt
