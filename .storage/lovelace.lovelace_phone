@@ -169,157 +169,262 @@
                         {
                             "cards": [
                                 {
-                                    "cards": [
+                                    "entities": [
                                         {
-                                            "card": {
-                                                "entity": "var.people_home",
-                                                "hold_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.users_home"
-                                                },
-                                                "icon": "mdi:account-minus",
-                                                "name": "Away",
-                                                "show_icon": true,
-                                                "show_name": true,
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.users_away"
-                                                },
-                                                "type": "button"
-                                            },
-                                            "conditions": [
-                                                {
-                                                    "entity": "var.people_home",
-                                                    "state": "on"
-                                                }
-                                            ],
-                                            "type": "conditional"
+                                            "entity": "var.people_home",
+                                            "name": "Home"
                                         },
                                         {
-                                            "card": {
-                                                "entity": "var.people_home",
-                                                "hold_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.users_away"
-                                                },
-                                                "icon": "mdi:account-plus",
-                                                "name": "Home",
-                                                "show_icon": true,
-                                                "show_name": true,
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.users_home"
-                                                },
-                                                "type": "button"
-                                            },
-                                            "conditions": [
-                                                {
-                                                    "entity": "var.people_home",
-                                                    "state": "off"
+                                            "entity": "sensor.hacs",
+                                            "icon": "mdi:power-plug",
+                                            "name": "Power",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "browser_mod.popup",
+                                                "service_data": {
+                                                    "card": {
+                                                        "cards": [
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "switch.office_peripherals",
+                                                                        "icon": "mdi:monitor-speaker-off",
+                                                                        "name": "Stop Office",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.stop_the_office"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "switch.office_peripherals",
+                                                                        "name": "Start Office",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.start_the_office"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "switch.theater_peripherals",
+                                                                        "icon": "mdi:google-controller-off",
+                                                                        "name": "Stop Theater",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.stop_the_theater"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "switch.theater_peripherals",
+                                                                        "name": "Start Theater",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.start_the_theater"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "media_player.dining",
+                                                                        "icon": "mdi:speaker-off",
+                                                                        "name": "Kill Speaker Group",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.kill_bose_group"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "media_player.dining",
+                                                                        "icon": "mdi:speaker-multiple",
+                                                                        "name": "Create Speaker Group",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.create_bose_group"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            }
+                                                        ],
+                                                        "type": "vertical-stack"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Scripts"
                                                 }
-                                            ],
-                                            "type": "conditional"
+                                            }
                                         },
                                         {
-                                            "card": {
-                                                "entity": "switch.office_peripherals",
-                                                "hold_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.start_the_office"
-                                                },
-                                                "icon": "mdi:monitor-speaker-off",
-                                                "name": "Office",
-                                                "show_icon": true,
-                                                "show_name": true,
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.stop_the_office"
-                                                },
-                                                "type": "button"
-                                            },
-                                            "conditions": [
-                                                {
-                                                    "entity": "switch.office_peripherals",
-                                                    "state": "on"
+                                            "entity": "sensor.hacs",
+                                            "icon": "mdi:home-account",
+                                            "name": "Occupancy",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "browser_mod.popup",
+                                                "service_data": {
+                                                    "card": {
+                                                        "cards": [
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "var.people_home",
+                                                                        "icon": "mdi:home-export-outline",
+                                                                        "name": "Users Away",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.users_away"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "var.people_home",
+                                                                        "icon": "mdi:home-import-outline",
+                                                                        "name": "Users Home",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.users_home"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "var.bedtime_announced",
+                                                                        "icon": "mdi:sleep",
+                                                                        "name": "Bedtime",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.bedtime"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "var.bedtime_announced",
+                                                                        "icon": "mdi:alarm",
+                                                                        "name": "Good Morning",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.good_morning"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "climate.hallway_thermostat",
+                                                                        "icon": "mdi:fan-off",
+                                                                        "name": "Stop Fan",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.stop_the_fan"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "climate.hallway_thermostat",
+                                                                        "icon": "mdi:fan",
+                                                                        "name": "Run Fan",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "script.run_script_from_popup",
+                                                                            "service_data": {
+                                                                                "script_id": "script.run_the_fan"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            }
+                                                        ],
+                                                        "type": "vertical-stack"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Scripts"
                                                 }
-                                            ],
-                                            "type": "conditional"
-                                        },
-                                        {
-                                            "card": {
-                                                "entity": "switch.office_peripherals",
-                                                "hold_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.stop_the_office"
-                                                },
-                                                "name": "Office",
-                                                "show_icon": true,
-                                                "show_name": true,
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.start_the_office"
-                                                },
-                                                "type": "button"
-                                            },
-                                            "conditions": [
-                                                {
-                                                    "entity": "switch.office_peripherals",
-                                                    "state": "off"
-                                                }
-                                            ],
-                                            "type": "conditional"
-                                        },
-                                        {
-                                            "card": {
-                                                "entity": "switch.theater_peripherals",
-                                                "hold_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.start_the_theater"
-                                                },
-                                                "icon": "mdi:google-controller-off",
-                                                "name": "Theater",
-                                                "show_icon": true,
-                                                "show_name": true,
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.stop_the_theater"
-                                                },
-                                                "type": "button"
-                                            },
-                                            "conditions": [
-                                                {
-                                                    "entity": "switch.theater_peripherals",
-                                                    "state": "on"
-                                                }
-                                            ],
-                                            "type": "conditional"
-                                        },
-                                        {
-                                            "card": {
-                                                "entity": "switch.theater_peripherals",
-                                                "hold_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.stop_the_theater"
-                                                },
-                                                "name": "Theater",
-                                                "show_icon": true,
-                                                "show_name": true,
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.start_the_theater"
-                                                },
-                                                "type": "button"
-                                            },
-                                            "conditions": [
-                                                {
-                                                    "entity": "switch.theater_peripherals",
-                                                    "state": "off"
-                                                }
-                                            ],
-                                            "type": "conditional"
+                                            }
                                         }
                                     ],
-                                    "type": "horizontal-stack"
+                                    "show_state": false,
+                                    "type": "glance"
                                 },
                                 {
                                     "cards": [
@@ -424,395 +529,340 @@
                         {
                             "cards": [
                                 {
-                                    "artwork": "cover",
-                                    "entity": "media_player.theater_tv",
-                                    "hide": {
-                                        "controls": true,
-                                        "power": true,
-                                        "volume": true
-                                    },
-                                    "shortcuts": {
-                                        "buttons": [
-                                            {
-                                                "data": {
-                                                    "command": [
-                                                        "power"
-                                                    ],
-                                                    "entity_id": "remote.theater_tv"
-                                                },
-                                                "icon": "mdi:power",
-                                                "id": "remote.send_command",
-                                                "type": "service"
-                                            },
-                                            {
-                                                "data": {
-                                                    "command": [
-                                                        "volume_down"
-                                                    ],
-                                                    "entity_id": "remote.theater_tv"
-                                                },
-                                                "icon": "mdi:volume-medium",
-                                                "id": "remote.send_command",
-                                                "type": "service"
-                                            },
-                                            {
-                                                "data": {
-                                                    "command": [
-                                                        "volume_up"
-                                                    ],
-                                                    "entity_id": "remote.theater_tv"
-                                                },
-                                                "icon": "mdi:volume-high",
-                                                "id": "remote.send_command",
-                                                "type": "service"
-                                            }
-                                        ],
-                                        "column_height": 72,
-                                        "columns": 3
-                                    },
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "card": {
-                                        "cards": [
-                                            {
-                                                "cards": [
-                                                    {
-                                                        "entity": "media_player.theater_tv",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
-                                                        "icon": "mdi:television-play",
-                                                        "name": "Roku",
-                                                        "show_icon": true,
-                                                        "show_name": true,
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "rest_command.hue_box_set_execution",
-                                                            "service_data": {
-                                                                "payload": "\"hdmiSource\": \"input1\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
-                                                            }
-                                                        },
-                                                        "type": "entity-button"
-                                                    },
-                                                    {
-                                                        "entity": "media_player.theater_tv",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
-                                                        "icon": "mdi:playstation",
-                                                        "name": "PS4",
-                                                        "show_icon": true,
-                                                        "show_name": true,
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "rest_command.hue_box_set_execution",
-                                                            "service_data": {
-                                                                "payload": "\"hdmiSource\": \"input2\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
-                                                            }
-                                                        },
-                                                        "type": "entity-button"
-                                                    },
-                                                    {
-                                                        "entity": "media_player.theater_tv",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
-                                                        "icon": "mdi:cast",
-                                                        "name": "Cast",
-                                                        "show_icon": true,
-                                                        "show_name": true,
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "rest_command.hue_box_set_execution",
-                                                            "service_data": {
-                                                                "payload": "\"hdmiSource\": \"input3\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
-                                                            }
-                                                        },
-                                                        "type": "entity-button"
-                                                    }
-                                                ],
-                                                "type": "horizontal-stack"
-                                            },
-                                            {
-                                                "entity": "media_player.theater_stick",
-                                                "hide": {
-                                                    "controls": true,
-                                                    "power": true,
-                                                    "volume": true
-                                                },
-                                                "shortcuts": {
-                                                    "buttons": [
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "home"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:home",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "up"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:chevron-up",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "backspace"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:backspace",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "left"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:chevron-left",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "select"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:check",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "right"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:chevron-right",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "back"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:arrow-left",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "down"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:chevron-down",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "info"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:asterisk",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "reverse"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:rewind",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "play"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:play",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        },
-                                                        {
-                                                            "data": {
-                                                                "command": [
-                                                                    "forward"
-                                                                ],
-                                                                "entity_id": "remote.theater_stick"
-                                                            },
-                                                            "icon": "mdi:fast-forward",
-                                                            "id": "remote.send_command",
-                                                            "type": "service"
-                                                        }
-                                                    ],
-                                                    "column_height": 72,
-                                                    "columns": 3
-                                                },
-                                                "type": "custom:mini-media-player"
-                                            },
-                                            {
-                                                "cards": [
-                                                    {
-                                                        "entity": "media_player.theater_tv",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
-                                                        "icon": "mdi:wave",
-                                                        "name": "Subtle",
-                                                        "show_icon": true,
-                                                        "show_name": true,
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "rest_command.hue_box_set_execution",
-                                                            "service_data": {
-                                                                "payload": "\"cycleIntensity\": \"previous\""
-                                                            }
-                                                        },
-                                                        "type": "entity-button"
-                                                    },
-                                                    {
-                                                        "entity": "media_player.theater_tv",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
-                                                        "icon": "mdi:waves",
-                                                        "name": "Intense",
-                                                        "show_icon": true,
-                                                        "show_name": true,
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "rest_command.hue_box_set_execution",
-                                                            "service_data": {
-                                                                "payload": "\"cycleIntensity\": \"next\""
-                                                            }
-                                                        },
-                                                        "type": "entity-button"
-                                                    },
-                                                    {
-                                                        "entity": "media_player.theater_tv",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
-                                                        "icon": "mdi:panorama-wide-angle",
-                                                        "name": "Widescreen",
-                                                        "show_icon": true,
-                                                        "show_name": true,
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "rest_command.hue_box_set_execution",
-                                                            "service_data": {
-                                                                "payload": "\"hueTarget\": \"groups/11\""
-                                                            }
-                                                        },
-                                                        "type": "entity-button"
-                                                    }
-                                                ],
-                                                "type": "horizontal-stack"
-                                            },
-                                            {
-                                                "cards": [
-                                                    {
-                                                        "entity": "media_player.theater_tv",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
-                                                        "icon": "mdi:brightness-5",
-                                                        "name": "Darker",
-                                                        "show_icon": true,
-                                                        "show_name": true,
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "rest_command.hue_box_set_execution",
-                                                            "service_data": {
-                                                                "payload": "{\"incrementBrightness\": -10}"
-                                                            }
-                                                        },
-                                                        "type": "entity-button"
-                                                    },
-                                                    {
-                                                        "entity": "media_player.theater_tv",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
-                                                        "icon": "mdi:brightness-7",
-                                                        "name": "Brighter",
-                                                        "show_icon": true,
-                                                        "show_name": true,
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "rest_command.hue_box_set_execution",
-                                                            "service_data": {
-                                                                "payload": "{\"incrementBrightness\": 10}"
-                                                            }
-                                                        },
-                                                        "type": "entity-button"
-                                                    },
-                                                    {
-                                                        "entity": "media_player.theater_tv",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
-                                                        "icon": "mdi:lightbulb-group-off",
-                                                        "name": "Sync Off",
-                                                        "show_icon": true,
-                                                        "show_name": true,
-                                                        "tap_action": {
-                                                            "action": "call-service",
-                                                            "service": "rest_command.hue_box_set_execution",
-                                                            "service_data": {
-                                                                "payload": "\"syncActive\": false"
-                                                            }
-                                                        },
-                                                        "type": "entity-button"
-                                                    }
-                                                ],
-                                                "type": "horizontal-stack"
-                                            }
-                                        ],
-                                        "type": "vertical-stack"
-                                    },
-                                    "conditions": [
+                                    "cards": [
                                         {
                                             "entity": "media_player.theater_tv",
-                                            "state_not": "standby"
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:theater",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "id": "browser_mod.popup",
+                                                "service": "browser_mod.popup",
+                                                "service_data": {
+                                                    "card": {
+                                                        "apps": null,
+                                                        "entity": "media_player.theater_tv",
+                                                        "name": null,
+                                                        "tv": true,
+                                                        "type": "custom:roku-card"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Theater TV"
+                                                },
+                                                "type": "service"
+                                            },
+                                            "type": "button"
                                         },
                                         {
-                                            "entity": "media_player.theater_tv",
-                                            "state_not": "unavailable"
+                                            "entity": "media_player.office_tv",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:monitor",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "id": "browser_mod.popup",
+                                                "service": "browser_mod.popup",
+                                                "service_data": {
+                                                    "card": {
+                                                        "apps": null,
+                                                        "entity": "media_player.office_tv",
+                                                        "name": null,
+                                                        "tv": true,
+                                                        "type": "custom:roku-card"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Office TV"
+                                                },
+                                                "type": "service"
+                                            },
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "media_player.office_tv",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:monitor",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "id": "browser_mod.popup",
+                                                "service": "browser_mod.popup",
+                                                "service_data": {
+                                                    "card": {
+                                                        "apps": null,
+                                                        "entity": "media_player.office_tv",
+                                                        "name": null,
+                                                        "tv": true,
+                                                        "type": "custom:roku-card"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Office TV"
+                                                },
+                                                "type": "service"
+                                            },
+                                            "type": "button"
                                         }
                                     ],
-                                    "type": "conditional"
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "light.theater",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:audio-video",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "browser_mod.popup",
+                                                "service_data": {
+                                                    "card": {
+                                                        "cards": [
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "media_player.theater_tv",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:television-play",
+                                                                        "name": "Roku",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service_data": {
+                                                                                "payload": "\"hdmiSource\": \"input1\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
+                                                                            }
+                                                                        },
+                                                                        "type": "entity-button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "media_player.theater_tv",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:playstation",
+                                                                        "name": "PS4",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service_data": {
+                                                                                "payload": "\"hdmiSource\": \"input2\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
+                                                                            }
+                                                                        },
+                                                                        "type": "entity-button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "media_player.theater_tv",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:cast",
+                                                                        "name": "Cast",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service_data": {
+                                                                                "payload": "\"hdmiSource\": \"input3\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
+                                                                            }
+                                                                        },
+                                                                        "type": "entity-button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "media_player.theater_tv",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:wave",
+                                                                        "name": "Subtle",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service_data": {
+                                                                                "payload": "\"cycleIntensity\": \"previous\""
+                                                                            }
+                                                                        },
+                                                                        "type": "entity-button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "media_player.theater_tv",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:waves",
+                                                                        "name": "Intense",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service_data": {
+                                                                                "payload": "\"cycleIntensity\": \"next\""
+                                                                            }
+                                                                        },
+                                                                        "type": "entity-button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "media_player.theater_tv",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:panorama-wide-angle",
+                                                                        "name": "Widescreen",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service_data": {
+                                                                                "payload": "\"hueTarget\": \"groups/11\""
+                                                                            }
+                                                                        },
+                                                                        "type": "entity-button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "media_player.theater_tv",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:brightness-5",
+                                                                        "name": "Darker",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service_data": {
+                                                                                "payload": "{\"incrementBrightness\": -10}"
+                                                                            }
+                                                                        },
+                                                                        "type": "entity-button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "media_player.theater_tv",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:brightness-7",
+                                                                        "name": "Brighter",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service_data": {
+                                                                                "payload": "{\"incrementBrightness\": 10}"
+                                                                            }
+                                                                        },
+                                                                        "type": "entity-button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "media_player.theater_tv",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:lightbulb-group-off",
+                                                                        "name": "Sync Off",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service_data": {
+                                                                                "payload": "\"syncActive\": false"
+                                                                            }
+                                                                        },
+                                                                        "type": "entity-button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            }
+                                                        ],
+                                                        "type": "vertical-stack"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Office TV"
+                                                }
+                                            },
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "media_player.theater_stick",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "browser_mod.popup",
+                                                "service_data": {
+                                                    "card": {
+                                                        "entity": "media_player.theater_stick",
+                                                        "name": null,
+                                                        "tv": true,
+                                                        "type": "custom:roku-card"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Theater Roku"
+                                                }
+                                            },
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "media_player.playstation_4",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
                                 },
                                 {
                                     "artwork": "cover",
@@ -826,13 +876,13 @@
                                         "attribute": "source",
                                         "buttons": [
                                             {
-                                                "icon": "mdi:laptop-windows",
-                                                "id": "SDSA-PC",
+                                                "icon": "mdi:table-chair",
+                                                "id": "Dining Group",
                                                 "type": "source"
                                             },
                                             {
-                                                "icon": "mdi:sofa",
-                                                "id": "Dining Group",
+                                                "icon": "mdi:laptop-windows",
+                                                "id": "SDSA-PC",
                                                 "type": "source"
                                             },
                                             {

@@ -59,6 +59,23 @@
                                     "type": "custom:simple-thermostat"
                                 },
                                 {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.hallway_thermostat",
+                                            "graph": "line",
+                                            "name": "Temperature",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.hallway_humidity",
+                                            "graph": "line",
+                                            "name": "Humidity",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
                                     "CalEventIcon1Filter": "birthday",
                                     "CalEventIcon2Filter": "waste,bills",
                                     "defaultMode": 1,
@@ -1131,13 +1148,13 @@
                                         "attribute": "source",
                                         "buttons": [
                                             {
-                                                "icon": "mdi:laptop-windows",
-                                                "id": "SDSA-PC",
+                                                "icon": "mdi:table-chair",
+                                                "id": "Dining Group",
                                                 "type": "source"
                                             },
                                             {
-                                                "icon": "mdi:table-chair",
-                                                "id": "Dining Group",
+                                                "icon": "mdi:laptop-windows",
+                                                "id": "SDSA-PC",
                                                 "type": "source"
                                             },
                                             {
@@ -2367,6 +2384,30 @@
                                     "hours_to_show": 24,
                                     "refresh_interval": 0,
                                     "type": "history-graph"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "climate.hallway_thermostat",
+                                            "name": "Home"
+                                        },
+                                        {
+                                            "entity": "sensor.master_motion_sensor_temperature",
+                                            "name": "Master"
+                                        },
+                                        {
+                                            "entity": "sensor.hallway_motion_sensor_temperature",
+                                            "name": "Hallway"
+                                        },
+                                        {
+                                            "entity": "sensor.kitchen_motion_sensor_temperature",
+                                            "name": "Kitchen"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "",
+                                    "type": "history-graph"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -2447,55 +2488,9 @@
                                             "type": "sensor"
                                         },
                                         {
-                                            "entity": "sensor.theater_peripherals_watts",
+                                            "entity": "sensor.fountain_watts",
                                             "graph": "line",
-                                            "name": "Theater",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "climate.hallway_thermostat",
-                                            "name": "Home"
-                                        },
-                                        {
-                                            "entity": "sensor.master_motion_sensor_temperature",
-                                            "name": "Master"
-                                        },
-                                        {
-                                            "entity": "sensor.hallway_motion_sensor_temperature",
-                                            "name": "Hallway"
-                                        },
-                                        {
-                                            "entity": "sensor.kitchen_motion_sensor_temperature",
-                                            "name": "Kitchen"
-                                        }
-                                    ],
-                                    "hours_to_show": 24,
-                                    "refresh_interval": 0,
-                                    "title": "Temperature",
-                                    "type": "history-graph"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.hallway_thermostat",
-                                            "graph": "line",
-                                            "name": "Temperature",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.hallway_humidity",
-                                            "graph": "line",
-                                            "name": "Humidity",
+                                            "name": "Fountain",
                                             "type": "sensor"
                                         }
                                     ],

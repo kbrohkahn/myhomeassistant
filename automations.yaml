@@ -903,3 +903,40 @@
     - switch.master_bath_light
     - switch.master_bath_fan
     service: switch.turn_off
+- id: humidity_over_50
+  alias: Humidity over 50%
+  description: ''
+  trigger:
+  - above: '50'
+    entity_id: sensor.hallway_thermostat
+    platform: numeric_state
+    value_template: '{{ state_attr(''climate.hallway_thermostat'' , ''current_humidity'')
+      }}'
+  condition:
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
+  action:
+  - data:
+      card:
+        cards:
+        - content: '## Humidity is above 50%, please turn on AC'
+          type: markdown
+        - entity: climate.hallway_thermostat
+          icon: mdi:check
+          name: Acknowledge
+          tap_action:
+            action: call-service
+            service: browser_mod.close_popup
+          type: button
+        type: vertical-stack
+      title: Thermostat Alert
+    service: browser_mod.popup
+  - data:
+      data:
+        type: tts
+      message: Humidity is above 50%, please turn on AC
+      target:
+      - media_player.dining_echo_dot
+      - media_player.master_echo_dot
+    service: notify.alexa_media
