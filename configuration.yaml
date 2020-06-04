@@ -178,6 +178,10 @@ sensor:
         friendly_name_template: "{{ states.switch.vesync_switch.theater_peripherals}} Current Consumption"
         value_template: '{{ states.switch.theater_peripherals.attributes["current_power_w"] | float }}'
         unit_of_measurement: 'W'
+      theater_systems_watts:
+        friendly_name_template: "{{ states.switch.vesync_switch.theater_systems}} Current Consumption"
+        value_template: '{{ states.switch.theater_systems.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
       office_peripherals_watts:
         friendly_name_template: "{{ states.switch.vesync_switch.office_peripherals}} Current Consumption"
         value_template: '{{ states.switch.office_peripherals.attributes["current_power_w"] | float }}'
@@ -185,10 +189,6 @@ sensor:
       living_room_monitor_watts:
         friendly_name_template: "{{ states.switch.vesync_switch.living_room_monitor}} Current Consumption"
         value_template: '{{ states.switch.living_room_monitor.attributes["current_power_w"] | float }}'
-        unit_of_measurement: 'W'
-      fountain_watts:
-        friendly_name_template: "{{ states.switch.vesync_switch.fountain}} Current Consumption"
-        value_template: '{{ states.switch.fountain.attributes["current_power_w"] | float }}'
         unit_of_measurement: 'W'
       spotify_source:
         friendly_name: "Spotify Source"

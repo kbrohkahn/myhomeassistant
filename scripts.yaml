@@ -178,8 +178,6 @@ users_away:
       - switch.fountain
       - switch.living_room_monitor
       - switch.office_peripherals
-      - switch.theater_peripherals
-      - switch.theater_speakers
       - switch.master_bath_fan
       - switch.master_bath_light
       - switch.hallway_bath_fan
@@ -252,19 +250,16 @@ bedtime:
     - light.dining
     - light.theater
     service: light.turn_off
-  - data: {}
-    entity_id: media_player.theater_tv
-    service: media_player.turn_off
   - entity_id:
     - switch.living_room_monitor
     - switch.office_peripherals
-    - switch.theater_peripherals
-    - switch.theater_speakers
     - switch.firestone
     - switch.fountain
     service: switch.turn_off
   - data: {}
     service: script.kill_bose_group
+  - data: {}
+    service: script.stop_the_theater
   - data:
       value: 'on'
     entity_id: var.bedtime_announced
@@ -535,34 +530,45 @@ office_daytime_lights:
 start_the_theater:
   alias: Start the Theater
   sequence:
-  - data: {}
-    entity_id:
-    - switch.theater_peripherals
-    - switch.theater_speakers
-    service: switch.turn_on
-  - delay: 00:00:30
-  - timeout: 00:00:30
-    wait_template: '{{ is_state(''media_player.theater_tv'', ''standby'') }}'
-  - data: {}
-    entity_id: media_player.theater_tv
-    service: media_player.turn_on
+  - data:
+      command: PowerOn
+      device: Theater TV
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+  - data:
+      command: PowerOn
+      device: Philips AV Switch
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+  - data:
+      command: PowerOn
+      device: Onkyo AV Receiver
+    entity_id: remote.harmony_hub
+    service: remote.send_command
 stop_the_theater:
   alias: Stop the Theater
   sequence:
-  - data: {}
-    entity_id: media_player.theater_tv
-    service: media_player.turn_off
-  - data: {}
-    entity_id:
-    - switch.theater_speakers
-    service: switch.turn_off
-  - delay: 00:05:00
-  - condition: state
-    entity_id: media_player.theater_tv
-    state: standby
-  - data: {}
-    entity_id: switch.theater_peripherals
-    service: switch.turn_off
+  - data:
+      command: PowerOff
+      device: Theater TV
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+  - data:
+      command: PowerOff
+      device: Philips AV Switch
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+  - data:
+      command: PowerOff
+      device: Onkyo AV Receiver
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+  - data:
+      command: PowerOff
+      device: Sony PS4
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+
 maybe_lower_bose_volume:
   alias: Maybe Lower Bose Volume
   sequence:

@@ -904,10 +904,10 @@
     - switch.master_bath_fan
     service: switch.turn_off
 - id: humidity_over_50
-  alias: Humidity over 50%
+  alias: Humidity over 70%
   description: ''
   trigger:
-  - above: '50'
+  - above: '70'
     entity_id: sensor.hallway_thermostat
     platform: numeric_state
     value_template: '{{ state_attr(''climate.hallway_thermostat'' , ''current_humidity'')
@@ -920,7 +920,7 @@
   - data:
       card:
         cards:
-        - content: '## Humidity is above 50%, please turn on AC'
+        - content: '## Humidity is above 70%, please turn on AC'
           type: markdown
         - entity: climate.hallway_thermostat
           icon: mdi:check
@@ -935,7 +935,7 @@
   - data:
       data:
         type: tts
-      message: Humidity is above 50%, please turn on AC
+      message: Humidity is above 70%, please turn on AC
       target:
       - media_player.dining_echo_dot
       - media_player.master_echo_dot
