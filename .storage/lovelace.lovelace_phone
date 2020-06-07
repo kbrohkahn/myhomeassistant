@@ -18,30 +18,12 @@
                         {
                             "cards": [
                                 {
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "browser_mod.popup",
-                                        "service_data": {
-                                            "card": {
-                                                "entities": [
-                                                    "light.bed_light",
-                                                    "light.kitchen_lights",
-                                                    "light.ceiling_lights"
-                                                ],
-                                                "type": "entities"
-                                            },
-                                            "deviceID": [
-                                                "this",
-                                                "dashboard"
-                                            ],
-                                            "title": "Popup example"
-                                        }
-                                    },
                                     "type": "custom:clock-card"
                                 },
                                 {
                                     "entity": "weather.openweathermap",
                                     "name": "Home",
+                                    "secondary_info_attribute": "wind_speed",
                                     "show_forecast": true,
                                     "type": "weather-forecast"
                                 },
@@ -57,7 +39,6 @@
                                     "decimals": 0,
                                     "entity": "climate.hallway_thermostat",
                                     "label": {
-                                        "state": "State",
                                         "temperature": "Temp"
                                     },
                                     "name": false,
@@ -69,10 +50,53 @@
                                             "unit": "%"
                                         }
                                     ],
-                                    "step_layout": "column",
+                                    "step_layout": "row",
                                     "step_size": 1,
-                                    "style": "ha-card {\n  --st-font-size-m: 16px;\n  --st-font-size-xl: 36px;\n}\n",
+                                    "style": "ha-card {\n  #--st-font-size-m: 16px;\n  #--st-font-size-xl: 36px;\n  --st-font-size-sensors: 18px;\n}\n",
                                     "type": "custom:simple-thermostat"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.hallway_thermostat",
+                                            "graph": "line",
+                                            "name": "Temperature",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.hallway_humidity",
+                                            "graph": "line",
+                                            "name": "Humidity",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "CalEventIcon1Filter": "birthday",
+                                    "CalEventIcon2Filter": "waste,bills",
+                                    "defaultMode": 1,
+                                    "enableModeChange": true,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "showColors": true,
+                                    "showDate": false,
+                                    "showMonth": false,
+                                    "type": "custom:atomic-calendar"
+                                },
+                                {
+                                    "show_crossed_off": false,
+                                    "title": "",
+                                    "type": "custom:our-groceries-card"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -151,6 +175,94 @@
                                             "icon": "mdi:bed-king",
                                             "name": "Master",
                                             "type": "light"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "switch.hallway_bath_light",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:lightbulb",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "switch.hallway_bath_fan",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:fan",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "switch.laundry_light",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:lightbulb",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "switch.master_bath_light",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:lightbulb",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "switch.master_bath_fan",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:fan",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "switch.laundry_light",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:lightbulb",
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "button"
                                         }
                                     ],
                                     "type": "horizontal-stack"
@@ -536,26 +648,273 @@
                                                 "action": "more-info"
                                             },
                                             "icon": "mdi:theater",
+                                            "name": "Theater TV",
                                             "show_icon": true,
                                             "show_name": true,
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "id": "browser_mod.popup",
                                                 "service": "browser_mod.popup",
                                                 "service_data": {
                                                     "card": {
-                                                        "apps": null,
-                                                        "entity": "media_player.theater_tv",
-                                                        "name": null,
-                                                        "tv": true,
-                                                        "type": "custom:roku-card"
+                                                        "cards": [
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:power",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "PowerToggle",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:backspace",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "Back",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:asterisk",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "Info",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:home",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "Home",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:chevron-up",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "DirectionUp",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:volume-high",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "VolumeUp",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:chevron-left",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "DirectionDown",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:check",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "Select",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:chevron-right",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "DirectionRight",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:arrow-left",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "Exit",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:chevron-down",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "DirectionDown",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:volume-medium",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "VolumeDown",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:rewind",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "Rewind",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:play",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "Play",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:fast-forward",
+                                                                        "show_name": false,
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "FastForward",
+                                                                                "device": "Theater TV",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            }
+                                                        ],
+                                                        "type": "vertical-stack"
                                                     },
                                                     "deviceID": [
                                                         "this"
                                                     ],
                                                     "title": "Theater TV"
-                                                },
-                                                "type": "service"
+                                                }
                                             },
                                             "type": "button"
                                         },
@@ -593,7 +952,8 @@
                                             "hold_action": {
                                                 "action": "more-info"
                                             },
-                                            "icon": "mdi:monitor",
+                                            "icon": "mdi:television",
+                                            "name": "Living Room TV",
                                             "show_icon": true,
                                             "show_name": true,
                                             "tap_action": {
@@ -611,7 +971,7 @@
                                                     "deviceID": [
                                                         "this"
                                                     ],
-                                                    "title": "Office TV"
+                                                    "title": "Living Room TV"
                                                 },
                                                 "type": "service"
                                             },
@@ -628,6 +988,7 @@
                                                 "action": "more-info"
                                             },
                                             "icon": "mdi:audio-video",
+                                            "name": "Hue Sync",
                                             "show_icon": true,
                                             "show_name": true,
                                             "tap_action": {
@@ -639,58 +1000,99 @@
                                                             {
                                                                 "cards": [
                                                                     {
-                                                                        "entity": "media_player.theater_tv",
-                                                                        "hold_action": {
-                                                                            "action": "more-info"
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:power-plug-off",
+                                                                        "name": "Off",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "PowerOff",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
                                                                         },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:power-plug",
+                                                                        "name": "On",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "PowerOn",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entityd": "remote.harmony_hub",
+                                                                        "icon": "mdi:lightbulb",
+                                                                        "name": "Sync",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "SyncOn/Off",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:television-play",
                                                                         "name": "Roku",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
                                                                         "tap_action": {
                                                                             "action": "call-service",
-                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "payload": "\"hdmiSource\": \"input1\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
+                                                                                "command": "HDMI1",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
                                                                             }
                                                                         },
-                                                                        "type": "entity-button"
+                                                                        "type": "button"
                                                                     },
                                                                     {
-                                                                        "entity": "media_player.theater_tv",
-                                                                        "hold_action": {
-                                                                            "action": "more-info"
-                                                                        },
-                                                                        "icon": "mdi:playstation",
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:gamepad",
                                                                         "name": "PS4",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
                                                                         "tap_action": {
                                                                             "action": "call-service",
-                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "payload": "\"hdmiSource\": \"input2\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
+                                                                                "command": "HDMI2",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
                                                                             }
                                                                         },
-                                                                        "type": "entity-button"
+                                                                        "type": "button"
                                                                     },
                                                                     {
-                                                                        "entity": "media_player.theater_tv",
-                                                                        "hold_action": {
-                                                                            "action": "more-info"
-                                                                        },
+                                                                        "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:cast",
-                                                                        "name": "Cast",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
+                                                                        "name": "Chromecast",
                                                                         "tap_action": {
                                                                             "action": "call-service",
-                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "payload": "\"hdmiSource\": \"input3\", \"syncActive\": true, \"hueTarget\": \"groups/4\""
+                                                                                "command": "HDMI3",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
                                                                             }
                                                                         },
-                                                                        "type": "entity-button"
+                                                                        "type": "button"
                                                                     }
                                                                 ],
                                                                 "type": "horizontal-stack"
@@ -698,58 +1100,49 @@
                                                             {
                                                                 "cards": [
                                                                     {
-                                                                        "entity": "media_player.theater_tv",
-                                                                        "hold_action": {
-                                                                            "action": "more-info"
-                                                                        },
-                                                                        "icon": "mdi:wave",
-                                                                        "name": "Subtle",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:chevron-up",
+                                                                        "name": "Moderate",
                                                                         "tap_action": {
                                                                             "action": "call-service",
-                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "payload": "\"cycleIntensity\": \"previous\""
+                                                                                "command": "IntensityModerate",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
                                                                             }
                                                                         },
-                                                                        "type": "entity-button"
+                                                                        "type": "button"
                                                                     },
                                                                     {
-                                                                        "entity": "media_player.theater_tv",
-                                                                        "hold_action": {
-                                                                            "action": "more-info"
-                                                                        },
-                                                                        "icon": "mdi:waves",
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:chevron-double-up",
                                                                         "name": "Intense",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
                                                                         "tap_action": {
                                                                             "action": "call-service",
-                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "payload": "\"cycleIntensity\": \"next\""
+                                                                                "command": "IntensityHigh",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
                                                                             }
                                                                         },
-                                                                        "type": "entity-button"
+                                                                        "type": "button"
                                                                     },
                                                                     {
-                                                                        "entity": "media_player.theater_tv",
-                                                                        "hold_action": {
-                                                                            "action": "more-info"
-                                                                        },
-                                                                        "icon": "mdi:panorama-wide-angle",
-                                                                        "name": "Widescreen",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:chevron-triple-up",
+                                                                        "name": "Extreme",
                                                                         "tap_action": {
                                                                             "action": "call-service",
-                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "payload": "\"hueTarget\": \"groups/11\""
+                                                                                "command": "IntensityExtreme",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
                                                                             }
                                                                         },
-                                                                        "type": "entity-button"
+                                                                        "type": "button"
                                                                     }
                                                                 ],
                                                                 "type": "horizontal-stack"
@@ -757,58 +1150,49 @@
                                                             {
                                                                 "cards": [
                                                                     {
-                                                                        "entity": "media_player.theater_tv",
-                                                                        "hold_action": {
-                                                                            "action": "more-info"
+                                                                        "entity": "remote.harmony_hub",
+                                                                        "icon": "mdi:lightbulb",
+                                                                        "name": "Sync",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "remote.send_command",
+                                                                            "service_data": {
+                                                                                "command": "SyncOn/Off",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
+                                                                            }
                                                                         },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:brightness-5",
                                                                         "name": "Darker",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
                                                                         "tap_action": {
                                                                             "action": "call-service",
-                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "payload": "{\"incrementBrightness\": -10}"
+                                                                                "command": "Brightness-",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
                                                                             }
                                                                         },
-                                                                        "type": "entity-button"
+                                                                        "type": "button"
                                                                     },
                                                                     {
-                                                                        "entity": "media_player.theater_tv",
-                                                                        "hold_action": {
-                                                                            "action": "more-info"
-                                                                        },
+                                                                        "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:brightness-7",
                                                                         "name": "Brighter",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
                                                                         "tap_action": {
                                                                             "action": "call-service",
-                                                                            "service": "rest_command.hue_box_set_execution",
+                                                                            "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "payload": "{\"incrementBrightness\": 10}"
+                                                                                "command": "Brightness+",
+                                                                                "device": "Philips AV Switch",
+                                                                                "entity_id": "remote.harmony_hub"
                                                                             }
                                                                         },
-                                                                        "type": "entity-button"
-                                                                    },
-                                                                    {
-                                                                        "entity": "media_player.theater_tv",
-                                                                        "hold_action": {
-                                                                            "action": "more-info"
-                                                                        },
-                                                                        "icon": "mdi:lightbulb-group-off",
-                                                                        "name": "Sync Off",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "rest_command.hue_box_set_execution",
-                                                                            "service_data": {
-                                                                                "payload": "\"syncActive\": false"
-                                                                            }
-                                                                        },
-                                                                        "type": "entity-button"
+                                                                        "type": "button"
                                                                     }
                                                                 ],
                                                                 "type": "horizontal-stack"
@@ -819,7 +1203,7 @@
                                                     "deviceID": [
                                                         "this"
                                                     ],
-                                                    "title": "Office TV"
+                                                    "title": "Hue Sync"
                                                 }
                                             },
                                             "type": "button"
@@ -829,23 +1213,27 @@
                                             "hold_action": {
                                                 "action": "more-info"
                                             },
+                                            "icon": "mdi:play-network",
                                             "show_icon": true,
                                             "show_name": true,
                                             "tap_action": {
                                                 "action": "call-service",
+                                                "id": "browser_mod.popup",
                                                 "service": "browser_mod.popup",
                                                 "service_data": {
                                                     "card": {
+                                                        "apps": null,
                                                         "entity": "media_player.theater_stick",
                                                         "name": null,
-                                                        "tv": true,
+                                                        "tv": false,
                                                         "type": "custom:roku-card"
                                                     },
                                                     "deviceID": [
                                                         "this"
                                                     ],
                                                     "title": "Theater Roku"
-                                                }
+                                                },
+                                                "type": "service"
                                             },
                                             "type": "button"
                                         },

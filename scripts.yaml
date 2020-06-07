@@ -184,13 +184,15 @@ users_away:
       - switch.hallway_bath_light
       - switch.laundry_light
     service: switch.turn_off
-  - entity_id: media_player.theater_stick
-    service: media_player.turn_off
   - data: {}
     entity_id: media_player.dining
     service: media_player.media_stop
   - data: {}
     service: script.kill_bose_group
+  - data: {}
+    service: script.stop_the_office
+  - data: {}
+    service: script.stop_the_theater
   - data:
       entity_id: var.people_home
       value: 'off'
@@ -229,6 +231,10 @@ bedtime:
   alias: Bedtime
   sequence:
   - data:
+      value: 'on'
+    entity_id: var.bedtime_announced
+    service: var.set
+  - data:
       brightness: 128
       rgb_color:
       - 255
@@ -260,11 +266,6 @@ bedtime:
     service: script.kill_bose_group
   - data: {}
     service: script.stop_the_theater
-  - data:
-      value: 'on'
-    entity_id: var.bedtime_announced
-    service: var.set
-  - delay: 00:00:01
   - entity_id:
     - light.kitchen_right
     service: light.turn_off
@@ -290,7 +291,7 @@ bedtime:
     service: light.turn_off
   - delay: 00:00:01
   - entity_id:
-    - light.kitchen_hallway
+    - light.hallway
     service: light.turn_off
 browser_sound_effect:
   alias: Browser Sound Effect

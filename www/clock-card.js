@@ -23,17 +23,17 @@ class ClockCard extends Polymer.Element {
         .main {
           display: flex;
           align-items: center;
-          margin-right: 32px;
+          margin-right: 8px;
         }
         .main .clock {
-          font-size: 52px;
+          font-size: 36px;
           line-height: 1em;
-          position: relative;
+          float: left;
         }
-        .date {
+        .main .date {
           font-family: var(--paper-font-headline_-_font-family);
           -webkit-font-smoothing: var(--paper-font-headline_-_-webkit-font-smoothing);
-          font-size: 24px;
+          font-size: 18px;
           font-weight: var(--paper-font-headline_-_font-weight);
           letter-spacing: var(--paper-font-headline_-_letter-spacing);
           line-height: var(--paper-font-headline_-_line-height);
@@ -47,9 +47,7 @@ class ClockCard extends Polymer.Element {
             <div class="main">
               <div class="clock" id="time"></div>
             </div>
-            <div class="date">
-		      <div id="date"></div>
-            </div>
+            <div class="date" id="date"></div>
           </div>
         </div>
       </ha-card>

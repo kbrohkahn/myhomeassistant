@@ -6,15 +6,8 @@
                 "button_icons": {
                     "options": "mdi:death-star-variant"
                 },
-                "exceptions": [
-                    {
-                        "conditions": {
-                            "user": "galaxys8,galaxys8plus"
-                        },
-                        "config": {}
-                    }
-                ],
-                "header_text": "{{ hours24LZ }}:{{ minutesLZ }} {{ dayNameShort }} {{ date }} |  {{ user }}",
+                "exceptions": [],
+                "header_text": "{{ dayNameShort }} {{ date }} |  {{ user }}",
                 "title": "Home"
             },
             "views": [
@@ -23,6 +16,9 @@
                     "cards": [
                         {
                             "cards": [
+                                {
+                                    "type": "custom:clock-card"
+                                },
                                 {
                                     "entity": "weather.openweathermap",
                                     "name": "Home",
@@ -53,7 +49,7 @@
                                             "unit": "%"
                                         }
                                     ],
-                                    "step_layout": "column",
+                                    "step_layout": "row",
                                     "step_size": 1,
                                     "style": "ha-card {\n  #--st-font-size-m: 16px;\n  #--st-font-size-xl: 36px;\n  --st-font-size-sensors: 18px;\n}\n",
                                     "type": "custom:simple-thermostat"
@@ -824,7 +820,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:power",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -839,7 +835,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:backspace",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -854,7 +850,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:asterisk",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -874,7 +870,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:home",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -889,7 +885,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:chevron-up",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -904,7 +900,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:volume-high",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -924,7 +920,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:chevron-left",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -939,7 +935,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:check",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -954,7 +950,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:chevron-right",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -974,7 +970,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:arrow-left",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -989,7 +985,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:chevron-down",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -1004,7 +1000,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:volume-medium",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -1024,7 +1020,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:rewind",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -1039,7 +1035,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:play",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -1054,7 +1050,7 @@
                                                                     {
                                                                         "entity": "remote.harmony_hub",
                                                                         "icon": "mdi:fast-forward",
-                                                                        "name": "",
+                                                                        "show_name": false,
                                                                         "tap_action": {
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
@@ -1114,7 +1110,8 @@
                                             "hold_action": {
                                                 "action": "more-info"
                                             },
-                                            "icon": "mdi:monitor",
+                                            "icon": "mdi:television",
+                                            "name": "Living Room TV",
                                             "show_icon": true,
                                             "show_name": true,
                                             "tap_action": {
@@ -1132,7 +1129,7 @@
                                                     "deviceID": [
                                                         "this"
                                                     ],
-                                                    "title": "Office TV"
+                                                    "title": "Living Room TV"
                                                 },
                                                 "type": "service"
                                             },
@@ -1585,7 +1582,7 @@
                             "type": "vertical-stack"
                         },
                         {
-                            "content": "<style>\n#columns .column:nth-child(1) {\n  flex: 0.8 0 0;\n  max-width: none;\n}\n#columns .column:nth-child(2) {\n  flex: 2 0 0;\n  max-width: none;\n}\n.forecast > div:nth-child(4) {\n  display: none;\n  flex: 0 0 0;\n}\n#columns .column:nth-child(4) {\n  flex: 0 0 0;\n}</style>\n",
+                            "content": "<style>\n#columns .column:nth-child(1) {\n  flex: 1 0 0;\n  max-width: none;\n}\n#columns .column:nth-child(2) {\n  flex: 2 0 0;\n  max-width: none;\n}\n#columns .column:nth-child(4) {\n  flex: 0 0 0;\n  display: none;\n}</style>\n",
                             "title": "",
                             "type": "custom:html-card"
                         }
@@ -3068,33 +3065,6 @@
                                                 },
                                                 {
                                                     "entity": "sensor.glances_core_3_temp",
-                                                    "max": 160,
-                                                    "min": 100,
-                                                    "severity": {
-                                                        "green": 100,
-                                                        "red": 140,
-                                                        "yellow": 130
-                                                    },
-                                                    "type": "gauge"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        },
-                                        {
-                                            "cards": [
-                                                {
-                                                    "entity": "sensor.glances_package_id_0_temp",
-                                                    "max": 160,
-                                                    "min": 100,
-                                                    "severity": {
-                                                        "green": 100,
-                                                        "red": 140,
-                                                        "yellow": 130
-                                                    },
-                                                    "type": "gauge"
-                                                },
-                                                {
-                                                    "entity": "sensor.glances_package_id_0_temp",
                                                     "max": 160,
                                                     "min": 100,
                                                     "severity": {

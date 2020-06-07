@@ -72,19 +72,29 @@
                 "url": "local/custom.css"
             },
             {
-                "id": "ed682469317f4abe91c4b64ec4015e04",
-                "type": "module",
-                "url": "/hacsfiles/lovelace-html-card/html-card.js"
-            },
-            {
                 "id": "71c82eb532d34c02ae253a855923b6ea",
                 "type": "module",
                 "url": "/hacsfiles/lovelace-layout-card/layout-card.js"
             },
             {
-                "id": "7ec360feb4614cdf8c6215da8343bec4",
+                "id": "78837cd2d1e84ac9990201e53f8f5e6a",
+                "type": "module",
+                "url": "/hacsfiles/Home-Assistant-Lovelace-HTML-Jinja2-Template-card/html-template-card.js"
+            },
+            {
+                "id": "e1f1b4b2562d4f6b85f91e581f3187e5",
                 "type": "module",
                 "url": "/hacsfiles/custom-header/custom-header.js"
+            },
+            {
+                "id": "c03bc7bd0f294ff0be4813558860239e",
+                "type": "css",
+                "url": "/local/custom.css"
+            },
+            {
+                "id": "e438cc0235a64c6b8a7787375a82210f",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-html-card/html-card.js"
             }
         ]
     },
