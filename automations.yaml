@@ -373,9 +373,9 @@
     - condition: state
       entity_id: media_player.master
       state: standby
-    - condition: template
-      value_template: '{{ not is_state_attr(''media_player.spotify'', ''source'',
-        ''Master'') }}'
+    - condition: state
+      entity_id: media_player.master
+      state: unavailable
   - condition: state
     entity_id: person.kevin_broh_kahn
     state: home

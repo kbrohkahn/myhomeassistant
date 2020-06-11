@@ -75,12 +75,6 @@ spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
 
-tuya:
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: 1
-  platform: smart_life
-
 rest_command:
   hue_box_set_execution:
     url: 'https://10.0.0.152/api/v1/execution'
@@ -105,12 +99,9 @@ alexa:
   smart_home:
     filter:
       include_domains:
-        script
-        
-unified_remote:
-  host: 10.0.0.1
-  port: 9510
-  retry_delay: 5
+        - script
+        - scene
+        - media_player
 
 
 
@@ -234,6 +225,33 @@ sensor:
     unit_of_measurement: "hPa"
     value_template: ''
 
+  - platform: mqtt
+    state_topic: "wallpanel/galaxys8plus/sensor/light"
+    name: "Galaxy S8 Plus Light Level"
+    unit_of_measurement: "lx"
+    value_template: ''
+  - platform: mqtt
+    state_topic: "wallpanel/galaxys8plus/sensor/magneticField"
+    name: "Galaxy S8 Plus Magnetic Field"
+    unit_of_measurement: "uT"
+    value_template: ''
+  - platform: mqtt
+    state_topic: "wallpanel/galaxys8plus/sensor/battery"
+    name: "Galaxy S8 Plus Battery Level"
+    unit_of_measurement: "%"
+    value_template: ''
+  - platform: mqtt
+    state_topic: "wallpanel/galaxys8plus/sensor/pressure"
+    name: "Galaxy S8 Plus Pressure"
+    unit_of_measurement: "hPa"
+    value_template: ''
+
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytaba/sensor/battery"
+    name: "Galaxy Tab A Battery Level"
+    unit_of_measurement: "%"
+    value_template: ''
+  
   - platform: rest
     resource: https://stats.foldingathome.org/api/donor/kbkrunner
     name: Folding at Home Points

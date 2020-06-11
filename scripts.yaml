@@ -19,7 +19,7 @@ kitchen_daytime_lights:
   - data_template:
       brightness: '{{ brightness }}'
       hs_color:
-      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 30) % 360}}'
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 3 - 30) % 360}}'
       - 80
       transition: 1
     entity_id: light.kitchen_strips
@@ -30,7 +30,7 @@ kitchen_daytime_lights:
   - data_template:
       brightness: '{{ brightness }}'
       hs_color:
-      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 3 - 0) % 360 }}'
       - 80
     entity_id: light.kitchen_forward
     service: light.turn_on
@@ -569,7 +569,6 @@ stop_the_theater:
       device: Sony PS4
     entity_id: remote.harmony_hub
     service: remote.send_command
-
 maybe_lower_bose_volume:
   alias: Maybe Lower Bose Volume
   sequence:

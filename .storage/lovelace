@@ -1609,10 +1609,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Fushimi Inari"
+                                                    "entity_id": "scene.fushimi_inari"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1628,10 +1627,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Flower Festival"
+                                                    "entity_id": "scene.flower_festival"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1652,10 +1650,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Katsura"
+                                                    "entity_id": "scene.katsura"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1671,10 +1668,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Mori Pink Balloons"
+                                                    "entity_id": "scene.mori_pink_balloons"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1695,10 +1691,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Buddha in Temple"
+                                                    "entity_id": "scene.buddha_in_temple"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1714,10 +1709,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Robot Restaurant"
+                                                    "entity_id": "scene.robot_restaurant"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1738,10 +1732,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Traffic Cones"
+                                                    "entity_id": "scene.traffic_cones"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1757,10 +1750,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Night Dragon"
+                                                    "entity_id": "scene.night_dragon"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1781,10 +1773,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Miyajima Cruise"
+                                                    "entity_id": "scene.miyajima_cruise"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1800,10 +1791,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Osaka"
+                                                    "entity_id": "scene.osaka"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1829,10 +1819,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Buddha"
+                                                    "entity_id": "scene.buddha"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1848,10 +1837,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Sento Entrance"
+                                                    "entity_id": "scene.sento_entrance"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1872,10 +1860,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Flower Fuji"
+                                                    "entity_id": "scene.flower_fuji"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1891,10 +1878,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Sento Bridge"
+                                                    "entity_id": "scene.sento_bridge"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1915,10 +1901,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Wild Flowers"
+                                                    "entity_id": "scene.wild_flowers"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1934,10 +1919,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Bamboo Forest"
+                                                    "entity_id": "scene.bamboo_forest"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1958,10 +1942,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Mori Flowers"
+                                                    "entity_id": "scene.mori_flowers"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -1977,10 +1960,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Mori Green Balloons"
+                                                    "entity_id": "scene.mori_green_balloons"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2001,10 +1983,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Kodaiji Forest at Night"
+                                                    "entity_id": "scene.kodaiji_forest_at_night"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2020,10 +2001,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Kodaiji at Night"
+                                                    "entity_id": "scene.kodaiji_at_night"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2049,10 +2029,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Grand Turk"
+                                                    "entity_id": "scene.grand_turk"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2068,10 +2047,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Himeji"
+                                                    "entity_id": "scene.himeji"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2092,10 +2070,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Mori Turqoise Balloons"
+                                                    "entity_id": "scene.mori_turqoise_balloons"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2111,10 +2088,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "White Temple"
+                                                    "entity_id": "scene.white_temple"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2135,10 +2111,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Mori Rain"
+                                                    "entity_id": "scene.mori_rain"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2154,10 +2129,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Phuket"
+                                                    "entity_id": "scene.phuket"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2178,10 +2152,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Pallet Town"
+                                                    "entity_id": "scene.pallet_town"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2197,10 +2170,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Manly Beach"
+                                                    "entity_id": "scene.manly_beach"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2221,10 +2193,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Ice Cave"
+                                                    "entity_id": "scene.ice_cave"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2240,10 +2211,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Ginza"
+                                                    "entity_id": "scene.ginza"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2269,10 +2239,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "12 Apostles"
+                                                    "entity_id": "scene.12_apostles"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2288,10 +2257,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "White Temple Info"
+                                                    "entity_id": "scene.white_temple_info"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2312,10 +2280,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Arashiyama"
+                                                    "entity_id": "scene.arashiyama"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2331,10 +2298,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Flower Stripes"
+                                                    "entity_id": "scene.flower_stripes"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2355,10 +2321,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Kimono Forest"
+                                                    "entity_id": "scene.kimono_forest"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2374,10 +2339,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Fuji Over Flowers"
+                                                    "entity_id": "scene.fuji_over_flowers"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2398,10 +2362,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Miyajima Sunset"
+                                                    "entity_id": "scene.miyajima_sunset"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2417,10 +2380,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Cambodian Sunset"
+                                                    "entity_id": "scene.cambodian_sunset"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2441,10 +2403,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Australian Sunrise"
+                                                    "entity_id": "scene.australian_sunrise"
                                                 }
                                             },
                                             "type": "picture-entity"
@@ -2460,10 +2421,9 @@
                                             },
                                             "tap_action": {
                                                 "action": "call-service",
-                                                "service": "hue.hue_activate_scene",
+                                                "service": "scene.turn_on",
                                                 "service_data": {
-                                                    "group_name": "Main",
-                                                    "scene_name": "Gion"
+                                                    "entity_id": "scene.gion"
                                                 }
                                             },
                                             "type": "picture-entity"
