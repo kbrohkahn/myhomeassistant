@@ -277,7 +277,7 @@
   alias: Office Motion Start - Music
   description: ''
   trigger:
-  - entity_id: binary_sensor.galaxy_s8_plus_motion
+  - entity_id: binary_sensor.mate_9_motion
     from: 'off'
     platform: state
     to: 'on'
@@ -602,14 +602,17 @@
     entity_id: switch.hallway_bath_light
     service: switch.turn_off
 - id: office_motion_on
-  alias: Office Motion On
+  alias: Office Motion Start - Dashboard
   description: ''
   trigger:
-  - entity_id: binary_sensor.galaxy_s8_plus_motion
+  - entity_id: binary_sensor.mate_9_motion
     from: 'off'
     platform: state
     to: 'on'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
   action:
   - data: {}
     entity_id: light.kbkpc
@@ -878,9 +881,23 @@
     type: moving
   condition:
   - condition: state
-    entity_id: switch.master_bath_light
+    entity_id: light.master_bath
     state: 'off'
   action:
+  - data_template:
+      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
+        %} 255 {% endif %}
+
+        '
+      hs_color:
+      - '{% if is_state(''var.bedtime_announced'', ''on'') %} 300 {% else %} 120 {%
+        endif %}'
+      - 100
+    entity_id: light.master_bath
+    service: light.turn_on
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
   - data: {}
     entity_id: switch.master_bath_light
     service: switch.turn_on
@@ -895,7 +912,7 @@
     type: moving
   condition:
   - condition: state
-    entity_id: switch.master_bath_light
+    entity_id: light.master_bath
     state: 'on'
   action:
   - data: {}
@@ -903,6 +920,9 @@
     - switch.master_bath_light
     - switch.master_bath_fan
     service: switch.turn_off
+  - data: {}
+    entity_id: light.master_bath
+    service: light.turn_off
 - id: humidity_over_50
   alias: Humidity over 70%
   description: ''
@@ -940,3 +960,60 @@
       - media_player.dining_echo_dot
       - media_player.master_echo_dot
     service: notify.alexa_media
+- id: office_motion_stop_dashboard
+  alias: Office Motion Stop - Dashboard
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.mate_9_motion
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      deviceID:
+      - mate9
+      navigation_path: /lovelace/home
+    service: browser_mod.navigate
+  - timeout: 00:02:00
+    wait_template: '{{ is_state(''binary_sensor.mate_9_motion'', ''on'') }}'
+  - condition: state
+    entity_id: binary_sensor.mate_9_motion
+    state: 'off'
+  - data: {}
+    entity_id: light.kbkpc
+    service: light.turn_off
+- id: kitchen_overhead_turned_on_invisible
+  alias: Kitchen Overhead Turned On Invisible
+  description: ''
+  trigger:
+  - entity_id: light.kitchen_overhead
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: template
+    value_template: '{{ state_attr(''light.kitchen_overhead'', ''brightness'') < 5
+      }}'
+  action:
+  - data:
+      brightness: 255
+    entity_id: light.kitchen_overhead
+    service: light.turn_on
+- id: kitchen_strips_turned_on_invisible
+  alias: Kitchen Strips Turned On Invisible
+  description: ''
+  trigger:
+  - entity_id: light.kitchen_strips
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: template
+    value_template: '{{ state_attr(''light.kitchen_strips'', ''brightness'') < 5
+      }}'
+  action:
+  - data:
+      brightness: 255
+    entity_id: light.kitchen_strips
+    service: light.turn_on

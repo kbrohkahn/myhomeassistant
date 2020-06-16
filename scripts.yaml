@@ -343,6 +343,19 @@ play_on_bose:
       source: Dining Group
     entity_id: media_player.spotify
     service: media_player.select_source
+  - timeout: 00:00:03
+    wait_template: '{{ is_state(''media_player.dining'', ''playing'') }}'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: media_player.dining
+      state: standby
+    - condition: state
+      entity_id: media_player.dining
+      state: 'off'
+  - data: {}
+    entity_id: media_player.dining
+    service: media_player.media_play
 good_morning:
   alias: Good Morning
   sequence:

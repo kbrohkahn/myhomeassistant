@@ -336,8 +336,9 @@
                                                     "entity": "light.office_tv_strip",
                                                     "icon": "mdi:led-strip-variant",
                                                     "style": {
-                                                        "left": "44%",
-                                                        "top": "6%"
+                                                        "left": "42%",
+                                                        "top": "6%",
+                                                        "transform": "scale(1.5,1.5)"
                                                     },
                                                     "type": "state-icon"
                                                 },
@@ -358,8 +359,9 @@
                                             "entity": "switch.hallway_bath_light",
                                             "icon": "mdi:lightbulb",
                                             "style": {
-                                                "left": "29%",
-                                                "top": "67%"
+                                                "left": "26%",
+                                                "top": "64%",
+                                                "transform": "scale(1.5,1.5)"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -370,8 +372,9 @@
                                             "entity": "switch.hallway_bath_fan",
                                             "icon": "mdi:fan",
                                             "style": {
-                                                "left": "29%",
-                                                "top": "92%"
+                                                "left": "27%",
+                                                "top": "86%",
+                                                "transform": "scale(1.5,1.5)"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -382,8 +385,9 @@
                                             "entity": "switch.laundry_light",
                                             "icon": "mdi:lightbulb",
                                             "style": {
-                                                "left": "41%",
-                                                "top": "87%"
+                                                "left": "38%",
+                                                "top": "84%",
+                                                "transform": "scale(1.5,1.5)"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -393,8 +397,9 @@
                                         {
                                             "entity": "light.closet_light",
                                             "style": {
-                                                "left": "21%",
-                                                "top": "79%"
+                                                "left": "20%",
+                                                "top": "76%",
+                                                "transform": "scale(1.5,1.5)"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -405,8 +410,22 @@
                                             "entity": "switch.master_bath_light",
                                             "icon": "mdi:lightbulb",
                                             "style": {
-                                                "left": "15%",
-                                                "top": "73%"
+                                                "left": "13%",
+                                                "top": "70%",
+                                                "transform": "scale(1.5,1.5)"
+                                            },
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "light.master_bath_under_vanity",
+                                            "icon": "mdi:led-strip-variant",
+                                            "style": {
+                                                "left": "8%",
+                                                "top": "70%",
+                                                "transform": "scale(1.5,1.5)"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -417,8 +436,9 @@
                                             "entity": "switch.master_bath_fan",
                                             "icon": "mdi:fan",
                                             "style": {
-                                                "left": "4%",
-                                                "top": "92%"
+                                                "left": "2%",
+                                                "top": "86%",
+                                                "transform": "scale(1.5,1.5)"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -925,7 +945,7 @@
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "command": "DirectionDown",
+                                                                                "command": "DirectionLeft",
                                                                                 "device": "Theater TV",
                                                                                 "entity_id": "remote.harmony_hub"
                                                                             }
@@ -2707,58 +2727,73 @@
                         {
                             "cards": [
                                 {
-                                    "aspect_ratio": "0%",
                                     "entities": [
                                         {
-                                            "entity": "binary_sensor.galaxy_tab_a_motion"
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.galaxy_tab_s_pressure",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.galaxy_tab_s_magnetic_field",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "sensor.galaxy_tab_s_light_level",
+                                            "name": "Master",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
                                         },
                                         {
-                                            "entity": "camera.galaxy_tab_a_camera"
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.galaxy_s8_plus_pressure",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.galaxy_s8_plus_magnetic_field",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "sensor.galaxy_s8_plus_light_level",
+                                            "name": "Living Room",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
                                         },
                                         {
-                                            "entity": "sensor.galaxytaba"
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.mate_9_pressure",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.mate_9_magnetic_field",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "sensor.mate_9_light_level",
+                                            "name": "Office",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
                                         }
                                     ],
-                                    "entity": "camera.galaxy_tab_a_camera",
-                                    "image": "local/images/rooms/kitchen.jpg",
-                                    "title": "Kitchen",
-                                    "type": "picture-glance"
+                                    "title": "Super Sensors",
+                                    "type": "entities"
                                 },
                                 {
-                                    "aspect_ratio": "0%",
                                     "entities": [
                                         {
-                                            "entity": "binary_sensor.galaxy_s8_motion"
+                                            "entity": "sensor.master_switch_battery_level"
                                         },
                                         {
-                                            "entity": "camera.galaxy_s8_camera"
+                                            "entity": "sensor.kitchen_switch_battery_level"
                                         },
                                         {
-                                            "entity": "sensor.galaxys8"
+                                            "entity": "sensor.office_switch_battery_level"
                                         }
                                     ],
-                                    "entity": "camera.galaxy_s8_camera",
-                                    "image": "local/images/rooms/office.jpg",
-                                    "title": "Kitchen",
-                                    "type": "picture-glance"
-                                },
-                                {
-                                    "aspect_ratio": "0%",
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.galaxy_tab_s_motion"
-                                        },
-                                        {
-                                            "entity": "camera.galaxy_tab_s_camera"
-                                        },
-                                        {
-                                            "entity": "sensor.galaxytabs"
-                                        }
-                                    ],
-                                    "entity": "camera.galaxy_tab_s_camera",
-                                    "image": "local/images/rooms/master.jpg",
-                                    "title": "Kitchen",
-                                    "type": "picture-glance"
+                                    "title": "Switches",
+                                    "type": "entities"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -3047,6 +3082,84 @@
                     "icon": "mdi:network",
                     "path": "network",
                     "title": "Network"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "camera_image": "camera.galaxy_tab_s_camera",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_s_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_s_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_s_camera",
+                                    "image": "local/images/rooms/master.jpg",
+                                    "title": "Master",
+                                    "type": "picture-glance"
+                                },
+                                {
+                                    "camera_image": "camera.mate_9_camera",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.mate_9_motion"
+                                        },
+                                        {
+                                            "entity": "camera.mate_9_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.mate_9_camera",
+                                    "image": "local/images/rooms/office.jpg",
+                                    "title": "Office",
+                                    "type": "picture-glance"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "camera_image": "camera.galaxy_tab_a_camera",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_a_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_a_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_a_camera",
+                                    "image": "local/images/rooms/kitchen.jpg",
+                                    "title": "Kitchen",
+                                    "type": "picture-glance"
+                                },
+                                {
+                                    "camera_image": "camera.galaxy_s8_plus_camera",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_s8_plus_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_s8_plus_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_s8_plus_camera",
+                                    "image": "local/images/rooms/living.jpg",
+                                    "title": "Living Room",
+                                    "type": "picture-glance"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:camera",
+                    "path": "cameras",
+                    "title": "Cameras"
                 }
             ]
         }

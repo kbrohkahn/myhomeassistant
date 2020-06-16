@@ -2,12 +2,12 @@
     "data": {
         "config": {
             "custom_header": {
-                "all_tabs_css": "padding: 0 15px;",
+                "all_tabs_css": "padding: 0 25px;",
                 "button_icons": {
                     "options": "mdi:death-star-variant"
                 },
-                "chevrons": false,
-                "header_text": "Home of Kevin Broh-Kahn"
+                "exceptions": [],
+                "header_text": "{{ dayNameShort }} {{ date }}"
             },
             "title": "Home",
             "views": [
@@ -207,17 +207,9 @@
                                             "type": "button"
                                         },
                                         {
-                                            "entity": "switch.laundry_light",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "icon": "mdi:lightbulb",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "button"
+                                            "entity": "light.master_bath",
+                                            "icon": "mdi:shower",
+                                            "type": "light"
                                         }
                                     ],
                                     "type": "horizontal-stack"
@@ -766,7 +758,7 @@
                                                                             "action": "call-service",
                                                                             "service": "remote.send_command",
                                                                             "service_data": {
-                                                                                "command": "DirectionDown",
+                                                                                "command": "DirectionLeft",
                                                                                 "device": "Theater TV",
                                                                                 "entity_id": "remote.harmony_hub"
                                                                             }

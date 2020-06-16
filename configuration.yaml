@@ -97,12 +97,21 @@ google:
 
 alexa:
   smart_home:
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: !secret alexa_events_id
+    client_secret: !secret alexa_events_secret
     filter:
       include_domains:
         - script
         - scene
         - media_player
-
+    entity_config:
+      media_player.dining:
+        display_categories: SPEAKER
+      media_player.living_room:
+        display_categories: SPEAKER
+      media_player.kitchen:
+        display_categories: SPEAKER
 
 
 mobile_app:
@@ -140,7 +149,10 @@ camera:
     name: Galaxy S8 Camera
   - platform: mjpeg
     mjpeg_url: http://10.0.0.124:2971/camera/stream
-    name: Galaxy S8 Plus A Camera
+    name: Galaxy S8 Plus Camera
+  - platform: mjpeg
+    mjpeg_url: http://10.0.0.125:2971/camera/stream
+    name: Mate 9 Camera
 
 sensor:
   - platform: badnest
@@ -208,50 +220,71 @@ sensor:
     state_topic: "wallpanel/galaxytabs/sensor/light"
     name: "Galaxy Tab S Light Level"
     unit_of_measurement: "lx"
-    value_template: ''
+    value_template: '{{ value_json.value }}'
   - platform: mqtt
     state_topic: "wallpanel/galaxytabs/sensor/magneticField"
     name: "Galaxy Tab S Magnetic Field"
     unit_of_measurement: "uT"
-    value_template: ''
+    value_template: '{{ value_json.value }}'
   - platform: mqtt
     state_topic: "wallpanel/galaxytabs/sensor/battery"
     name: "Galaxy Tab S Battery Level"
     unit_of_measurement: "%"
-    value_template: ''
+    value_template: '{{ value_json.value }}'
   - platform: mqtt
     state_topic: "wallpanel/galaxytabs/sensor/pressure"
     name: "Galaxy Tab S Pressure"
     unit_of_measurement: "hPa"
-    value_template: ''
+    value_template: '{{ value_json.value }}'
 
   - platform: mqtt
     state_topic: "wallpanel/galaxys8plus/sensor/light"
     name: "Galaxy S8 Plus Light Level"
     unit_of_measurement: "lx"
-    value_template: ''
+    value_template: '{{ value_json.value }}'
   - platform: mqtt
     state_topic: "wallpanel/galaxys8plus/sensor/magneticField"
     name: "Galaxy S8 Plus Magnetic Field"
     unit_of_measurement: "uT"
-    value_template: ''
+    value_template: '{{ value_json.value }}'
   - platform: mqtt
     state_topic: "wallpanel/galaxys8plus/sensor/battery"
     name: "Galaxy S8 Plus Battery Level"
     unit_of_measurement: "%"
-    value_template: ''
+    value_template: '{{ value_json.value }}'
   - platform: mqtt
     state_topic: "wallpanel/galaxys8plus/sensor/pressure"
     name: "Galaxy S8 Plus Pressure"
     unit_of_measurement: "hPa"
-    value_template: ''
+    value_template: '{{ value_json.value }}'
 
   - platform: mqtt
     state_topic: "wallpanel/galaxytaba/sensor/battery"
     name: "Galaxy Tab A Battery Level"
     unit_of_measurement: "%"
-    value_template: ''
-  
+    value_template: '{{ value_json.value }}'
+
+  - platform: mqtt
+    state_topic: "wallpanel/mate9/sensor/light"
+    name: "Mate 9 Light Level"
+    unit_of_measurement: "lx"
+    value_template: '{{ value_json.value }}'
+  - platform: mqtt
+    state_topic: "wallpanel/mate9/sensor/magneticField"
+    name: "Mate 9 Magnetic Field"
+    unit_of_measurement: "uT"
+    value_template: '{{ value_json.value }}'
+  - platform: mqtt
+    state_topic: "wallpanel/mate9/sensor/battery"
+    name: "Mate 9 Battery Level"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.value }}'
+  - platform: mqtt
+    state_topic: "wallpanel/mate9/sensor/pressure"
+    name: "Mate 9 Pressure"
+    unit_of_measurement: "hPa"
+    value_template: '{{ value_json.value }}'
+
   - platform: rest
     resource: https://stats.foldingathome.org/api/donor/kbkrunner
     name: Folding at Home Points
@@ -289,6 +322,12 @@ binary_sensor:
   - platform: mqtt
     state_topic: "wallpanel/galaxys8plus/sensor/motion"
     name: "Galaxy S8 Plus Motion"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion 
+  - platform: mqtt
+    state_topic: "wallpanel/mate9/sensor/motion"
+    name: "Mate 9 Motion"
     payload_on: '{"value":true}'
     payload_off: '{"value":false}'
     device_class: motion 
