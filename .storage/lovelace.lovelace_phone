@@ -207,9 +207,16 @@
                                             "type": "button"
                                         },
                                         {
-                                            "entity": "light.master_bath",
-                                            "icon": "mdi:shower",
-                                            "type": "light"
+                                            "entity": "switch.laundry_light",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "show_icon": true,
+                                            "show_name": true,
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "button"
                                         }
                                     ],
                                     "type": "horizontal-stack"
@@ -217,17 +224,14 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "switch.master_bath_light",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "icon": "mdi:lightbulb",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "button"
+                                            "entity": "light.master_bath_under_vanity",
+                                            "icon": "mdi:led-strip-variant",
+                                            "name": "Master Bath Strip",
+                                            "type": "light"
+                                        },
+                                        {
+                                            "entity": "light.master_bath_light",
+                                            "type": "light"
                                         },
                                         {
                                             "entity": "switch.master_bath_fan",
@@ -235,19 +239,6 @@
                                                 "action": "more-info"
                                             },
                                             "icon": "mdi:fan",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "button"
-                                        },
-                                        {
-                                            "entity": "switch.laundry_light",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "icon": "mdi:lightbulb",
                                             "show_icon": true,
                                             "show_name": true,
                                             "tap_action": {

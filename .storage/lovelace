@@ -407,7 +407,7 @@
                                             "type": "state-icon"
                                         },
                                         {
-                                            "entity": "switch.master_bath_light",
+                                            "entity": "light.master_bath_light",
                                             "icon": "mdi:lightbulb",
                                             "style": {
                                                 "left": "13%",

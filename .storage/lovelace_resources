@@ -95,6 +95,11 @@
                 "id": "e438cc0235a64c6b8a7787375a82210f",
                 "type": "module",
                 "url": "/hacsfiles/lovelace-html-card/html-card.js"
+            },
+            {
+                "id": "69fb7ce0263d43f5ac3e391ff0476772",
+                "type": "module",
+                "url": "/hacsfiles/ha-card-waze-travel-time/ha-card-waze-travel-time.js"
             }
         ]
     },

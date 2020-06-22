@@ -305,56 +305,6 @@
       source: SDSA-PC
     entity_id: media_player.spotify
     service: media_player.select_source
-- id: perform_auto_backup
-  alias: Perform Auto Backup
-  trigger:
-    platform: time_pattern
-    hours: /3
-  action:
-    service: auto_backup.snapshot_partial
-    data_template:
-      name: 'AutoBackup: {{ now().strftime(''%a, %-I:%M %p (%d/%m/%Y)'') }}'
-      addons:
-      - core_mariadb
-      - core_mosquitto
-      folders:
-      - homeassistant
-      - share
-      - ssl
-      keep_days: 2
-- id: perform_daily_backup
-  alias: Perform Daily Backup
-  trigger:
-    platform: time
-    at: 02:30:00
-  condition:
-    condition: time
-    weekday:
-    - tue
-    - wed
-    - thu
-    - fri
-    - sat
-    - sun
-  action:
-    service: auto_backup.snapshot_full
-    data_template:
-      name: 'DailyBackup: {{ now().strftime(''%A, %B %-d, %Y'') }}'
-      keep_days: 7
-- id: perform_weekly_backup
-  alias: Perform Weekly Backup
-  trigger:
-    platform: time
-    at: 02:30:00
-  condition:
-    condition: time
-    weekday:
-    - mon
-  action:
-    service: auto_backup.snapshot_full
-    data_template:
-      name: 'WeeklyBackup: {{ now().strftime(''%A, %B %-d, %Y'') }}'
-      keep_days: 28
 - id: master_motion_start_music
   alias: Master Motion Start - Music
   description: ''
@@ -722,18 +672,18 @@
   - condition: state
     entity_id: light.kitchen
     state: 'on'
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: light.dining
-      state: 'off'
-    - condition: state
-      entity_id: light.living_room
-      state: 'off'
+  - condition: state
+    entity_id: light.living_room
+    state: 'off'
   action:
-  - data:
-      transition: 3
-    entity_id: light.kitchen
+  - data: {}
+    entity_id: light.kitchen_strips
+    service: light.turn_off
+  - data: {}
+    entity_id: light.kitchen_overhead
+    service: light.turn_off
+  - data: {}
+    entity_id: light.dining
     service: light.turn_off
   - data:
       payload: '{"wake": false, "camera": false}'
@@ -884,23 +834,7 @@
     entity_id: light.master_bath
     state: 'off'
   action:
-  - data_template:
-      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
-        %} 255 {% endif %}
-
-        '
-      hs_color:
-      - '{% if is_state(''var.bedtime_announced'', ''on'') %} 300 {% else %} 120 {%
-        endif %}'
-      - 100
-    entity_id: light.master_bath
-    service: light.turn_on
-  - condition: state
-    entity_id: var.bedtime_announced
-    state: 'off'
-  - data: {}
-    entity_id: switch.master_bath_light
-    service: switch.turn_on
+  - service: script.master_bath_lights_on
 - id: master_bath_door_motion_with_light_on
   alias: Master Bath Door Motion with Light On
   description: ''
@@ -916,12 +850,13 @@
     state: 'on'
   action:
   - data: {}
-    entity_id:
-    - switch.master_bath_light
-    - switch.master_bath_fan
+    entity_id: switch.master_bath_fan
     service: switch.turn_off
   - data: {}
-    entity_id: light.master_bath
+    entity_id: light.master_bath_under_vanity
+    service: light.turn_off
+  - data: {}
+    entity_id: light.master_bath_light
     service: light.turn_off
 - id: humidity_over_50
   alias: Humidity over 70%
@@ -1010,10 +945,39 @@
     to: 'on'
   condition:
   - condition: template
-    value_template: '{{ state_attr(''light.kitchen_strips'', ''brightness'') < 5
-      }}'
+    value_template: '{{ state_attr(''light.kitchen_strips'', ''brightness'') < 5 }}'
   action:
   - data:
       brightness: 255
     entity_id: light.kitchen_strips
     service: light.turn_on
+- id: master_bath_light_switch_on
+  alias: Master Bath Light Switch On
+  description: ''
+  trigger:
+  - entity_id: light.master_bath_light
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.master_bath
+    state: 'off'
+  action:
+  - service: script.master_bath_lights_on
+- id: master_bath_light_switch_off
+  alias: Master Bath Light Switch Off
+  description: ''
+  trigger:
+  - entity_id: light.master_bath_light
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: light.master_bath
+    state: 'on'
+  action:
+  - data: {}
+    entity_id: light.master_bath
+    service: light.turn_off

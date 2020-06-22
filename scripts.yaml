@@ -20,8 +20,7 @@ kitchen_daytime_lights:
       brightness: '{{ brightness }}'
       hs_color:
       - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 3 - 30) % 360}}'
-      - 80
-      transition: 1
+      - 90
     entity_id: light.kitchen_strips
     service: light.turn_on
   - condition: state
@@ -30,44 +29,16 @@ kitchen_daytime_lights:
   - data_template:
       brightness: '{{ brightness }}'
       hs_color:
-      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 3 - 0) % 360 }}'
-      - 80
-    entity_id: light.kitchen_forward
-    service: light.turn_on
-  - data_template:
-      brightness: '{{ brightness }}'
-      hs_color:
       - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
-      - 80
-    entity_id: light.kitchen_left
-    service: light.turn_on
-  - data_template:
-      brightness: '{{ brightness }}'
-      hs_color:
-      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
-      - 80
-    entity_id: light.kitchen_mid_left
-    service: light.turn_on
-  - data_template:
-      brightness: '{{ brightness }}'
-      hs_color:
-      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
-      - 80
-    entity_id: light.kitchen_mid_right
-    service: light.turn_on
-  - data_template:
-      brightness: '{{ brightness }}'
-      hs_color:
-      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
-      - 80
-    entity_id: light.kitchen_right
-    service: light.turn_on
-  - data_template:
-      brightness: '{{ brightness }}'
-      hs_color:
-      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
-      - 80
+      - 70
     entity_id: light.kitchen_overhead
+    service: light.turn_on
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
+      - 30
+    entity_id: light.dining
     service: light.turn_on
 hallway_daytime_lights:
   alias: Hallway Daytime Light
@@ -328,12 +299,6 @@ browser_sound_effect:
     - media_player.dining_echo_dot
     - media_player.master_echo_dot
     service: media_player.volume_set
-spotify_next_song:
-  alias: Spotify Next Song
-  sequence:
-  - data: {}
-    entity_id: media_player.spotify
-    service: media_player.media_next_track
 play_on_bose:
   alias: Play on Bose
   sequence:
@@ -699,3 +664,20 @@ run_script_from_popup:
     service: script.turn_on
   - data: {}
     service: browser_mod.close_popup
+master_bath_lights_on:
+  alias: Master Bath Lights On
+  sequence:
+  - data_template:
+      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
+        %} 255 {% endif %} '
+      hs_color:
+      - '{% if is_state(''var.bedtime_announced'', ''on'') %} 300 {% else %} 120 {%
+        endif %}'
+      - 100
+    entity_id: light.master_bath_under_vanity
+    service: light.turn_on
+  - data_template:
+      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
+        %} 196 {% endif %} '
+    entity_id: light.master_bath_light
+    service: light.turn_on
