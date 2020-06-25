@@ -37,7 +37,7 @@ kitchen_daytime_lights:
       brightness: '{{ brightness }}'
       hs_color:
       - '{{ ((state_attr(''weather.home'', ''temperature'') - 32) * 4 - 0) % 360 }}'
-      - 30
+      - 50
     entity_id: light.dining
     service: light.turn_on
 hallway_daytime_lights:
@@ -148,12 +148,8 @@ users_away:
       - switch.firestone
       - switch.fountain
       - switch.living_room_monitor
-      - switch.office_peripherals
       - switch.master_bath_fan
-      - switch.master_bath_light
       - switch.hallway_bath_fan
-      - switch.hallway_bath_light
-      - switch.laundry_light
     service: switch.turn_off
   - data: {}
     entity_id: media_player.dining
@@ -229,7 +225,6 @@ bedtime:
     service: light.turn_off
   - entity_id:
     - switch.living_room_monitor
-    - switch.office_peripherals
     - switch.firestone
     - switch.fountain
     service: switch.turn_off
@@ -443,7 +438,6 @@ start_the_office:
   sequence:
   - data: {}
     entity_id:
-    - switch.office_peripherals
     - switch.fountain
     - switch.firestone
     service: switch.turn_on
@@ -477,13 +471,6 @@ stop_the_office:
     entity_id:
     - switch.fountain
     - switch.firestone
-    service: switch.turn_off
-  - delay: 00:05:00
-  - condition: state
-    entity_id: media_player.office_tv
-    state: standby
-  - data: {}
-    entity_id: switch.office_peripherals
     service: switch.turn_off
 office_daytime_lights:
   alias: Office Daytime Lights

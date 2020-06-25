@@ -76,15 +76,19 @@ spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
 
+ifttt:
+  key: !secret ifttt_api_key
+
 rest_command:
-  hue_box_set_execution:
-    url: 'https://10.0.0.152/api/v1/execution'
-    verify_ssl: false
-    method: PUT
-    headers: 
-      content-type: 'application/json'
-      authorization: !secret hueBoxToken
-    payload: '{ {{ payload }} }'
+
+  # hue_box_set_execution:
+  #   url: 'https://10.0.0.152/api/v1/execution'
+  #   verify_ssl: false
+  #   method: PUT
+  #   headers: 
+  #     content-type: 'application/json'
+  #     authorization: !secret hueBoxToken
+  #   payload: '{ {{ payload }} }'
 
 
 

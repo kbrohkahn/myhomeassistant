@@ -1,0 +1,25 @@
+esphome:
+  name: laundry_light
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "Omega-Home-2G"
+  password: "youcantellme"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Laundry Light Fallback Hotspot"
+    password: "nWkY3Jbde37H"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "#28cj2509"
+
+ota:
+  password: "#28cj2509"

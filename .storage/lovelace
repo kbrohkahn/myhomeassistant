@@ -70,32 +70,6 @@
                                         }
                                     ],
                                     "type": "horizontal-stack"
-                                },
-                                {
-                                    "CalEventIcon1Filter": "birthday",
-                                    "CalEventIcon2Filter": "waste,bills",
-                                    "defaultMode": 1,
-                                    "enableModeChange": true,
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.holidays_in_united_states"
-                                        },
-                                        {
-                                            "entity": "calendar.home_brohkahn_gmail_com"
-                                        },
-                                        {
-                                            "entity": "calendar.kbkrunner_gmail_com"
-                                        }
-                                    ],
-                                    "showColors": true,
-                                    "showDate": false,
-                                    "showMonth": false,
-                                    "type": "custom:atomic-calendar"
-                                },
-                                {
-                                    "show_crossed_off": false,
-                                    "title": "",
-                                    "type": "custom:our-groceries-card"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -769,18 +743,6 @@
                                                             "secondary_info": "last-changed",
                                                             "toggle": true,
                                                             "type": "custom:multiple-entity-row"
-                                                        },
-                                                        {
-                                                            "entities": [
-                                                                {
-                                                                    "entity": "sensor.office_peripherals_watts",
-                                                                    "name": false
-                                                                }
-                                                            ],
-                                                            "entity": "switch.office_peripherals",
-                                                            "secondary_info": "last-changed",
-                                                            "toggle": true,
-                                                            "type": "custom:multiple-entity-row"
                                                         }
                                                     ],
                                                     "show_header_toggle": false,
@@ -792,12 +754,17 @@
                                                         {
                                                             "entity": "sensor.theater_peripherals_watts",
                                                             "icon": "mdi:theater",
-                                                            "name": "Theater Peripherals"
+                                                            "name": "Theater TV"
                                                         },
                                                         {
                                                             "entity": "sensor.theater_systems_watts",
                                                             "icon": "mdi:audio-video",
-                                                            "name": "Theater Systems"
+                                                            "name": "Theater AV"
+                                                        },
+                                                        {
+                                                            "entity": "sensor.office_peripherals_watts",
+                                                            "icon": "mdi:monitor-speaker",
+                                                            "name": "Office"
                                                         },
                                                         {
                                                             "entity": "sensor.ups_watts",
@@ -821,7 +788,7 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "media_player.theater_tv",
+                                            "entity": "remote.harmony_hub",
                                             "hold_action": {
                                                 "action": "more-info"
                                             },
@@ -1097,11 +1064,12 @@
                                             "type": "button"
                                         },
                                         {
-                                            "entity": "media_player.office_tv",
+                                            "entity": "remote.harmony_hub",
                                             "hold_action": {
                                                 "action": "more-info"
                                             },
                                             "icon": "mdi:monitor",
+                                            "name": "Office TV",
                                             "show_icon": true,
                                             "show_name": true,
                                             "tap_action": {
@@ -1110,11 +1078,91 @@
                                                 "service": "browser_mod.popup",
                                                 "service_data": {
                                                     "card": {
-                                                        "apps": null,
-                                                        "entity": "media_player.office_tv",
-                                                        "name": null,
-                                                        "tv": true,
-                                                        "type": "custom:roku-card"
+                                                        "cards": [
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "icon": "mdi:power",
+                                                                        "name": "Power",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_power"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "icon": "mdi:volume-medium",
+                                                                        "name": "Vol-",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_volume_down"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "icon": "mdi:volume-high",
+                                                                        "name": "Vol+",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_volume_up"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "icon": "mdi:laptop-windows",
+                                                                        "name": "SDSA PC",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_input_hdmi1"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "icon": "mdi:laptop",
+                                                                        "name": "Notebook",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_input_hdmi2"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "icon": "mdi:cast",
+                                                                        "name": "Chromecast",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_input_hdmi3"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            }
+                                                        ],
+                                                        "type": "vertical-stack"
                                                     },
                                                     "deviceID": [
                                                         "this"
@@ -1126,7 +1174,7 @@
                                             "type": "button"
                                         },
                                         {
-                                            "entity": "media_player.office_tv",
+                                            "entity": "remote.harmony_hub",
                                             "hold_action": {
                                                 "action": "more-info"
                                             },
@@ -1610,6 +1658,140 @@
                     "icon": "mdi:home",
                     "path": "home",
                     "title": "Home"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "CalEventIcon1Filter": "birthday",
+                                    "CalEventIcon2Filter": "waste,bills",
+                                    "defaultMode": 2,
+                                    "enableModeChange": false,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "showColors": true,
+                                    "showDate": true,
+                                    "showMonth": true,
+                                    "title": null,
+                                    "type": "custom:atomic-calendar"
+                                },
+                                {
+                                    "CalEventIcon1Filter": "birthday",
+                                    "CalEventIcon2Filter": "waste,bills",
+                                    "defaultMode": 1,
+                                    "enableModeChange": false,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "showColors": true,
+                                    "showDate": false,
+                                    "showMonth": false,
+                                    "title": null,
+                                    "type": "custom:atomic-calendar"
+                                },
+                                {
+                                    "show_crossed_off": false,
+                                    "title": "",
+                                    "type": "custom:our-groceries-card"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "aspect_ratio": "0%",
+                                    "camera_image": "camera.galaxy_tab_a_camera",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_a_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_a_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_a_camera",
+                                    "image": "local/images/rooms/kitchen.jpg",
+                                    "title": "Kitchen",
+                                    "type": "picture-glance"
+                                },
+                                {
+                                    "camera_image": "camera.galaxy_s8_plus_camera",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_s8_plus_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_s8_plus_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_s8_plus_camera",
+                                    "image": "local/images/rooms/living.jpg",
+                                    "title": "Living Room",
+                                    "type": "picture-glance"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "aspect_ratio": "0%",
+                                    "camera_image": "camera.galaxy_tab_s_camera",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_s_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_s_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_s_camera",
+                                    "image": "local/images/rooms/master.jpg",
+                                    "title": "Master",
+                                    "type": "picture-glance"
+                                },
+                                {
+                                    "camera_image": "camera.mate_9_camera",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.mate_9_motion"
+                                        },
+                                        {
+                                            "entity": "camera.mate_9_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.mate_9_camera",
+                                    "image": "local/images/rooms/office.jpg",
+                                    "title": "Office",
+                                    "type": "picture-glance"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:calendar",
+                    "path": "calendar",
+                    "title": "Calendar"
                 },
                 {
                     "badges": [],
@@ -3082,84 +3264,6 @@
                     "icon": "mdi:network",
                     "path": "network",
                     "title": "Network"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "camera_image": "camera.galaxy_tab_s_camera",
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.galaxy_tab_s_motion"
-                                        },
-                                        {
-                                            "entity": "camera.galaxy_tab_s_camera"
-                                        }
-                                    ],
-                                    "entity": "camera.galaxy_tab_s_camera",
-                                    "image": "local/images/rooms/master.jpg",
-                                    "title": "Master",
-                                    "type": "picture-glance"
-                                },
-                                {
-                                    "camera_image": "camera.mate_9_camera",
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.mate_9_motion"
-                                        },
-                                        {
-                                            "entity": "camera.mate_9_camera"
-                                        }
-                                    ],
-                                    "entity": "camera.mate_9_camera",
-                                    "image": "local/images/rooms/office.jpg",
-                                    "title": "Office",
-                                    "type": "picture-glance"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "camera_image": "camera.galaxy_tab_a_camera",
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.galaxy_tab_a_motion"
-                                        },
-                                        {
-                                            "entity": "camera.galaxy_tab_a_camera"
-                                        }
-                                    ],
-                                    "entity": "camera.galaxy_tab_a_camera",
-                                    "image": "local/images/rooms/kitchen.jpg",
-                                    "title": "Kitchen",
-                                    "type": "picture-glance"
-                                },
-                                {
-                                    "camera_image": "camera.galaxy_s8_plus_camera",
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.galaxy_s8_plus_motion"
-                                        },
-                                        {
-                                            "entity": "camera.galaxy_s8_plus_camera"
-                                        }
-                                    ],
-                                    "entity": "camera.galaxy_s8_plus_camera",
-                                    "image": "local/images/rooms/living.jpg",
-                                    "title": "Living Room",
-                                    "type": "picture-glance"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        }
-                    ],
-                    "icon": "mdi:camera",
-                    "path": "cameras",
-                    "title": "Cameras"
                 }
             ]
         }
