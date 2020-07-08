@@ -115,7 +115,7 @@
   - data:
       message: Front Door Opened
       title: Hass Home Alert
-    service: notify.mobile_app_kevin_s_galaxy_note_10
+    service: notify.mobile_app_sm_n975u1
 - id: balcony_door_opened
   alias: Balcony Door Opened
   description: ''
@@ -486,8 +486,8 @@
   condition: []
   action:
   - data: {}
-    entity_id: switch.laundry_light
-    service: switch.turn_on
+    entity_id: light.laundry_light
+    service: light.turn_on
 - id: laundry_door_closed
   alias: Laundry Door Closed
   description: ''
@@ -500,8 +500,8 @@
   condition: []
   action:
   - data: {}
-    entity_id: switch.laundry_light
-    service: switch.turn_off
+    entity_id: light.laundry_light
+    service: light.turn_off
 - id: hallway_bath_door_opened
   alias: Hallway Bath Door Opened
   description: ''
@@ -514,10 +514,11 @@
   condition: []
   action:
   - data: {}
-    entity_id:
-    - switch.hallway_bath_fan
-    - switch.hallway_bath_light
+    entity_id: switch.hallway_bath_fan
     service: switch.turn_off
+  - data: {}
+    entity_id: light.hallway_bath_light
+    service: light.turn_off
 - id: hallway_bath_door_motion
   alias: Hallway Bath Door Motion
   description: ''
@@ -534,12 +535,12 @@
     entity_id: binary_sensor.hallway_bath_door_ias_zone
     type: is_open
   - condition: state
-    entity_id: switch.hallway_bath_light
+    entity_id: light.hallway_bath_light
     state: 'off'
   action:
   - data: {}
-    entity_id: switch.hallway_bath_light
-    service: switch.turn_on
+    entity_id: light.hallway_bath_light
+    service: light.turn_on
   - timeout: 00:02:00
     wait_template: '{{ is_state(''binary_sensor.hallway_bath_door_ias_zone'', ''off'')
       }}'
@@ -549,8 +550,8 @@
     entity_id: binary_sensor.hallway_bath_door_ias_zone
     type: is_open
   - data: {}
-    entity_id: switch.hallway_bath_light
-    service: switch.turn_off
+    entity_id: light.hallway_bath_light
+    service: light.turn_off
 - id: office_motion_on
   alias: Office Motion Start - Dashboard
   description: ''
@@ -571,7 +572,7 @@
   alias: Hallway Bath Light On
   description: ''
   trigger:
-  - entity_id: switch.hallway_bath_light
+  - entity_id: light.hallway_bath_light
     from: 'off'
     platform: state
     to: 'on'
@@ -591,8 +592,8 @@
     entity_id: binary_sensor.hallway_bath_door_ias_zone
     type: is_open
   - data: {}
-    entity_id: switch.hallway_bath_light
-    service: switch.turn_off
+    entity_id: light.hallway_bath_light
+    service: light.turn_off
 - id: bose_auto_off
   alias: Bose Auto Off
   description: ''
@@ -676,19 +677,22 @@
     entity_id: light.living_room
     state: 'off'
   action:
+  - data:
+      payload: '{"wake": false, "camera": false}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
   - data: {}
     entity_id: light.kitchen_strips
     service: light.turn_off
   - data: {}
     entity_id: light.kitchen_overhead
     service: light.turn_off
+  - condition: template
+    value_template: '{{ as_timestamp(states.light.dining.last_changed) - as_timestamp(state_attr(''script.kitchen_daytime_lights'',
+      ''last_triggered'')) + 3 < 6 }}'
   - data: {}
     entity_id: light.dining
     service: light.turn_off
-  - data:
-      payload: '{"wake": false, "camera": false}'
-      topic: wallpanel/galaxytaba/command
-    service: mqtt.publish
 - id: thermostat_fan_schedule
   alias: Thermostat Fan Schedule
   description: ''

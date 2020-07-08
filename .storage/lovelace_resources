@@ -77,11 +77,6 @@
                 "url": "/hacsfiles/lovelace-layout-card/layout-card.js"
             },
             {
-                "id": "78837cd2d1e84ac9990201e53f8f5e6a",
-                "type": "module",
-                "url": "/hacsfiles/Home-Assistant-Lovelace-HTML-Jinja2-Template-card/html-template-card.js"
-            },
-            {
                 "id": "e1f1b4b2562d4f6b85f91e581f3187e5",
                 "type": "module",
                 "url": "/hacsfiles/custom-header/custom-header.js"
@@ -92,14 +87,9 @@
                 "url": "/local/custom.css"
             },
             {
-                "id": "e438cc0235a64c6b8a7787375a82210f",
+                "id": "e718af162a55471389e71f1f0d19efb6",
                 "type": "module",
-                "url": "/hacsfiles/lovelace-html-card/html-card.js"
-            },
-            {
-                "id": "69fb7ce0263d43f5ac3e391ff0476772",
-                "type": "module",
-                "url": "/hacsfiles/ha-card-waze-travel-time/ha-card-waze-travel-time.js"
+                "url": "/hacsfiles/decluttering-card/decluttering-card.js"
             }
         ]
     },

@@ -112,8 +112,11 @@ alexa:
         - media_player
       include_entities:
         - light.master_bath_light
+        - light.hallway_bath_light
+        - light.laundry_light
         - switch.firestone
         - switch.master_bath_fan
+        - switch.hallway_bath_fan
     entity_config:
       media_player.dining:
         display_categories: SPEAKER

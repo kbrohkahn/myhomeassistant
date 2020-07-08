@@ -151,6 +151,12 @@ users_away:
       - switch.master_bath_fan
       - switch.hallway_bath_fan
     service: switch.turn_off
+  - data:
+      entity_id:
+      - light.master_bath_light
+      - light.master_bath
+      - light.hallway_bath_light
+    service: light.turn_off
   - data: {}
     entity_id: media_player.dining
     service: media_player.media_stop
