@@ -3,7 +3,7 @@ lights_home_daylight:
   sequence:
   - data:
       brightness: 250
-    service: script.kitchen_daytime_lights
+    service: script.kitchen_daytime_lights_by_sun
   - data:
       entity_id:
       - light.hallway
@@ -57,11 +57,24 @@ kitchen_daytime_lights_by_sun:
   - data_template:
       brightness: '{{ brightness }}'
       hs_color:
+      - '{{ (180 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
+        ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
+        ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
+        ) / 360 * 180) % 360 }}'
+      - 80
+    entity_id: light.kitchen_strips
+    service: light.turn_on
+  - condition: state
+    entity_id: var.bedtime_announced
+    state: 'off'
+  - data_template:
+      brightness: '{{ brightness }}'
+      hs_color:
       - '{{ (120 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
         ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
         ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
         ) / 360 * 180) % 360}}'
-      - 80
+      - 20
     entity_id: light.kitchen_overhead
     service: light.turn_on
   - data_template:
@@ -71,8 +84,8 @@ kitchen_daytime_lights_by_sun:
         ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
         ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
         ) / 360 * 180) % 360 }}'
-      - 80
-    entity_id: light.kitchen_strips
+      - 50
+    entity_id: light.dining
     service: light.turn_on
 lights_home_sunset:
   alias: Lights when Home at Sunset
@@ -453,31 +466,28 @@ start_the_office:
   - data:
       brightness: 255
     service: script.office_daytime_lights
-  - delay: 00:00:30
-  - data:
-      brightness: 255
-    service: script.office_daytime_lights
-  - timeout: 00:00:30
-    wait_template: '{{ is_state(''media_player.office_tv'', ''standby'') }}'
   - data: {}
+    service: script.maybe_start_office_tv
+  - delay: 00:00:05
+  - data:
+      event: office_tv_input_hdmi3
     entity_id: media_player.office_tv
-    service: media_player.turn_on
+    service: ifttt.trigger
 stop_the_office:
   alias: Stop the Office
   sequence:
-  - data: {}
-    entity_id: media_player.office_tv
-    service: media_player.turn_off
-  - data: {}
-    entity_id:
-    - light.kbkpc
+  - entity_id:
     - light.office
+    - light.kbkpc
     service: light.turn_off
   - data: {}
     entity_id:
     - switch.fountain
     - switch.firestone
     service: switch.turn_off
+  - data:
+      event: office_tv_power
+    service: script.maybe_stop_office_tv
 office_daytime_lights:
   alias: Office Daytime Lights
   sequence:
@@ -671,6 +681,71 @@ master_bath_lights_on:
     service: light.turn_on
   - data_template:
       brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
+        %} 255 {% endif %} '
+      hs_color:
+      - '{% if is_state(''var.bedtime_announced'', ''on'') %} 0 {% else %} 60 {% endif
+        %}'
+      - 100
+    entity_id: light.master_bath_cabinet
+    service: light.turn_on
+  - data_template:
+      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
         %} 196 {% endif %} '
     entity_id: light.master_bath_light
     service: light.turn_on
+maybe_start_office_tv:
+  alias: Maybe Start Office TV
+  sequence:
+  - below: '20'
+    condition: numeric_state
+    entity_id: sensor.office_peripherals_watts
+  - data:
+      event: office_tv_power
+    service: ifttt.trigger
+maybe_stop_office_tv:
+  alias: Maybe Stop Office TV
+  sequence:
+  - above: '20'
+    condition: numeric_state
+    entity_id: sensor.office_peripherals_watts
+  - data:
+      event: office_tv_power
+    service: ifttt.trigger
+start_cameras:
+  alias: Start Cameras
+  sequence:
+  - data_template:
+      payload: '{"camera": true}'
+      topic: wallpanel/galaxytabs/command
+    service: mqtt.publish
+  - data_template:
+      payload: '{"camera": true}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
+  - data_template:
+      payload: '{"camera": true}'
+      topic: wallpanel/galaxys8/command
+    service: mqtt.publish
+  - data_template:
+      payload: '{"camera": true}'
+      topic: wallpanel/galaxys8plus/command
+    service: mqtt.publish
+stop_cameras:
+  alias: Stop Cameras
+  sequence:
+  - data_template:
+      payload: '{"camera": false}'
+      topic: wallpanel/galaxytabs/command
+    service: mqtt.publish
+  - data_template:
+      payload: '{"camera": false}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
+  - data_template:
+      payload: '{"camera": false}'
+      topic: wallpanel/galaxys8/command
+    service: mqtt.publish
+  - data_template:
+      payload: '{"camera": false}'
+      topic: wallpanel/galaxys8plus/command
+    service: mqtt.publish

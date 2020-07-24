@@ -90,6 +90,16 @@
                 "id": "e718af162a55471389e71f1f0d19efb6",
                 "type": "module",
                 "url": "/hacsfiles/decluttering-card/decluttering-card.js"
+            },
+            {
+                "id": "7c895d54dc7b4dc5959c1bfb39fbf0b8",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-valetudo-map-card/valetudo-map-card.js"
+            },
+            {
+                "id": "ee51ac3b9a234865bf233781410e57f2",
+                "type": "module",
+                "url": "/hacsfiles/vacuum-card/vacuum-card.js"
             }
         ]
     },

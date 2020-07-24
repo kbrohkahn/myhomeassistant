@@ -3,7 +3,6 @@
 default_config:
 
 http:
-  base_url: https://home.broh-kahn.com
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.0.0.1
@@ -16,6 +15,9 @@ http:
 
 recorder:
   db_url: !secret db_location
+  exclude:
+    entities:
+      - sensor.rockrobo_map
 #  purge_keep_days: 3
 #  commit_interval: 5
 
@@ -29,20 +31,6 @@ weather:
 
 
 
-hue:
-  bridges:
-    - host: 10.0.0.115
-
-discovery:
-  ignore:
-  enable:
-#    - roku
-#    - belkin_wemo
-#    - google_cast
-#    - bose_soundtouch
-#    - google_cast
-#    - philips_hue
-
 browser_mod:
   devices:
     edfcb7de_6e5ac694:
@@ -51,12 +39,14 @@ browser_mod:
       name: galaxytabs
     3fd3f6fc_97244c8c:
       name: galaxytaba
-    fce8bed9_e2c25f63:
+    db8b9ae7_91abae9d:
       name: galaxys8
     5b4db3ab_90038bc4:
       name: galaxys8plus
     40c4c093_22f08f4a:
       name: kbkpc
+    d923ab82_f41a3153:
+      name: sdsapc
       
 var:
   people_home:
@@ -67,10 +57,8 @@ var:
     icon: mdi:sleep
 
 zwave:
-  usb_path: /dev/ttyUSB0
+  usb_path: /dev/ttyUSB1
   network_key: !secret zwave_network_key
-
-
 
 spotify:
   client_id: !secret spotify_client_id
@@ -79,16 +67,9 @@ spotify:
 ifttt:
   key: !secret ifttt_api_key
 
-rest_command:
+discovery:
 
-  # hue_box_set_execution:
-  #   url: 'https://10.0.0.152/api/v1/execution'
-  #   verify_ssl: false
-  #   method: PUT
-  #   headers: 
-  #     content-type: 'application/json'
-  #     authorization: !secret hueBoxToken
-  #   payload: '{ {{ payload }} }'
+#rest_command:
 
 
 
@@ -117,6 +98,7 @@ alexa:
         - switch.firestone
         - switch.master_bath_fan
         - switch.hallway_bath_fan
+        - light.kbkpc
     entity_config:
       media_player.dining:
         display_categories: SPEAKER
@@ -124,6 +106,10 @@ alexa:
         display_categories: SPEAKER
       media_player.kitchen:
         display_categories: SPEAKER
+
+vacuum:
+  - platform: mqtt
+
 
 
 mobile_app:
@@ -144,6 +130,9 @@ speedtestdotnet:
     - ping
     - download
     - upload
+
+#apcupsd:
+#  host: a722577e-apcupsd
 
 switch:
   - platform: command_line
@@ -195,6 +184,18 @@ sensor:
     monitored_conditions:
       - clouds
       - weather_code
+
+  - platform: mqtt
+    state_topic: "valetudo/rockrobo/state"
+    json_attributes_topic: "valetudo/rockrobo/map_data_parsed"
+    name: rockrobo_map
+    value_template: 'OK'
+    scan_interval: 5
+
+  # - platform: apcupsd
+  #   resources:
+  #     - bcharge
+  #     - linev
 
   - platform: template
     sensors:

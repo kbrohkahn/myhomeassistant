@@ -182,8 +182,8 @@
     type: turned_off
   condition:
   - condition: template
-    value_template: '{{ as_timestamp(states.light.hallway.last_changed) - as_timestamp(state_attr(''script.hallway_daytime_lights'',
-      ''last_triggered'')) + 3 < 6 }}'
+    value_template: '{{ (as_timestamp(states.light.hallway.last_changed) - as_timestamp(state_attr(''script.hallway_daytime_lights'',
+      ''last_triggered''))) | abs < 3 }}'
   action:
   - data: {}
     entity_id: light.hallway
@@ -209,8 +209,8 @@
     entity_id: light.master
     state: 'on'
   - condition: template
-    value_template: '{{ as_timestamp(states.light.master.last_changed) - as_timestamp(state_attr(''automation.master_motion_start_lights'',
-      ''last_triggered'')) + 3 < 6 }}'
+    value_template: '{{ (as_timestamp(states.light.master.last_changed) - as_timestamp(state_attr(''automation.master_motion_start_lights'',
+      ''last_triggered''))) | abs < 3 }}'
   - condition: template
     value_template: '{{ state_attr(''light.master'', ''brightness'') == 250 }}'
   action:
@@ -277,7 +277,7 @@
   alias: Office Motion Start - Music
   description: ''
   trigger:
-  - entity_id: binary_sensor.mate_9_motion
+  - entity_id: binary_sensor.galaxy_s8_motion
     from: 'off'
     platform: state
     to: 'on'
@@ -385,6 +385,7 @@
     entity_id: media_player.spotify
     service: script.play_on_bose
   - delay: 00:00:05
+  mode: single
 - id: kitchen_motion_stop_after_bedtime
   alias: Kitchen Motion Stop After Bedtime
   description: ''
@@ -552,22 +553,6 @@
   - data: {}
     entity_id: light.hallway_bath_light
     service: light.turn_off
-- id: office_motion_on
-  alias: Office Motion Start - Dashboard
-  description: ''
-  trigger:
-  - entity_id: binary_sensor.mate_9_motion
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: var.bedtime_announced
-    state: 'off'
-  action:
-  - data: {}
-    entity_id: light.kbkpc
-    service: light.turn_on
 - id: hallway_bath_light_on
   alias: Hallway Bath Light On
   description: ''
@@ -625,12 +610,12 @@
     entity_id: light.kitchen
     state: 'on'
   - condition: template
-    value_template: '{{ as_timestamp(states.light.kitchen.last_updated) - as_timestamp(state_attr(''script.kitchen_daytime_lights'',
+    value_template: '{{ as_timestamp(states.light.kitchen.last_updated) - as_timestamp(state_attr(''script.kitchen_daytime_lights_by_sun'',
       ''last_triggered'')) < 1 }}'
   action:
   - data:
       brightness: 250
-    service: script.kitchen_daytime_lights
+    service: script.kitchen_daytime_lights_by_sun
 - id: hallway_light_color_refresh
   alias: Hallway Light Color Refresh
   description: ''
@@ -663,8 +648,8 @@
     type: no_motion
   condition:
   - condition: template
-    value_template: '{{ as_timestamp(states.light.kitchen.last_changed) - as_timestamp(state_attr(''script.kitchen_daytime_lights'',
-      ''last_triggered'')) + 3 < 6 }}'
+    value_template: '{{ (as_timestamp(states.light.kitchen.last_changed) - as_timestamp(state_attr(''script.kitchen_daytime_lights_by_sun'',
+      ''last_triggered''))) | abs < 3 }}'
   - condition: template
     value_template: '{{ state_attr(''light.kitchen'', ''brightness'') == 250 }}'
   - condition: state
@@ -688,11 +673,12 @@
     entity_id: light.kitchen_overhead
     service: light.turn_off
   - condition: template
-    value_template: '{{ as_timestamp(states.light.dining.last_changed) - as_timestamp(state_attr(''script.kitchen_daytime_lights'',
-      ''last_triggered'')) + 3 < 6 }}'
+    value_template: '{{ (as_timestamp(states.light.dining.last_changed) - as_timestamp(state_attr(''script.kitchen_daytime_lights_by_sun'',
+      ''last_triggered''))) | abs < 3 }}'
   - data: {}
     entity_id: light.dining
     service: light.turn_off
+  mode: single
 - id: thermostat_fan_schedule
   alias: Thermostat Fan Schedule
   description: ''
@@ -732,7 +718,7 @@
   action:
   - data:
       brightness: 250
-    service: script.kitchen_daytime_lights
+    service: script.kitchen_daytime_lights_by_sun
   - data:
       payload: '{"wake": true, "camera": true}'
       topic: wallpanel/galaxytaba/command
@@ -857,7 +843,7 @@
     entity_id: switch.master_bath_fan
     service: switch.turn_off
   - data: {}
-    entity_id: light.master_bath_under_vanity
+    entity_id: light.master_bath
     service: light.turn_off
   - data: {}
     entity_id: light.master_bath_light
@@ -899,29 +885,6 @@
       - media_player.dining_echo_dot
       - media_player.master_echo_dot
     service: notify.alexa_media
-- id: office_motion_stop_dashboard
-  alias: Office Motion Stop - Dashboard
-  description: ''
-  trigger:
-  - entity_id: binary_sensor.mate_9_motion
-    from: 'on'
-    platform: state
-    to: 'off'
-  condition: []
-  action:
-  - data:
-      deviceID:
-      - mate9
-      navigation_path: /lovelace/home
-    service: browser_mod.navigate
-  - timeout: 00:02:00
-    wait_template: '{{ is_state(''binary_sensor.mate_9_motion'', ''on'') }}'
-  - condition: state
-    entity_id: binary_sensor.mate_9_motion
-    state: 'off'
-  - data: {}
-    entity_id: light.kbkpc
-    service: light.turn_off
 - id: kitchen_overhead_turned_on_invisible
   alias: Kitchen Overhead Turned On Invisible
   description: ''
@@ -977,11 +940,65 @@
     from: 'on'
     platform: state
     to: 'off'
-  condition:
-  - condition: state
-    entity_id: light.master_bath
-    state: 'on'
+  condition: []
   action:
   - data: {}
     entity_id: light.master_bath
     service: light.turn_off
+  - data: {}
+    entity_id: switch.master_bath_fan
+    service: switch.turn_off
+- id: office_motion_stop_when_wfh
+  alias: Office Motion Stop when WFH
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_s8_motion
+    for: 00:02:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - after: 09:00:00
+    before: '18:00:00'
+    condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - data: {}
+    entity_id: light.kbkpc
+    service: light.turn_off
+  - data:
+      event: office_tv_input_hdmi3
+    service: ifttt.trigger
+- id: office_motion_start_when_wfh
+  alias: Office Motion Start when WFH
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_s8_motion
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: 09:00:00
+    before: '18:00:00'
+    condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  - condition: state
+    entity_id: light.kbkpc
+    state: 'off'
+  action:
+  - data: {}
+    entity_id: light.kbkpc
+    service: light.turn_on
+  - data:
+      event: office_tv_input_hdmi1
+    service: ifttt.trigger

@@ -429,6 +429,19 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
+                                                    "entity": "light.master_bath_cabinet",
+                                                    "icon": "mdi:led-strip-variant",
+                                                    "style": {
+                                                        "left": "12%",
+                                                        "top": "87%",
+                                                        "transform": "scale(1.5,1.5)"
+                                                    },
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
                                                     "entity": "switch.master_bath_fan",
                                                     "icon": "mdi:fan",
                                                     "style": {
@@ -687,6 +700,39 @@
                                                                                                     "service_data": {
                                                                                                         "script_id": "script.run_the_fan"
                                                                                                     }
+                                                                                                },
+                                                                                                "type": "button"
+                                                                                            }
+                                                                                        ],
+                                                                                        "type": "horizontal-stack"
+                                                                                    },
+                                                                                    {
+                                                                                        "cards": [
+                                                                                            {
+                                                                                                "entity": "script.stop_cameras",
+                                                                                                "hold_action": {
+                                                                                                    "action": "more-info"
+                                                                                                },
+                                                                                                "icon": "mdi:camera-off",
+                                                                                                "show_icon": true,
+                                                                                                "show_name": true,
+                                                                                                "show_state": false,
+                                                                                                "tap_action": {
+                                                                                                    "action": "toggle"
+                                                                                                },
+                                                                                                "type": "button"
+                                                                                            },
+                                                                                            {
+                                                                                                "entity": "script.start_cameras",
+                                                                                                "hold_action": {
+                                                                                                    "action": "more-info"
+                                                                                                },
+                                                                                                "icon": "mdi:camera",
+                                                                                                "show_icon": true,
+                                                                                                "show_name": true,
+                                                                                                "show_state": false,
+                                                                                                "tap_action": {
+                                                                                                    "action": "toggle"
                                                                                                 },
                                                                                                 "type": "button"
                                                                                             }
@@ -1486,14 +1532,26 @@
                                                     "type": "button"
                                                 },
                                                 {
-                                                    "entity": "media_player.playstation_4",
+                                                    "entity": "media_player.spotify",
                                                     "hold_action": {
                                                         "action": "more-info"
                                                     },
                                                     "show_icon": true,
                                                     "show_name": true,
                                                     "tap_action": {
-                                                        "action": "toggle"
+                                                        "action": "call-service",
+                                                        "id": "browser_mod.popup",
+                                                        "service": "browser_mod.popup",
+                                                        "service_data": {
+                                                            "card": {
+                                                                "type": "custom:spotify-card"
+                                                            },
+                                                            "deviceID": [
+                                                                "this"
+                                                            ],
+                                                            "title": "Spotify"
+                                                        },
+                                                        "type": "service"
                                                     },
                                                     "type": "button"
                                                 }
@@ -1747,7 +1805,6 @@
                             "cards": [
                                 {
                                     "aspect_ratio": "0%",
-                                    "camera_image": "camera.galaxy_tab_a_camera",
                                     "entities": [
                                         {
                                             "entity": "binary_sensor.galaxy_tab_a_motion"
@@ -1758,11 +1815,14 @@
                                     ],
                                     "entity": "camera.galaxy_tab_a_camera",
                                     "image": "local/images/rooms/kitchen.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
                                     "title": "Kitchen",
                                     "type": "picture-glance"
                                 },
                                 {
-                                    "camera_image": "camera.galaxy_s8_plus_camera",
                                     "entities": [
                                         {
                                             "entity": "binary_sensor.galaxy_s8_plus_motion"
@@ -1773,6 +1833,10 @@
                                     ],
                                     "entity": "camera.galaxy_s8_plus_camera",
                                     "image": "local/images/rooms/living.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
                                     "title": "Living Room",
                                     "type": "picture-glance"
                                 }
@@ -1782,8 +1846,6 @@
                         {
                             "cards": [
                                 {
-                                    "aspect_ratio": "0%",
-                                    "camera_image": "camera.galaxy_tab_s_camera",
                                     "entities": [
                                         {
                                             "entity": "binary_sensor.galaxy_tab_s_motion"
@@ -1794,23 +1856,48 @@
                                     ],
                                     "entity": "camera.galaxy_tab_s_camera",
                                     "image": "local/images/rooms/master.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
                                     "title": "Master",
                                     "type": "picture-glance"
                                 },
                                 {
-                                    "camera_image": "camera.mate_9_camera",
                                     "entities": [
                                         {
-                                            "entity": "binary_sensor.mate_9_motion"
+                                            "entity": "binary_sensor.galaxy_s8_motion"
                                         },
                                         {
-                                            "entity": "camera.mate_9_camera"
+                                            "entity": "camera.galaxy_s8_camera"
                                         }
                                     ],
-                                    "entity": "camera.mate_9_camera",
+                                    "entity": "camera.galaxy_s8_camera",
                                     "image": "local/images/rooms/office.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
                                     "title": "Office",
                                     "type": "picture-glance"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "vacuum.rockrobo",
+                                    "type": "custom:vacuum-card"
+                                },
+                                {
+                                    "camera_image": "camera.rockrobo_map",
+                                    "entities": [
+                                        "camera.rockrobo_map",
+                                        "sensor.rockrobo_map"
+                                    ],
+                                    "entity": "camera.rockrobo_map",
+                                    "type": "picture-entity"
                                 }
                             ],
                             "type": "vertical-stack"
