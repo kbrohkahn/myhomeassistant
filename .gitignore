@@ -1,6 +1,9 @@
 # Ignore folders.
 .cloud
-.storage
+.storage/hacs
+.storage/auth*
+.storage/alexa*
+.storage/mobile_app
 ssl
 tts
 

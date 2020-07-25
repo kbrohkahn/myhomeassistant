@@ -1,0 +1,2038 @@
+{
+    "data": {
+        "deleted_devices": [
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "id": "c5b77242f8fa41feaa408486d7d22bb4",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:12:4b:00:1d:84:e2:37-0b"
+                    ]
+                ]
+            }
+        ],
+        "devices": [
+            {
+                "area_id": null,
+                "config_entries": [
+                    "5fe26d04b07847e3a4d2114580556d2e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "d6c833aeee224c3da655f79dee709522",
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "392cd2cd72f948a892dcea9e29d2ee59"
+                    ]
+                ],
+                "manufacturer": "samsung",
+                "model": "SM-N975U1",
+                "name": "Kevin's Galaxy Note 10+",
+                "name_by_user": null,
+                "sw_version": "29",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "67b86eb1fdee4c75b3af5e09c8dcadc5"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "e84bf85908784e85a76378ae04b5a9d8",
+                "identifiers": [
+                    [
+                        "wemo",
+                        "221821K0100C11"
+                    ]
+                ],
+                "manufacturer": "Belkin",
+                "model": "Socket",
+                "name": "Fountain",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "f56b665083104243be551dd904815b88"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "07b4348ba48e4e3ba50835054aedd047",
+                "identifiers": [
+                    [
+                        "hacs",
+                        "0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd"
+                    ]
+                ],
+                "manufacturer": "hacs.xyz",
+                "model": "",
+                "name": "HACS",
+                "name_by_user": null,
+                "sw_version": "1.2.2",
+                "via_device_id": null
+            },
+            {
+                "area_id": "daf77bcc23b74036a51df8a246fff625",
+                "config_entries": [
+                    "0bfc7c8d36f34a05a63e877ab9349cab"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "8a0468dca0e74133b959e5e4dc77bf93",
+                "identifiers": [
+                    [
+                        "cast",
+                        "6254f7596c2b3fd1d2a3066ac7882649"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Chromecast",
+                "name": "Living Room Chromecast",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "0bfc7c8d36f34a05a63e877ab9349cab"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "72570f54ad964fa28f17c89fd5c17336",
+                "identifiers": [
+                    [
+                        "cast",
+                        "8b661581698c9890983b887fa79beafc"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Chromecast",
+                "name": "Office Chromecast",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "0bfc7c8d36f34a05a63e877ab9349cab"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "c4e5b87a8dbd4b5e856bbda0d7c53974",
+                "identifiers": [
+                    [
+                        "cast",
+                        "cfff501cbbb4de177450abda863e183f"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Chromecast",
+                "name": "Living Room Chromecast",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "788235141890461788e8c7c820f306dd"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "26e560ef17a245d3ab0df9451d0b012a",
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "d689aabf1278c427"
+                    ]
+                ],
+                "manufacturer": "samsung",
+                "model": "SM-N975U1",
+                "name": "SM-N975U1",
+                "name_by_user": null,
+                "sw_version": "29",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "efc6d2cd73d8419db5e4bf351121c97f"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "bca2a4f1fe6a4e9da8ae98ee5a1638a5",
+                "identifiers": [
+                    [
+                        "ps4",
+                        "0CFE451B055C"
+                    ]
+                ],
+                "manufacturer": "Sony Interactive Entertainment Inc.",
+                "model": "PlayStation 4",
+                "name": "PS4-253",
+                "name_by_user": null,
+                "sw_version": "7.02",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "f5df74a651064e829abde60c284e64c4"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "6b8f216510e64089bf07cfcd79396ae3",
+                "identifiers": [
+                    [
+                        "roku",
+                        "YH0007197243"
+                    ]
+                ],
+                "manufacturer": "Roku",
+                "model": "Roku Streaming Stick+",
+                "name": "Theater Roku",
+                "name_by_user": null,
+                "sw_version": "9.3.0",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "d3b3cc8bbe814760bc8b79c775acf8e6",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:7a:13:ea-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue white lamp",
+                "name": "Office C",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "64098309e0854be39de90e27b6fefbc0",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:42:7c:78-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue white lamp",
+                "name": "Office A",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "c06c2bde739748f8875b7ba7eb3a61bc",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:42:7b:e0-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue white lamp",
+                "name": "Office B",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "28925b3a62ec4c778413413c440776f5",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:02:56:cc:0f-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue white lamp",
+                "name": "Office C",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "4575eedfb10a48939671ad207da9a332",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:65:b4:15-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue lightstrip plus",
+                "name": "Kitchen North Strip",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "7775a4113edf400ea032ea686b33e2ba",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:00:f7:b7:ed-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Kitchen Right",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "b2a6422df04245d49765c44c3754210f",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:10:54:53:b8-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Bedside Lamp South",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "be50bd7fb5004342b0f64d089a8fcfbc",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:10:54:53:c5-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Kitchen Mid Left",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "e277014e8ed64969bd8b1cd1da825b7e",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:10:5a:13:89-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Kitchen Mid Right",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "9a66d087c0a74d03ba3241d885d79f43",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:10:55:9c:48-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Bedside Lamp North",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "153cd9f1666d433281bb46f1f8921303",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:02:31:44:34-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Master Standing Lamp",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "1f3287d224cd436190609d3270f17820",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:10:37:d7:19-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Kitchen Forward",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "591c4d8455ef424cb0a1f2c1c5c2a809",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:10:37:d2:7a-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Kitchen Left",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "26c94d8135f9493bb9acde34c760ea6d",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:7b:07:d0-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue white lamp",
+                "name": "Office D",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "0dbf8ad33b1545498ffc742a1533bade",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:10:37:d7:e4-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Master Table Lamp ",
+                "name_by_user": null,
+                "sw_version": "5.130.1.30000",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "35b6c2632fcf416383c4553ac15a009e",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:b8:7e:df-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "TV Top Left",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "0a06b215dff146f2944e6b6412649f4d",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:aa:4d:dc-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "TV Top Right",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "4152ae0fc07a4060ba08126637b2801c",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:b9:95:15-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "TV Surround Right",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "eb5d54470684446ca7dd2071dbd4b588",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:dd:77:7f-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "TV Surround Left",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "a7d090df51ed40669b0f8c6aec999864",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:9d:e1:36-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Hallway North",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "675903904d8249959d63cbfe8f32389e",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:04:69:e7:8f-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "Living Room Lamp Spotlight",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "df07e49f3b704afb89739dd358d3da52",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:ad:ef:4f-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "TV Bottom Left",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "ddcaef8f278a415383793cb9a41dc72d",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:b3:78:ff-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color lamp",
+                "name": "TV Bottom Right",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "e876e6dbffa340c090f01dafdabafc10",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:12:4b:00:1d:44:f7:f1-0b"
+                    ]
+                ],
+                "manufacturer": "GLEDOPTO",
+                "model": "Extended color light",
+                "name": "Office TV Strip",
+                "name_by_user": null,
+                "sw_version": "2.0.0",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "c1d9b158865c4c1b993142ba8940b030",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:12:4b:00:1d:43:cd:26-0b"
+                    ]
+                ],
+                "manufacturer": "GLEDOPTO",
+                "model": "Extended color light",
+                "name": "Office East Strip",
+                "name_by_user": null,
+                "sw_version": "2.0.0",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "bdb2d0df64f1421eaeffcd2b2325a7f0",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:06:53:5e:e8-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue play",
+                "name": "TV Bottom Center",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "05ab581e874643c2a0194fb0b30cf9ee",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:06:53:57:fd-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue play",
+                "name": "TV Top Center",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "f0f42fd1c4b74d0f8c74c858abfe37df",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:08:97:99:d9-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color Lamp",
+                "name": "Dining 60",
+                "name_by_user": null,
+                "sw_version": "1.65.11_hB798F2",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "f5b84ffea9e449adb8c9e465bec055d4",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:08:7e:96:66-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color Lamp",
+                "name": "Living Room Lamp A",
+                "name_by_user": null,
+                "sw_version": "1.65.11_hB798F2",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "4a0eab374f484c72b8643bf6a9152d36",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:08:7d:e6:6e-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color Lamp",
+                "name": "Dining 360",
+                "name_by_user": null,
+                "sw_version": "1.65.11_hB798F2",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "b83e95b6d33a4dbd862b1ad3ad12db68",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:08:7d:e4:44-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color Lamp",
+                "name": "Living Room Lamp B",
+                "name_by_user": null,
+                "sw_version": "1.65.11_hB798F2",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "ca9321ff9754485383ce093527fd309b",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:08:9c:d1:52-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color Lamp",
+                "name": "Dining 300",
+                "name_by_user": null,
+                "sw_version": "1.65.11_hB798F2",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "bf6348bc48bd4ef9b4a13462c23805a3",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:08:7e:98:19-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color Lamp",
+                "name": "Dining 180",
+                "name_by_user": null,
+                "sw_version": "1.65.11_hB798F2",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "5a4227738842433a9123d2004fd5d004",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:08:9c:cc:85-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color Lamp",
+                "name": "Dining 240",
+                "name_by_user": null,
+                "sw_version": "1.65.11_hB798F2",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "4a0fd1e6dfef4e5fb4fdd31fcc160bdb",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:08:7d:e9:d1-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color Lamp",
+                "name": "Dining 120",
+                "name_by_user": null,
+                "sw_version": "1.65.11_hB798F2",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "d20b99928d9d4de9b502d459b96ad9c6",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:08:9c:cc:82-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue color Lamp",
+                "name": "Hallway South",
+                "name_by_user": null,
+                "sw_version": "1.65.11_hB798F2",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "fc02724ac5e14c92a4532e006f0b97f1",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:02:29:9c:b4-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue white lamp",
+                "name": "Closet Light",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "4c848b2ed87e41e7aaa789c28f6cc354",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:04:04:f4:7e-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue lightstrip plus",
+                "name": "Living Room Northeast",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "3b2aefb50384469d80ccb8ac2192a7c7",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:04:04:ce:12-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue lightstrip plus",
+                "name": "Kitchen South Strip",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "d637f68ffccc4a33aa32a570ed6e8209",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:cf:9f:a3-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue lightstrip plus",
+                "name": "Kitchen Bar",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "c919bad75c214a1daa990b571f6f1d9f",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:04:49:75:26-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue lightstrip plus",
+                "name": "Living Room Southwest",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "a29901f80ec04282aa67353d3bd8f5d1",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:04:49:44:b4-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue lightstrip plus",
+                "name": "Living Room Bottom",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "5f45866c6e1a4562b51d341dcc4dc565",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:c8:70:b4"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue dimmer switch",
+                "name": "Kitchen switch",
+                "name_by_user": null,
+                "sw_version": "6.1.1.28573",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "804dc8a0227c4a478a15cc0af7139a83",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:c8:70:79"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue dimmer switch",
+                "name": "Office switch",
+                "name_by_user": null,
+                "sw_version": "6.1.1.28573",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "6579392cc3d4438ab4580b99e182416f",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:06:37:bf:d0"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue dimmer switch",
+                "name": "Master switch",
+                "name_by_user": null,
+                "sw_version": "6.1.1.28573",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "cd9ba4d910c44666a335e69732474f5b",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:12:4b:00:1d:84:ea:0e-0b"
+                    ]
+                ],
+                "manufacturer": "GLEDOPTO",
+                "model": "Extended color light",
+                "name": "Office West Strip",
+                "name_by_user": null,
+                "sw_version": "2.0.0",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "431ca060b87843eb898b27a402a3714c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "69553192a37641adbb680cd10e154031",
+                "identifiers": [
+                    [
+                        "plex",
+                        "93d5d7465da3cb33e097b788658ee06202872807"
+                    ]
+                ],
+                "manufacturer": "Plex",
+                "model": "Plex Media Server",
+                "name": "Activity Sensor",
+                "name_by_user": null,
+                "sw_version": "1.18.4.2171-ac2afe5f8",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "431ca060b87843eb898b27a402a3714c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "a75baf55512d453e968ebcac58252014",
+                "identifiers": [
+                    [
+                        "plex",
+                        "l79frdute4h0h79l4h4p5zn6"
+                    ]
+                ],
+                "manufacturer": "Plex",
+                "model": "Plex Web",
+                "name": "Plex (Plex Web - Chrome)",
+                "name_by_user": null,
+                "sw_version": "4.22.3",
+                "via_device_id": "69553192a37641adbb680cd10e154031"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "431ca060b87843eb898b27a402a3714c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "acb64dedab4649f49a1d50a0f8bab590",
+                "identifiers": [
+                    [
+                        "plex",
+                        "4488351befbafef1dfe4c18f6f9b7427"
+                    ]
+                ],
+                "manufacturer": "Plex",
+                "model": "Plex for Roku",
+                "name": "Plex (Plex for Roku - Theater Roku)",
+                "name_by_user": null,
+                "sw_version": "6.6.4.6468-8be6f8f5b-Plex - Stream Free Movies & TV",
+                "via_device_id": "69553192a37641adbb680cd10e154031"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "431ca060b87843eb898b27a402a3714c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "6872f7d40d814fa89b4df693cae744ef",
+                "identifiers": [
+                    [
+                        "plex",
+                        "179f0388a9967656-com-plexapp-android"
+                    ]
+                ],
+                "manufacturer": "Plex",
+                "model": "Plex for Android (Mobile)",
+                "name": "Plex (Plex for Android (Mobile) - Galaxy Note10+)",
+                "name_by_user": null,
+                "sw_version": "8.0.1.17410",
+                "via_device_id": "69553192a37641adbb680cd10e154031"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "00:17:88:62:c1:1f"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "cd924f1b76d64862aff6c8d5aa2b8914",
+                "identifiers": [
+                    [
+                        "hue",
+                        "001788FFFE62C11F"
+                    ]
+                ],
+                "manufacturer": "Signify",
+                "model": "BSB002",
+                "name": "Philips hue",
+                "name_by_user": null,
+                "sw_version": "1939070020",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "0bfc7c8d36f34a05a63e877ab9349cab"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "160a71454aaf488c965494b35526c40c",
+                "identifiers": [
+                    [
+                        "cast",
+                        "44618379bc28ffaebfe204e4e341a2a1"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Nest Mini",
+                "name": "Living room speaker",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": "252d6f6e725f4b6ca291c2c254967169",
+                "config_entries": [
+                    "cad989027332420ab1109f8d75e78c7c"
+                ],
+                "connections": [],
+                "entry_type": "service",
+                "id": "7836cc70c3b845b29bc4c53540cb4842",
+                "identifiers": [
+                    [
+                        "adguard",
+                        "127.0.0.1",
+                        45158,
+                        "/control/"
+                    ]
+                ],
+                "manufacturer": "AdGuard Team",
+                "model": null,
+                "name": "AdGuard Home",
+                "name_by_user": null,
+                "sw_version": "v0.102.0",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "34fe04e761e441dab72667d59f099443"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "eccaf8561e594e0eb17bfd928b3f0e10",
+                "identifiers": [
+                    [
+                        "spotify",
+                        "125975319"
+                    ]
+                ],
+                "manufacturer": "Spotify AB",
+                "model": "Spotify premium",
+                "name": "Spotify 125975319",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": "795e81eaddb84a98ae34b766ebe06b1c",
+                "config_entries": [
+                    "8028143815574e2bb772acd56503b06b"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "f82edb5a8a02409b9320b3d7c6c7aba5",
+                "identifiers": [
+                    [
+                        "harmony",
+                        "16371405"
+                    ]
+                ],
+                "manufacturer": "Logitech",
+                "model": "Harmony Hub",
+                "name": "Harmony Hub",
+                "name_by_user": null,
+                "sw_version": "4.15.264",
+                "via_device_id": null
+            },
+            {
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
+                "config_entries": [
+                    "b05d3291a4b44a97a843316c4ead642e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "ea047ab7ad64476babcd7572de4550d2",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "0b93530f88574f38a17e813544b42d6c"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "WHA A3C9PE6TNYLTCH",
+                "name": "Master",
+                "name_by_user": null,
+                "sw_version": "0",
+                "via_device_id": "ea047ab7ad64476babcd7572de4550d2"
+            },
+            {
+                "area_id": "60557a625d30454898715b30865dd6cb",
+                "config_entries": [
+                    "b05d3291a4b44a97a843316c4ead642e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "d9d62d34228e4d8286c80eaf3b4a6322",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G090XG0894372QW0"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A1RABVCI4QCIKC",
+                "name": "Dining Echo Dot",
+                "name_by_user": null,
+                "sw_version": "3725204868",
+                "via_device_id": "d9d62d34228e4d8286c80eaf3b4a6322"
+            },
+            {
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
+                "config_entries": [
+                    "b05d3291a4b44a97a843316c4ead642e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "28f59c72bb4d450f86e3a93bd7e5424b",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G090XG08946230XS"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A1RABVCI4QCIKC",
+                "name": "Master Echo Dot",
+                "name_by_user": null,
+                "sw_version": "3926570372",
+                "via_device_id": "28f59c72bb4d450f86e3a93bd7e5424b"
+            },
+            {
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
+                "config_entries": [
+                    "b05d3291a4b44a97a843316c4ead642e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "103d9e5f95a243dda70140d0dc46b26e",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G0911M0900150J20"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A1RABVCI4QCIKC",
+                "name": "Master Bath Echo Dot",
+                "name_by_user": null,
+                "sw_version": "3926570372",
+                "via_device_id": "103d9e5f95a243dda70140d0dc46b26e"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "b05d3291a4b44a97a843316c4ead642e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "9f13cec772074ddb9a522d461ee213be",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "77f0a66c904f4200a6ca798e4faab587"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "VOX A2TF17PFR55MTB",
+                "name": "This Device",
+                "name_by_user": null,
+                "sw_version": "130050002",
+                "via_device_id": "9f13cec772074ddb9a522d461ee213be"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "b05d3291a4b44a97a843316c4ead642e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "064a291d87a04a219bf3879bd0477c1a",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "A87C01926EEA"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "AMAZONMOBILEMUSIC_ANDROID A1DL2DVDQVK3Q",
+                "name": "Kevin's Alexa Apps",
+                "name_by_user": null,
+                "sw_version": "4050010",
+                "via_device_id": "064a291d87a04a219bf3879bd0477c1a"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "9fa0f46ba81b4ae4ab8cbe1720807333",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:04:8c:80:29-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue lightstrip plus",
+                "name": "Master Bath Under Vanity",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "0bfc7c8d36f34a05a63e877ab9349cab"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "c00cba9ae8734cc7b951f0260c191465",
+                "identifiers": [
+                    [
+                        "cast",
+                        "be5a5da34ab75a3dc6d73000da400a28"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Chromecast",
+                "name": "Office TV",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "b05d3291a4b44a97a843316c4ead642e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "617544b6dbab49c780e33760e3029d72",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G0014B0695230F93"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A3VRME03NAXFUB",
+                "name": "Hallway Bath Echo Flex",
+                "name_by_user": null,
+                "sw_version": "3725204868",
+                "via_device_id": "617544b6dbab49c780e33760e3029d72"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:0d:6f:00:0b:3d:32:f5"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "d00977c5bab6415fb1eb9e9292ddf490",
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:0d:6f:00:0b:3d:32:f5"
+                    ]
+                ],
+                "manufacturer": "ZHA",
+                "model": "EZSP = Silicon Labs EmberZNet protocol: Elelabs, HUSBZB-1, Telegesis",
+                "name": "Zigbee Coordinator",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0a:b7:d7"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "87a7c1f819c341f8a316469951615748",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0a:b7:d7"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "multi",
+                "name": "Samjin multi",
+                "name_by_user": null,
+                "sw_version": "0x00000011",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0a:b2:a6"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "d9ac68d4df67491eae34b04aff6d8b37",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0a:b2:a6"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "multi",
+                "name": "Samjin multi",
+                "name_by_user": null,
+                "sw_version": "0x00000011",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0a:b8:ae"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "443bf27f0f754ffc91726a5c588ebb3a",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0a:b8:ae"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "multi",
+                "name": "Samjin multi",
+                "name_by_user": null,
+                "sw_version": "0x00000011",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "24:fd:5b:00:01:06:7c:ad"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "02cf62b37fb14828b75b338a9aed2377",
+                "identifiers": [
+                    [
+                        "zha",
+                        "24:fd:5b:00:01:06:7c:ad"
+                    ]
+                ],
+                "manufacturer": "SmartThings",
+                "model": "motionv4",
+                "name": "SmartThings motionv4",
+                "name_by_user": null,
+                "sw_version": "0x0000001b",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "24:fd:5b:00:01:03:1b:4f"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "974f79bf318440f9b8a79209cd851a9e",
+                "identifiers": [
+                    [
+                        "zha",
+                        "24:fd:5b:00:01:03:1b:4f"
+                    ]
+                ],
+                "manufacturer": "SmartThings",
+                "model": "multiv4",
+                "name": "SmartThings multiv4",
+                "name_by_user": null,
+                "sw_version": "0x0000001b",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0a:a8:7c"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "54c021b705cf416482a6139a1691bf92",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0a:a8:7c"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "multi",
+                "name": "Samjin multi",
+                "name_by_user": null,
+                "sw_version": "0x00000011",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "24:fd:5b:00:01:05:0f:7a"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "923b446b11aa43f8bb2effba39943632",
+                "identifiers": [
+                    [
+                        "zha",
+                        "24:fd:5b:00:01:05:0f:7a"
+                    ]
+                ],
+                "manufacturer": "SmartThings",
+                "model": "outletv4",
+                "name": "SmartThings outletv4",
+                "name_by_user": null,
+                "sw_version": "0x00000012",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0c:77:b0"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "d940dd51486348bc872c1e7b9a200ec9",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0c:77:b0"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "motion",
+                "name": "Samjin motion",
+                "name_by_user": null,
+                "sw_version": "0x00000011",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "24:fd:5b:00:01:03:55:7b"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "482640ceb0844fff96b6f507b3e59e7b",
+                "identifiers": [
+                    [
+                        "zha",
+                        "24:fd:5b:00:01:03:55:7b"
+                    ]
+                ],
+                "manufacturer": "SmartThings",
+                "model": "multiv4",
+                "name": "SmartThings multiv4",
+                "name_by_user": null,
+                "sw_version": "0x0000001b",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0c:86:70"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "e9ff6f9809954d119c5184cff2f7dd8e",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0c:86:70"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "motion",
+                "name": "Samjin motion",
+                "name_by_user": null,
+                "sw_version": "0x00000011",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "e0a76f686900476ca69977bb15f7cc8b",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:04:8c:80:3b-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue lightstrip plus",
+                "name": "Master Bath Cabinet",
+                "name_by_user": null,
+                "sw_version": "1.50.2_r30933",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "49c869679d214b3a92b668c4df8a77a5",
+                "identifiers": [
+                    [
+                        "zwave",
+                        1
+                    ]
+                ],
+                "manufacturer": "Z-Wave (Sigma Designs)",
+                "model": "UZB Z-Wave USB Adapter",
+                "name": "Z-Wave (Sigma Designs) UZB Z-Wave USB Adapter",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "f30a8050d47f47ff968efa1153f40e56",
+                "identifiers": [
+                    [
+                        "zwave",
+                        2
+                    ]
+                ],
+                "manufacturer": "Leviton",
+                "model": "DZ15S-1BZ Decora Smart Switch",
+                "name": "Leviton DZ15S-1BZ Decora Smart Switch",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "a13e18dd66e847a2922a478c01815499",
+                "identifiers": [
+                    [
+                        "zwave",
+                        3
+                    ]
+                ],
+                "manufacturer": "Leviton",
+                "model": "DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name": "Leviton DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "bd07b26969084fc9bb216af1074c2cb8",
+                "identifiers": [
+                    [
+                        "zwave",
+                        4
+                    ]
+                ],
+                "manufacturer": "Leviton",
+                "model": "DZ15S-1BZ Decora Smart Switch",
+                "name": "Leviton DZ15S-1BZ Decora Smart Switch",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "edf071a0a8c84ec7be17babaab672d7f",
+                "identifiers": [
+                    [
+                        "zwave",
+                        5
+                    ]
+                ],
+                "manufacturer": "Leviton",
+                "model": "DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name": "Leviton DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "4a38d9a2c3c64c108f10b9e2878e5308",
+                "identifiers": [
+                    [
+                        "zwave",
+                        6
+                    ]
+                ],
+                "manufacturer": "Leviton",
+                "model": "DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name": "Leviton DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "b05d3291a4b44a97a843316c4ead642e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "b43708df2cd348b6b0eb77b68c28a3d2",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G2A0V704937507L9"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A18O6U1UQFJ0XK",
+                "name": "Dining Echo Plus",
+                "name_by_user": null,
+                "sw_version": "3926569348",
+                "via_device_id": "b43708df2cd348b6b0eb77b68c28a3d2"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "b05d3291a4b44a97a843316c4ead642e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "03e212ac498249a591547c7abbaf248d",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G2A0U2040164040E"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A18O6U1UQFJ0XK",
+                "name": "Kevin's 2nd Echo Plus",
+                "name_by_user": null,
+                "sw_version": "0",
+                "via_device_id": "03e212ac498249a591547c7abbaf248d"
+            }
+        ]
+    },
+    "key": "core.device_registry",
+    "version": 1
+}

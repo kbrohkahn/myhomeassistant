@@ -1,0 +1,36 @@
+{
+    "data": {
+        "areas": [
+            {
+                "id": "795e81eaddb84a98ae34b766ebe06b1c",
+                "name": "Living Room"
+            },
+            {
+                "id": "daf77bcc23b74036a51df8a246fff625",
+                "name": "Kitchen"
+            },
+            {
+                "id": "ad0579cdf0244dfc996aa5fe700ae94c",
+                "name": "Den"
+            },
+            {
+                "id": "17bb4caef04b408bb0478dc433f9ada8",
+                "name": "Master"
+            },
+            {
+                "id": "252d6f6e725f4b6ca291c2c254967169",
+                "name": "Office"
+            },
+            {
+                "id": "60557a625d30454898715b30865dd6cb",
+                "name": "Dining"
+            },
+            {
+                "id": "adafa7bbf387405e8205e182291055c9",
+                "name": "Hallway"
+            }
+        ]
+    },
+    "key": "core.area_registry",
+    "version": 1
+}

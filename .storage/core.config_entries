@@ -1,0 +1,469 @@
+{
+    "data": {
+        "entries": [
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "track_home": true
+                },
+                "domain": "met",
+                "entry_id": "9362619174aa4c1aba5c68c36df760a8",
+                "options": {},
+                "source": "onboarding",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Home",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {},
+                "domain": "wemo",
+                "entry_id": "67b86eb1fdee4c75b3af5e09c8dcadc5",
+                "options": {},
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Wemo",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_push",
+                "data": {
+                    "app_data": {
+                        "push_token": "dSL8b6PgTOs:APA91bH48OSQ9Of85KATftsOnp478Snhg2UUTt3QrVtuhHXzcrx2ZAIfaJ84URTtJ-vjBIYdrbPJ4CwxEZmwcpxYa2IyjwOlrff2qrdH_kr_0QDCPA_zL0GUvtyOqwduTJ9ZErcWV1LK",
+                        "push_url": "https://mobile-apps.home-assistant.io/api/sendPush/android/v1"
+                    },
+                    "app_id": "io.homeassistant.companion.android",
+                    "app_name": "Home Assistant",
+                    "app_version": "1.8.0-144 (144)",
+                    "device_id": "392cd2cd72f948a892dcea9e29d2ee59",
+                    "device_name": "Kevin's Galaxy Note 10+",
+                    "manufacturer": "samsung",
+                    "model": "SM-N975U1",
+                    "os_name": "Android",
+                    "os_version": "29",
+                    "supports_encryption": false,
+                    "user_id": "12a658637c244fe0a8ccb72305833564",
+                    "webhook_id": "66a8aef9dbef24153110e8d2410123da9b3a38ddca372e12565f0e3ed399f7cd"
+                },
+                "domain": "mobile_app",
+                "entry_id": "5fe26d04b07847e3a4d2114580556d2e",
+                "options": {},
+                "source": "registration",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "SM-N975U1",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "appdaemon": false,
+                    "python_script": false,
+                    "sidepanel_icon": "mdi:alpha-c-box",
+                    "sidepanel_title": "Community",
+                    "theme": false,
+                    "token": "d085db78d621a927dd78b0c954e3cdfef64396c3"
+                },
+                "domain": "hacs",
+                "entry_id": "f56b665083104243be551dd904815b88",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "user_id": "f8e92c5735024a96a2eea73b2aa8ccff"
+                },
+                "domain": "cast",
+                "entry_id": "0bfc7c8d36f34a05a63e877ab9349cab",
+                "options": {},
+                "source": "zeroconf",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Google Cast",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "host": "10.0.0.115"
+                },
+                "domain": "hue",
+                "entry_id": "0f7c8ea1b7fb4eed8e69e218c0c640dd",
+                "options": {},
+                "source": "ignore",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Ignored",
+                "unique_id": "b9655912274a",
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "password": "5H&nGNZ@g8kyxV86",
+                    "username": "kbkrunner@gmail.com"
+                },
+                "domain": "vesync",
+                "entry_id": "88255a1681c34f3485dc42d75786d41d",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "kbkrunner@gmail.com",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_push",
+                "data": {
+                    "app_data": {
+                        "push_token": "cJOPob-wsSU:APA91bFswUJaNoPiQqqkOGz1N1u5ceVXAt4-J23BJrqOyb-Au8ftSd3ws0Cqon4Tph8lcCXd2D1YX5OIfLTV0n_fboqVaSiydlLr_U10TKB3pXPD6w2XNJaGe2FwvLP4ZmL6goyYxDfD",
+                        "push_url": "https://mobile-apps.home-assistant.io/api/sendPush/android/v1"
+                    },
+                    "app_id": "io.homeassistant.companion.android",
+                    "app_name": "Home Assistant",
+                    "app_version": "1.11.2-221 (221)",
+                    "device_id": "d689aabf1278c427",
+                    "device_name": "SM-N975U1",
+                    "manufacturer": "samsung",
+                    "model": "SM-N975U1",
+                    "os_name": "Android",
+                    "os_version": "29",
+                    "supports_encryption": false,
+                    "user_id": "12a658637c244fe0a8ccb72305833564",
+                    "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+                },
+                "domain": "mobile_app",
+                "entry_id": "788235141890461788e8c7c820f306dd",
+                "options": {},
+                "source": "registration",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "SM-N975U1",
+                "unique_id": "io.homeassistant.companion.android-d689aabf1278c427",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "broker": "core-mosquitto",
+                    "discovery": true,
+                    "password": "eKeisheihenoqu1oothiSh1Cheihievour3Zugaif3quohSuithouro6fo7Doh5T",
+                    "port": 1883,
+                    "protocol": "3.1.1",
+                    "username": "homeassistant"
+                },
+                "domain": "mqtt",
+                "entry_id": "9ed2b1841bb646a6ade63ac1d013f289",
+                "options": {},
+                "source": "hassio",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Mosquitto broker",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "devices": [
+                        {
+                            "host": "10.0.0.105",
+                            "name": "PlayStation 4",
+                            "region": "United States"
+                        }
+                    ],
+                    "token": "8e0d8ed6542cceece19f5b1088b81346ba48700fc0c1c592a9961bf75d712598"
+                },
+                "domain": "ps4",
+                "entry_id": "efc6d2cd73d8419db5e4bf351121c97f",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "PlayStation 4",
+                "unique_id": null,
+                "version": 3
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "host": "10.0.0.50",
+                    "name": "Theater Roku"
+                },
+                "domain": "roku",
+                "entry_id": "f5df74a651064e829abde60c284e64c4",
+                "options": {},
+                "source": "ssdp",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Theater Roku",
+                "unique_id": "YH0007197243",
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "host": "10.0.0.115",
+                    "username": "8Nfx91yPF6BK4h1HXQUXXndAj8r8bOcP1SsDYMRp"
+                },
+                "domain": "hue",
+                "entry_id": "e874e5f825d2430c86a06e314fed196c",
+                "options": {
+                    "allow_hue_groups": true,
+                    "allow_unreachable": true
+                },
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Philips hue",
+                "unique_id": "00178862c11f",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "address": "localhost",
+                    "port": 7396
+                },
+                "domain": "foldingathomecontrol",
+                "entry_id": "185568f6734d4a639f3ea98235b123c2",
+                "options": {
+                    "read_timeout": 15,
+                    "update_rate": 5
+                },
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "localhost",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "host": "localhost",
+                    "name": "Glances",
+                    "password": "ZX7b@a2G!$GdwXY!",
+                    "port": 61208,
+                    "ssl": false,
+                    "username": "glances",
+                    "verify_ssl": false,
+                    "version": 3
+                },
+                "domain": "glances",
+                "entry_id": "8dd72ee558e746e796c34b4cab0f96b8",
+                "options": {
+                    "scan_interval": 60
+                },
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Glances",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "server": "KBK-PC",
+                    "server_config": {
+                        "client_id": "532b60fc-a808-4e9b-a38b-e4941ea85ec6",
+                        "token": "hGE4jBxxFKaz1PYAi6Ko",
+                        "url": "https://172-30-32-1.2893fe6cdb9e4418b4e29d00ddb686a4.plex.direct:32400",
+                        "verify_ssl": true
+                    },
+                    "server_id": "93d5d7465da3cb33e097b788658ee06202872807"
+                },
+                "domain": "plex",
+                "entry_id": "431ca060b87843eb898b27a402a3714c",
+                "options": {
+                    "media_player": {
+                        "ignore_new_shared_users": false,
+                        "use_episode_art": false
+                    }
+                },
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "KBK-PC",
+                "unique_id": "93d5d7465da3cb33e097b788658ee06202872807",
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "host": "127.0.0.1",
+                    "password": null,
+                    "port": 45158,
+                    "ssl": false,
+                    "username": null,
+                    "verify_ssl": true
+                },
+                "domain": "adguard",
+                "entry_id": "cad989027332420ab1109f8d75e78c7c",
+                "options": {},
+                "source": "hassio",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "AdGuard Home",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "auth_implementation": "spotify",
+                    "id": "125975319",
+                    "name": "125975319",
+                    "token": {
+                        "access_token": "BQC1aX7T-B86e4WlPvIVCb87kBWW_220RXultjqTyVVvmqGFXW6ioy0jKYitSY9xHjuHi-5y8FqoGoS7aHLeIO_qLF1EQdUEoC4lPsapz5YCIM09BqgEu4E-xmecWVRk54Ck5HbXoZBokkj-A--g0fReGy4RGhezB96f",
+                        "expires_at": 1595721736.094388,
+                        "expires_in": 3600,
+                        "refresh_token": "AQDy779VHQYss3YLfaoBgbjaGpF0JKM5mGB2tnSgDUx2NjBRFsLB25pULTwoyULa_J2SEavVpn3YnGIRKdhZVcS_SAiAURLUnoFd3CoiZII5lsGqgHNo-KHneGHzjOxpGpg",
+                        "scope": "user-modify-playback-state user-read-playback-state user-read-private",
+                        "token_type": "Bearer"
+                    }
+                },
+                "domain": "spotify",
+                "entry_id": "34fe04e761e441dab72667d59f099443",
+                "options": {},
+                "source": "zeroconf",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "125975319",
+                "unique_id": "125975319",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "host": "10.0.0.200",
+                    "name": "Harmony Hub"
+                },
+                "domain": "harmony",
+                "entry_id": "8028143815574e2bb772acd56503b06b",
+                "options": {},
+                "source": "ssdp",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Harmony Hub",
+                "unique_id": "16371405",
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "debug": false,
+                    "email": "kbkrunner@gmail.com",
+                    "exclude_devices": [
+                        "Living Room Bose",
+                        "Dining Bose",
+                        "Kitchen Bose"
+                    ],
+                    "include_devices": [],
+                    "password": "I'mOnFire11",
+                    "scan_interval": 5,
+                    "url": "amazon.com"
+                },
+                "domain": "alexa_media",
+                "entry_id": "b05d3291a4b44a97a843316c4ead642e",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "kbkrunner@gmail.com - amazon.com",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {},
+                "domain": "speedtestdotnet",
+                "entry_id": "9da01371919a4544859ccc4f68e60dac",
+                "options": {
+                    "manual": false,
+                    "scan_interval": 30,
+                    "server_id": ""
+                },
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "SpeedTest",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "device": {
+                        "baudrate": 57600,
+                        "path": "/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_8130075A-if01-port0"
+                    },
+                    "radio_type": "ezsp"
+                },
+                "domain": "zha",
+                "entry_id": "c1f7482265824869a092a234b19e118d",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "HubZ Smart Home Controller, s/n: 8130075A - Silicon Labs",
+                "unique_id": null,
+                "version": 2
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "network_key": "0xB7, 0x01, 0x84, 0x22, 0x52, 0x61, 0x2E, 0xE6, 0x50, 0xB1, 0x26, 0x22, 0x5C, 0xB7, 0x8A, 0xDD",
+                    "usb_path": "/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_8130075A-if00-port0"
+                },
+                "domain": "zwave",
+                "entry_id": "4269c07b26444e70be84fae2d30fab9e",
+                "options": {},
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Z-Wave (import from configuration.yaml)",
+                "unique_id": null,
+                "version": 1
+            }
+        ]
+    },
+    "key": "core.config_entries",
+    "version": 1
+}

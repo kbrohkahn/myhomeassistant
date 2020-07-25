@@ -1,0 +1,16 @@
+{
+    "data": {
+        "items": [
+            {
+                "device_trackers": [
+                    "device_tracker.sm_n975u1"
+                ],
+                "id": "a37ee1cb6921429f86d39fef5b301012",
+                "name": "Kevin Broh-Kahn",
+                "user_id": "12a658637c244fe0a8ccb72305833564"
+            }
+        ]
+    },
+    "key": "person",
+    "version": 2
+}
