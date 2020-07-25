@@ -824,7 +824,13 @@
     entity_id: light.master_bath
     state: 'off'
   action:
+  - data_template:
+      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
+        %} 196 {% endif %} '
+    entity_id: light.master_bath_light
+    service: light.turn_on
   - service: script.master_bath_lights_on
+  mode: single
 - id: master_bath_door_motion_with_light_on
   alias: Master Bath Door Motion with Light On
   description: ''
@@ -931,7 +937,13 @@
     entity_id: light.master_bath
     state: 'off'
   action:
+  - data_template:
+      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
+        %} 196 {% endif %} '
+    entity_id: light.master_bath_light
+    service: light.turn_on
   - service: script.master_bath_lights_on
+  mode: single
 - id: master_bath_light_switch_off
   alias: Master Bath Light Switch Off
   description: ''
@@ -1002,3 +1014,16 @@
   - data:
       event: office_tv_input_hdmi1
     service: ifttt.trigger
+- id: master_bath_light_brightness_changed
+  alias: Master Bath Light Brightness Changed
+  description: ''
+  trigger:
+  - entity_id: light.master_bath_light
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{ trigger.from_state and trigger.to_state.attributes.brightness
+      != trigger.from_state.attributes.brightness }}'
+  action:
+  - data: {}
+    service: script.master_bath_lights_on

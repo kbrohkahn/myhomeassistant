@@ -674,25 +674,21 @@ master_bath_lights_on:
       brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
         %} 255 {% endif %} '
       hs_color:
-      - '{% if is_state(''var.bedtime_announced'', ''on'') %} 300 {% else %} 120 {%
-        endif %}'
-      - 100
-    entity_id: light.master_bath_under_vanity
-    service: light.turn_on
-  - data_template:
-      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
-        %} 255 {% endif %} '
-      hs_color:
-      - '{% if is_state(''var.bedtime_announced'', ''on'') %} 0 {% else %} 60 {% endif
-        %}'
+      - '{{ (state_attr(''light.master_bath_light'', ''brightness'') / 255 * 360 +
+        220) % 360 | int }}'
       - 100
     entity_id: light.master_bath_cabinet
     service: light.turn_on
   - data_template:
       brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
-        %} 196 {% endif %} '
-    entity_id: light.master_bath_light
+        %} 255 {% endif %} '
+      hs_color:
+      - '{{ (state_attr(''light.master_bath_light'', ''brightness'') / 255 * 360 +
+        250) % 360 | int }}'
+      - 100
+    entity_id: light.master_bath_under_vanity
     service: light.turn_on
+  mode: single
 maybe_start_office_tv:
   alias: Maybe Start Office TV
   sequence:

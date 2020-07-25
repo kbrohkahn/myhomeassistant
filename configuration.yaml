@@ -57,7 +57,7 @@ var:
     icon: mdi:sleep
 
 zwave:
-  usb_path: /dev/ttyUSB1
+  usb_path: /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_8130075A-if00-port0
   network_key: !secret zwave_network_key
 
 spotify:
@@ -91,6 +91,7 @@ alexa:
         - script
         - scene
         - media_player
+        - vacuum
       include_entities:
         - light.master_bath_light
         - light.hallway_bath_light
