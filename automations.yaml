@@ -360,13 +360,13 @@
   - condition: or
     conditions:
     - condition: state
-      entity_id: media_player.dining
+      entity_id: media_player.soundtouch_dining
       state: 'off'
     - condition: state
-      entity_id: media_player.dining
+      entity_id: media_player.soundtouch_dining
       state: paused
     - condition: state
-      entity_id: media_player.dining
+      entity_id: media_player.soundtouch_dining
       state: unavailable
   - condition: state
     entity_id: person.kevin_broh_kahn
@@ -462,7 +462,7 @@
   - data:
       volume_level: 0
     entity_id:
-    - media_player.dining_echo_dot
+    - media_player.soundtouch_dining_echo_dot
     - media_player.master_echo_dot
     service: media_player.volume_set
   - data:
@@ -472,7 +472,7 @@
   - data:
       volume_level: 0.4
     entity_id:
-    - media_player.dining_echo_dot
+    - media_player.soundtouch_dining_echo_dot
     - media_player.master_echo_dot
     service: media_player.volume_set
 - id: laundry_door_opened
@@ -583,19 +583,19 @@
   alias: Bose Auto Off
   description: ''
   trigger:
-  - entity_id: media_player.dining
+  - entity_id: media_player.soundtouch_dining
     for: 00:01:00
     from: playing
     platform: state
     to: 'off'
-  - entity_id: media_player.dining
+  - entity_id: media_player.soundtouch_dining
     for: 00:01:00
     from: playing
     platform: state
     to: standby
   condition:
   - condition: template
-    value_template: '{{ states(''media_player.dining'') != ''playing''}}'
+    value_template: '{{ states(''media_player.soundtouch_dining'') != ''playing''}}'
   action:
   - data: {}
     service: script.kill_bose_group
@@ -762,11 +762,11 @@
   alias: Dining Echo Dot Starts Playing
   description: ''
   trigger:
-  - entity_id: media_player.dining_echo_dot
+  - entity_id: media_player.soundtouch_dining_echo_plus
     from: standby
     platform: state
     to: playing
-  - entity_id: media_player.dining_echo_dot
+  - entity_id: media_player.soundtouch_dining_echo_dot
     from: 'off'
     platform: state
     to: playing
@@ -774,6 +774,7 @@
   action:
   - data: {}
     service: script.play_on_bose
+  mode: single
 - id: '1588345296750'
   alias: Start the Office when WFH
   description: ''
@@ -888,7 +889,7 @@
         type: tts
       message: Humidity is above 70%, please turn on AC
       target:
-      - media_player.dining_echo_dot
+      - media_player.soundtouch_dining_echo_dot
       - media_player.master_echo_dot
     service: notify.alexa_media
 - id: kitchen_overhead_turned_on_invisible

@@ -328,7 +328,7 @@
                                                             {
                                                                 "cards": [
                                                                     {
-                                                                        "entity": "media_player.dining",
+                                                                        "entity": "media_player.soundtouch_dining",
                                                                         "icon": "mdi:speaker-off",
                                                                         "name": "Kill Speaker Group",
                                                                         "show_icon": true,
@@ -343,7 +343,7 @@
                                                                         "type": "button"
                                                                     },
                                                                     {
-                                                                        "entity": "media_player.dining",
+                                                                        "entity": "media_player.soundtouch_dining",
                                                                         "icon": "mdi:speaker-multiple",
                                                                         "name": "Create Speaker Group",
                                                                         "show_icon": true,
@@ -1328,7 +1328,7 @@
                                             {
                                                 "data": {
                                                     "card": {
-                                                        "entity": "media_player.dining",
+                                                        "entity": "media_player.soundtouch_dining",
                                                         "hide": {
                                                             "controls": true,
                                                             "icon": true,
@@ -1339,15 +1339,15 @@
                                                         "speaker_group": {
                                                             "entities": [
                                                                 {
-                                                                    "entity_id": "media_player.dining",
+                                                                    "entity_id": "media_player.soundtouch_dining",
                                                                     "name": "Dining"
                                                                 },
                                                                 {
-                                                                    "entity_id": "media_player.kitchen",
+                                                                    "entity_id": "media_player.soundtouch_kitchen",
                                                                     "name": "Kitchen"
                                                                 },
                                                                 {
-                                                                    "entity_id": "media_player.living_room",
+                                                                    "entity_id": "media_player.soundtouch_living_room",
                                                                     "name": "Living Room"
                                                                 }
                                                             ],
@@ -1378,7 +1378,7 @@
                                     "card": {
                                         "entities": [
                                             {
-                                                "entity": "media_player.dining",
+                                                "entity": "media_player.soundtouch_dining",
                                                 "group": true,
                                                 "hide": {
                                                     "controls": true,
@@ -1389,7 +1389,7 @@
                                                 "type": "custom:mini-media-player"
                                             },
                                             {
-                                                "entity": "media_player.kitchen",
+                                                "entity": "media_player.soundtouch_kitchen",
                                                 "group": true,
                                                 "hide": {
                                                     "controls": true,
@@ -1400,7 +1400,7 @@
                                                 "type": "custom:mini-media-player"
                                             },
                                             {
-                                                "entity": "media_player.living_room",
+                                                "entity": "media_player.soundtouch_living_room",
                                                 "group": true,
                                                 "hide": {
                                                     "controls": true,
@@ -1415,7 +1415,7 @@
                                     },
                                     "conditions": [
                                         {
-                                            "entity": "media_player.dining",
+                                            "entity": "media_player.soundtouch_dining",
                                             "state": "playing"
                                         }
                                     ],

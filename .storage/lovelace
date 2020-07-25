@@ -549,7 +549,7 @@
                                                                                     {
                                                                                         "cards": [
                                                                                             {
-                                                                                                "entity": "media_player.dining",
+                                                                                                "entity": "media_player.soundtouch_dining",
                                                                                                 "icon": "mdi:speaker-off",
                                                                                                 "name": "Kill Speaker Group",
                                                                                                 "show_icon": true,
@@ -564,7 +564,7 @@
                                                                                                 "type": "button"
                                                                                             },
                                                                                             {
-                                                                                                "entity": "media_player.dining",
+                                                                                                "entity": "media_player.soundtouch_dining",
                                                                                                 "icon": "mdi:speaker-multiple",
                                                                                                 "name": "Create Speaker Group",
                                                                                                 "show_icon": true,
@@ -1544,11 +1544,19 @@
                                                         "service": "browser_mod.popup",
                                                         "service_data": {
                                                             "card": {
+                                                                "account": "default",
+                                                                "always_play_random_song": false,
+                                                                "display_style": "Grid",
+                                                                "grid_covers_per_row": 8,
+                                                                "limit": 40,
+                                                                "spotify_entity": "media_player.spotify",
+                                                                "spotify_installed": "media_player.spotify",
                                                                 "type": "custom:spotify-card"
                                                             },
                                                             "deviceID": [
                                                                 "this"
                                                             ],
+                                                            "large": true,
                                                             "title": "Spotify"
                                                         },
                                                         "type": "service"
@@ -1597,7 +1605,7 @@
                                                     {
                                                         "data": {
                                                             "card": {
-                                                                "entity": "media_player.dining",
+                                                                "entity": "media_player.soundtouch_dining",
                                                                 "hide": {
                                                                     "controls": true,
                                                                     "icon": true,
@@ -1608,15 +1616,15 @@
                                                                 "speaker_group": {
                                                                     "entities": [
                                                                         {
-                                                                            "entity_id": "media_player.dining",
+                                                                            "entity_id": "media_player.soundtouch_dining",
                                                                             "name": "Dining"
                                                                         },
                                                                         {
-                                                                            "entity_id": "media_player.kitchen",
+                                                                            "entity_id": "media_player.soundtouch_kitchen",
                                                                             "name": "Kitchen"
                                                                         },
                                                                         {
-                                                                            "entity_id": "media_player.living_room",
+                                                                            "entity_id": "media_player.soundtouch_living_room",
                                                                             "name": "Living Room"
                                                                         }
                                                                     ],
@@ -1647,7 +1655,7 @@
                                             "card": {
                                                 "entities": [
                                                     {
-                                                        "entity": "media_player.dining",
+                                                        "entity": "media_player.soundtouch_dining",
                                                         "group": true,
                                                         "hide": {
                                                             "controls": true,
@@ -1658,7 +1666,7 @@
                                                         "type": "custom:mini-media-player"
                                                     },
                                                     {
-                                                        "entity": "media_player.kitchen",
+                                                        "entity": "media_player.soundtouch_kitchen",
                                                         "group": true,
                                                         "hide": {
                                                             "controls": true,
@@ -1669,7 +1677,7 @@
                                                         "type": "custom:mini-media-player"
                                                     },
                                                     {
-                                                        "entity": "media_player.living_room",
+                                                        "entity": "media_player.soundtouch_living_room",
                                                         "group": true,
                                                         "hide": {
                                                             "controls": true,
@@ -1684,7 +1692,7 @@
                                             },
                                             "conditions": [
                                                 {
-                                                    "entity": "media_player.dining",
+                                                    "entity": "media_player.soundtouch_dining",
                                                     "state": "playing"
                                                 }
                                             ],
@@ -2768,8 +2776,8 @@
                                             "type": "gauge"
                                         },
                                         {
-                                            "entity": "sensor.ups_battery_runtime",
-                                            "max": 3600,
+                                            "entity": "sensor.ups_time_left",
+                                            "max": 60,
                                             "min": 0,
                                             "type": "gauge"
                                         }
@@ -2974,22 +2982,22 @@
                                                 {
                                                     "entity": "sensor.glances_core_0_temp",
                                                     "max": 160,
-                                                    "min": 100,
+                                                    "min": 70,
                                                     "severity": {
-                                                        "green": 100,
+                                                        "green": 70,
                                                         "red": 140,
-                                                        "yellow": 130
+                                                        "yellow": 110
                                                     },
                                                     "type": "gauge"
                                                 },
                                                 {
                                                     "entity": "sensor.glances_core_1_temp",
                                                     "max": 160,
-                                                    "min": 100,
+                                                    "min": 70,
                                                     "severity": {
-                                                        "green": 100,
+                                                        "green": 70,
                                                         "red": 140,
-                                                        "yellow": 130
+                                                        "yellow": 110
                                                     },
                                                     "type": "gauge"
                                                 }
@@ -3001,20 +3009,20 @@
                                                 {
                                                     "entity": "sensor.glances_core_2_temp",
                                                     "max": 160,
-                                                    "min": 100,
+                                                    "min": 70,
                                                     "severity": {
-                                                        "green": 100,
+                                                        "green": 70,
                                                         "red": 140,
-                                                        "yellow": 130
+                                                        "yellow": 110
                                                     },
                                                     "type": "gauge"
                                                 },
                                                 {
                                                     "entity": "sensor.glances_core_3_temp",
                                                     "max": 160,
-                                                    "min": 100,
+                                                    "min": 70,
                                                     "severity": {
-                                                        "green": 100,
+                                                        "green": 70,
                                                         "red": 140,
                                                         "yellow": 130
                                                     },

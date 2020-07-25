@@ -171,7 +171,7 @@ users_away:
       - light.hallway_bath_light
     service: light.turn_off
   - data: {}
-    entity_id: media_player.dining
+    entity_id: media_player.soundtouch_dining
     service: media_player.media_stop
   - data: {}
     service: script.kill_bose_group
@@ -299,7 +299,7 @@ browser_sound_effect:
   - data:
       volume_level: 0.7
     entity_id:
-    - media_player.dining_echo_dot
+    - media_player.soundtouch_dining_echo_dot
     - media_player.master_echo_dot
     service: media_player.volume_set
   - data_template:
@@ -310,7 +310,7 @@ browser_sound_effect:
   - data:
       volume_level: 0.4
     entity_id:
-    - media_player.dining_echo_dot
+    - media_player.soundtouch_dining_echo_dot
     - media_player.master_echo_dot
     service: media_player.volume_set
 play_on_bose:
@@ -323,17 +323,17 @@ play_on_bose:
     entity_id: media_player.spotify
     service: media_player.select_source
   - timeout: 00:00:03
-    wait_template: '{{ is_state(''media_player.dining'', ''playing'') }}'
+    wait_template: '{{ is_state(''media_player.soundtouch_dining'', ''playing'') }}'
   - condition: or
     conditions:
     - condition: state
-      entity_id: media_player.dining
+      entity_id: media_player.soundtouch_dining
       state: standby
     - condition: state
-      entity_id: media_player.dining
+      entity_id: media_player.soundtouch_dining
       state: 'off'
   - data: {}
-    entity_id: media_player.dining
+    entity_id: media_player.soundtouch_dining
     service: media_player.media_play
 good_morning:
   alias: Good Morning
@@ -341,9 +341,9 @@ good_morning:
   - data:
       volume_level: 0.4
     entity_id:
-    - media_player.dining
-    - media_player.kitchen
-    - media_player.living_room
+    - media_player.soundtouch_dining
+    - media_player.soundtouch_kitchen
+    - media_player.soundtouch_living_room
     service: media_player.volume_set
   - data:
       payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
@@ -413,37 +413,37 @@ kill_bose_group:
   alias: Kill Bose Group
   sequence:
   - condition: template
-    value_template: '{{ state_attr("media_player.dining", "soundtouch_zone") != None
+    value_template: '{{ state_attr("media_player.soundtouch_dining", "soundtouch_zone") != None
       }}'
   - data:
-      master: media_player.dining
+      master: media_player.soundtouch_dining
       slaves:
-      - media_player.kitchen
-      - media_player.living_room
+      - media_player.soundtouch_kitchen
+      - media_player.soundtouch_living_room
     service: soundtouch.remove_zone_slave
   - data: {}
     entity_id:
-    - media_player.dining
-    - media_player.kitchen
-    - media_player.living_room
+    - media_player.soundtouch_dining
+    - media_player.soundtouch_kitchen
+    - media_player.soundtouch_living_room
     service: media_player.turn_off
 create_bose_group:
   alias: Create Bose Group
   sequence:
   - condition: template
-    value_template: '{{ state_attr(''media_player.dining'', ''soundtouch_group'')
+    value_template: '{{ state_attr(''media_player.soundtouch_dining'', ''soundtouch_group'')
       == None }}'
   - data:
-      master: media_player.dining
+      master: media_player.soundtouch_dining
       slaves:
-      - media_player.living_room
-      - media_player.kitchen
+      - media_player.soundtouch_living_room
+      - media_player.soundtouch_kitchen
     service: soundtouch.create_zone
   - data:
-      master: media_player.dining
+      master: media_player.soundtouch_dining
       slaves:
-      - media_player.living_room
-      - media_player.kitchen
+      - media_player.soundtouch_living_room
+      - media_player.soundtouch_kitchen
     service: soundtouch.add_zone_slave
 spotify_to_phone:
   alias: Spotify To Phone
@@ -556,41 +556,41 @@ maybe_lower_bose_volume:
   - condition: and
     conditions:
     - condition: state
-      entity_id: media_player.dining
+      entity_id: media_player.soundtouch_dining
       state: playing
     - condition: template
       value_template: '{{ not ignore_bose_volume }}'
   - data_template:
-      volume_level: '{{ state_attr(''media_player.dining'', ''volume_level'') * 0.5
+      volume_level: '{{ state_attr(''media_player.soundtouch_dining'', ''volume_level'') * 0.5
         }}'
-    entity_id: media_player.dining
+    entity_id: media_player.soundtouch_dining
     service: media_player.volume_set
   - data_template:
-      volume_level: '{{ state_attr(''media_player.kitchen'', ''volume_level'') * 0.5
+      volume_level: '{{ state_attr(''media_player.soundtouch_kitchen'', ''volume_level'') * 0.5
         }}'
-    entity_id: media_player.kitchen
+    entity_id: media_player.soundtouch_kitchen
     service: media_player.volume_set
   - data_template:
-      volume_level: '{{ state_attr(''media_player.living_room'', ''volume_level'')
+      volume_level: '{{ state_attr(''media_player.soundtouch_living_room'', ''volume_level'')
         * 0.5 }}'
-    entity_id: media_player.living_room
+    entity_id: media_player.soundtouch_living_room
     service: media_player.volume_set
   - timeout: 00:00:05
     wait_template: '{{ is_state(''media_player.galaxytaba'', ''idle'') }}'
   - data_template:
-      volume_level: '{{ state_attr(''media_player.dining'', ''volume_level'') * 2.0
+      volume_level: '{{ state_attr(''media_player.soundtouch_dining'', ''volume_level'') * 2.0
         }}'
-    entity_id: media_player.dining
+    entity_id: media_player.soundtouch_dining
     service: media_player.volume_set
   - data_template:
-      volume_level: '{{ state_attr(''media_player.kitchen'', ''volume_level'') * 2.0
+      volume_level: '{{ state_attr(''media_player.soundtouch_kitchen'', ''volume_level'') * 2.0
         }}'
-    entity_id: media_player.kitchen
+    entity_id: media_player.soundtouch_kitchen
     service: media_player.volume_set
   - data_template:
-      volume_level: '{{ state_attr(''media_player.living_room'', ''volume_level'')
+      volume_level: '{{ state_attr(''media_player.soundtouch_living_room'', ''volume_level'')
         * 2.0 }}'
-    entity_id: media_player.living_room
+    entity_id: media_player.soundtouch_living_room
     service: media_player.volume_set
 play_on_sdsa_pc:
   alias: Play on SDSA-PC
@@ -745,3 +745,19 @@ stop_cameras:
       payload: '{"camera": false}'
       topic: wallpanel/galaxys8plus/command
     service: mqtt.publish
+starlight_off:
+  alias: Starlight Off
+  mode: single
+  sequence:
+  - data: {}
+    entity_id: switch.starlight
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.starlight
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.starlight
+    service: switch.turn_off
+  - data: {}
+    entity_id: switch.starlight
+    service: switch.turn_off

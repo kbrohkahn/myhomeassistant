@@ -64,12 +64,28 @@ spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
 
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
+
 ifttt:
   key: !secret ifttt_api_key
 
 discovery:
 
-#rest_command:
+media_player:
+  - platform: soundtouch
+    host: 10.0.0.201
+    port: 8090
+    name: Soundtouch Living Room
+  - platform: soundtouch
+    host: 10.0.0.209
+    port: 8090
+    name: Soundtouch Dining
+  - platform: soundtouch
+    host: 10.0.0.220
+    port: 8090
+    name: Soundtouch Kitchen
 
 
 
@@ -132,8 +148,8 @@ speedtestdotnet:
     - download
     - upload
 
-#apcupsd:
-#  host: a722577e-apcupsd
+apcupsd:
+  host: a722577e-apcupsd
 
 switch:
   - platform: command_line
@@ -193,11 +209,6 @@ sensor:
     value_template: 'OK'
     scan_interval: 5
 
-  # - platform: apcupsd
-  #   resources:
-  #     - bcharge
-  #     - linev
-
   - platform: template
     sensors:
       theater_peripherals_watts:
@@ -223,6 +234,10 @@ sensor:
         friendly_name_template: "Hallway Thermostat Humidity"
         value_template: '{{ state_attr("climate.hallway_thermostat", "current_humidity") }}'
         unit_of_measurement: '%'
+      ups_watts:
+        friendly_name_template: "UPS Current Consumption"
+        value_template: '{{ states("sensor.ups_load") | float / 100 * 330 }}'
+        unit_of_measurement: 'W'
 
   - platform: mqtt
     state_topic: "wallpanel/galaxytabs/sensor/light"
@@ -301,6 +316,19 @@ sensor:
     resource: https://stats.foldingathome.org/api/donor/kbkrunner
     name: Folding at Home Work Units
     value_template: '{{ value_json.wus }}'
+
+  - platform: apcupsd
+    resources:
+      - linev
+      - loadpct
+      - bcharge
+      - timeleft
+      - mbattchg
+      - mintimel
+      - maxtime
+      - maxlinev
+      - minlinev
+      - outputv
 
 binary_sensor:
   - platform: mqtt
