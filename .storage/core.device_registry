@@ -13,6 +13,24 @@
                         "00:12:4b:00:1d:84:e2:37-0b"
                     ]
                 ]
+            },
+            {
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "24:fd:5b:00:01:03:55:7b"
+                    ]
+                ],
+                "id": "482640ceb0844fff96b6f507b3e59e7b",
+                "identifiers": [
+                    [
+                        "zha",
+                        "24:fd:5b:00:01:03:55:7b"
+                    ]
+                ]
             }
         ],
         "devices": [
@@ -76,7 +94,7 @@
                 "model": "",
                 "name": "HACS",
                 "name_by_user": null,
-                "sw_version": "1.2.2",
+                "sw_version": "1.3.0b0",
                 "via_device_id": null
             },
             {
@@ -1231,7 +1249,7 @@
                 "model": "Plex for Roku",
                 "name": "Plex (Plex for Roku - Theater Roku)",
                 "name_by_user": null,
-                "sw_version": "6.6.4.6468-8be6f8f5b-Plex - Stream Free Movies & TV",
+                "sw_version": "6.6.5.6519-ea7cb8480-Plex - Stream for Free",
                 "via_device_id": "69553192a37641adbb680cd10e154031"
             },
             {
@@ -1322,7 +1340,7 @@
                 "model": null,
                 "name": "AdGuard Home",
                 "name_by_user": null,
-                "sw_version": "v0.102.0",
+                "sw_version": "0.103.3",
                 "via_device_id": null
             },
             {
@@ -1427,7 +1445,7 @@
                 "model": "ECHO A1RABVCI4QCIKC",
                 "name": "Master Echo Dot",
                 "name_by_user": null,
-                "sw_version": "3926570372",
+                "sw_version": "3926570628",
                 "via_device_id": "28f59c72bb4d450f86e3a93bd7e5424b"
             },
             {
@@ -1448,7 +1466,7 @@
                 "model": "ECHO A1RABVCI4QCIKC",
                 "name": "Master Bath Echo Dot",
                 "name_by_user": null,
-                "sw_version": "3926570372",
+                "sw_version": "3926570628",
                 "via_device_id": "103d9e5f95a243dda70140d0dc46b26e"
             },
             {
@@ -1553,7 +1571,7 @@
                 "model": "ECHO A3VRME03NAXFUB",
                 "name": "Hallway Bath Echo Flex",
                 "name_by_user": null,
-                "sw_version": "3725204868",
+                "sw_version": "3926570628",
                 "via_device_id": "617544b6dbab49c780e33760e3029d72"
             },
             {
@@ -1788,32 +1806,6 @@
                 "name": "Samjin motion",
                 "name_by_user": null,
                 "sw_version": "0x00000011",
-                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c1f7482265824869a092a234b19e118d"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "24:fd:5b:00:01:03:55:7b"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "482640ceb0844fff96b6f507b3e59e7b",
-                "identifiers": [
-                    [
-                        "zha",
-                        "24:fd:5b:00:01:03:55:7b"
-                    ]
-                ],
-                "manufacturer": "SmartThings",
-                "model": "multiv4",
-                "name": "SmartThings multiv4",
-                "name_by_user": null,
-                "sw_version": "0x0000001b",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             },
             {

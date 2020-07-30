@@ -154,6 +154,10 @@ lights_away_sunset:
 users_away:
   alias: Users Away
   sequence:
+  - data:
+      entity_id: var.people_home
+      value: 'off'
+    service: var.set
   - service_template: "{%- if state_attr('sun.sun', 'elevation') > 6 -%}\n  script.lights_away_daylight\n\
       {%- else -%}\n  script.lights_away_sunset\n{%- endif -%}"
   - data:
@@ -179,10 +183,25 @@ users_away:
     service: script.stop_the_office
   - data: {}
     service: script.stop_the_theater
+  - condition: template
+    value_template: '{{ (as_timestamp(now()) * 1000 - state_attr(''vacuum.rockrobo'',
+      ''last_run_stats'')[''endTime'']) / 1000 > 24 * 3600 }}'
   - data:
-      entity_id: var.people_home
-      value: 'off'
-    service: var.set
+      command: segmented_cleanup
+      entity_id: vacuum.rockrobo
+      params:
+        segment_ids:
+        - Master
+        - Master Bath
+        - Living Room
+        - Office
+        - Hallway
+        - Kitchen
+        - Theater
+        - Dining
+    entity_id: vacuum.rockrobo
+    service: vacuum.send_command
+  mode: single
 users_home:
   alias: Users Home
   sequence:
@@ -413,8 +432,8 @@ kill_bose_group:
   alias: Kill Bose Group
   sequence:
   - condition: template
-    value_template: '{{ state_attr("media_player.soundtouch_dining", "soundtouch_zone") != None
-      }}'
+    value_template: '{{ state_attr("media_player.soundtouch_dining", "soundtouch_zone")
+      != None }}'
   - data:
       master: media_player.soundtouch_dining
       slaves:
@@ -561,13 +580,13 @@ maybe_lower_bose_volume:
     - condition: template
       value_template: '{{ not ignore_bose_volume }}'
   - data_template:
-      volume_level: '{{ state_attr(''media_player.soundtouch_dining'', ''volume_level'') * 0.5
-        }}'
+      volume_level: '{{ state_attr(''media_player.soundtouch_dining'', ''volume_level'')
+        * 0.5 }}'
     entity_id: media_player.soundtouch_dining
     service: media_player.volume_set
   - data_template:
-      volume_level: '{{ state_attr(''media_player.soundtouch_kitchen'', ''volume_level'') * 0.5
-        }}'
+      volume_level: '{{ state_attr(''media_player.soundtouch_kitchen'', ''volume_level'')
+        * 0.5 }}'
     entity_id: media_player.soundtouch_kitchen
     service: media_player.volume_set
   - data_template:
@@ -578,13 +597,13 @@ maybe_lower_bose_volume:
   - timeout: 00:00:05
     wait_template: '{{ is_state(''media_player.galaxytaba'', ''idle'') }}'
   - data_template:
-      volume_level: '{{ state_attr(''media_player.soundtouch_dining'', ''volume_level'') * 2.0
-        }}'
+      volume_level: '{{ state_attr(''media_player.soundtouch_dining'', ''volume_level'')
+        * 2.0 }}'
     entity_id: media_player.soundtouch_dining
     service: media_player.volume_set
   - data_template:
-      volume_level: '{{ state_attr(''media_player.soundtouch_kitchen'', ''volume_level'') * 2.0
-        }}'
+      volume_level: '{{ state_attr(''media_player.soundtouch_kitchen'', ''volume_level'')
+        * 2.0 }}'
     entity_id: media_player.soundtouch_kitchen
     service: media_player.volume_set
   - data_template:
@@ -761,3 +780,17 @@ starlight_off:
   - data: {}
     entity_id: switch.starlight
     service: switch.turn_off
+start_vacuum:
+  alias: Start Vacuum
+  mode: single
+  sequence:
+  - data: {}
+    entity_id: vacuum.rockrobo
+    service: vacuum.start
+stop_vacuum:
+  alias: Stop Vacuum
+  mode: single
+  sequence:
+  - data: {}
+    entity_id: vacuum.rockrobo
+    service: vacuum.return_to_base

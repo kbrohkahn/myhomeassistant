@@ -599,40 +599,6 @@
   action:
   - data: {}
     service: script.kill_bose_group
-- id: kitchen_light_color_refresh
-  alias: Kitchen Light Color Refresh
-  description: ''
-  trigger:
-  - minutes: /5
-    platform: time_pattern
-  condition:
-  - condition: state
-    entity_id: light.kitchen
-    state: 'on'
-  - condition: template
-    value_template: '{{ as_timestamp(states.light.kitchen.last_updated) - as_timestamp(state_attr(''script.kitchen_daytime_lights_by_sun'',
-      ''last_triggered'')) < 1 }}'
-  action:
-  - data:
-      brightness: 250
-    service: script.kitchen_daytime_lights_by_sun
-- id: hallway_light_color_refresh
-  alias: Hallway Light Color Refresh
-  description: ''
-  trigger:
-  - minutes: /5
-    platform: time_pattern
-  condition:
-  - condition: state
-    entity_id: light.hallway
-    state: 'on'
-  - condition: template
-    value_template: '{{ as_timestamp(states.light.hallway.last_updated) - as_timestamp(state_attr(''script.hallway_daytime_lights'',
-      ''last_triggered''))  < 1 }}'
-  action:
-  - data:
-      brightness: 250
-    service: script.hallway_daytime_lights
 - id: kitchen_motion_stop_during_day
   alias: Kitchen Motion Stop During Day
   description: ''
@@ -1028,3 +994,39 @@
   action:
   - data: {}
     service: script.master_bath_lights_on
+- id: vacuum_finished_cleaning
+  alias: Vacuum Finished Cleaning
+  description: ''
+  trigger:
+  - entity_id: vacuum.rockrobo
+    from: cleaning
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      command: app_goto_target
+      params:
+      - 17530
+      - 24404
+    entity_id: vacuum.rockrobo
+    service: vacuum.send_command
+  mode: single
+- id: vacuum_finishing_cleaning
+  alias: Vacuum Starting Cleaning
+  description: ''
+  trigger:
+  - entity_id: vacuum.rockrobo
+    from: docked
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{ states(''vacuum.rockrobo'')[:8] == ''cleaning'' }}'
+  action:
+  - data:
+      data:
+        type: tts
+      message: Vacuum starting, clear floor or say stop vacuum
+      target: Dining Echo Plus
+    service: notify.alexa_media
+  mode: single

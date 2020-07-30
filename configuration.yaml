@@ -288,23 +288,23 @@ sensor:
     value_template: '{{ value_json.value }}'
 
   - platform: mqtt
-    state_topic: "wallpanel/mate9/sensor/light"
-    name: "Mate 9 Light Level"
+    state_topic: "wallpanel/galaxys8/sensor/light"
+    name: "Galaxy S8 Light Level"
     unit_of_measurement: "lx"
     value_template: '{{ value_json.value }}'
   - platform: mqtt
-    state_topic: "wallpanel/mate9/sensor/magneticField"
-    name: "Mate 9 Magnetic Field"
+    state_topic: "wallpanel/galaxys8/sensor/magneticField"
+    name: "Galaxy S8 Magnetic Field"
     unit_of_measurement: "uT"
     value_template: '{{ value_json.value }}'
   - platform: mqtt
-    state_topic: "wallpanel/mate9/sensor/battery"
-    name: "Mate 9 Battery Level"
+    state_topic: "wallpanel/galaxys8/sensor/battery"
+    name: "Galaxy S8 Battery Level"
     unit_of_measurement: "%"
     value_template: '{{ value_json.value }}'
   - platform: mqtt
-    state_topic: "wallpanel/mate9/sensor/pressure"
-    name: "Mate 9 Pressure"
+    state_topic: "wallpanel/galaxys8/sensor/pressure"
+    name: "Galaxy S8 Pressure"
     unit_of_measurement: "hPa"
     value_template: '{{ value_json.value }}'
 
@@ -362,8 +362,8 @@ binary_sensor:
     payload_off: '{"value":false}'
     device_class: motion 
   - platform: mqtt
-    state_topic: "wallpanel/mate9/sensor/motion"
-    name: "Mate 9 Motion"
+    state_topic: "wallpanel/galaxys8/sensor/motion"
+    name: "Galaxy S8 Motion"
     payload_on: '{"value":true}'
     payload_off: '{"value":false}'
     device_class: motion 
