@@ -2225,22 +2225,6 @@
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.balcony_door_temperature",
-                                                    "name": false
-                                                },
-                                                {
-                                                    "entity": "sensor.balcony_door_power",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "binary_sensor.balcony_door_ias_zone",
-                                            "name": "Balcony Door",
-                                            "secondary_info": "last-changed",
-                                            "type": "custom:multiple-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
                                                     "entity": "sensor.hallway_bath_door_temperature",
                                                     "name": false
                                                 },
@@ -2318,19 +2302,28 @@
                                             "entity": "binary_sensor.hallway_motion_sensor_ias_zone"
                                         },
                                         {
-                                            "entity": "binary_sensor.galaxy_s8_plus_motion"
+                                            "entity": "binary_sensor.galaxy_s8_motion"
                                         },
                                         {
                                             "entity": "binary_sensor.master_motion_sensor_ias_zone"
                                         },
                                         {
                                             "entity": "binary_sensor.galaxy_tab_s_motion"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.galaxy_s8_plus_motion"
                                         }
                                     ],
                                     "hours_to_show": 24,
                                     "refresh_interval": 0,
+                                    "title": "Motion",
                                     "type": "history-graph"
-                                },
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
                                 {
                                     "entities": [
                                         {
@@ -2352,14 +2345,9 @@
                                     ],
                                     "hours_to_show": 24,
                                     "refresh_interval": 0,
-                                    "title": "",
+                                    "title": "Temperature",
                                     "type": "history-graph"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
+                                },
                                 {
                                     "entities": [
                                         {
@@ -2388,6 +2376,79 @@
                                     "refresh_interval": 0,
                                     "title": "Light Usage",
                                     "type": "history-graph"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.galaxy_tab_s_pressure",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.galaxy_tab_s_magnetic_field",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "sensor.galaxy_tab_s_light_level",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.galaxy_s8_plus_pressure",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.galaxy_s8_plus_magnetic_field",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "sensor.galaxy_s8_plus_light_level",
+                                            "name": "Living Room",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.galaxy_s8_pressure",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.galaxy_s8_magnetic_field",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "sensor.galaxy_s8_light_level",
+                                            "name": "Office",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
+                                        }
+                                    ],
+                                    "title": "Super Sensors",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.master_switch_battery_level"
+                                        },
+                                        {
+                                            "entity": "sensor.kitchen_switch_battery_level"
+                                        },
+                                        {
+                                            "entity": "sensor.office_switch_battery_level"
+                                        }
+                                    ],
+                                    "title": "Switches",
+                                    "type": "entities"
                                 },
                                 {
                                     "entities": [
@@ -2412,80 +2473,6 @@
                                     "refresh_interval": 0,
                                     "title": "Power",
                                     "type": "history-graph"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.galaxy_tab_s_pressure",
-                                                    "name": false
-                                                },
-                                                {
-                                                    "entity": "sensor.galaxy_tab_s_magnetic_field",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "sensor.galaxy_tab_s_light_level",
-                                            "name": "Master",
-                                            "secondary_info": "last-changed",
-                                            "type": "custom:multiple-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.galaxy_s8_plus_pressure",
-                                                    "name": false
-                                                },
-                                                {
-                                                    "entity": "sensor.galaxy_s8_plus_magnetic_field",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "sensor.galaxy_s8_plus_light_level",
-                                            "name": "Living Room",
-                                            "secondary_info": "last-changed",
-                                            "type": "custom:multiple-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.mate_9_pressure",
-                                                    "name": false
-                                                },
-                                                {
-                                                    "entity": "sensor.mate_9_magnetic_field",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "sensor.mate_9_light_level",
-                                            "name": "Office",
-                                            "secondary_info": "last-changed",
-                                            "type": "custom:multiple-entity-row"
-                                        }
-                                    ],
-                                    "title": "Super Sensors",
-                                    "type": "entities"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.master_switch_battery_level"
-                                        },
-                                        {
-                                            "entity": "sensor.kitchen_switch_battery_level"
-                                        },
-                                        {
-                                            "entity": "sensor.office_switch_battery_level"
-                                        }
-                                    ],
-                                    "title": "Switches",
-                                    "type": "entities"
                                 }
                             ],
                             "type": "vertical-stack"

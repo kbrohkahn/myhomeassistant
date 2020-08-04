@@ -185,20 +185,20 @@ users_away:
     service: script.stop_the_theater
   - condition: template
     value_template: '{{ (as_timestamp(now()) * 1000 - state_attr(''vacuum.rockrobo'',
-      ''last_run_stats'')[''endTime'']) / 1000 > 24 * 3600 }}'
+      ''last_run_stats'')[''endTime'']) / 1000 > 36 * 3600 }}'
   - data:
       command: segmented_cleanup
       entity_id: vacuum.rockrobo
       params:
         segment_ids:
-        - Master
         - Master Bath
-        - Living Room
-        - Office
         - Hallway
         - Kitchen
-        - Theater
+        - Office
+        - Master
         - Dining
+        - Living Room
+        - Theater
     entity_id: vacuum.rockrobo
     service: vacuum.send_command
   mode: single
@@ -318,7 +318,7 @@ browser_sound_effect:
   - data:
       volume_level: 0.7
     entity_id:
-    - media_player.soundtouch_dining_echo_dot
+    - media_player.dining_echo_plus
     - media_player.master_echo_dot
     service: media_player.volume_set
   - data_template:
@@ -329,7 +329,7 @@ browser_sound_effect:
   - data:
       volume_level: 0.4
     entity_id:
-    - media_player.soundtouch_dining_echo_dot
+    - media_player.dining_echo_plus
     - media_player.master_echo_dot
     service: media_player.volume_set
 play_on_bose:
@@ -341,7 +341,7 @@ play_on_bose:
       source: Dining Group
     entity_id: media_player.spotify
     service: media_player.select_source
-  - timeout: 00:00:03
+  - timeout: 00:00:02
     wait_template: '{{ is_state(''media_player.soundtouch_dining'', ''playing'') }}'
   - condition: or
     conditions:
@@ -354,6 +354,7 @@ play_on_bose:
   - data: {}
     entity_id: media_player.soundtouch_dining
     service: media_player.media_play
+  mode: single
 good_morning:
   alias: Good Morning
   sequence:
@@ -458,12 +459,7 @@ create_bose_group:
       - media_player.soundtouch_living_room
       - media_player.soundtouch_kitchen
     service: soundtouch.create_zone
-  - data:
-      master: media_player.soundtouch_dining
-      slaves:
-      - media_player.soundtouch_living_room
-      - media_player.soundtouch_kitchen
-    service: soundtouch.add_zone_slave
+  - delay: 00:00:03
 spotify_to_phone:
   alias: Spotify To Phone
   sequence:
@@ -546,6 +542,10 @@ start_the_theater:
       device: Onkyo AV Receiver
     entity_id: remote.harmony_hub
     service: remote.send_command
+  - data: {}
+    entity_id: switch.living_room_monitor
+    service: switch.turn_off
+  mode: single
 stop_the_theater:
   alias: Stop the Theater
   sequence:
@@ -569,6 +569,10 @@ stop_the_theater:
       device: Sony PS4
     entity_id: remote.harmony_hub
     service: remote.send_command
+  - data: {}
+    entity_id: switch.living_room_monitor
+    service: switch.turn_on
+  mode: single
 maybe_lower_bose_volume:
   alias: Maybe Lower Bose Volume
   sequence:
@@ -794,3 +798,16 @@ stop_vacuum:
   - data: {}
     entity_id: vacuum.rockrobo
     service: vacuum.return_to_base
+bath_time:
+  alias: Bath time
+  mode: single
+  sequence:
+  - data:
+      device_name: Master
+      force_playback: true
+      offset: 1
+      random_song: true
+      repeat: context
+      shuffle: true
+      uri: spotify:playlist:1Y2C4qpZQI0UA7kHihZ5NL
+    service: spotcast.start

@@ -2461,12 +2461,10 @@
                                             "entities": [
                                                 {
                                                     "entity": "sensor.hallway_motion_sensor_temperature",
-                                                    "icon": "",
                                                     "name": false
                                                 },
                                                 {
                                                     "entity": "sensor.hallway_motion_sensor_power",
-                                                    "icon": "",
                                                     "name": false
                                                 }
                                             ],
@@ -2488,22 +2486,6 @@
                                             ],
                                             "entity": "binary_sensor.kitchen_door_ias_zone",
                                             "name": "Kitchen Door",
-                                            "secondary_info": "last-changed",
-                                            "type": "custom:multiple-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.balcony_door_temperature",
-                                                    "name": false
-                                                },
-                                                {
-                                                    "entity": "sensor.balcony_door_power",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "binary_sensor.balcony_door_ias_zone",
-                                            "name": "Balcony Door",
                                             "secondary_info": "last-changed",
                                             "type": "custom:multiple-entity-row"
                                         },
@@ -2587,19 +2569,28 @@
                                             "entity": "binary_sensor.hallway_motion_sensor_ias_zone"
                                         },
                                         {
-                                            "entity": "binary_sensor.galaxy_s8_plus_motion"
+                                            "entity": "binary_sensor.galaxy_s8_motion"
                                         },
                                         {
                                             "entity": "binary_sensor.master_motion_sensor_ias_zone"
                                         },
                                         {
                                             "entity": "binary_sensor.galaxy_tab_s_motion"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.galaxy_s8_plus_motion"
                                         }
                                     ],
                                     "hours_to_show": 24,
                                     "refresh_interval": 0,
+                                    "title": "Motion",
                                     "type": "history-graph"
-                                },
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
                                 {
                                     "entities": [
                                         {
@@ -2621,14 +2612,9 @@
                                     ],
                                     "hours_to_show": 24,
                                     "refresh_interval": 0,
-                                    "title": "",
+                                    "title": "Temperature",
                                     "type": "history-graph"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
+                                },
                                 {
                                     "entities": [
                                         {
@@ -2656,30 +2642,6 @@
                                     "hours_to_show": 24,
                                     "refresh_interval": 0,
                                     "title": "Light Usage",
-                                    "type": "history-graph"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.theater_peripherals_watts",
-                                            "name": "Theater Peripherals"
-                                        },
-                                        {
-                                            "entity": "sensor.office_peripherals_watts",
-                                            "name": "Office"
-                                        },
-                                        {
-                                            "entity": "sensor.living_room_monitor_watts",
-                                            "name": "Living Room"
-                                        },
-                                        {
-                                            "entity": "sensor.theater_systems_watts",
-                                            "name": "Theater Systems"
-                                        }
-                                    ],
-                                    "hours_to_show": 24,
-                                    "refresh_interval": 0,
-                                    "title": "Power",
                                     "type": "history-graph"
                                 }
                             ],
@@ -2732,7 +2694,7 @@
                                                 }
                                             ],
                                             "entity": "sensor.galaxy_s8_light_level",
-                                            "name": "Living Room",
+                                            "name": "Office",
                                             "secondary_info": "last-changed",
                                             "type": "custom:multiple-entity-row"
                                         }
@@ -2754,6 +2716,30 @@
                                     ],
                                     "title": "Switches",
                                     "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.theater_peripherals_watts",
+                                            "name": "Theater Peripherals"
+                                        },
+                                        {
+                                            "entity": "sensor.office_peripherals_watts",
+                                            "name": "Office"
+                                        },
+                                        {
+                                            "entity": "sensor.living_room_monitor_watts",
+                                            "name": "Living Room"
+                                        },
+                                        {
+                                            "entity": "sensor.theater_systems_watts",
+                                            "name": "Theater Systems"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Power",
+                                    "type": "history-graph"
                                 }
                             ],
                             "type": "vertical-stack"

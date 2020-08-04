@@ -198,7 +198,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 45
+      seconds: 15
     platform: device
     type: no_motion
   condition:
@@ -221,6 +221,7 @@
       payload: '{"wake": false, "camera": false}'
       topic: wallpanel/galaxytabs/command
     service: mqtt.publish
+  mode: single
 - id: master_bath_door_opened_lights
   alias: Master Bath Door Opened - Lights
   description: ''
@@ -384,7 +385,6 @@
   - data: {}
     entity_id: media_player.spotify
     service: script.play_on_bose
-  - delay: 00:00:05
   mode: single
 - id: kitchen_motion_stop_after_bedtime
   alias: Kitchen Motion Stop After Bedtime
@@ -462,7 +462,7 @@
   - data:
       volume_level: 0
     entity_id:
-    - media_player.soundtouch_dining_echo_dot
+    - media_player.soundtouch_dining_echo_plus
     - media_player.master_echo_dot
     service: media_player.volume_set
   - data:
@@ -472,7 +472,7 @@
   - data:
       volume_level: 0.4
     entity_id:
-    - media_player.soundtouch_dining_echo_dot
+    - media_player.soundtouch_dining_echo_plus
     - media_player.master_echo_dot
     service: media_player.volume_set
 - id: laundry_door_opened
@@ -705,16 +705,6 @@
   - condition: state
     entity_id: var.bedtime_announced
     state: 'off'
-  - condition: or
-    conditions:
-    - above: '802'
-      condition: numeric_state
-      entity_id: sensor.owm_weather_code
-    - below: '800'
-      condition: numeric_state
-      entity_id: sensor.owm_weather_code
-    - condition: template
-      value_template: '{{ is_state(''sun.sun'', ''below_horizon'') }}'
   action:
   - data:
       payload: '{"wake": true, "camera": true}'
@@ -724,15 +714,25 @@
       brightness: 250
     entity_id: light.master
     service: light.turn_on
-- id: dining_echo_dot_starts_playing
-  alias: Dining Echo Dot Starts Playing
+  - condition: state
+    entity_id: light.master_bath
+    state: 'on'
+  - data: {}
+    entity_id: light.master_bath,light.master_bath_light
+    service: light.turn_off
+  - data: {}
+    entity_id: switch.master_bath_fan
+    service: switch.turn_off
+  mode: single
+- id: dining_echo_plus_starts_playing
+  alias: Dining Echo Plus Starts Playing
   description: ''
   trigger:
   - entity_id: media_player.soundtouch_dining_echo_plus
     from: standby
     platform: state
     to: playing
-  - entity_id: media_player.soundtouch_dining_echo_dot
+  - entity_id: media_player.soundtouch_dining_echo_plus
     from: 'off'
     platform: state
     to: playing
@@ -855,7 +855,7 @@
         type: tts
       message: Humidity is above 70%, please turn on AC
       target:
-      - media_player.soundtouch_dining_echo_dot
+      - media_player.soundtouch_dining_echo_plus
       - media_player.master_echo_dot
     service: notify.alexa_media
 - id: kitchen_overhead_turned_on_invisible
@@ -950,9 +950,12 @@
   - data: {}
     entity_id: light.kbkpc
     service: light.turn_off
+  - condition: template
+    value_template: '{{ false }}'
   - data:
       event: office_tv_input_hdmi3
     service: ifttt.trigger
+  mode: single
 - id: office_motion_start_when_wfh
   alias: Office Motion Start when WFH
   description: ''
@@ -978,9 +981,17 @@
   - data: {}
     entity_id: light.kbkpc
     service: light.turn_on
+  - data: {}
+    entity_id:
+    - light.dining
+    - light.kitchen
+    service: light.turn_off
+  - condition: template
+    value_template: '{{ false }}'
   - data:
       event: office_tv_input_hdmi1
     service: ifttt.trigger
+  mode: single
 - id: master_bath_light_brightness_changed
   alias: Master Bath Light Brightness Changed
   description: ''
@@ -1029,4 +1040,40 @@
       message: Vacuum starting, clear floor or say stop vacuum
       target: Dining Echo Plus
     service: notify.alexa_media
+  mode: single
+- id: theater_stick_paused
+  alias: Theater Stick Paused
+  description: ''
+  trigger:
+  - entity_id: media_player.theater_stick
+    from: playing
+    platform: state
+    to: paused
+  condition:
+  - condition: state
+    entity_id: light.living_room
+    state: 'off'
+  action:
+  - data: {}
+    entity_id: light.living_room_lamps
+    service: light.turn_on
+  - data: {}
+    entity_id: light.living_room_lamp_spotlight
+    service: light.turn_on
+  mode: single
+- id: theater_stick_playing
+  alias: Theater Stick Playing
+  description: ''
+  trigger:
+  - entity_id: media_player.theater_stick
+    platform: state
+    to: playing
+  condition:
+  - condition: state
+    entity_id: light.main
+    state: 'on'
+  action:
+  - data: {}
+    entity_id: light.main
+    service: light.turn_off
   mode: single

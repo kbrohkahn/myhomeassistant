@@ -3,22 +3,22 @@
         "devices": [
             {
                 "ieee": "00:0d:6f:00:0b:3d:32:f5",
-                "last_seen": 1594325863.4468265,
+                "last_seen": 1596460211.3279817,
                 "name": "Silicon Labs EZSP"
             },
             {
                 "ieee": "28:6d:97:00:01:0a:b7:d7",
-                "last_seen": 1596111770.0924673,
+                "last_seen": 1596488562.8268535,
                 "name": "Samjin multi"
             },
             {
                 "ieee": "28:6d:97:00:01:0a:b8:ae",
-                "last_seen": 1596112375.3618736,
+                "last_seen": 1596488310.2893527,
                 "name": "Samjin multi"
             },
             {
                 "ieee": "28:6d:97:00:01:0a:b2:a6",
-                "last_seen": 1596112431.7880218,
+                "last_seen": 1596488576.4001305,
                 "name": "Samjin multi"
             },
             {
@@ -28,32 +28,32 @@
             },
             {
                 "ieee": "24:fd:5b:00:01:03:1b:4f",
-                "last_seen": 1596111932.3941429,
+                "last_seen": 1596488576.1799896,
                 "name": "SmartThings multiv4"
             },
             {
                 "ieee": "24:fd:5b:00:01:06:7c:ad",
-                "last_seen": 1596112496.61447,
+                "last_seen": 1596488260.395543,
                 "name": "SmartThings motionv4"
             },
             {
                 "ieee": "28:6d:97:00:01:0a:a8:7c",
-                "last_seen": 1596111924.08982,
+                "last_seen": 1596488584.32482,
                 "name": "Samjin multi"
             },
             {
                 "ieee": "24:fd:5b:00:01:05:0f:7a",
-                "last_seen": 1596112561.6142004,
+                "last_seen": 1596403396.5415547,
                 "name": "SmartThings outletv4"
             },
             {
                 "ieee": "28:6d:97:00:01:0c:86:70",
-                "last_seen": 1596114340.2489595,
+                "last_seen": 1596487866.811496,
                 "name": "Samjin motion"
             },
             {
                 "ieee": "28:6d:97:00:01:0c:77:b0",
-                "last_seen": 1596112314.9534457,
+                "last_seen": 1596488608.1641247,
                 "name": "Samjin motion"
             }
         ]
