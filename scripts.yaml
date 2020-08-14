@@ -33,6 +33,9 @@ kitchen_daytime_lights:
       - 70
     entity_id: light.kitchen_overhead
     service: light.turn_on
+  - condition: state
+    entity_id: light.dining
+    state: 'off'
   - data_template:
       brightness: '{{ brightness }}'
       hs_color:
@@ -40,6 +43,7 @@ kitchen_daytime_lights:
       - 50
     entity_id: light.dining
     service: light.turn_on
+  mode: single
 hallway_daytime_lights:
   alias: Hallway Daytime Light
   sequence:
@@ -77,6 +81,9 @@ kitchen_daytime_lights_by_sun:
       - 20
     entity_id: light.kitchen_overhead
     service: light.turn_on
+  - condition: state
+    entity_id: light.dining
+    state: 'off'
   - data_template:
       brightness: '{{ brightness }}'
       hs_color:
@@ -87,6 +94,7 @@ kitchen_daytime_lights_by_sun:
       - 50
     entity_id: light.dining
     service: light.turn_on
+  mode: single
 lights_home_sunset:
   alias: Lights when Home at Sunset
   sequence:
@@ -261,15 +269,15 @@ bedtime:
     - light.dining
     - light.theater
     service: light.turn_off
+  - data: {}
+    service: script.kill_bose_group
+  - data: {}
+    service: script.stop_the_theater
   - entity_id:
     - switch.living_room_monitor
     - switch.firestone
     - switch.fountain
     service: switch.turn_off
-  - data: {}
-    service: script.kill_bose_group
-  - data: {}
-    service: script.stop_the_theater
   - entity_id:
     - light.kitchen_right
     service: light.turn_off
@@ -297,6 +305,7 @@ bedtime:
   - entity_id:
     - light.hallway
     service: light.turn_off
+  mode: single
 browser_sound_effect:
   alias: Browser Sound Effect
   sequence:
@@ -442,11 +451,9 @@ kill_bose_group:
       - media_player.soundtouch_living_room
     service: soundtouch.remove_zone_slave
   - data: {}
-    entity_id:
-    - media_player.soundtouch_dining
-    - media_player.soundtouch_kitchen
-    - media_player.soundtouch_living_room
+    entity_id: media_player.soundtouch_dining, media_player.soundtouch_kitchen, media_player.soundtouch_living_room
     service: media_player.turn_off
+  mode: single
 create_bose_group:
   alias: Create Bose Group
   sequence:
@@ -715,21 +722,23 @@ master_bath_lights_on:
 maybe_start_office_tv:
   alias: Maybe Start Office TV
   sequence:
-  - below: '20'
+  - below: '30'
     condition: numeric_state
     entity_id: sensor.office_peripherals_watts
   - data:
       event: office_tv_power
     service: ifttt.trigger
+  mode: single
 maybe_stop_office_tv:
   alias: Maybe Stop Office TV
   sequence:
-  - above: '20'
+  - above: '30'
     condition: numeric_state
     entity_id: sensor.office_peripherals_watts
   - data:
       event: office_tv_power
     service: ifttt.trigger
+  mode: single
 start_cameras:
   alias: Start Cameras
   sequence:

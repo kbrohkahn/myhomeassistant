@@ -198,7 +198,7 @@
     for:
       hours: 0
       minutes: 0
-      seconds: 15
+      seconds: 45
     platform: device
     type: no_motion
   condition:
@@ -336,9 +336,18 @@
   - condition: state
     entity_id: var.bedtime_announced
     state: 'off'
-  - condition: template
-    value_template: '{{ not is_state_attr(''media_player.spotify'', ''source'', ''Galaxy
-      Note10+'') }}'
+  - condition: and
+    conditions:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: sensor.spotify_source
+        state: Galaxy Note10+
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: sensor.spotify_source
+        state: PS4-253
   action:
   - data:
       source: Master
@@ -378,9 +387,18 @@
   - condition: state
     entity_id: var.bedtime_announced
     state: 'off'
-  - condition: template
-    value_template: '{{ not is_state_attr(''media_player.spotify'', ''source'', ''Galaxy
-      Note10+'') }}'
+  - condition: and
+    conditions:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: sensor.spotify_source
+        state: Galaxy Note10+
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: sensor.spotify_source
+        state: PS4-253
   action:
   - data: {}
     entity_id: media_player.spotify
@@ -712,6 +730,9 @@
     service: mqtt.publish
   - data:
       brightness: 250
+      hs_color:
+      - 256
+      - 60
     entity_id: light.master
     service: light.turn_on
   - condition: state
@@ -1076,4 +1097,34 @@
   - data: {}
     entity_id: light.main
     service: light.turn_off
+  mode: single
+- id: master_bath_fan_on
+  alias: Master Bath Fan On
+  description: ''
+  trigger:
+  - entity_id: switch.master_bath_fan
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      volume_level: 0.6
+    entity_id: media_player.master_bath_echo_dot
+    service: media_player.volume_set
+  mode: single
+- id: master_bath_fan_off
+  alias: Master Bath Fan Off
+  description: ''
+  trigger:
+  - entity_id: switch.master_bath_fan
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      volume_level: 0.4
+    entity_id: media_player.master_bath_echo_dot
+    service: media_player.volume_set
   mode: single

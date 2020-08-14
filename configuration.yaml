@@ -151,14 +151,51 @@ speedtestdotnet:
 apcupsd:
   host: a722577e-apcupsd
 
+ddwrt:
+  devices:
+    - name: router_iot
+      host: 10.0.0.1
+      username: !secret router_iot_username
+      password: !secret router_iot_password
+      ssl: true
+      verify_ssl: false
+      sensor:
+        - clk_freq
+        - cpu_temp
+        - ip_connections
+        - load_average1
+        - load_average5
+        - load_average15
+        - uptime
+        - voltage
+        - wl_channel
+        - wl_count
+        - wl_quality
+        - wl_rate
+        - wl_xmit
+
 switch:
   - platform: command_line
     switches:
       starlight:
         command_on: curl -X POST https://maker.ifttt.com/trigger/starlight_press/with/key/bANF1Me5akExxSBxpAFFWf
         command_off: curl -X POST https://maker.ifttt.com/trigger/starlight_press/with/key/bANF1Me5akExxSBxpAFFWf
-
-
+  - platform: template
+    switches:
+      office_master:
+        unique_id: switch.office_master
+        value_template: "{{ states('sensor.office_peripherals_watts') | float > 30 }}"
+        turn_on:
+          service: script.start_the_office
+        turn_off:
+          service: script.stop_the_office
+      theater_master:
+        unique_id: switch.theater_master
+        value_template: "{{ states('sensor.theater_peripherals_watts') | float > 10 }}"
+        turn_on:
+          service: script.start_the_theater
+        turn_off:
+          service: script.stop_the_theater
 
 camera:
   - platform: badnest
@@ -184,6 +221,9 @@ camera:
 sensor:
   - platform: badnest
 
+  - platform: nws_alerts
+    zone_id: 'VAC013'
+
 #   - platform: systemmonitor
 #     resources:
 #       - type: disk_use_percent
@@ -201,6 +241,10 @@ sensor:
     monitored_conditions:
       - clouds
       - weather_code
+      - wind_speed
+      - humidity
+      - rain
+      - snow
 
   - platform: mqtt
     state_topic: "valetudo/rockrobo/state"
@@ -236,9 +280,9 @@ sensor:
         unit_of_measurement: '%'
       ups_watts:
         friendly_name_template: "UPS Current Consumption"
-        value_template: '{{ states("sensor.ups_load") | float / 100 * 330 }}'
+        value_template: '{{ (states("sensor.ups_load") | float / 100 * 330) | round (2) }}'
         unit_of_measurement: 'W'
-
+        
   - platform: mqtt
     state_topic: "wallpanel/galaxytabs/sensor/light"
     name: "Galaxy Tab S Light Level"
@@ -306,6 +350,17 @@ sensor:
     state_topic: "wallpanel/galaxys8/sensor/pressure"
     name: "Galaxy S8 Pressure"
     unit_of_measurement: "hPa"
+    value_template: '{{ value_json.value }}'
+
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs6/sensor/light"
+    name: "Galaxy Tab S6 Light Level"
+    unit_of_measurement: "lx"
+    value_template: '{{ value_json.value }}'
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs6/sensor/battery"
+    name: "Galaxy Tab S6 Battery Level"
+    unit_of_measurement: "%"
     value_template: '{{ value_json.value }}'
 
   - platform: rest
