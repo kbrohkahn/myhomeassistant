@@ -102,7 +102,7 @@
             {
                 "connection_class": "local_poll",
                 "data": {
-                    "host": "10.0.0.115"
+                    "host": "10.0.2.15"
                 },
                 "domain": "hue",
                 "entry_id": "0f7c8ea1b7fb4eed8e69e218c0c640dd",
@@ -141,7 +141,7 @@
                     },
                     "app_id": "io.homeassistant.companion.android",
                     "app_name": "Home Assistant",
-                    "app_version": "2.1.1-249-full (249)",
+                    "app_version": "2.2.1-274-full (274)",
                     "device_id": "d689aabf1278c427",
                     "device_name": "SM-N975U1",
                     "manufacturer": "samsung",
@@ -210,7 +210,7 @@
             {
                 "connection_class": "local_poll",
                 "data": {
-                    "host": "10.0.0.50",
+                    "host": "10.0.2.50",
                     "name": "Theater Roku"
                 },
                 "domain": "roku",
@@ -227,7 +227,7 @@
             {
                 "connection_class": "local_poll",
                 "data": {
-                    "host": "10.0.0.115",
+                    "host": "10.0.2.15",
                     "username": "8Nfx91yPF6BK4h1HXQUXXndAj8r8bOcP1SsDYMRp"
                 },
                 "domain": "hue",
@@ -345,8 +345,8 @@
                     "id": "125975319",
                     "name": "125975319",
                     "token": {
-                        "access_token": "BQDAvD5KjHJoEnGSimOnHreDchhYvv91W8pxzfkS8vYXqhp3xyRJn--d8w_OCfBA02eJZ_uSzewzb7p7flwcPZVHhbV8dDCDiBm4-onsBe2N_bucW7NzAt6hmoHbYAiqrFyAt-6kVGH5DMpcPaZlQuJVV3rt3dc02M_F",
-                        "expires_at": 1597436557.1390002,
+                        "access_token": "BQC6Ew5vroMy-1GlYQmMo2UvDL7xnyURMvYI6uCVWtIo3EKl5iekGY5wGQ5qmyCnMy0NO2v1SuYJe4F9PFRL1Ph3dvRnbT5HfEXVuZC05QJ75uNkaLKOtc6BUoh-n5DtxjHkaZSR7zIOaueX7Ep_FxQmwz1TYoqL5zgj",
+                        "expires_at": 1598379202.5736594,
                         "expires_in": 3600,
                         "refresh_token": "AQDy779VHQYss3YLfaoBgbjaGpF0JKM5mGB2tnSgDUx2NjBRFsLB25pULTwoyULa_J2SEavVpn3YnGIRKdhZVcS_SAiAURLUnoFd3CoiZII5lsGqgHNo-KHneGHzjOxpGpg",
                         "scope": "user-modify-playback-state user-read-playback-state user-read-private",
@@ -367,7 +367,7 @@
             {
                 "connection_class": "local_push",
                 "data": {
-                    "host": "10.0.0.200",
+                    "host": "10.0.2.100",
                     "name": "Harmony Hub"
                 },
                 "domain": "harmony",

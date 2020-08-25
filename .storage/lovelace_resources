@@ -100,6 +100,11 @@
                 "id": "ee51ac3b9a234865bf233781410e57f2",
                 "type": "module",
                 "url": "/hacsfiles/vacuum-card/vacuum-card.js"
+            },
+            {
+                "id": "5091e1bcdf2c4145b938eba6456ef7d6",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js"
             }
         ]
     },

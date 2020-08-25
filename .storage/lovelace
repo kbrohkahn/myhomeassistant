@@ -93,7 +93,7 @@
                                             "type": "horizontal-stack"
                                         },
                                         {
-                                            "content": "{% if (states('sensor.nws_alerts') | int) > 0 %} # ALERT {% endif %}\n## {{ states('sensor.nws_alerts') }} weather alerts in effect\n{% if (states('sensor.nws_alerts') | int) > 0 %}\n### {{ state_attr('sensor.nws_alerts', 'title') }}\n#### {{ state_attr('sensor.nws_alerts', 'display_desc') }}\n{% endif %}\n",
+                                            "content": "{% if (states('sensor.nws_alerts') | int) > 0 %} # ******* ALERT ******* {% endif %}\n## {{ states('sensor.nws_alerts') }} weather alerts in effect\n{% if (states('sensor.nws_alerts') | int) > 0 %}\n### {{ state_attr('sensor.nws_alerts', 'title') }}\n#### {{ state_attr('sensor.nws_alerts', 'display_desc') }}\n{% endif %}\n",
                                             "type": "markdown"
                                         }
                                     ],
@@ -1804,13 +1804,41 @@
                                     "type": "custom:vacuum-card"
                                 },
                                 {
-                                    "camera_image": "camera.rockrobo_map",
-                                    "entities": [
-                                        "camera.rockrobo_map",
-                                        "sensor.rockrobo_map"
+                                    "calibration_points": [
+                                        {
+                                            "map": {
+                                                "x": 466,
+                                                "y": 1889
+                                            },
+                                            "vacuum": {
+                                                "x": 25500,
+                                                "y": 25500
+                                            }
+                                        },
+                                        {
+                                            "map": {
+                                                "x": 730,
+                                                "y": 1625
+                                            },
+                                            "vacuum": {
+                                                "x": 26500,
+                                                "y": 26500
+                                            }
+                                        },
+                                        {
+                                            "map": {
+                                                "x": 466,
+                                                "y": 1625
+                                            },
+                                            "vacuum": {
+                                                "x": 25500,
+                                                "y": 26500
+                                            }
+                                        }
                                     ],
-                                    "entity": "camera.rockrobo_map",
-                                    "type": "picture-entity"
+                                    "entity": "vacuum.rockrobo",
+                                    "map_camera": "camera.rockrobo_map",
+                                    "type": "custom:xiaomi-vacuum-map-card"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -1819,6 +1847,20 @@
                     "icon": "mdi:calendar",
                     "path": "calendar",
                     "title": "Calendar"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "aspect_ratio": "50%",
+                            "type": "iframe",
+                            "url": "https://vacuum.broh-kahn.com"
+                        }
+                    ],
+                    "icon": "mdi:robot-vacuum",
+                    "panel": true,
+                    "path": "vacuum",
+                    "title": "Vacuum"
                 },
                 {
                     "badges": [],
@@ -2461,93 +2503,6 @@
                                     ],
                                     "title": "Sensors",
                                     "type": "entities"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.kitchen_motion_sensor_ias_zone"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.galaxy_tab_a_motion"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.hallway_motion_sensor_ias_zone"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.galaxy_s8_motion"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.master_motion_sensor_ias_zone"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.galaxy_tab_s_motion"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.galaxy_s8_plus_motion"
-                                        }
-                                    ],
-                                    "hours_to_show": 24,
-                                    "refresh_interval": 0,
-                                    "title": "Motion",
-                                    "type": "history-graph"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "climate.hallway_thermostat",
-                                            "name": "Home"
-                                        },
-                                        {
-                                            "entity": "sensor.master_motion_sensor_temperature",
-                                            "name": "Master"
-                                        },
-                                        {
-                                            "entity": "sensor.hallway_motion_sensor_temperature",
-                                            "name": "Hallway"
-                                        },
-                                        {
-                                            "entity": "sensor.kitchen_motion_sensor_temperature",
-                                            "name": "Kitchen"
-                                        }
-                                    ],
-                                    "hours_to_show": 24,
-                                    "refresh_interval": 0,
-                                    "title": "Temperature",
-                                    "type": "history-graph"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "light.kitchen"
-                                        },
-                                        {
-                                            "entity": "light.dining"
-                                        },
-                                        {
-                                            "entity": "light.hallway"
-                                        },
-                                        {
-                                            "entity": "light.living_room"
-                                        },
-                                        {
-                                            "entity": "light.theater"
-                                        },
-                                        {
-                                            "entity": "light.office"
-                                        },
-                                        {
-                                            "entity": "light.master"
-                                        }
-                                    ],
-                                    "hours_to_show": 24,
-                                    "refresh_interval": 0,
-                                    "title": "Light Usage",
-                                    "type": "history-graph"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -2623,13 +2578,33 @@
                                     "type": "entities"
                                 },
                                 {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.galaxy_tab_s6_light_level",
+                                            "graph": "line",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.galaxy_s8_light_level",
+                                            "graph": "line",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
                                     "entities": [
                                         {
                                             "entity": "sensor.theater_peripherals_watts",
                                             "name": "Theater Peripherals"
                                         },
                                         {
-                                            "entity": "sensor.office_peripherals_watts",
+                                            "entity": "sensor.theater_systems_watts",
                                             "name": "Office"
                                         },
                                         {
@@ -2648,6 +2623,30 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "climate.hallway_thermostat",
+                                    "name": "Home"
+                                },
+                                {
+                                    "entity": "sensor.master_motion_sensor_temperature",
+                                    "name": "Master"
+                                },
+                                {
+                                    "entity": "sensor.hallway_motion_sensor_temperature",
+                                    "name": "Hallway"
+                                },
+                                {
+                                    "entity": "sensor.kitchen_motion_sensor_temperature",
+                                    "name": "Kitchen"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "title": "Temperature",
+                            "type": "history-graph"
                         }
                     ],
                     "icon": "mdi:chart-timeline-variant",
@@ -2659,10 +2658,6 @@
                     "cards": [
                         {
                             "cards": [
-                                {
-                                    "content": "# UPS",
-                                    "type": "markdown"
-                                },
                                 {
                                     "cards": [
                                         {
@@ -2678,75 +2673,147 @@
                                             "type": "gauge"
                                         }
                                     ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "content": "# Home Assistant",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "script.add_to_shopping_list",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "name": "Reload Scripts",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.reload"
-                                            },
-                                            "type": "button"
-                                        },
-                                        {
-                                            "entity": "automation.balcony_door_opened",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "name": "Reload Automations",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "state_color": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "automation.reload"
-                                            },
-                                            "type": "button"
-                                        }
-                                    ],
+                                    "title": "Test",
                                     "type": "horizontal-stack"
                                 },
                                 {
                                     "cards": [
                                         {
-                                            "entity": "automation.kitchen_motion_start_music",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "name": "Kitchen Motion Music",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "button"
+                                            "cards": [
+                                                {
+                                                    "entity": "script.add_to_shopping_list",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "name": "Reload Scripts",
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "script.reload"
+                                                    },
+                                                    "type": "button"
+                                                },
+                                                {
+                                                    "entity": "automation.balcony_door_opened",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "name": "Reload Automations",
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "state_color": false,
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "automation.reload"
+                                                    },
+                                                    "type": "button"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
                                         },
                                         {
-                                            "entity": "automation.master_motion_start_music",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "name": "Master Motion Music",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "button"
+                                            "cards": [
+                                                {
+                                                    "entity": "automation.kitchen_motion_start_music",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "name": "Kitchen Motion Music",
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "button"
+                                                },
+                                                {
+                                                    "entity": "automation.master_motion_start_music",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "name": "Master Motion Music",
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "button"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
                                         }
                                     ],
+                                    "title": "Home Assistant",
+                                    "type": "vertical-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "cards": [
+                                                {
+                                                    "detail": 2,
+                                                    "entity": "sensor.speedtest_download",
+                                                    "graph": "line",
+                                                    "icon": "mdi:download",
+                                                    "name": "Download",
+                                                    "type": "sensor"
+                                                },
+                                                {
+                                                    "detail": 2,
+                                                    "entity": "sensor.speedtest_upload",
+                                                    "graph": "line",
+                                                    "icon": "mdi:upload",
+                                                    "name": "Upload",
+                                                    "type": "sensor"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "detail": 2,
+                                                    "entity": "sensor.speedtest_ping",
+                                                    "graph": "line",
+                                                    "name": "Ping",
+                                                    "type": "sensor"
+                                                },
+                                                {
+                                                    "detail": 2,
+                                                    "entity": "sensor.speedtest_ping",
+                                                    "graph": "line",
+                                                    "name": "Ping",
+                                                    "type": "sensor"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
+                                        }
+                                    ],
+                                    "title": "Verizon Speedtest",
+                                    "type": "vertical-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.adguard_average_processing_speed",
+                                            "graph": "line",
+                                            "name": "Speed",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.adguard_dns_queries_blocked_ratio",
+                                            "graph": "line",
+                                            "name": "Blocked",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "title": "AdGuard",
                                     "type": "horizontal-stack"
                                 }
                             ],
@@ -2755,84 +2822,11 @@
                         {
                             "cards": [
                                 {
-                                    "content": "# Verizon Speedtest",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "detail": 2,
-                                            "entity": "sensor.speedtest_download",
-                                            "graph": "line",
-                                            "icon": "mdi:download",
-                                            "name": "Download",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "detail": 2,
-                                            "entity": "sensor.speedtest_upload",
-                                            "graph": "line",
-                                            "icon": "mdi:upload",
-                                            "name": "Upload",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "detail": 2,
-                                            "entity": "sensor.speedtest_ping",
-                                            "graph": "line",
-                                            "name": "Ping",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "detail": 2,
-                                            "entity": "sensor.speedtest_ping",
-                                            "graph": "line",
-                                            "name": "Ping",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "content": "# AdGuard",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.adguard_average_processing_speed",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.adguard_dns_queries_blocked_ratio",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "content": "# IOT Router",
-                                    "type": "markdown"
-                                },
-                                {
                                     "cards": [
                                         {
                                             "entity": "sensor.router_iot_cpu_temp",
                                             "graph": "line",
                                             "name": "CPU",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.router_iot_clk_freq",
-                                            "graph": "line",
-                                            "name": "Clock",
                                             "type": "sensor"
                                         },
                                         {
@@ -2847,29 +2841,39 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "sensor.router_iot_wl_quality",
-                                            "graph": "line",
-                                            "name": "WiFi Quality",
+                                            "entity": "sensor.router_iot_clk_freq",
+                                            "name": "Clock",
                                             "type": "sensor"
                                         },
                                         {
                                             "entity": "sensor.router_iot_wl_rate",
-                                            "graph": "line",
                                             "name": "WiFi Rate",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.router_iot_wl_xmit",
+                                            "name": "Transit",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.router_iot_wl_quality",
+                                            "name": "WiFi Quality",
                                             "type": "sensor"
                                         }
                                     ],
                                     "type": "horizontal-stack"
                                 }
                             ],
+                            "title": "IOT Router",
                             "type": "vertical-stack"
                         },
                         {
                             "cards": [
-                                {
-                                    "content": "# Server",
-                                    "type": "markdown"
-                                },
                                 {
                                     "cards": [
                                         {
@@ -2889,6 +2893,7 @@
                                             "type": "sensor"
                                         }
                                     ],
+                                    "title": "Server",
                                     "type": "horizontal-stack"
                                 },
                                 {
@@ -2941,72 +2946,6 @@
                                                 "yellow": 130
                                             },
                                             "type": "gauge"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "content": "# Server Workers",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.glances_data_used_percent",
-                                            "max": 100,
-                                            "min": 0,
-                                            "severity": {
-                                                "green": 0,
-                                                "red": 80,
-                                                "yellow": 60
-                                            },
-                                            "type": "gauge"
-                                        },
-                                        {
-                                            "entity": "sensor.glances_swap_used_percent",
-                                            "max": 100,
-                                            "min": 0,
-                                            "severity": {
-                                                "green": 0,
-                                                "red": 80,
-                                                "yellow": 60
-                                            },
-                                            "type": "gauge"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.glances_containers_active",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.glances_total",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.folding_at_home_points",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.folding_at_home_work_units",
-                                            "graph": "line",
-                                            "type": "sensor"
                                         }
                                     ],
                                     "type": "horizontal-stack"

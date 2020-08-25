@@ -219,7 +219,7 @@
     service: light.turn_off
   - data:
       payload: '{"wake": false, "camera": false}'
-      topic: wallpanel/galaxytabs/command
+      topic: wallpanel/galaxytabs6/command
     service: mqtt.publish
   mode: single
 - id: master_bath_door_opened_lights
@@ -726,7 +726,7 @@
   action:
   - data:
       payload: '{"wake": true, "camera": true}'
-      topic: wallpanel/galaxytabs/command
+      topic: wallpanel/galaxytabs6/command
     service: mqtt.publish
   - data:
       brightness: 250
@@ -811,6 +811,9 @@
   - condition: state
     entity_id: light.master_bath
     state: 'off'
+  - condition: state
+    entity_id: var.people_home
+    state: 'on'
   action:
   - data_template:
       brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else

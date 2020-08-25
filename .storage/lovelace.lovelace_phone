@@ -44,54 +44,55 @@
                                 {
                                     "entity": "weather.openweathermap",
                                     "name": "Home",
-                                    "secondary_info_attribute": "wind_speed",
                                     "show_forecast": true,
+                                    "style": ":host .temp-attribute .temp {\n  font-size: 48px;\n}\n",
                                     "type": "weather-forecast"
-                                },
-                                {
-                                    "control": {
-                                        "_headings": false,
-                                        "_icons": true,
-                                        "_names": true,
-                                        "hvac": {
-                                            "name": "test"
-                                        }
-                                    },
-                                    "decimals": 0,
-                                    "entity": "climate.hallway_thermostat",
-                                    "label": {
-                                        "temperature": "Temp"
-                                    },
-                                    "name": false,
-                                    "sensors": [
-                                        {
-                                            "attribute": "current_humidity",
-                                            "entity": "climate.hallway_thermostat",
-                                            "name": "Humid",
-                                            "unit": "%"
-                                        }
-                                    ],
-                                    "step_layout": "row",
-                                    "step_size": 1,
-                                    "style": "ha-card {\n  #--st-font-size-m: 16px;\n  #--st-font-size-xl: 36px;\n  --st-font-size-sensors: 18px;\n}\n",
-                                    "type": "custom:simple-thermostat"
                                 },
                                 {
                                     "cards": [
                                         {
-                                            "entity": "sensor.hallway_thermostat",
+                                            "entity": "sensor.owm_cloud_coverage",
                                             "graph": "line",
-                                            "name": "Temperature",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:cloud",
+                                            "name": "Clouds",
                                             "type": "sensor"
                                         },
                                         {
-                                            "entity": "sensor.hallway_humidity",
+                                            "entity": "sensor.owm_humidity",
                                             "graph": "line",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:air-humidifier",
                                             "name": "Humidity",
                                             "type": "sensor"
                                         }
                                     ],
                                     "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.owm_wind_speed",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:weather-windy",
+                                            "name": "Wind",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.owm_rain",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:weather-pouring",
+                                            "name": "Rain",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "content": "{% if (states('sensor.nws_alerts') | int) > 0 %} # ALERT {% endif %}\n## {{ states('sensor.nws_alerts') }} weather alerts in effect\n{% if (states('sensor.nws_alerts') | int) > 0 %}\n### {{ state_attr('sensor.nws_alerts', 'title') }}\n#### {{ state_attr('sensor.nws_alerts', 'display_desc') }}\n{% endif %}\n",
+                                    "type": "markdown"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -242,138 +243,39 @@
                         {
                             "cards": [
                                 {
+                                    "control": {
+                                        "_headings": false,
+                                        "_icons": true,
+                                        "_names": true,
+                                        "hvac": {
+                                            "name": "test"
+                                        }
+                                    },
+                                    "decimals": 0,
+                                    "entity": "climate.hallway_thermostat",
+                                    "label": {
+                                        "temperature": "Temp"
+                                    },
+                                    "name": false,
+                                    "sensors": [
+                                        {
+                                            "attribute": "current_humidity",
+                                            "entity": "climate.hallway_thermostat",
+                                            "name": "Humid",
+                                            "unit": "%"
+                                        }
+                                    ],
+                                    "step_layout": "row",
+                                    "step_size": 1,
+                                    "style": "ha-card {\n  #--st-font-size-m: 16px;\n  #--st-font-size-xl: 24px;\n  #--st-font-size-sensors: 18px;\n}\n",
+                                    "type": "custom:simple-thermostat"
+                                },
+                                {
                                     "entities": [
                                         {
                                             "entity": "var.people_home",
-                                            "name": "Home"
-                                        },
-                                        {
-                                            "entity": "sensor.hacs",
-                                            "icon": "mdi:power-plug",
-                                            "name": "Power",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "browser_mod.popup",
-                                                "service_data": {
-                                                    "card": {
-                                                        "cards": [
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "entity": "switch.office_peripherals",
-                                                                        "icon": "mdi:monitor-speaker-off",
-                                                                        "name": "Stop Office",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "script.run_script_from_popup",
-                                                                            "service_data": {
-                                                                                "script_id": "script.stop_the_office"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    },
-                                                                    {
-                                                                        "entity": "switch.office_peripherals",
-                                                                        "name": "Start Office",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "script.run_script_from_popup",
-                                                                            "service_data": {
-                                                                                "script_id": "script.start_the_office"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            },
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "entity": "switch.theater_peripherals",
-                                                                        "icon": "mdi:google-controller-off",
-                                                                        "name": "Stop Theater",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "script.run_script_from_popup",
-                                                                            "service_data": {
-                                                                                "script_id": "script.stop_the_theater"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    },
-                                                                    {
-                                                                        "entity": "switch.theater_peripherals",
-                                                                        "name": "Start Theater",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "script.run_script_from_popup",
-                                                                            "service_data": {
-                                                                                "script_id": "script.start_the_theater"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            },
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "entity": "media_player.soundtouch_dining",
-                                                                        "icon": "mdi:speaker-off",
-                                                                        "name": "Kill Speaker Group",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "script.run_script_from_popup",
-                                                                            "service_data": {
-                                                                                "script_id": "script.kill_bose_group"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    },
-                                                                    {
-                                                                        "entity": "media_player.soundtouch_dining",
-                                                                        "icon": "mdi:speaker-multiple",
-                                                                        "name": "Create Speaker Group",
-                                                                        "show_icon": true,
-                                                                        "show_name": true,
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "script.run_script_from_popup",
-                                                                            "service_data": {
-                                                                                "script_id": "script.create_bose_group"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            }
-                                                        ],
-                                                        "type": "vertical-stack"
-                                                    },
-                                                    "deviceID": [
-                                                        "this"
-                                                    ],
-                                                    "title": "Scripts"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "entity": "sensor.hacs",
                                             "icon": "mdi:home-account",
-                                            "name": "Occupancy",
+                                            "name": "Home",
                                             "tap_action": {
                                                 "action": "call-service",
                                                 "service": "browser_mod.popup",
@@ -484,6 +386,39 @@
                                                                     }
                                                                 ],
                                                                 "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "entity": "script.stop_cameras",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:camera-off",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "show_state": false,
+                                                                        "tap_action": {
+                                                                            "action": "toggle"
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "entity": "script.start_cameras",
+                                                                        "hold_action": {
+                                                                            "action": "more-info"
+                                                                        },
+                                                                        "icon": "mdi:camera",
+                                                                        "show_icon": true,
+                                                                        "show_name": true,
+                                                                        "show_state": false,
+                                                                        "tap_action": {
+                                                                            "action": "toggle"
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
                                                             }
                                                         ],
                                                         "type": "vertical-stack"
@@ -494,31 +429,20 @@
                                                     "title": "Scripts"
                                                 }
                                             }
-                                        }
-                                    ],
-                                    "show_state": false,
-                                    "type": "glance"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "detail": 2,
-                                            "entity": "sensor.glances_cpu_used",
-                                            "graph": "line",
-                                            "hours_to_show": 12,
-                                            "name": "CPU Used",
-                                            "type": "sensor"
                                         },
                                         {
-                                            "detail": 2,
-                                            "entity": "sensor.glances_ram_used_percent",
-                                            "graph": "line",
-                                            "hours_to_show": 12,
-                                            "name": "RAM Used",
-                                            "type": "sensor"
+                                            "entity": "sensor.theater_systems_watts",
+                                            "icon": "mdi:audio-video",
+                                            "name": "Theater AV"
+                                        },
+                                        {
+                                            "entity": "sensor.ups_watts",
+                                            "icon": "mdi:battery-charging-100",
+                                            "name": "UPS"
                                         }
                                     ],
-                                    "type": "horizontal-stack"
+                                    "show_state": true,
+                                    "type": "glance"
                                 },
                                 {
                                     "cards": [
@@ -538,50 +462,6 @@
                                         }
                                     ],
                                     "type": "horizontal-stack"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.living_room_monitor_watts",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "switch.living_room_monitor",
-                                            "secondary_info": "last-changed",
-                                            "toggle": true,
-                                            "type": "custom:multiple-entity-row"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "state_color": true,
-                                    "type": "entities"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.theater_peripherals_watts",
-                                            "icon": "mdi:theater",
-                                            "name": "Theater TV"
-                                        },
-                                        {
-                                            "entity": "sensor.theater_systems_watts",
-                                            "icon": "mdi:audio-video",
-                                            "name": "Theater AV"
-                                        },
-                                        {
-                                            "entity": "sensor.office_peripherals_watts",
-                                            "icon": "mdi:monitor-speaker",
-                                            "name": "Office"
-                                        },
-                                        {
-                                            "entity": "sensor.ups_watts",
-                                            "icon": "mdi:battery-charging-100",
-                                            "name": "UPS"
-                                        }
-                                    ],
-                                    "type": "glance"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -604,8 +484,8 @@
                                                 "action": "more-info"
                                             },
                                             "icon": "mdi:monitor-speaker",
-                                            "name": "Office Master",
-                                            "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.office_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n}\n",
+                                            "name": "Office",
+                                            "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.office_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
                                             "tap_action": {
                                                 "action": "call-service",
                                                 "confirmation": {
@@ -619,33 +499,13 @@
                                             "type": "entity-button"
                                         },
                                         {
-                                            "entity": "sensor.theater_peripherals_watts",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "icon": "mdi:theater",
-                                            "name": "Theater Master",
-                                            "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.theater_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n}\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "confirmation": {
-                                                    "text": "Toggle theater master switch?"
-                                                },
-                                                "service": "switch.toggle",
-                                                "service_data": {
-                                                    "entity_id": "switch.theater_master"
-                                                }
-                                            },
-                                            "type": "entity-button"
-                                        },
-                                        {
                                             "entity": "sensor.living_room_monitor_watts",
                                             "hold_action": {
                                                 "action": "more-info"
                                             },
                                             "icon": "mdi:monitor",
-                                            "name": "Living Room Monitor",
-                                            "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.living_room_monitor', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n}\n",
+                                            "name": "Living Room",
+                                            "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.living_room_monitor', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
                                             "tap_action": {
                                                 "action": "call-service",
                                                 "confirmation": {
@@ -657,19 +517,176 @@
                                                 }
                                             },
                                             "type": "entity-button"
+                                        },
+                                        {
+                                            "entity": "sensor.theater_peripherals_watts",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:theater",
+                                            "name": "Theater",
+                                            "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.theater_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "confirmation": {
+                                                    "text": "Toggle theater master switch?"
+                                                },
+                                                "service": "switch.toggle",
+                                                "service_data": {
+                                                    "entity_id": "switch.theater_master"
+                                                }
+                                            },
+                                            "type": "entity-button"
                                         }
                                     ],
+                                    "style": ":host div:first-child {\n  padding-right: 8px;\n  border-right: solid black 8px;\n}\n:host div:last-child {\n  padding-left: 8px;\n  border-left: solid black 8px;\n}\n",
                                     "type": "glance"
                                 },
                                 {
                                     "cards": [
                                         {
+                                            "entity": "switch.office_peripherals",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:remote",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "id": "browser_mod.popup",
+                                                "service": "browser_mod.popup",
+                                                "service_data": {
+                                                    "card": {
+                                                        "cards": [
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "icon": "mdi:power",
+                                                                        "name": "Power",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_power"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "icon": "mdi:volume-medium",
+                                                                        "name": "Vol-",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_volume_down"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "icon": "mdi:volume-high",
+                                                                        "name": "Vol+",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_volume_up"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            },
+                                                            {
+                                                                "cards": [
+                                                                    {
+                                                                        "icon": "mdi:laptop-windows",
+                                                                        "name": "SDSA PC",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_input_hdmi1"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "icon": "mdi:laptop",
+                                                                        "name": "Notebook",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_input_hdmi2"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    },
+                                                                    {
+                                                                        "icon": "mdi:cast",
+                                                                        "name": "Chromecast",
+                                                                        "tap_action": {
+                                                                            "action": "call-service",
+                                                                            "service": "ifttt.trigger",
+                                                                            "service_data": {
+                                                                                "event": "office_tv_input_hdmi3"
+                                                                            }
+                                                                        },
+                                                                        "type": "button"
+                                                                    }
+                                                                ],
+                                                                "type": "horizontal-stack"
+                                                            }
+                                                        ],
+                                                        "type": "vertical-stack"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Office TV"
+                                                },
+                                                "type": "service"
+                                            },
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "switch.living_room_monitor",
+                                            "hold_action": {
+                                                "action": "more-info"
+                                            },
+                                            "icon": "mdi:remote",
+                                            "show_name": false,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "id": "browser_mod.popup",
+                                                "service": "browser_mod.popup",
+                                                "service_data": {
+                                                    "card": {
+                                                        "apps": null,
+                                                        "entity": "media_player.office_tv",
+                                                        "name": null,
+                                                        "tv": true,
+                                                        "type": "custom:roku-card"
+                                                    },
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Living Room TV"
+                                                },
+                                                "type": "service"
+                                            },
+                                            "type": "button"
+                                        },
+                                        {
                                             "entity": "switch.theater_peripherals",
                                             "hold_action": {
                                                 "action": "more-info"
                                             },
-                                            "icon": "mdi:theater",
-                                            "name": "Theater TV",
+                                            "icon": "mdi:remote",
+                                            "show_name": false,
                                             "tap_action": {
                                                 "action": "call-service",
                                                 "service": "browser_mod.popup",
@@ -934,142 +951,6 @@
                                                     ],
                                                     "title": "Theater TV"
                                                 }
-                                            },
-                                            "type": "button"
-                                        },
-                                        {
-                                            "entity": "switch.office_peripherals",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "icon": "mdi:monitor-speaker",
-                                            "name": "Office TV",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "id": "browser_mod.popup",
-                                                "service": "browser_mod.popup",
-                                                "service_data": {
-                                                    "card": {
-                                                        "cards": [
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "icon": "mdi:power",
-                                                                        "name": "Power",
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "ifttt.trigger",
-                                                                            "service_data": {
-                                                                                "event": "office_tv_power"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    },
-                                                                    {
-                                                                        "icon": "mdi:volume-medium",
-                                                                        "name": "Vol-",
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "ifttt.trigger",
-                                                                            "service_data": {
-                                                                                "event": "office_tv_volume_down"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    },
-                                                                    {
-                                                                        "icon": "mdi:volume-high",
-                                                                        "name": "Vol+",
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "ifttt.trigger",
-                                                                            "service_data": {
-                                                                                "event": "office_tv_volume_up"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            },
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "icon": "mdi:laptop-windows",
-                                                                        "name": "SDSA PC",
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "ifttt.trigger",
-                                                                            "service_data": {
-                                                                                "event": "office_tv_input_hdmi1"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    },
-                                                                    {
-                                                                        "icon": "mdi:laptop",
-                                                                        "name": "Notebook",
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "ifttt.trigger",
-                                                                            "service_data": {
-                                                                                "event": "office_tv_input_hdmi2"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    },
-                                                                    {
-                                                                        "icon": "mdi:cast",
-                                                                        "name": "Chromecast",
-                                                                        "tap_action": {
-                                                                            "action": "call-service",
-                                                                            "service": "ifttt.trigger",
-                                                                            "service_data": {
-                                                                                "event": "office_tv_input_hdmi3"
-                                                                            }
-                                                                        },
-                                                                        "type": "button"
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            }
-                                                        ],
-                                                        "type": "vertical-stack"
-                                                    },
-                                                    "deviceID": [
-                                                        "this"
-                                                    ],
-                                                    "title": "Office TV"
-                                                },
-                                                "type": "service"
-                                            },
-                                            "type": "button"
-                                        },
-                                        {
-                                            "entity": "switch.living_room_monitor",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "icon": "mdi:monitor",
-                                            "name": "Living Room TV",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "id": "browser_mod.popup",
-                                                "service": "browser_mod.popup",
-                                                "service_data": {
-                                                    "card": {
-                                                        "apps": null,
-                                                        "entity": "media_player.office_tv",
-                                                        "name": null,
-                                                        "tv": true,
-                                                        "type": "custom:roku-card"
-                                                    },
-                                                    "deviceID": [
-                                                        "this"
-                                                    ],
-                                                    "title": "Living Room TV"
-                                                },
-                                                "type": "service"
                                             },
                                             "type": "button"
                                         }
@@ -2212,6 +2093,20 @@
                     "badges": [],
                     "cards": [
                         {
+                            "aspect_ratio": "50%",
+                            "type": "iframe",
+                            "url": "http://10.0.0.241"
+                        }
+                    ],
+                    "icon": "mdi:robot-vacuum",
+                    "panel": true,
+                    "path": "vacuum",
+                    "title": "Vacuum"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
                             "cards": [
                                 {
                                     "entities": [
@@ -2559,35 +2454,130 @@
                                             "type": "gauge"
                                         }
                                     ],
+                                    "title": "Test",
                                     "type": "horizontal-stack"
                                 },
                                 {
                                     "cards": [
                                         {
-                                            "detail": 2,
-                                            "entity": "sensor.speedtest_download",
-                                            "graph": "line",
-                                            "icon": "mdi:download",
-                                            "name": "Download",
-                                            "type": "sensor"
+                                            "cards": [
+                                                {
+                                                    "entity": "script.add_to_shopping_list",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "name": "Reload Scripts",
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "script.reload"
+                                                    },
+                                                    "type": "button"
+                                                },
+                                                {
+                                                    "entity": "automation.balcony_door_opened",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "name": "Reload Automations",
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "state_color": false,
+                                                    "tap_action": {
+                                                        "action": "call-service",
+                                                        "service": "automation.reload"
+                                                    },
+                                                    "type": "button"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
                                         },
                                         {
-                                            "detail": 2,
-                                            "entity": "sensor.speedtest_upload",
-                                            "graph": "line",
-                                            "icon": "mdi:upload",
-                                            "name": "Upload",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "detail": 2,
-                                            "entity": "sensor.speedtest_ping",
-                                            "graph": "line",
-                                            "name": "Ping",
-                                            "type": "sensor"
+                                            "cards": [
+                                                {
+                                                    "entity": "automation.kitchen_motion_start_music",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "name": "Kitchen Motion Music",
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "button"
+                                                },
+                                                {
+                                                    "entity": "automation.master_motion_start_music",
+                                                    "hold_action": {
+                                                        "action": "more-info"
+                                                    },
+                                                    "name": "Master Motion Music",
+                                                    "show_icon": true,
+                                                    "show_name": true,
+                                                    "tap_action": {
+                                                        "action": "toggle"
+                                                    },
+                                                    "type": "button"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
                                         }
                                     ],
-                                    "type": "horizontal-stack"
+                                    "title": "Home Assistant",
+                                    "type": "vertical-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "cards": [
+                                                {
+                                                    "detail": 2,
+                                                    "entity": "sensor.speedtest_download",
+                                                    "graph": "line",
+                                                    "icon": "mdi:download",
+                                                    "name": "Download",
+                                                    "type": "sensor"
+                                                },
+                                                {
+                                                    "detail": 2,
+                                                    "entity": "sensor.speedtest_upload",
+                                                    "graph": "line",
+                                                    "icon": "mdi:upload",
+                                                    "name": "Upload",
+                                                    "type": "sensor"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
+                                        },
+                                        {
+                                            "cards": [
+                                                {
+                                                    "detail": 2,
+                                                    "entity": "sensor.speedtest_ping",
+                                                    "graph": "line",
+                                                    "name": "Ping",
+                                                    "type": "sensor"
+                                                },
+                                                {
+                                                    "detail": 2,
+                                                    "entity": "sensor.speedtest_ping",
+                                                    "graph": "line",
+                                                    "name": "Ping",
+                                                    "type": "sensor"
+                                                }
+                                            ],
+                                            "type": "horizontal-stack"
+                                        }
+                                    ],
+                                    "title": "Verizon Speedtest",
+                                    "type": "vertical-stack"
                                 },
                                 {
                                     "cards": [
@@ -2602,69 +2592,67 @@
                                             "type": "sensor"
                                         }
                                     ],
+                                    "title": "AdGuard",
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.router_iot_cpu_temp",
+                                            "graph": "line",
+                                            "name": "CPU",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.router_iot_clk_freq",
+                                            "graph": "line",
+                                            "name": "Clock",
+                                            "type": "sensor"
+                                        }
+                                    ],
                                     "type": "horizontal-stack"
                                 },
                                 {
                                     "cards": [
                                         {
-                                            "entity": "script.add_to_shopping_list",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "name": "Reload Scripts",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "script.reload"
-                                            },
-                                            "type": "button"
+                                            "entity": "sensor.router_iot_load_average15",
+                                            "graph": "line",
+                                            "name": "Load",
+                                            "type": "sensor"
                                         },
                                         {
-                                            "entity": "automation.balcony_door_opened",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "name": "Reload Automations",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "state_color": false,
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "automation.reload"
-                                            },
-                                            "type": "button"
+                                            "entity": "sensor.router_iot_wl_xmit",
+                                            "graph": "line",
+                                            "name": "Transmittion",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.router_iot_wl_quality",
+                                            "graph": "line",
+                                            "name": "WiFi Quality",
+                                            "type": "sensor"
                                         },
                                         {
-                                            "entity": "automation.kitchen_motion_start_music",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "name": "Kitchen Motion Music",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "button"
-                                        },
-                                        {
-                                            "entity": "automation.master_motion_start_music",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "name": "Master Motion Music",
-                                            "show_icon": true,
-                                            "show_name": true,
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "button"
+                                            "entity": "sensor.router_iot_wl_rate",
+                                            "graph": "line",
+                                            "name": "WiFi Rate",
+                                            "type": "sensor"
                                         }
                                     ],
                                     "type": "horizontal-stack"
                                 }
                             ],
+                            "title": "IOT Router",
                             "type": "vertical-stack"
                         },
                         {
@@ -2688,29 +2676,30 @@
                                             "type": "sensor"
                                         }
                                     ],
+                                    "title": "Server",
                                     "type": "horizontal-stack"
                                 },
                                 {
                                     "cards": [
                                         {
-                                            "entity": "sensor.glances_data_used_percent",
-                                            "max": 100,
-                                            "min": 0,
+                                            "entity": "sensor.glances_core_0_temp",
+                                            "max": 160,
+                                            "min": 70,
                                             "severity": {
-                                                "green": 0,
-                                                "red": 80,
-                                                "yellow": 60
+                                                "green": 70,
+                                                "red": 140,
+                                                "yellow": 110
                                             },
                                             "type": "gauge"
                                         },
                                         {
-                                            "entity": "sensor.glances_swap_used_percent",
-                                            "max": 100,
-                                            "min": 0,
+                                            "entity": "sensor.glances_core_1_temp",
+                                            "max": 160,
+                                            "min": 70,
                                             "severity": {
-                                                "green": 0,
-                                                "red": 80,
-                                                "yellow": 60
+                                                "green": 70,
+                                                "red": 140,
+                                                "yellow": 110
                                             },
                                             "type": "gauge"
                                         }
@@ -2720,96 +2709,29 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "sensor.glances_containers_active",
-                                            "graph": "line",
-                                            "type": "sensor"
+                                            "entity": "sensor.glances_core_2_temp",
+                                            "max": 160,
+                                            "min": 70,
+                                            "severity": {
+                                                "green": 70,
+                                                "red": 140,
+                                                "yellow": 110
+                                            },
+                                            "type": "gauge"
                                         },
                                         {
-                                            "entity": "sensor.glances_total",
-                                            "graph": "line",
-                                            "type": "sensor"
+                                            "entity": "sensor.glances_core_3_temp",
+                                            "max": 160,
+                                            "min": 70,
+                                            "severity": {
+                                                "green": 70,
+                                                "red": 140,
+                                                "yellow": 130
+                                            },
+                                            "type": "gauge"
                                         }
                                     ],
                                     "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.folding_at_home_points",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.folding_at_home_work_units",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "entity": "sensor.glances_core_0_temp",
-                                                    "max": 160,
-                                                    "min": 70,
-                                                    "severity": {
-                                                        "green": 70,
-                                                        "red": 140,
-                                                        "yellow": 110
-                                                    },
-                                                    "type": "gauge"
-                                                },
-                                                {
-                                                    "entity": "sensor.glances_core_1_temp",
-                                                    "max": 160,
-                                                    "min": 70,
-                                                    "severity": {
-                                                        "green": 70,
-                                                        "red": 140,
-                                                        "yellow": 110
-                                                    },
-                                                    "type": "gauge"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        },
-                                        {
-                                            "cards": [
-                                                {
-                                                    "entity": "sensor.glances_core_2_temp",
-                                                    "max": 160,
-                                                    "min": 70,
-                                                    "severity": {
-                                                        "green": 70,
-                                                        "red": 140,
-                                                        "yellow": 110
-                                                    },
-                                                    "type": "gauge"
-                                                },
-                                                {
-                                                    "entity": "sensor.glances_core_3_temp",
-                                                    "max": 160,
-                                                    "min": 70,
-                                                    "severity": {
-                                                        "green": 70,
-                                                        "red": 140,
-                                                        "yellow": 130
-                                                    },
-                                                    "type": "gauge"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "type": "vertical-stack"
                                 }
                             ],
                             "type": "vertical-stack"
