@@ -8,17 +8,17 @@
             },
             {
                 "ieee": "28:6d:97:00:01:0a:b7:d7",
-                "last_seen": 1597845387.6629162,
+                "last_seen": 1598392914.0021727,
                 "name": "Samjin multi"
             },
             {
                 "ieee": "28:6d:97:00:01:0a:b8:ae",
-                "last_seen": 1597845293.9874809,
+                "last_seen": 1598392765.9272785,
                 "name": "Samjin multi"
             },
             {
                 "ieee": "28:6d:97:00:01:0a:b2:a6",
-                "last_seen": 1597845461.124929,
+                "last_seen": 1598392889.2860878,
                 "name": "Samjin multi"
             },
             {
@@ -28,17 +28,17 @@
             },
             {
                 "ieee": "24:fd:5b:00:01:03:1b:4f",
-                "last_seen": 1597844876.7501185,
+                "last_seen": 1598393060.8189876,
                 "name": "SmartThings multiv4"
             },
             {
                 "ieee": "24:fd:5b:00:01:06:7c:ad",
-                "last_seen": 1597845458.8316362,
+                "last_seen": 1598392829.3642197,
                 "name": "SmartThings motionv4"
             },
             {
                 "ieee": "28:6d:97:00:01:0a:a8:7c",
-                "last_seen": 1597844939.3263574,
+                "last_seen": 1598392946.8783758,
                 "name": "Samjin multi"
             },
             {
@@ -48,12 +48,12 @@
             },
             {
                 "ieee": "28:6d:97:00:01:0c:86:70",
-                "last_seen": 1597844870.098309,
+                "last_seen": 1598392870.7452674,
                 "name": "Samjin motion"
             },
             {
                 "ieee": "28:6d:97:00:01:0c:77:b0",
-                "last_seen": 1597845458.7834256,
+                "last_seen": 1598392737.629876,
                 "name": "Samjin motion"
             }
         ]

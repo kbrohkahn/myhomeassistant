@@ -1,18 +1,3 @@
-lights_home_daylight:
-  alias: Lights when Home at Daylight
-  sequence:
-  - data:
-      brightness: 250
-    service: script.kitchen_daytime_lights_by_sun
-  - data:
-      entity_id:
-      - light.hallway
-      - light.dining
-      - light.office
-      - light.living_room
-      - light.master
-      - light.theater
-    service: light.turn_off
 kitchen_daytime_lights:
   alias: Kitchen Daytime Lights
   sequence:
@@ -24,7 +9,7 @@ kitchen_daytime_lights:
     entity_id: light.kitchen_strips
     service: light.turn_on
   - condition: state
-    entity_id: var.bedtime_announced
+    entity_id: automation.kitchen_motion_stop_after_bedtime
     state: 'off'
   - data_template:
       brightness: '{{ brightness }}'
@@ -69,7 +54,7 @@ kitchen_daytime_lights_by_sun:
     entity_id: light.kitchen_strips
     service: light.turn_on
   - condition: state
-    entity_id: var.bedtime_announced
+    entity_id: automation.kitchen_motion_stop_after_bedtime
     state: 'off'
   - data_template:
       brightness: '{{ brightness }}'
@@ -128,16 +113,10 @@ lights_home_sunset:
 lights_away_daylight:
   alias: Lights when Away at Daylight
   sequence:
-  - data:
-      entity_id:
-      - light.kitchen
-      - light.hallway
-      - light.dining
-      - light.office
-      - light.living_room
-      - light.master
-      - light.theater
+  - data: {}
+    entity_id: light.home
     service: light.turn_off
+  mode: single
 lights_away_sunset:
   alias: Lights when Away at Sunset
   sequence:
@@ -148,24 +127,22 @@ lights_away_sunset:
       - light.living_room
       - light.master
       - light.theater
+      - light.kitchen_overhead
     service: light.turn_off
   - data:
       brightness: 128
       entity_id:
-      - light.kitchen
+      - light.kitchen_strips
       - light.hallway
       rgb_color:
       - 233
       - 233
       - 0
     service: light.turn_on
+  mode: single
 users_away:
   alias: Users Away
   sequence:
-  - data:
-      entity_id: var.people_home
-      value: 'off'
-    service: var.set
   - service_template: "{%- if state_attr('sun.sun', 'elevation') > 6 -%}\n  script.lights_away_daylight\n\
       {%- else -%}\n  script.lights_away_sunset\n{%- endif -%}"
   - data:
@@ -187,14 +164,19 @@ users_away:
     entity_id: media_player.spotify
     service: media_player.select_source
   - data: {}
-    entity_id: media_player.soundtouch_dining
-    service: media_player.media_stop
-  - data: {}
     service: script.kill_bose_group
   - data: {}
     service: script.stop_the_office
   - data: {}
     service: script.stop_the_theater
+  - data: {}
+    entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
+      automation.hallway_bath_door_motion,automation.master_bath_door_motion,automation.hallway_motion_start_lights,automation.kitchen_motion_start_lights,
+      automation.master_motion_start_lights,automation.sunset
+    service: automation.turn_off
+  - data: {}
+    entity_id: automation.nightlight
+    service: automation.turn_on
   - condition: template
     value_template: '{{ (as_timestamp(now()) * 1000 - state_attr(''vacuum.rockrobo'',
       ''last_run_stats'')[''startTime'']) / 1000 > 36 * 3600 }}'
@@ -217,18 +199,22 @@ users_away:
 users_home:
   alias: Users Home
   sequence:
-  - data:
-      value: 'on'
-    entity_id: var.people_home
-    service: var.set
-  - service_template: "{%- if state_attr('sun.sun', 'elevation') > 6 -%}\n  script.lights_home_daylight\n\
-      {%- else -%}\n  script.lights_home_sunset\n{%- endif -%}"
+  - data: {}
+    entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
+      automation.hallway_bath_door_motion,automation.master_bath_door_motion,automation.hallway_motion_start_lights,automation.kitchen_motion_start_lights,
+      automation.master_motion_start_lights,automation.sunset
+    service: automation.turn_on
+  - data: {}
+    entity_id: automation.nightlight
+    service: automation.turn_off
+  - service_template: "{%- if state_attr('sun.sun', 'elevation') < 6 -%}\n script.lights_home_sunset\n\
+      {%- endif -%}"
   - entity_id:
     - switch.living_room_monitor
     service: switch.turn_on
   - data: {}
     service: script.create_bose_group
-  - delay: 00:00:05
+  - delay: 00:00:03
   - data:
       source: Dining Group
     entity_id: media_player.spotify
@@ -247,10 +233,14 @@ users_home:
 bedtime:
   alias: Bedtime
   sequence:
-  - data:
-      value: 'on'
-    entity_id: var.bedtime_announced
-    service: var.set
+  - data: {}
+    entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
+      automation.kitchen_motion_stop_during_day,automation.humidity_over_50,automation.master_motion_stop,
+      automation.master_motion_start_lights,automation.keep_idiot_echo_bluetooth_connected,automation.front_door_knock
+    service: automation.turn_off
+  - data: {}
+    entity_id: automation.kitchen_motion_stop_after_bedtime
+    service: automation.turn_on
   - data:
       brightness: 128
       rgb_color:
@@ -274,6 +264,9 @@ bedtime:
     - light.theater
     service: light.turn_off
   - data: {}
+    entity_id: switch.starlight
+    service: switch.turn_on
+  - data: {}
     service: script.kill_bose_group
   - data: {}
     service: script.stop_the_theater
@@ -282,32 +275,25 @@ bedtime:
     - switch.firestone
     - switch.fountain
     service: switch.turn_off
-  - entity_id:
-    - light.kitchen_right
+  - entity_id: light.kitchen_right
     service: light.turn_off
   - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_mid_right
+  - entity_id: light.kitchen_mid_right
     service: light.turn_off
   - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_mid_left
+  - entity_id: light.kitchen_mid_left
     service: light.turn_off
   - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_left
+  - entity_id: light.kitchen_left
     service: light.turn_off
   - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_forward
+  - entity_id: light.kitchen_forward
     service: light.turn_off
   - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_strips
+  - entity_id: light.kitchen_strips
     service: light.turn_off
   - delay: 00:00:01
-  - entity_id:
-    - light.hallway
+  - entity_id: light.hallway
     service: light.turn_off
   mode: single
 browser_sound_effect:
@@ -328,23 +314,11 @@ browser_sound_effect:
       media_content_type: music
     entity_id: media_player.kbkpc
     service: media_player.play_media
-  - data:
-      volume_level: 0.7
-    entity_id:
-    - media_player.dining_echo_plus
-    - media_player.master_echo_dot
-    service: media_player.volume_set
   - data_template:
       ignore_bose_volume: '{{ ignore_bose_volume }}'
     service: script.maybe_lower_bose_volume
   - timeout: 00:00:05
     wait_template: '{{ is_state(''media_player.kbkpc'', ''standby'') }}'
-  - data:
-      volume_level: 0.4
-    entity_id:
-    - media_player.dining_echo_plus
-    - media_player.master_echo_dot
-    service: media_player.volume_set
   mode: single
 play_on_bose:
   alias: Play on Bose
@@ -389,24 +363,20 @@ good_morning:
     service: mqtt.publish
   - data:
       payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
-      topic: wallpanel/galaxys8/command
+      topic: wallpanel/galaxytabs/command
     service: mqtt.publish
-  - data:
-      value: 'off'
-    entity_id: var.bedtime_announced
-    service: var.set
+  - data: {}
+    entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
+      automation.kitchen_motion_stop_during_day,automation.humidity_over_50,automation.master_motion_stop,
+      automation.master_motion_start_lights,automation.keep_idiot_echo_bluetooth_connected,automation.front_door_knock
+    service: automation.turn_on
+  - data: {}
+    entity_id: automation.kitchen_motion_stop_after_bedtime
+    service: automation.turn_off
   - data: {}
     entity_id:
     - switch.living_room_monitor
     service: switch.turn_on
-add_to_shopping_list:
-  alias: Add to shopping list
-  sequence:
-  - data_template:
-      items:
-      - '{{ item }}'
-      list_id: Shopping List
-    service: ourgroceries.add_to_list
 next_song:
   alias: Next Song
   sequence:
@@ -426,13 +396,13 @@ wake_up:
     service: mqtt.publish
   - data:
       payload: '{"wake": true}'
-      topic: wallpanel/galaxys8/command
+      topic: wallpanel/galaxystabs/command
     service: mqtt.publish
   - entity_id:
     - light.kbkpc
     - light.galaxytaba
     - light.galaxytabs6
-    - light.galaxys8
+    - light.galaxytabs
     service: light.turn_on
 kill_bose_group:
   alias: Kill Bose Group
@@ -697,8 +667,8 @@ master_bath_lights_on:
   alias: Master Bath Lights On
   sequence:
   - data_template:
-      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
-        %} 255 {% endif %} '
+      brightness: '{% if is_state(''automation.kitchen_motion_stop_after_bedtime'',
+        ''on'') %} 64 {% else %} 255 {% endif %} '
       hs_color:
       - '{{ (state_attr(''light.master_bath_light'', ''brightness'') / 255 * 360 +
         220) % 360 | int }}'
@@ -706,8 +676,8 @@ master_bath_lights_on:
     entity_id: light.master_bath_cabinet
     service: light.turn_on
   - data_template:
-      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
-        %} 255 {% endif %} '
+      brightness: '{% if is_state(''automation.kitchen_motion_stop_after_bedtime'',
+        ''on'') %} 64 {% else %} 255 {% endif %} '
       hs_color:
       - '{{ (state_attr(''light.master_bath_light'', ''brightness'') / 255 * 360 +
         250) % 360 | int }}'
@@ -748,7 +718,7 @@ start_cameras:
     service: mqtt.publish
   - data_template:
       payload: '{"camera": true}'
-      topic: wallpanel/galaxys8/command
+      topic: wallpanel/galaxytabs/command
     service: mqtt.publish
 stop_cameras:
   alias: Stop Cameras
@@ -763,24 +733,24 @@ stop_cameras:
     service: mqtt.publish
   - data_template:
       payload: '{"camera": false}'
-      topic: wallpanel/galaxys8/command
+      topic: wallpanel/galaxytabs/command
     service: mqtt.publish
 starlight_off:
   alias: Starlight Off
   mode: single
   sequence:
   - data: {}
-    entity_id: switch.starlight
-    service: switch.turn_off
+    entity_id: switch.starlight_switchbot
+    service: switch.toggle
   - data: {}
-    entity_id: switch.starlight
-    service: switch.turn_off
+    entity_id: switch.starlight_switchbot
+    service: switch.toggle
   - data: {}
-    entity_id: switch.starlight
-    service: switch.turn_off
+    entity_id: switch.starlight_switchbot
+    service: switch.toggle
   - data: {}
-    entity_id: switch.starlight
-    service: switch.turn_off
+    entity_id: switch.starlight_switchbot
+    service: switch.toggle
 start_vacuum:
   alias: Start Vacuum
   mode: single
@@ -806,5 +776,19 @@ bath_time:
       random_song: true
       repeat: context
       shuffle: true
-      uri: spotify:playlist:1Y2C4qpZQI0UA7kHihZ5NL
+      uri: spotify:playlist:48kAnhu0MDOJYcZkxF3XcO
     service: spotcast.start
+guests_home:
+  alias: Guests Home
+  mode: single
+  sequence:
+  - data: {}
+    entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music
+    service: automation.turn_off
+guests_away:
+  alias: Guests Away
+  mode: single
+  sequence:
+  - data: {}
+    entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music
+    service: automation.turn_on

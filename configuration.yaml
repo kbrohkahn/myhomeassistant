@@ -39,20 +39,16 @@ browser_mod:
       name: galaxytaba
     0cf28301_70560337:
       name: galaxytabs6
-    db6717d9_857607ca:
-      name: galaxys8
-    f91053f8_85ad7907:
-      name: kbkpc
     02b9eed9_b7405785:
       name: sdsapc
       
-var:
-  people_home:
-    initial_value: on
-    icon: mdi:home-account
-  bedtime_announced:
-    initial_value: off
-    icon: mdi:sleep
+# var:
+#   people_home:
+#     initial_value: on
+#     icon: mdi:home-account
+#   bedtime_announced:
+#     initial_value: off
+#     icon: mdi:sleep
 
 zwave:
   usb_path: /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_8130075A-if00-port0
@@ -115,7 +111,7 @@ alexa:
         - switch.hallway_bath_fan
         - switch.office_master
         - switch.theater_master
-        - light.kbkpc
+        - switch.starlight
     entity_config:
       media_player.dining:
         display_categories: SPEAKER
@@ -174,14 +170,24 @@ ddwrt:
         - wl_rate
         - wl_xmit
 
+zha_map:
+  
 switch:
   - platform: command_line
     switches:
-      starlight:
+      starlight_switchbot:
         command_on: !secret ifttt_switchbot_starlight_press_command
         command_off: !secret ifttt_switchbot_starlight_press_command
+
   - platform: template
     switches:
+      starlight: 
+        turn_on:
+          service: switch.toggle
+          data:
+            entity_id: switch.starlight_switchbot
+        turn_off:
+          service: script.starlight_off
       office_master:
         unique_id: switch.office_master
         value_template: "{{ states('sensor.office_peripherals_watts') | float > 30 }}"
@@ -198,25 +204,15 @@ switch:
           service: script.stop_the_theater
 
 camera:
-  - platform: badnest
-  - platform: mjpeg
-    mjpeg_url: http://10.0.2.120:2971/camera/stream
-    name: Galaxy Tab 2 Camera
   - platform: mjpeg
     mjpeg_url: http://10.0.2.121:2971/camera/stream
     name: Galaxy Tab S Camera
   - platform: mjpeg
+    mjpeg_url: http://10.0.2.124:2971/camera/stream
+    name: Galaxy Tab S6 Camera
+  - platform: mjpeg
     mjpeg_url: http://10.0.2.122:2971/camera/stream
     name: Galaxy Tab A Camera
-  - platform: mjpeg
-    mjpeg_url: http://10.0.2.123:2971/camera/stream
-    name: Galaxy S8 Camera
-  - platform: mjpeg
-    mjpeg_url: http://10.0.2.124:2971/camera/stream
-    name: Galaxy S8 Plus Camera
-  - platform: mjpeg
-    mjpeg_url: http://10.0.2.125:2971/camera/stream
-    name: Mate 9 Camera
 
 sensor:
   - platform: badnest
@@ -275,13 +271,16 @@ sensor:
         friendly_name: "Spotify Source"
         value_template: "{{ state_attr('media_player.spotify', 'source') }}"
       hallway_humidity:
-        friendly_name_template: "Hallway Thermostat Humidity"
+        friendly_name: "Hallway Thermostat Humidity"
         value_template: '{{ state_attr("climate.hallway_thermostat", "current_humidity") }}'
         unit_of_measurement: '%'
       ups_watts:
-        friendly_name_template: "UPS Current Consumption"
+        friendly_name: "UPS Current Consumption"
         value_template: '{{ (states("sensor.ups_load") | float / 100 * 330) | round (2) }}'
         unit_of_measurement: 'W'
+      router_iot_wl_quality_numeric:
+        value_template: '{{ states(''sensor.router_iot_wl_quality'')[0:2] | int }}'
+        unit_of_measurement: '%'
 
   - platform: mqtt
     state_topic: "wallpanel/galaxytaba/sensor/battery"
@@ -290,24 +289,19 @@ sensor:
     value_template: '{{ value_json.value }}'
 
   - platform: mqtt
-    state_topic: "wallpanel/galaxys8/sensor/light"
-    name: "Galaxy S8 Light Level"
+    state_topic: "wallpanel/galaxytabs/sensor/light"
+    name: "Galaxy Tab S Light Level"
     unit_of_measurement: "lx"
     value_template: '{{ value_json.value }}'
   - platform: mqtt
-    state_topic: "wallpanel/galaxys8/sensor/magneticField"
-    name: "Galaxy S8 Magnetic Field"
+    state_topic: "wallpanel/galaxytabs/sensor/magneticField"
+    name: "Galaxy Tab S Magnetic Field"
     unit_of_measurement: "uT"
     value_template: '{{ value_json.value }}'
   - platform: mqtt
-    state_topic: "wallpanel/galaxys8/sensor/battery"
-    name: "Galaxy S8 Battery Level"
+    state_topic: "wallpanel/galaxytabs/sensor/battery"
+    name: "Galaxy Tab S Battery Level"
     unit_of_measurement: "%"
-    value_template: '{{ value_json.value }}'
-  - platform: mqtt
-    state_topic: "wallpanel/galaxys8/sensor/pressure"
-    name: "Galaxy S8 Pressure"
-    unit_of_measurement: "hPa"
     value_template: '{{ value_json.value }}'
 
   - platform: mqtt
@@ -336,8 +330,8 @@ sensor:
 
 binary_sensor:
   - platform: mqtt
-    state_topic: "wallpanel/galaxytab2/sensor/motion"
-    name: "Galaxy Tab 2 Motion"
+    state_topic: "wallpanel/galaxytabs/sensor/motion"
+    name: "Galaxy Tab S Motion"
     payload_on: '{"value":true}'
     payload_off: '{"value":false}'
     device_class: motion 
@@ -353,12 +347,6 @@ binary_sensor:
     payload_on: '{"value":true}'
     payload_off: '{"value":false}'
     device_class: motion 
-  - platform: mqtt
-    state_topic: "wallpanel/galaxys8/sensor/motion"
-    name: "Galaxy S8 Motion"
-    payload_on: '{"value":true}'
-    payload_off: '{"value":false}'
-    device_class: motion
 
 
 
@@ -369,3 +357,6 @@ scene: !include scenes.yaml
 
 frontend:
   themes: !include_dir_merge_named themes
+
+panel_custom: !include panel_custom.yaml
+

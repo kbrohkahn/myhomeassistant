@@ -18,20 +18,6 @@
                 "version": 1
             },
             {
-                "connection_class": "local_push",
-                "data": {},
-                "domain": "wemo",
-                "entry_id": "67b86eb1fdee4c75b3af5e09c8dcadc5",
-                "options": {},
-                "source": "import",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "Wemo",
-                "unique_id": null,
-                "version": 1
-            },
-            {
                 "connection_class": "cloud_push",
                 "data": {
                     "app_data": {
@@ -245,26 +231,6 @@
                 "version": 1
             },
             {
-                "connection_class": "local_push",
-                "data": {
-                    "address": "localhost",
-                    "port": 7396
-                },
-                "domain": "foldingathomecontrol",
-                "entry_id": "185568f6734d4a639f3ea98235b123c2",
-                "options": {
-                    "read_timeout": 15,
-                    "update_rate": 5
-                },
-                "source": "user",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "localhost",
-                "unique_id": null,
-                "version": 1
-            },
-            {
                 "connection_class": "local_poll",
                 "data": {
                     "host": "localhost",
@@ -345,8 +311,8 @@
                     "id": "125975319",
                     "name": "125975319",
                     "token": {
-                        "access_token": "BQC6Ew5vroMy-1GlYQmMo2UvDL7xnyURMvYI6uCVWtIo3EKl5iekGY5wGQ5qmyCnMy0NO2v1SuYJe4F9PFRL1Ph3dvRnbT5HfEXVuZC05QJ75uNkaLKOtc6BUoh-n5DtxjHkaZSR7zIOaueX7Ep_FxQmwz1TYoqL5zgj",
-                        "expires_at": 1598379202.5736594,
+                        "access_token": "BQDDVo6U9Ne18ZO2mHwi-MBdWME5ZznR_lvTprpNANsoMYN9vaRBJz5NWlDrdxNxKcngJc1gtzZS0oqFkaa476NgkzaV-a_eOjs2Ezg-1ozTzehhjlHw8pzghad42CEmt_sXs3bWnH2vPkAwgQY7gnPceBfNtOJPYoRk",
+                        "expires_at": 1598578551.4274993,
                         "expires_in": 3600,
                         "refresh_token": "AQDy779VHQYss3YLfaoBgbjaGpF0JKM5mGB2tnSgDUx2NjBRFsLB25pULTwoyULa_J2SEavVpn3YnGIRKdhZVcS_SAiAURLUnoFd3CoiZII5lsGqgHNo-KHneGHzjOxpGpg",
                         "scope": "user-modify-playback-state user-read-playback-state user-read-private",

@@ -6,19 +6,17 @@
     platform: sun
   condition:
   - condition: state
-    entity_id: light.home
+    entity_id: light.living_room
     state: 'off'
   action:
-  - service: script.lights_away_sunset
+  - service: script.lights_home_sunset
+  mode: single
 - id: nightlight
   alias: Nightlight
   trigger:
   - at: '23:00'
     platform: time
   condition:
-  - condition: state
-    entity_id: var.people_home
-    state: 'off'
   action:
   - data:
       entity_id:
@@ -33,30 +31,6 @@
       brightness_pct: 10
       entity_id: light.hallway
     service: light.turn_on
-- id: sunrise
-  alias: Sunrise
-  trigger:
-  - event: sunrise
-    offset: +00:05:00
-    platform: sun
-  condition: []
-  action:
-  - data:
-      entity_id: light.home
-    service: light.turn_off
-- id: ifttt_request
-  alias: IFTTT Request
-  description: ''
-  trigger:
-  - event_data:
-      action: call_service
-    event_type: ifttt_webhook_received
-    platform: event
-  condition: []
-  action:
-  - data_template:
-      entity_id: '{{ trigger.event.data.entity_id }}'
-    service_template: '{{ trigger.event.data.service }}'
 - id: closet_door_closed
   alias: Closet Door Closed
   description: ''
@@ -103,7 +77,7 @@
   - condition: and
     conditions:
     - condition: state
-      entity_id: var.people_home
+      entity_id: automation.kitchen_motion_start_lights
       state: 'off'
     - condition: template
       value_template: '{{ (as_timestamp(now()) - as_timestamp(state_attr(''script.users_away'',
@@ -116,39 +90,6 @@
       message: Front Door Opened
       title: Hass Home Alert
     service: notify.mobile_app_sm_n975u1
-- id: balcony_door_opened
-  alias: Balcony Door Opened
-  description: ''
-  trigger:
-  - device_id: e6b451a64db041879a28fa4d3e4c5776
-    domain: binary_sensor
-    entity_id: binary_sensor.balcony_door_ias_zone
-    platform: device
-    type: turned_on
-  condition: []
-  action:
-  - data:
-      sound_effect_filename: jabba-the-hutt-laughing.mp3
-    entity_id: climate.hallway_thermostat
-    service: script.browser_sound_effect
-- id: front_door_closed
-  alias: Front Door Closed
-  description: ''
-  trigger:
-  - device_id: 77984a7f835c47eaa6ea202de2a2439a
-    domain: binary_sensor
-    entity_id: binary_sensor.kitchen_door_ias_zone
-    platform: device
-    type: not_opened
-  condition: []
-  action:
-  - delay: 00:00:05
-  - timeout: 00:00:25
-    wait_template: '{{ is_state(''binary_sensor.galaxy_tab_a_motion'', ''on'') }}'
-  - condition: state
-    entity_id: binary_sensor.galaxy_tab_a_motion
-    state: 'off'
-  - service: script.users_away
 - id: hallway_motion_start_hallway_lights
   alias: Hallway Motion Start - Lights
   description: ''
@@ -203,9 +144,6 @@
     type: no_motion
   condition:
   - condition: state
-    entity_id: var.bedtime_announced
-    state: 'off'
-  - condition: state
     entity_id: light.master
     state: 'on'
   - condition: template
@@ -244,41 +182,11 @@
     - switch.master_bath_fan
     - switch.master_bath_light
     service: switch.turn_off
-- id: master_bath_door_opened_music
-  alias: Master Bath Door Opened - Music
-  description: ''
-  trigger:
-  - device_id: cb50914109a14e08be30c6bf865afd4c
-    domain: binary_sensor
-    entity_id: binary_sensor.samjin_multi_7ca80a01_ias_zone
-    platform: device
-    type: opened
-  condition:
-  - condition: state
-    entity_id: person.kevin_broh_kahn
-    state: home
-  - condition: state
-    entity_id: media_player.spotify
-    state: playing
-  action:
-  - data:
-      source: Master
-    entity_id: media_player.spotify
-    service: media_player.select_source
-  - timeout: 00:00:01
-    wait_template: '{{ is_state(''binary_sensor.master_bath_multipurpose_sensor_contact'',
-      ''off'') }}'
-  - wait_template: '{{ is_state(''binary_sensor.master_bath_multipurpose_sensor_contact'',
-      ''off'') }}'
-  - data:
-      source: Dining Group
-    entity_id: media_player.spotify
-    service: media_player.select_source
 - id: office_motion_start_music
   alias: Office Motion Start - Music
   description: ''
   trigger:
-  - entity_id: binary_sensor.galaxy_s8_motion
+  - entity_id: binary_sensor.galaxy_tab_s_motion
     from: 'off'
     platform: state
     to: 'on'
@@ -306,6 +214,7 @@
       source: SDSA-PC
     entity_id: media_player.spotify
     service: media_player.select_source
+  mode: single
 - id: master_motion_start_music
   alias: Master Motion Start - Music
   description: ''
@@ -330,12 +239,6 @@
   - condition: state
     entity_id: person.kevin_broh_kahn
     state: home
-  - condition: state
-    entity_id: var.people_home
-    state: 'on'
-  - condition: state
-    entity_id: var.bedtime_announced
-    state: 'off'
   - condition: and
     conditions:
     - condition: not
@@ -381,12 +284,6 @@
   - condition: state
     entity_id: person.kevin_broh_kahn
     state: home
-  - condition: state
-    entity_id: var.people_home
-    state: 'on'
-  - condition: state
-    entity_id: var.bedtime_announced
-    state: 'off'
   - condition: and
     conditions:
     - condition: not
@@ -420,9 +317,6 @@
   condition:
   - condition: state
     entity_id: light.kitchen
-    state: 'on'
-  - condition: state
-    entity_id: var.bedtime_announced
     state: 'on'
   action:
   - data: {}
@@ -463,36 +357,6 @@
       - galaxytaba
       navigation_path: /lovelace/home
     service: browser_mod.navigate
-- id: keep_idiot_echo_bluetooth_connected
-  alias: Keep Idiot Echo Bluetooth Connected
-  description: ''
-  trigger:
-  - minutes: /7
-    platform: time_pattern
-  condition:
-  - condition: state
-    entity_id: var.bedtime_announced
-    state: 'off'
-  - condition: state
-    entity_id: media_player.galaxytaba
-    state: idle
-  action:
-  - data:
-      volume_level: 0
-    entity_id:
-    - media_player.soundtouch_dining_echo_plus
-    - media_player.master_echo_dot
-    service: media_player.volume_set
-  - data:
-      ignore_bose_volume: true
-      sound_effect_filename: 1-second-silence.mp3
-    service: script.browser_sound_effect
-  - data:
-      volume_level: 0.4
-    entity_id:
-    - media_player.soundtouch_dining_echo_plus
-    - media_player.master_echo_dot
-    service: media_player.volume_set
 - id: laundry_door_opened
   alias: Laundry Door Opened
   description: ''
@@ -597,26 +461,6 @@
   - data: {}
     entity_id: light.hallway_bath_light
     service: light.turn_off
-- id: bose_auto_off
-  alias: Bose Auto Off
-  description: ''
-  trigger:
-  - entity_id: media_player.soundtouch_dining
-    for: 00:01:00
-    from: playing
-    platform: state
-    to: 'off'
-  - entity_id: media_player.soundtouch_dining
-    for: 00:01:00
-    from: playing
-    platform: state
-    to: standby
-  condition:
-  - condition: template
-    value_template: '{{ states(''media_player.soundtouch_dining'') != ''playing''}}'
-  action:
-  - data: {}
-    service: script.kill_bose_group
 - id: kitchen_motion_stop_during_day
   alias: Kitchen Motion Stop During Day
   description: ''
@@ -636,9 +480,6 @@
       ''last_triggered''))) | abs < 3 }}'
   - condition: template
     value_template: '{{ state_attr(''light.kitchen'', ''brightness'') == 250 }}'
-  - condition: state
-    entity_id: var.bedtime_announced
-    state: 'off'
   - condition: state
     entity_id: light.kitchen
     state: 'on'
@@ -720,9 +561,6 @@
   - condition: state
     entity_id: light.master
     state: 'off'
-  - condition: state
-    entity_id: var.bedtime_announced
-    state: 'off'
   action:
   - data:
       payload: '{"wake": true, "camera": true}'
@@ -745,15 +583,15 @@
     entity_id: switch.master_bath_fan
     service: switch.turn_off
   mode: single
-- id: dining_echo_plus_starts_playing
-  alias: Dining Echo Plus Starts Playing
+- id: dining_echo_dot_starts_playing
+  alias: Dining Echo Dot Starts Playing
   description: ''
   trigger:
-  - entity_id: media_player.soundtouch_dining_echo_plus
+  - entity_id: media_player.dining_echo_dot
     from: standby
     platform: state
     to: playing
-  - entity_id: media_player.soundtouch_dining_echo_plus
+  - entity_id: media_player.dining_echo_dot
     from: 'off'
     platform: state
     to: playing
@@ -762,26 +600,6 @@
   - data: {}
     service: script.play_on_bose
   mode: single
-- id: '1588345296750'
-  alias: Start the Office when WFH
-  description: ''
-  trigger:
-  - at: '8:55'
-    platform: time
-  condition:
-  - condition: state
-    entity_id: person.kevin_broh_kahn
-    state: home
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  action:
-  - data: {}
-    service: script.start_the_office
 - id: master_bath_door_opened
   alias: Master Bath Door Opened
   description: ''
@@ -811,13 +629,10 @@
   - condition: state
     entity_id: light.master_bath
     state: 'off'
-  - condition: state
-    entity_id: var.people_home
-    state: 'on'
   action:
   - data_template:
-      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
-        %} 196 {% endif %} '
+      brightness: '{% if is_state(''automation.kitchen_motion_stop_after_bedtime'',
+        ''on'') %} 64 {% else %} 196 {% endif %} '
     entity_id: light.master_bath_light
     service: light.turn_on
   - service: script.master_bath_lights_on
@@ -846,23 +661,20 @@
     entity_id: light.master_bath_light
     service: light.turn_off
 - id: humidity_over_50
-  alias: Humidity over 70%
+  alias: Humidity over 80%
   description: ''
   trigger:
-  - above: '70'
+  - above: '80'
     entity_id: sensor.hallway_thermostat
     platform: numeric_state
     value_template: '{{ state_attr(''climate.hallway_thermostat'' , ''current_humidity'')
       }}'
   condition:
-  - condition: state
-    entity_id: var.bedtime_announced
-    state: 'off'
   action:
   - data:
       card:
         cards:
-        - content: '## Humidity is above 70%, please turn on AC'
+        - content: '## Humidity above 80%, AC advised'
           type: markdown
         - entity: climate.hallway_thermostat
           icon: mdi:check
@@ -877,11 +689,11 @@
   - data:
       data:
         type: tts
-      message: Humidity is above 70%, please turn on AC
+      message: Humidity above 80%, AC advised
       target:
-      - media_player.soundtouch_dining_echo_plus
-      - media_player.master_echo_dot
+      - media_player.dining_echo_dot
     service: notify.alexa_media
+  mode: single
 - id: kitchen_overhead_turned_on_invisible
   alias: Kitchen Overhead Turned On Invisible
   description: ''
@@ -929,8 +741,8 @@
     state: 'off'
   action:
   - data_template:
-      brightness: '{% if is_state(''var.bedtime_announced'', ''on'') %} 64 {% else
-        %} 196 {% endif %} '
+      brightness: '{% if is_state(''automation.kitchen_motion_stop_after_bedtime'',
+        ''on'') %} 64 {% else %} 196 {% endif %} '
     entity_id: light.master_bath_light
     service: light.turn_on
   - service: script.master_bath_lights_on
@@ -955,7 +767,7 @@
   alias: Office Motion Stop when WFH
   description: ''
   trigger:
-  - entity_id: binary_sensor.galaxy_s8_motion
+  - entity_id: binary_sensor.galaxy_tab_s_motion
     for: 00:02:00
     from: 'on'
     platform: state
@@ -984,12 +796,12 @@
   alias: Office Motion Start when WFH
   description: ''
   trigger:
-  - entity_id: binary_sensor.galaxy_s8_motion
+  - entity_id: binary_sensor.galaxy_tab_s_motion
     from: 'off'
     platform: state
     to: 'on'
   condition:
-  - after: 09:00:00
+  - after: 08:50:00
     before: '18:00:00'
     condition: time
     weekday:
@@ -1010,6 +822,12 @@
     - light.dining
     - light.kitchen
     service: light.turn_off
+  - condition: state
+    entity_id: switch.office_master
+    state: 'off'
+  - data: {}
+    entity_id: switch.office_master
+    service: switch.turn_on
   - condition: template
     value_template: '{{ false }}'
   - data:
@@ -1029,24 +847,6 @@
   action:
   - data: {}
     service: script.master_bath_lights_on
-- id: vacuum_finished_cleaning
-  alias: Vacuum Finished Cleaning
-  description: ''
-  trigger:
-  - entity_id: vacuum.rockrobo
-    from: cleaning
-    platform: state
-    to: 'off'
-  condition: []
-  action:
-  - data:
-      command: app_goto_target
-      params:
-      - 17530
-      - 24404
-    entity_id: vacuum.rockrobo
-    service: vacuum.send_command
-  mode: single
 - id: vacuum_finishing_cleaning
   alias: Vacuum Starting Cleaning
   description: ''
@@ -1062,7 +862,7 @@
       data:
         type: tts
       message: Vacuum starting, clear floor or say stop vacuum
-      target: Dining Echo Plus
+      target: Dining Echo Dot
     service: notify.alexa_media
   mode: single
 - id: theater_stick_paused
@@ -1113,7 +913,7 @@
   action:
   - data:
       volume_level: 0.6
-    entity_id: media_player.master_bath_echo_dot
+    entity_id: media_player.master_bath_echo_plus
     service: media_player.volume_set
   mode: single
 - id: master_bath_fan_off
@@ -1128,6 +928,6 @@
   action:
   - data:
       volume_level: 0.4
-    entity_id: media_player.master_bath_echo_dot
+    entity_id: media_player.master_bath_echo_plus
     service: media_player.volume_set
   mode: single

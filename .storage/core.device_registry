@@ -31,6 +31,32 @@
                         "24:fd:5b:00:01:03:55:7b"
                     ]
                 ]
+            },
+            {
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "id": "bd07b26969084fc9bb216af1074c2cb8",
+                "identifiers": [
+                    [
+                        "zwave",
+                        4
+                    ]
+                ]
+            },
+            {
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "id": "edf071a0a8c84ec7be17babaab672d7f",
+                "identifiers": [
+                    [
+                        "zwave",
+                        5
+                    ]
+                ]
             }
         ],
         "devices": [
@@ -53,27 +79,6 @@
                 "name": "Kevin's Galaxy Note 10+",
                 "name_by_user": null,
                 "sw_version": "29",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "67b86eb1fdee4c75b3af5e09c8dcadc5"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "e84bf85908784e85a76378ae04b5a9d8",
-                "identifiers": [
-                    [
-                        "wemo",
-                        "221821K0100C11"
-                    ]
-                ],
-                "manufacturer": "Belkin",
-                "model": "Socket",
-                "name": "Fountain",
-                "name_by_user": null,
-                "sw_version": null,
                 "via_device_id": null
             },
             {
@@ -1464,7 +1469,7 @@
                 ],
                 "manufacturer": "Amazon",
                 "model": "ECHO A1RABVCI4QCIKC",
-                "name": "Master Bath Echo Dot",
+                "name": "Dining Echo Dot",
                 "name_by_user": null,
                 "sw_version": "4128035204",
                 "via_device_id": "103d9e5f95a243dda70140d0dc46b26e"
@@ -1899,48 +1904,6 @@
                 ],
                 "connections": [],
                 "entry_type": null,
-                "id": "bd07b26969084fc9bb216af1074c2cb8",
-                "identifiers": [
-                    [
-                        "zwave",
-                        4
-                    ]
-                ],
-                "manufacturer": "Leviton",
-                "model": "DZ15S-1BZ Decora Smart Switch",
-                "name": "Leviton DZ15S-1BZ Decora Smart Switch",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "4269c07b26444e70be84fae2d30fab9e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "edf071a0a8c84ec7be17babaab672d7f",
-                "identifiers": [
-                    [
-                        "zwave",
-                        5
-                    ]
-                ],
-                "manufacturer": "Leviton",
-                "model": "DZ6HD-1BZ Decora 600W Smart Dimmer",
-                "name": "Leviton DZ6HD-1BZ Decora 600W Smart Dimmer",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "4269c07b26444e70be84fae2d30fab9e"
-                ],
-                "connections": [],
-                "entry_type": null,
                 "id": "4a38d9a2c3c64c108f10b9e2878e5308",
                 "identifiers": [
                     [
@@ -1971,7 +1934,7 @@
                 ],
                 "manufacturer": "Amazon",
                 "model": "ECHO A18O6U1UQFJ0XK",
-                "name": "Dining Echo Plus",
+                "name": "Master Bath Echo Plus",
                 "name_by_user": null,
                 "sw_version": "4128034692",
                 "via_device_id": "b43708df2cd348b6b0eb77b68c28a3d2"
@@ -2043,6 +2006,48 @@
                 "name_by_user": null,
                 "sw_version": "2124690",
                 "via_device_id": "d4cc081e35fb4302ae9a09614f5904d6"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "65800eee09ca46b2a25e15afb762b378",
+                "identifiers": [
+                    [
+                        "zwave",
+                        7
+                    ]
+                ],
+                "manufacturer": "Leviton",
+                "model": "DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name": "Leviton DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "5d4949580edc4b9ab6399e0840228e04",
+                "identifiers": [
+                    [
+                        "zwave",
+                        8
+                    ]
+                ],
+                "manufacturer": "Leviton",
+                "model": "DZ15S-1BZ Decora Smart Switch",
+                "name": "Leviton DZ15S-1BZ Decora Smart Switch",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
             }
         ]
     },
