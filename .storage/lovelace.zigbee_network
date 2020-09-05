@@ -1,0 +1,23 @@
+{
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:zha-network-visualization-card"
+                        }
+                    ],
+                    "icon": "mdi:graph",
+                    "panel": true,
+                    "path": "zigbee",
+                    "title": "Zigbee"
+                }
+            ]
+        }
+    },
+    "key": "lovelace.zigbee_network",
+    "version": 1
+}

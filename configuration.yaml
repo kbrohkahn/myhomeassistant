@@ -18,8 +18,14 @@ recorder:
   exclude:
     entities:
       - sensor.rockrobo_map
-#  purge_keep_days: 3
-#  commit_interval: 5
+    entity_globs:
+      - sensor.glances*
+      - sensor.galaxynote10*
+      - sensor.router_iot*
+    domains:
+      - mobile_app
+  purge_keep_days: 30
+  commit_interval: 5
 
 # Text to speech
 tts:
@@ -98,20 +104,16 @@ alexa:
     client_secret: !secret alexa_events_secret
     filter:
       include_domains:
-        - script
-        - scene
+        - climate
         - media_player
+        - scene
+        - script
+        - switch
         - vacuum
       include_entities:
         - light.master_bath_light
         - light.hallway_bath_light
         - light.laundry_light
-        - switch.firestone
-        - switch.master_bath_fan
-        - switch.hallway_bath_fan
-        - switch.office_master
-        - switch.theater_master
-        - switch.starlight
     entity_config:
       media_player.dining:
         display_categories: SPEAKER
@@ -127,14 +129,14 @@ vacuum:
 
 mobile_app:
 
-badnest:
-  issue_token: !secret badnest_issue_token
-  cookie: !secret badnest_cookie
-  region: us
+# badnest:
+#   issue_token: !secret badnest_issue_token
+#   cookie: !secret badnest_cookie
+#   region: us
   
-climate:
-  - platform: badnest
-    scan_interval: 10
+# climate:
+#   - platform: badnest
+#     scan_interval: 10
 
 speedtestdotnet:
   scan_interval:
@@ -173,19 +175,15 @@ ddwrt:
 zha_map:
   
 switch:
-  - platform: command_line
-    switches:
-      starlight_switchbot:
-        command_on: !secret ifttt_switchbot_starlight_press_command
-        command_off: !secret ifttt_switchbot_starlight_press_command
 
   - platform: template
     switches:
       starlight: 
+        unique_id: switch.starlight
         turn_on:
-          service: switch.toggle
+          service: ifttt.trigger
           data:
-            entity_id: switch.starlight_switchbot
+            event: starlight_press
         turn_off:
           service: script.starlight_off
       office_master:
@@ -197,11 +195,45 @@ switch:
           service: script.stop_the_office
       theater_master:
         unique_id: switch.theater_master
-        value_template: "{{ states('sensor.theater_peripherals_watts') | float > 10 }}"
+        value_template: "{{ states('sensor.theater_peripherals_watts') | float > 20 }}"
         turn_on:
           service: script.start_the_theater
         turn_off:
           service: script.stop_the_theater
+      fan:
+        unique_id: switch.fan
+        value_template: "{{ state_attr('climate.hallway_thermostat', 'fan_mode') == 'On Low' }}"
+        turn_on:
+          service: climate.set_fan_mode
+          data:
+            fan_mode: On Low
+            entity_id: climate.hallway_thermostat
+        turn_off:
+          service: climate.set_fan_mode
+          data:
+            fan_mode: Auto Low
+            entity_id: climate.hallway_thermostat
+      bedtime:
+        unique_id: switch.bedtime
+        value_template: "{{ is_state('automation.kitchen_motion_stop_after_bedtime', 'on') }}"
+        turn_on:
+          service: script.bedtime
+        turn_off:
+          service: script.good_morning
+      at_home:
+        unique_id: switch.at_home
+        value_template: "{{ is_state('automation.master_bath_door_motion', 'on') }}"
+        turn_on:
+          service: script.users_home
+        turn_off:
+          service: script.users_away
+      cameras:
+        unique_id: switch.users_home
+        value_template: "{{ not is_state('camera.galaxy_tab_a_camera', 'idle') }}"
+        turn_on:
+          service: script.start_cameras
+        turn_off:
+          service: script.stop_cameras
 
 camera:
   - platform: mjpeg
@@ -215,7 +247,7 @@ camera:
     name: Galaxy Tab A Camera
 
 sensor:
-  - platform: badnest
+#  - platform: badnest
 
   - platform: nws_alerts
     zone_id: !secret nws_zone

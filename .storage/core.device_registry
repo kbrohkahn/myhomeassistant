@@ -16,24 +16,6 @@
             },
             {
                 "config_entries": [
-                    "c1f7482265824869a092a234b19e118d"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "24:fd:5b:00:01:03:55:7b"
-                    ]
-                ],
-                "id": "482640ceb0844fff96b6f507b3e59e7b",
-                "identifiers": [
-                    [
-                        "zha",
-                        "24:fd:5b:00:01:03:55:7b"
-                    ]
-                ]
-            },
-            {
-                "config_entries": [
                     "4269c07b26444e70be84fae2d30fab9e"
                 ],
                 "connections": [],
@@ -103,69 +85,6 @@
                 "via_device_id": null
             },
             {
-                "area_id": "daf77bcc23b74036a51df8a246fff625",
-                "config_entries": [
-                    "0bfc7c8d36f34a05a63e877ab9349cab"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "8a0468dca0e74133b959e5e4dc77bf93",
-                "identifiers": [
-                    [
-                        "cast",
-                        "6254f7596c2b3fd1d2a3066ac7882649"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Chromecast",
-                "name": "Living Room Chromecast",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "0bfc7c8d36f34a05a63e877ab9349cab"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "72570f54ad964fa28f17c89fd5c17336",
-                "identifiers": [
-                    [
-                        "cast",
-                        "8b661581698c9890983b887fa79beafc"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Chromecast",
-                "name": "Office Chromecast",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "0bfc7c8d36f34a05a63e877ab9349cab"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "c4e5b87a8dbd4b5e856bbda0d7c53974",
-                "identifiers": [
-                    [
-                        "cast",
-                        "cfff501cbbb4de177450abda863e183f"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Chromecast",
-                "name": "Living Room Chromecast",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
                 "area_id": null,
                 "config_entries": [
                     "788235141890461788e8c7c820f306dd"
@@ -184,27 +103,6 @@
                 "name": "SM-N975U1",
                 "name_by_user": null,
                 "sw_version": "29",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "efc6d2cd73d8419db5e4bf351121c97f"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "bca2a4f1fe6a4e9da8ae98ee5a1638a5",
-                "identifiers": [
-                    [
-                        "ps4",
-                        "0CFE451B055C"
-                    ]
-                ],
-                "manufacturer": "Sony Interactive Entertainment Inc.",
-                "model": "PlayStation 4",
-                "name": "PS4-253",
-                "name_by_user": null,
-                "sw_version": "7.02",
                 "via_device_id": null
             },
             {
@@ -1305,27 +1203,6 @@
                 "via_device_id": null
             },
             {
-                "area_id": null,
-                "config_entries": [
-                    "0bfc7c8d36f34a05a63e877ab9349cab"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "160a71454aaf488c965494b35526c40c",
-                "identifiers": [
-                    [
-                        "cast",
-                        "44618379bc28ffaebfe204e4e341a2a1"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Google Nest Mini",
-                "name": "Living room speaker",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
                 "area_id": "252d6f6e725f4b6ca291c2c254967169",
                 "config_entries": [
                     "cad989027332420ab1109f8d75e78c7c"
@@ -1391,132 +1268,6 @@
                 "via_device_id": null
             },
             {
-                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
-                "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "ea047ab7ad64476babcd7572de4550d2",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "0b93530f88574f38a17e813544b42d6c"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "WHA A3C9PE6TNYLTCH",
-                "name": "Master",
-                "name_by_user": null,
-                "sw_version": "0",
-                "via_device_id": "ea047ab7ad64476babcd7572de4550d2"
-            },
-            {
-                "area_id": "60557a625d30454898715b30865dd6cb",
-                "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "d9d62d34228e4d8286c80eaf3b4a6322",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G090XG0894372QW0"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A1RABVCI4QCIKC",
-                "name": "Dining Echo Dot",
-                "name_by_user": null,
-                "sw_version": "3725204868",
-                "via_device_id": "d9d62d34228e4d8286c80eaf3b4a6322"
-            },
-            {
-                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
-                "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "28f59c72bb4d450f86e3a93bd7e5424b",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G090XG08946230XS"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A1RABVCI4QCIKC",
-                "name": "Master Echo Dot",
-                "name_by_user": null,
-                "sw_version": "4128035204",
-                "via_device_id": "28f59c72bb4d450f86e3a93bd7e5424b"
-            },
-            {
-                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
-                "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "103d9e5f95a243dda70140d0dc46b26e",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G0911M0900150J20"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A1RABVCI4QCIKC",
-                "name": "Dining Echo Dot",
-                "name_by_user": null,
-                "sw_version": "4128035204",
-                "via_device_id": "103d9e5f95a243dda70140d0dc46b26e"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "9f13cec772074ddb9a522d461ee213be",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "77f0a66c904f4200a6ca798e4faab587"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "VOX A2TF17PFR55MTB",
-                "name": "This Device",
-                "name_by_user": null,
-                "sw_version": "130050002",
-                "via_device_id": "9f13cec772074ddb9a522d461ee213be"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "064a291d87a04a219bf3879bd0477c1a",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "A87C01926EEA"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "AMAZONMOBILEMUSIC_ANDROID A1DL2DVDQVK3Q",
-                "name": "Kevin's Alexa Apps",
-                "name_by_user": null,
-                "sw_version": "4050010",
-                "via_device_id": "064a291d87a04a219bf3879bd0477c1a"
-            },
-            {
                 "area_id": null,
                 "config_entries": [
                     "e874e5f825d2430c86a06e314fed196c"
@@ -1536,48 +1287,6 @@
                 "name_by_user": null,
                 "sw_version": "1.50.2_r30933",
                 "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "0bfc7c8d36f34a05a63e877ab9349cab"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "c00cba9ae8734cc7b951f0260c191465",
-                "identifiers": [
-                    [
-                        "cast",
-                        "be5a5da34ab75a3dc6d73000da400a28"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Chromecast",
-                "name": "Living Room Chromecast",
-                "name_by_user": null,
-                "sw_version": null,
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "617544b6dbab49c780e33760e3029d72",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G0014B0695230F93"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A3VRME03NAXFUB",
-                "name": "Hallway Bath Echo Flex",
-                "name_by_user": null,
-                "sw_version": "4128035204",
-                "via_device_id": "617544b6dbab49c780e33760e3029d72"
             },
             {
                 "area_id": null,
@@ -1606,33 +1315,7 @@
                 "via_device_id": null
             },
             {
-                "area_id": null,
-                "config_entries": [
-                    "c1f7482265824869a092a234b19e118d"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "28:6d:97:00:01:0a:b7:d7"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "87a7c1f819c341f8a316469951615748",
-                "identifiers": [
-                    [
-                        "zha",
-                        "28:6d:97:00:01:0a:b7:d7"
-                    ]
-                ],
-                "manufacturer": "Samjin",
-                "model": "multi",
-                "name": "Samjin multi",
-                "name_by_user": null,
-                "sw_version": "0x00000011",
-                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
-            },
-            {
-                "area_id": null,
+                "area_id": "adafa7bbf387405e8205e182291055c9",
                 "config_entries": [
                     "c1f7482265824869a092a234b19e118d"
                 ],
@@ -1653,12 +1336,12 @@
                 "manufacturer": "Samjin",
                 "model": "multi",
                 "name": "Samjin multi",
-                "name_by_user": null,
+                "name_by_user": "Hallway Bath Door",
                 "sw_version": "0x00000011",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             },
             {
-                "area_id": null,
+                "area_id": "adafa7bbf387405e8205e182291055c9",
                 "config_entries": [
                     "c1f7482265824869a092a234b19e118d"
                 ],
@@ -1679,12 +1362,12 @@
                 "manufacturer": "Samjin",
                 "model": "multi",
                 "name": "Samjin multi",
-                "name_by_user": null,
+                "name_by_user": "Laundry Door",
                 "sw_version": "0x00000011",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             },
             {
-                "area_id": null,
+                "area_id": "adafa7bbf387405e8205e182291055c9",
                 "config_entries": [
                     "c1f7482265824869a092a234b19e118d"
                 ],
@@ -1705,12 +1388,12 @@
                 "manufacturer": "SmartThings",
                 "model": "motionv4",
                 "name": "SmartThings motionv4",
-                "name_by_user": null,
+                "name_by_user": "Hallway Motion Sensor",
                 "sw_version": "0x0000001b",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             },
             {
-                "area_id": null,
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
                 "config_entries": [
                     "c1f7482265824869a092a234b19e118d"
                 ],
@@ -1731,12 +1414,12 @@
                 "manufacturer": "SmartThings",
                 "model": "multiv4",
                 "name": "SmartThings multiv4",
-                "name_by_user": null,
+                "name_by_user": "Master Closet Door",
                 "sw_version": "0x0000001b",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             },
             {
-                "area_id": null,
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
                 "config_entries": [
                     "c1f7482265824869a092a234b19e118d"
                 ],
@@ -1757,12 +1440,12 @@
                 "manufacturer": "Samjin",
                 "model": "multi",
                 "name": "Samjin multi",
-                "name_by_user": null,
+                "name_by_user": "Master Bath Door",
                 "sw_version": "0x00000011",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             },
             {
-                "area_id": null,
+                "area_id": "252d6f6e725f4b6ca291c2c254967169",
                 "config_entries": [
                     "c1f7482265824869a092a234b19e118d"
                 ],
@@ -1783,12 +1466,12 @@
                 "manufacturer": "SmartThings",
                 "model": "outletv4",
                 "name": "SmartThings outletv4",
-                "name_by_user": null,
+                "name_by_user": "Fountain",
                 "sw_version": "0x00000012",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             },
             {
-                "area_id": null,
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
                 "config_entries": [
                     "c1f7482265824869a092a234b19e118d"
                 ],
@@ -1809,7 +1492,7 @@
                 "manufacturer": "Samjin",
                 "model": "motion",
                 "name": "Samjin motion",
-                "name_by_user": null,
+                "name_by_user": "Master Motion Sensor",
                 "sw_version": "0x00000011",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             },
@@ -1921,95 +1604,6 @@
             {
                 "area_id": null,
                 "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "b43708df2cd348b6b0eb77b68c28a3d2",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G2A0V704937507L9"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A18O6U1UQFJ0XK",
-                "name": "Master Bath Echo Plus",
-                "name_by_user": null,
-                "sw_version": "4128034692",
-                "via_device_id": "b43708df2cd348b6b0eb77b68c28a3d2"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "03e212ac498249a591547c7abbaf248d",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G2A0U2040164040E"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A18O6U1UQFJ0XK",
-                "name": "Kevin's 2nd Echo Plus",
-                "name_by_user": null,
-                "sw_version": "0",
-                "via_device_id": "03e212ac498249a591547c7abbaf248d"
-            },
-            {
-                "area_id": "daf77bcc23b74036a51df8a246fff625",
-                "config_entries": [
-                    "c1f7482265824869a092a234b19e118d"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "28:6d:97:00:01:0c:86:70"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "e9ff6f9809954d119c5184cff2f7dd8e",
-                "identifiers": [
-                    [
-                        "zha",
-                        "28:6d:97:00:01:0c:86:70"
-                    ]
-                ],
-                "manufacturer": "Samjin",
-                "model": "motion",
-                "name": "Samjin motion",
-                "name_by_user": "Kitchen Motion Sensor",
-                "sw_version": "0x00000011",
-                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "b05d3291a4b44a97a843316c4ead642e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "d4cc081e35fb4302ae9a09614f5904d6",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "045DC7BB097B53F50DED80967B437D1C"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "REAVER A1RTAM01W29CUP",
-                "name": "Kevin's Alexa App for PC",
-                "name_by_user": null,
-                "sw_version": "2124690",
-                "via_device_id": "d4cc081e35fb4302ae9a09614f5904d6"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
                     "4269c07b26444e70be84fae2d30fab9e"
                 ],
                 "connections": [],
@@ -2048,6 +1642,378 @@
                 "name_by_user": null,
                 "sw_version": null,
                 "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "18de90b519fc403e9f218e2df871cc5a",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "0b93530f88574f38a17e813544b42d6c"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "WHA A3C9PE6TNYLTCH",
+                "name": "Master",
+                "name_by_user": null,
+                "sw_version": "0",
+                "via_device_id": "18de90b519fc403e9f218e2df871cc5a"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "0df4108013994c1fae41ee759ec55ecf",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "99ee573bfb42418b93d0f8878625bb1b"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "THIRD_PARTY_AVS_MEDIA_DISPLAY A1H0CMF1XM0ZP4",
+                "name": "Kitchen Bose",
+                "name_by_user": null,
+                "sw_version": "0",
+                "via_device_id": "0df4108013994c1fae41ee759ec55ecf"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "dd9553ff337342c2a9a2a12d54e1b5b1",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "88b90e278d8548bebcd99d123ae432b9"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "THIRD_PARTY_AVS_MEDIA_DISPLAY A1H0CMF1XM0ZP4",
+                "name": "Dining Bose",
+                "name_by_user": null,
+                "sw_version": "0",
+                "via_device_id": "dd9553ff337342c2a9a2a12d54e1b5b1"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "60330e1eb2f247778cb475db8b080712",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "d8b6829fcaba459ca04286b82bdf4406"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "THIRD_PARTY_AVS_MEDIA_DISPLAY A1H0CMF1XM0ZP4",
+                "name": "Living Room Bose",
+                "name_by_user": null,
+                "sw_version": "0",
+                "via_device_id": "60330e1eb2f247778cb475db8b080712"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "4198850e7405465883792ab9e5b1119f",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G090XG08946230XS"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A1RABVCI4QCIKC",
+                "name": "Master Echo Dot",
+                "name_by_user": null,
+                "sw_version": "4128035204",
+                "via_device_id": "4198850e7405465883792ab9e5b1119f"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "44c5732696ad4342a7c53a4c7c79c491",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G0911M0900150J20"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A1RABVCI4QCIKC",
+                "name": "Dining Echo Dot",
+                "name_by_user": null,
+                "sw_version": "4128035204",
+                "via_device_id": "44c5732696ad4342a7c53a4c7c79c491"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "4ea31540a63a4160974395e3cda27ab2",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G2A0U2040164040E"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A18O6U1UQFJ0XK",
+                "name": "Kevin's 2nd Echo Plus",
+                "name_by_user": null,
+                "sw_version": "0",
+                "via_device_id": "4ea31540a63a4160974395e3cda27ab2"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "d356f3c5780d4e75a9952cd834f35915",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "045DC7BB097B53F50DED80967B437D1C"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "REAVER A1RTAM01W29CUP",
+                "name": "Kevin's Alexa App for PC",
+                "name_by_user": null,
+                "sw_version": "2124690",
+                "via_device_id": "d356f3c5780d4e75a9952cd834f35915"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "347a48b9f9f34f08a857cad5da76b694",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G2A0V704937507L9"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A18O6U1UQFJ0XK",
+                "name": "Master Bath Echo Plus",
+                "name_by_user": null,
+                "sw_version": "4128036484",
+                "via_device_id": "347a48b9f9f34f08a857cad5da76b694"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "058999402fe34500ad532692fbd931c5",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G0014B0695230F93"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A3VRME03NAXFUB",
+                "name": "Hallway Bath Echo Flex",
+                "name_by_user": null,
+                "sw_version": "4128035204",
+                "via_device_id": "058999402fe34500ad532692fbd931c5"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "26c708c50da94c12b3040c92aaba5ba6",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "77f0a66c904f4200a6ca798e4faab587"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "VOX A2TF17PFR55MTB",
+                "name": "This Device",
+                "name_by_user": null,
+                "sw_version": "130050002",
+                "via_device_id": "26c708c50da94c12b3040c92aaba5ba6"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "d9b2e2f7c43f4ce3b2d113ce2f5556ad",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "A87C01926EEA"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "AMAZONMOBILEMUSIC_ANDROID A1DL2DVDQVK3Q",
+                "name": "Kevin's Alexa Apps",
+                "name_by_user": null,
+                "sw_version": "4050010",
+                "via_device_id": "d9b2e2f7c43f4ce3b2d113ce2f5556ad"
+            },
+            {
+                "area_id": "795e81eaddb84a98ae34b766ebe06b1c",
+                "config_entries": [
+                    "c1e0f4f30c0d4372981393e8ad888a3c"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "401f621111fb4414873c3453f5462a25",
+                "identifiers": [
+                    [
+                        "cast",
+                        "be5a5da34ab75a3dc6d73000da400a28"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Chromecast",
+                "name": "Living Room Chromecast",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "b5e51da495354a89952cd569dbd11ebf",
+                "identifiers": [
+                    [
+                        "zwave",
+                        9
+                    ]
+                ],
+                "manufacturer": "Honeywell",
+                "model": "TH6320ZW2003 T6 Pro Series Thermostat",
+                "name": "Honeywell TH6320ZW2003 T6 Pro Series Thermostat",
+                "name_by_user": "Hallway Thermostat",
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": "daf77bcc23b74036a51df8a246fff625",
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0c:86:70"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "e9ff6f9809954d119c5184cff2f7dd8e",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0c:86:70"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "motion",
+                "name": "Samjin motion",
+                "name_by_user": "Kitchen Motion Sensor",
+                "sw_version": "0x00000011",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": "daf77bcc23b74036a51df8a246fff625",
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0a:b7:d7"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "87a7c1f819c341f8a316469951615748",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0a:b7:d7"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "multi",
+                "name": "Samjin multi",
+                "name_by_user": "Kitchen Door",
+                "sw_version": "0x00000011",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": "60557a625d30454898715b30865dd6cb",
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "24:fd:5b:00:01:03:55:7b"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "482640ceb0844fff96b6f507b3e59e7b",
+                "identifiers": [
+                    [
+                        "zha",
+                        "24:fd:5b:00:01:03:55:7b"
+                    ]
+                ],
+                "manufacturer": "SmartThings",
+                "model": "multiv4",
+                "name": "SmartThings multiv4",
+                "name_by_user": "Dining Window",
+                "sw_version": "0x0000001b",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             }
         ]
     },

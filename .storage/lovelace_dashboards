@@ -9,6 +9,24 @@
                 "show_in_sidebar": true,
                 "title": "Phone",
                 "url_path": "lovelace-phone"
+            },
+            {
+                "icon": "mdi:graph",
+                "id": "zigbee_network",
+                "mode": "storage",
+                "require_admin": false,
+                "show_in_sidebar": true,
+                "title": "Zigbee Network",
+                "url_path": "zigbee-network"
+            },
+            {
+                "icon": "mdi:sleep",
+                "id": "lovelace_screensaver",
+                "mode": "storage",
+                "require_admin": false,
+                "show_in_sidebar": true,
+                "title": "Screensaver",
+                "url_path": "lovelace-screensaver"
             }
         ]
     },

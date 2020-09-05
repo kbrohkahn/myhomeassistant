@@ -1,3555 +1,1080 @@
-- id: kitchen_a
-  name: Kitchen A
-  entities:
-    light.kitchen_forward:
-      brightness: 10
-      rgb_color:
-      - 250
-      - 128
-      - 255
-      state: 'on'
-    light.kitchen_left:
-      brightness: 10
-      rgb_color:
-      - 200
-      - 128
-      - 255
-      state: 'on'
-    light.kitchen_mid_left:
-      brightness: 10
-      rgb_color:
-      - 150
-      - 128
-      - 255
-      state: 'on'
-    light.kitchen_mid_right:
-      brightness: 10
-      rgb_color:
-      - 100
-      - 128
-      - 255
-      state: 'on'
-    light.kitchen_right:
-      brightness: 10
-      rgb_color:
-      - 50
-      - 128
-      - 255
-      state: 'on'
-- id: kitchen_b
-  name: Kitchen B
-  entities:
-    light.kitchen_forward:
-      brightness: 255
-      rgb_color:
-      - 250
-      - 255
-      - 255
-      state: 'on'
-    light.kitchen_left:
-      brightness: 255
-      rgb_color:
-      - 200
-      - 255
-      - 255
-      state: 'on'
-    light.kitchen_mid_left:
-      brightness: 255
-      rgb_color:
-      - 150
-      - 255
-      - 255
-      state: 'on'
-    light.kitchen_mid_right:
-      brightness: 255
-      rgb_color:
-      - 100
-      - 255
-      - 255
-      state: 'on'
-    light.kitchen_right:
-      brightness: 255
-      rgb_color:
-      - 50
-      - 255
-      - 255
-      state: 'on'
 - id: gion
   name: Gion
   entities:
     light.main_a:
       brightness: 202
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 270.841
-      - 41.961
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 202
-      - 147
-      - 255
+      - 270
+      - 41
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.297
-      - 0.203
     light.main_b:
       brightness: 209
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 51.589
-      - 83.922
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 225
-      - 40
+      - 51
+      - 83
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.476
-      - 0.478
     light.main_c:
       brightness: 184
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 337.975
-      - 92.941
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 18
-      - 104
+      - 337
+      - 92
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.614
-      - 0.263
     light.main_d:
       brightness: 195
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 335.336
-      - 99.216
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 1
-      - 105
+      - 335
+      - 99
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.615
-      - 0.26
 - id: cambodian_sunset
   name: Cambodian Sunset
   entities:
     light.main_a:
       brightness: 179
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 246.818
-      - 17.255
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 215
-      - 210
-      - 255
+      - 246
+      - 17
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.295
-      - 0.278
     light.main_b:
       brightness: 109
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 4.138
-      - 11.373
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 227
-      - 225
+      - 4
+      - 11
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.357
-      - 0.329
     light.main_c:
       brightness: 153
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 49.008
-      - 51.373
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 231
-      - 123
+      - 49
+      - 51
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.431
-      - 0.435
     light.main_d:
       brightness: 170
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 49.008
-      - 51.373
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 231
-      - 123
+      - 49
+      - 51
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.431
-      - 0.435
 - id: fuji_over_flowers
   name: Fuji Over Flowers
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 5.902
-      - 23.922
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 199
-      - 193
+      - 5
+      - 23
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.4
-      - 0.329
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 129.808
-      - 40.784
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 151
-      - 255
-      - 168
+      - 129
+      - 40
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.256
-      - 0.468
     light.main_c:
       brightness: 254
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 210.744
-      - 47.451
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 133
-      - 192
-      - 255
+      - 210
+      - 47
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.211
-      - 0.247
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 210.744
-      - 47.451
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 133
-      - 192
-      - 255
+      - 210
+      - 47
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.211
-      - 0.247
 - id: flower_stripes
   name: Flower Stripes
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 54.274
-      - 94.51
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 232
-      - 13
+      - 54
+      - 94
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.471
-      - 0.491
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 109.707
-      - 93.725
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 57
-      - 255
-      - 16
+      - 109
+      - 93
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.194
-      - 0.724
     light.main_c:
       brightness: 254
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 284.393
-      - 67.843
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 209
-      - 82
-      - 255
+      - 284
+      - 67
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.319
-      - 0.152
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 289.68
-      - 98.039
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 212
-      - 5
-      - 255
+      - 289
+      - 98
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.329
-      - 0.129
 - id: white_temple_info
   name: White Temple Info
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 32.83
-      - 20.784
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 231
-      - 202
+      - 32
+      - 20
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.373
-      - 0.357
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 231.316
-      - 29.804
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 178
-      - 189
-      - 255
+      - 231
+      - 29
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.259
-      - 0.248
     light.main_c:
       brightness: 254
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 52.5
-      - 28.235
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 246
-      - 183
+      - 52
+      - 28
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.378
-      - 0.394
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 52.5
-      - 28.235
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 246
-      - 183
+      - 52
+      - 28
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.378
-      - 0.394
 - id: australian_sunrise
   name: Australian Sunrise
   entities:
     light.main_a:
       brightness: 50
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 51.193
-      - 42.745
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 239
-      - 146
+      - 51
+      - 42
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.409
-      - 0.424
     light.main_b:
       brightness: 45
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 203.556
-      - 52.941
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 120
-      - 201
-      - 255
+      - 203
+      - 52
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.199
-      - 0.259
     light.main_c:
       brightness: 52
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 43.784
-      - 43.529
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 225
-      - 144
+      - 43
+      - 43
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.422
-      - 0.409
     light.main_d:
       brightness: 50
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 43.784
-      - 43.529
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 225
-      - 144
+      - 43
+      - 43
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.422
-      - 0.409
 - id: miyajima_sunset
   name: Miyajima Sunset
   entities:
     light.main_a:
       brightness: 99
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 193.448
-      - 45.49
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 139
-      - 229
-      - 255
+      - 193
+      - 45
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.212
-      - 0.301
     light.main_b:
       brightness: 80
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 345.405
-      - 58.039
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 107
-      - 143
+      - 345
+      - 58
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.519
-      - 0.281
     light.main_c:
       brightness: 100
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 25.909
-      - 51.765
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 179
-      - 122
+      - 25
+      - 51
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.483
-      - 0.375
     light.main_d:
       brightness: 99
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 25.909
-      - 51.765
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 179
-      - 122
+      - 25
+      - 51
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.483
-      - 0.375
 - id: kimono_forest
   name: Kimono Forest
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 15.529
-      - 33.333
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 192
-      - 170
+      - 15
+      - 33
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.427
-      - 0.345
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
       - 150
-      - 54.118
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 116
-      - 255
-      - 185
+      - 54
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.213
-      - 0.452
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 51.834
-      - 66.275
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 231
-      - 85
+      - 51
+      - 66
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.453
-      - 0.464
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 51.834
-      - 66.275
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 231
-      - 85
+      - 51
+      - 66
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.453
-      - 0.464
 - id: arashiyama
   name: Arashiyama
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 10.435
-      - 9.02
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 235
-      - 231
+      - 10
+      - 9
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.348
-      - 0.331
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 114.425
-      - 88.627
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 50
-      - 255
-      - 29
+      - 114
+      - 88
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.189
-      - 0.721
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 33.551
-      - 96.078
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 147
-      - 10
+      - 33
+      - 96
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.585
-      - 0.395
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 34.824
+      - 34
       - 100
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 148
-      - 0
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.585
-      - 0.397
 - id: 12_apostles
   name: 12 Apostles
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 38.939
-      - 96.078
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 169
-      - 10
+      - 38
+      - 96
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.556
-      - 0.42
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 194.702
-      - 59.216
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 103
-      - 217
-      - 255
+      - 45
+      - 56
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.185
-      - 0.283
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 45.931
-      - 56.863
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 220
-      - 109
+      - 45
+      - 56
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.451
-      - 0.434
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 45.931
-      - 56.863
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 220
-      - 109
+      - 194
+      - 59
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.451
-      - 0.434
 - id: ginza
   name: Ginza
   entities:
     light.main_a:
       brightness: 141
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 239.302
-      - 67.451
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 82
-      - 85
-      - 255
+      - 239
+      - 67
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.171
-      - 0.098
     light.main_b:
       brightness: 139
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 350.044
-      - 89.804
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 25
-      - 63
+      - 350
+      - 89
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.663
-      - 0.288
     light.main_c:
       brightness: 139
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 298.629
-      - 68.627
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 251
-      - 80
-      - 255
+      - 298
+      - 68
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.374
-      - 0.172
     light.main_d:
       brightness: 139
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 299.28
-      - 98.039
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 252
-      - 5
-      - 255
+      - 299
+      - 98
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.382
-      - 0.153
 - id: manly_beach
   name: Manly Beach
   entities:
     light.main_a:
       brightness: 141
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 21.306
-      - 96.078
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 97
-      - 10
+      - 21
+      - 96
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.645
-      - 0.344
     light.main_b:
       brightness: 139
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 261.036
-      - 98.431
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 92
-      - 4
-      - 255
+      - 261
+      - 98
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.18
-      - 0.061
     light.main_c:
       brightness: 139
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 207.087
-      - 80.784
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 49
-      - 162
-      - 255
+      - 207
+      - 80
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.154
-      - 0.192
     light.main_d:
       brightness: 139
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 203.234
-      - 92.157
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 19
-      - 164
-      - 255
+      - 203
+      - 92
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.146
-      - 0.194
 - id: phuket
   name: Phuket
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 170.952
-      - 49.412
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 128
-      - 255
-      - 235
+      - 170
+      - 49
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.207
-      - 0.368
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 209.538
-      - 76.471
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 59
-      - 159
-      - 255
+      - 209
+      - 76
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.158
-      - 0.189
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 98.115
-      - 95.686
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 99
-      - 255
-      - 11
+      - 98
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.234
-      - 0.692
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
       - 96
       - 100
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 101
-      - 255
-      - 0
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.236
-      - 0.693
 - id: white_temple
   name: White Temple
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
       - 186
-      - 3.922
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 244
-      - 253
-      - 255
+      - 3
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.312
-      - 0.328
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
       - 204
-      - 92.157
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 19
-      - 160
-      - 255
+      - 92
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.145
-      - 0.188
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 215.484
-      - 36.471
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 161
-      - 199
-      - 255
+      - 215
+      - 36
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.238
-      - 0.259
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 215.484
-      - 36.471
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 161
-      - 199
-      - 255
+      - 215
+      - 36
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.238
-      - 0.259
 - id: himeji
   name: Himeji
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 216.129
-      - 36.471
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 161
-      - 198
-      - 255
+      - 216
+      - 36
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.238
-      - 0.258
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
       - 177
-      - 31.373
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 174
-      - 255
-      - 250
+      - 31
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.242
-      - 0.342
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 206.957
-      - 81.176
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 48
-      - 161
-      - 255
+      - 206
+      - 81
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.153
-      - 0.191
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 203.39
-      - 92.549
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 19
-      - 162
-      - 255
+      - 203
+      - 92
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.146
-      - 0.191
 - id: ice_cave
   name: Ice Cave
   entities:
     light.main_a:
       brightness: 145
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 205.588
-      - 26.667
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 186
-      - 225
-      - 255
+      - 205
+      - 26
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.259
-      - 0.296
     light.main_b:
       brightness: 140
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 241.171
-      - 80.392
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 54
-      - 50
-      - 255
+      - 241
+      - 80
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.152
-      - 0.063
     light.main_c:
       brightness: 142
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 212.243
-      - 83.922
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 40
-      - 139
-      - 255
+      - 212
+      - 83
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.149
-      - 0.156
     light.main_d:
       brightness: 150
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 208.608
-      - 92.941
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 18
-      - 141
-      - 255
+      - 208
+      - 92
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.144
-      - 0.158
 - id: pallet_town
   name: Pallet Town
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 222.785
-      - 92.941
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 18
-      - 85
-      - 255
+      - 222
+      - 92
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.14
-      - 0.086
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 279.605
-      - 99.216
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 169
-      - 1
-      - 255
+      - 279
+      - 99
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.271
-      - 0.102
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 244.941
-      - 66.667
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 98
-      - 84
-      - 255
+      - 244
+      - 66
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.185
-      - 0.102
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 264.735
-      - 96.078
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 111
-      - 10
-      - 255
+      - 264
+      - 96
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.199
-      - 0.07
 - id: mori_rain
   name: Mori Rain
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 224.145
-      - 75.686
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 62
-      - 113
-      - 255
+      - 224
+      - 75
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.158
-      - 0.124
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 208.966
-      - 56.863
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 109
-      - 184
-      - 255
+      - 208
+      - 56
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.191
-      - 0.233
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
       - 216
-      - 27.451
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 184
-      - 212
-      - 255
+      - 27
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.26
-      - 0.279
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
       - 216
-      - 27.451
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 184
-      - 212
-      - 255
+      - 27
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.26
-      - 0.279
 - id: mori_turqoise_balloons
   name: Mori Turqoise Balloons
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
       - 204
-      - 29.412
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 179
-      - 224
-      - 255
+      - 29
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.252
-      - 0.294
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 170.842
-      - 74.51
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 64
-      - 255
-      - 225
+      - 170
+      - 74
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.168
-      - 0.39
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 206.505
-      - 80.784
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 49
-      - 163
-      - 255
+      - 206
+      - 80
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.154
-      - 0.194
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 218.4
-      - 78.431
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 55
-      - 127
-      - 255
+      - 218
+      - 78
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.155
-      - 0.141
 - id: grand_turk
   name: Grand Turk
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
       - 198
-      - 31.373
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 174
-      - 230
-      - 255
+      - 31
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.245
-      - 0.302
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 189.474
-      - 89.412
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 26
-      - 218
-      - 255
+      - 189
+      - 89
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.151
-      - 0.283
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 209.573
-      - 82.745
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 44
-      - 151
-      - 255
+      - 209
+      - 82
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.151
-      - 0.175
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 50.588
+      - 50
       - 100
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 214
-      - 0
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.496
-      - 0.473
 - id: kodaiji_at_night
   name: Kodaiji at Night
   entities:
     light.main_a:
       brightness: 199
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 107.586
-      - 34.118
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 185
-      - 255
-      - 167
+      - 107
+      - 34
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.297
-      - 0.454
     light.main_b:
       brightness: 200
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 144.337
-      - 97.647
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 6
-      - 255
-      - 106
+      - 144
+      - 97
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.167
-      - 0.632
     light.main_c:
       brightness: 196
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 82.469
-      - 95.294
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 164
-      - 255
-      - 12
+      - 82
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.321
-      - 0.618
     light.main_d:
       brightness: 199
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 51.679
-      - 53.725
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 236
-      - 118
+      - 51
+      - 53
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.43
-      - 0.445
 - id: mori_green_balloons
   name: Mori Green Balloons
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 163.886
-      - 68.627
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 80
-      - 255
-      - 208
+      - 163
+      - 68
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.18
-      - 0.418
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 105.968
-      - 97.255
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 64
-      - 255
-      - 6
+      - 105
+      - 97
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.199
-      - 0.722
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 45.659
-      - 80.392
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 206
-      - 50
+      - 45
+      - 80
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.497
-      - 0.453
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 233.472
-      - 75.686
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 62
-      - 82
-      - 255
+      - 233
+      - 75
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.157
-      - 0.089
 - id: bamboo_forest
   name: Bamboo Forest
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 102.541
-      - 95.686
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 82
-      - 255
-      - 11
+      - 102
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.215
-      - 0.707
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 52.957
-      - 90.196
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 228
-      - 25
+      - 52
+      - 90
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.475
-      - 0.485
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 125.517
-      - 68.235
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 81
-      - 255
-      - 96
+      - 125
+      - 68
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.205
-      - 0.627
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 191.79
-      - 89.804
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 25
-      - 210
-      - 255
+      - 191
+      - 89
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.15
-      - 0.27
 - id: sento_entrance
   name: Sento Entrance
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 114.947
-      - 74.51
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 81
-      - 255
-      - 64
+      - 114
+      - 74
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.21
-      - 0.671
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 47.294
+      - 47
       - 100
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 200
-      - 0
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.514
-      - 0.457
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 69.136
-      - 95.294
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 217
-      - 255
-      - 12
+      - 69
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.395
-      - 0.556
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 49.254
-      - 26.275
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 243
-      - 187
+      - 49
+      - 26
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.377
-      - 0.387
 - id: sento_bridge
   name: Sento Bridge
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 114.947
-      - 74.51
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 81
-      - 255
-      - 64
+      - 114
+      - 74
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.21
-      - 0.671
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 262.286
-      - 41.176
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 189
-      - 150
-      - 255
+      - 262
+      - 41
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.28
-      - 0.203
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 86.066
-      - 95.686
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 148
-      - 255
-      - 11
+      - 86
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.298
-      - 0.638
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 266.855
-      - 97.255
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 118
-      - 6
-      - 255
+      - 266
+      - 97
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.206
-      - 0.073
 - id: kodaiji_forest_at_night
   name: Kodaiji Forest at Night
   entities:
     light.main_a:
       brightness: 150
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 50.962
-      - 93.725
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 218
-      - 16
+      - 50
+      - 93
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.489
-      - 0.476
     light.main_b:
       brightness: 150
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 128.761
-      - 88.627
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 29
-      - 255
-      - 62
+      - 128
+      - 88
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.177
-      - 0.699
     light.main_c:
       brightness: 150
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 37.377
-      - 95.686
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 163
-      - 11
+      - 37
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.564
-      - 0.413
     light.main_d:
       brightness: 150
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 357.808
-      - 85.882
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 36
-      - 44
+      - 357
+      - 85
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.675
-      - 0.299
 - id: mori_flowers
   name: Mori Flowers
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 49.587
-      - 94.902
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 213
-      - 12
+      - 49
+      - 94
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.496
-      - 0.471
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 261.928
-      - 97.647
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
+      - 261
       - 97
-      - 6
-      - 255
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.184
-      - 0.063
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 34.531
-      - 96.078
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 151
-      - 10
+      - 34
+      - 96
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.58
-      - 0.399
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 314.627
-      - 78.824
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 53
-      - 205
+      - 314
+      - 78
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.45
-      - 0.197
 - id: wild_flowers
   name: Wild Flowers
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 61.75
-      - 94.118
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 247
-      - 255
-      - 14
+      - 61
+      - 94
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.434
-      - 0.523
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 273.202
-      - 99.216
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 142
-      - 1
-      - 255
+      - 273
+      - 99
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.235
-      - 0.086
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 46.721
-      - 95.686
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 200
-      - 11
+      - 46
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.513
-      - 0.456
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 144.677
-      - 97.255
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 6
-      - 255
-      - 108
+      - 144
+      - 97
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.167
-      - 0.628
 - id: flower_fuji
   name: Flower Fuji
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 51.349
-      - 84.314
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 224
-      - 39
+      - 51
+      - 84
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.477
-      - 0.478
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 261.493
-      - 26.275
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 211
-      - 187
-      - 255
+      - 261
+      - 26
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.297
-      - 0.25
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 41.677
-      - 65.49
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 204
-      - 88
+      - 41
+      - 65
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.482
-      - 0.431
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 311.383
-      - 99.216
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 1
-      - 207
+      - 311
+      - 99
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.452
-      - 0.185
 - id: buddha
   name: Buddha
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 50.864
-      - 95.294
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 217
-      - 12
+      - 50
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.491
-      - 0.475
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 16.471
+      - 16
       - 100
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 70
-      - 0
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.672
-      - 0.324
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 38.361
-      - 95.686
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 167
-      - 11
+      - 38
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.558
-      - 0.418
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 214.286
-      - 68.627
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 80
-      - 154
-      - 255
+      - 214
+      - 68
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.17
-      - 0.184
 - id: osaka
   name: Osaka
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 222.785
-      - 92.941
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 18
-      - 85
-      - 255
+      - 222
+      - 92
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.14
-      - 0.086
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 49.307
-      - 79.216
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 219
-      - 52
+      - 49
+      - 79
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.48
-      - 0.467
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 257.895
-      - 67.059
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 135
-      - 83
-      - 255
+      - 257
+      - 67
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.224
-      - 0.116
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 309.921
-      - 99.608
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 0
-      - 213
+      - 309
+      - 99
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.443
-      - 0.181
 - id: night_dragon
   name: Night Dragon
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 250.235
-      - 66.667
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 113
-      - 84
-      - 255
+      - 250
+      - 66
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.199
-      - 0.107
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 51.859
-      - 78.039
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 227
-      - 56
+      - 51
+      - 78
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.469
-      - 0.475
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 268.953
-      - 67.451
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 165
-      - 82
-      - 255
+      - 268
+      - 67
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.261
-      - 0.13
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 313.518
-      - 99.216
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 1
-      - 197
+      - 313
+      - 99
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.467
-      - 0.192
 - id: mori_pink_balloons
   name: Mori Pink Balloons
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 292.632
-      - 67.059
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 234
-      - 83
-      - 255
+      - 292
+      - 67
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.352
-      - 0.165
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 201.579
-      - 89.412
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 26
-      - 172
-      - 255
+      - 201
+      - 89
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.148
-      - 0.207
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 327.981
-      - 81.569
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 46
-      - 157
+      - 327
+      - 81
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.526
-      - 0.231
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 48.425
-      - 99.608
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 205
-      - 0
+      - 48
+      - 99
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.508
-      - 0.463
 - id: robot_restaurant
   name: Robot Restaurant
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 103.431
-      - 93.725
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 82
-      - 255
-      - 16
+      - 103
+      - 93
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.215
-      - 0.706
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 253.906
-      - 91.373
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 76
-      - 21
-      - 255
+      - 253
+      - 91
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.166
-      - 0.058
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 47.951
-      - 95.686
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 206
-      - 11
+      - 47
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.505
-      - 0.463
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 316.056
-      - 83.529
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 42
-      - 198
+      - 316
+      - 83
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.462
-      - 0.198
 - id: flower_festival
   name: Flower Festival
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 293.103
-      - 68.235
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 234
-      - 81
-      - 255
+      - 293
+      - 68
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.352
-      - 0.164
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 274.56
-      - 98.039
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 149
-      - 5
-      - 255
+      - 274
+      - 98
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.244
-      - 0.09
     light.main_c:
       brightness: 242
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 277.164
-      - 52.549
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 203
-      - 121
-      - 255
+      - 277
+      - 52
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.304
-      - 0.178
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 7.336
-      - 89.804
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 53
-      - 25
+      - 7
+      - 89
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.677
 - id: miyajima_cruise
   name: Miyajima Cruise
   entities:
     light.main_a:
       brightness: 42
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 50.145
-      - 81.176
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 221
-      - 48
+      - 50
+      - 81
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.479
-      - 0.471
     light.main_b:
       brightness: 42
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 352.301
-      - 88.627
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 29
-      - 58
+      - 352
+      - 88
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.667
-      - 0.291
     light.main_c:
       brightness: 43
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 13.194
-      - 74.902
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 106
-      - 63
+      - 13
+      - 74
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.611
-      - 0.337
     light.main_d:
       brightness: 42
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 29.882
+      - 29
       - 100
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 126
-      - 0
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.614
-      - 0.373
 - id: traffic_cones
   name: Traffic Cones
   entities:
     light.main_a:
       brightness: 89
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 51.855
-      - 86.667
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 224
-      - 33
+      - 51
+      - 86
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.479
-      - 0.479
     light.main_b:
       brightness: 94
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 0.829
-      - 85.098
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 40
-      - 38
+      - 0
+      - 85
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.677
-      - 0.302
     light.main_c:
       brightness: 87
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 9.344
-      - 47.843
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 151
-      - 133
+      - 9
+      - 47
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.498
-      - 0.333
     light.main_d:
       brightness: 101
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 16.56
-      - 98.039
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 74
-      - 5
+      - 16
+      - 98
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.668
-      - 0.326
 - id: katsura
   name: Katsura
   entities:
     light.main_a:
       brightness: 198
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 15.61
-      - 96.471
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 73
-      - 8
+      - 15
+      - 96
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.668
-      - 0.325
     light.main_b:
       brightness: 199
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 352.301
-      - 88.627
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 29
-      - 58
+      - 352
+      - 88
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.667
-      - 0.291
     light.main_c:
       brightness: 198
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 8.78
-      - 48.235
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 149
-      - 132
+      - 8
+      - 48
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.501
-      - 0.332
     light.main_d:
       brightness: 198
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 141.532
-      - 97.255
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 6
-      - 255
-      - 95
+      - 141
+      - 97
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.168
-      - 0.652
 - id: buddha_in_temple
   name: Buddha in Temple
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 48.642
-      - 95.294
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 209
-      - 12
+      - 48
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.501
-      - 0.466
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 5.022
-      - 89.02
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 46
-      - 27
+      - 5
+      - 89
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.68
-      - 0.307
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 255.701
-      - 41.961
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 175
-      - 147
       - 255
+      - 41
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.264
-      - 0.196
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 7.5
-      - 47.059
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 149
-      - 134
+      - 7
+      - 47
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.499
-      - 0.33
 - id: fushimi_inari
   name: Fushimi Inari
   entities:
     light.main_a:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main A
       hs_color:
-      - 2.517
-      - 56.078
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 117
-      - 112
+      - 2
+      - 56
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.552
-      - 0.315
     light.main_b:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main B
       hs_color:
-      - 17.209
-      - 50.588
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 162
-      - 126
+      - 17
+      - 50
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.496
-      - 0.352
     light.main_c:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main C
       hs_color:
-      - 4.533
-      - 88.235
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 46
-      - 30
+      - 4
+      - 88
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.679
-      - 0.306
     light.main_d:
       brightness: 255
-      effect_list:
-      - colorloop
-      - random
-      friendly_name: Main D
       hs_color:
-      - 16.79
-      - 95.294
-      is_hue_group: true
-      max_mireds: 500
-      min_mireds: 153
-      rgb_color:
-      - 255
-      - 79
-      - 12
+      - 16
+      - 95
       state: 'on'
-      supported_features: 63
-      xy_color:
-      - 0.662
-      - 0.329

@@ -14,9 +14,9 @@
 - id: nightlight
   alias: Nightlight
   trigger:
-  - at: '23:00'
+  - at: '23:00:00'
     platform: time
-  condition:
+  condition: []
   action:
   - data:
       entity_id:
@@ -108,6 +108,18 @@
       brightness: 250
     entity_id: light.hallway
     service: script.hallway_daytime_lights
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: light.master
+      state: 'on'
+    - condition: state
+      entity_id: automation.kitchen_motion_stop_after_bedtime
+      state: 'off'
+  - data: {}
+    entity_id: light.master
+    service: light.turn_off
+  mode: single
 - id: hallway_motion_stop
   alias: Hallway Motion Stop
   description: ''
@@ -200,7 +212,7 @@
   - condition: state
     entity_id: media_player.spotify
     state: playing
-  - after: '9:00:00'
+  - after: 09:00:00
     before: '18:00:00'
     condition: time
     weekday:
@@ -511,22 +523,15 @@
   - hours: /2
     platform: time_pattern
   condition:
-  - after: '9:00'
-    before: '18:00'
+  - after: 09:00:00
+    before: '18:00:00'
     condition: time
-  - condition: template
-    value_template: '{{ state_attr(''climate.hallway_thermostat'', ''current_temperature'')
-      > 66 }}'
   action:
   - data:
-      fan_mode: 'on'
+      fan_mode: On Low
     entity_id: climate.hallway_thermostat
     service: climate.set_fan_mode
-  - delay: 00:15:00
-  - data:
-      fan_mode: 'off'
-    entity_id: climate.hallway_thermostat
-    service: climate.set_fan_mode
+  mode: single
 - id: kitchen_motion_start_lights
   alias: Kitchen Motion Start - Lights
   description: ''
@@ -664,12 +669,12 @@
   alias: Humidity over 80%
   description: ''
   trigger:
-  - above: '80'
+  - above: 80
     entity_id: sensor.hallway_thermostat
     platform: numeric_state
     value_template: '{{ state_attr(''climate.hallway_thermostat'' , ''current_humidity'')
       }}'
-  condition:
+  condition: []
   action:
   - data:
       card:
@@ -783,9 +788,6 @@
     - thu
     - fri
   action:
-  - data: {}
-    entity_id: light.kbkpc
-    service: light.turn_off
   - condition: template
     value_template: '{{ false }}'
   - data:
@@ -810,13 +812,7 @@
     - wed
     - thu
     - fri
-  - condition: state
-    entity_id: light.kbkpc
-    state: 'off'
   action:
-  - data: {}
-    entity_id: light.kbkpc
-    service: light.turn_on
   - data: {}
     entity_id:
     - light.dining
@@ -930,4 +926,183 @@
       volume_level: 0.4
     entity_id: media_player.master_bath_echo_plus
     service: media_player.volume_set
+  mode: single
+- id: thermostat_fan_started
+  alias: Thermostat Fan Started
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ state_attr(''climate.hallway_thermostat'', ''fan_mode'') ==
+      ''On Low'' }}'
+  condition: []
+  action:
+  - delay: 00:30:00
+  - data:
+      fan_mode: Auto Low
+    entity_id: climate.hallway_thermostat
+    service: climate.set_fan_mode
+  mode: single
+- id: vacuum_error
+  alias: Vacuum Error
+  description: ''
+  trigger:
+  - entity_id: vacuum.rockrobo
+    platform: state
+    to: error
+  condition: []
+  action:
+  - data:
+      data:
+        type: tts
+      message: Vacuum error
+      target:
+      - media_player.dining_echo_dot
+      - media_player.master_echo_dot
+    service: notify.alexa_media
+  mode: single
+- id: nws_alert
+  alias: NWS Alert
+  description: ''
+  trigger:
+  - entity_id: sensor.nws_alerts
+    from: '0'
+    platform: state
+  condition: []
+  action:
+  - data_template:
+      data:
+        type: tts
+      message: 'NWS Alert: {{ state_attr(''sensor.nws_alerts'', ''title'') }} in effect'
+      target:
+      - media_player.dining_echo_dot
+    service: notify.alexa_media
+  mode: single
+- id: near_home
+  alias: Near Home
+  description: ''
+  trigger:
+  - entity_id: person.kevin_broh_kahn
+    event: enter
+    platform: zone
+    zone: zone.home
+  condition: []
+  action:
+  - data:
+      temperature: 24
+    entity_id: climate.hallway_thermostat
+    service: climate.set_temperature
+  mode: single
+- id: galaxy_tab_s_motion_start
+  alias: Galaxy Tab S Motion Start
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_s_motion
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      deviceID:
+      - galaxytabs
+      navigation_path: /lovelace/home
+    service: browser_mod.navigate
+  mode: single
+- id: galaxy_tab_s_motion_stop
+  alias: Galaxy Tab S Motion Stop
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_s_motion
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      deviceID:
+      - galaxytabs
+      navigation_path: /lovelace-screensaver/home
+    service: browser_mod.navigate
+  - condition: state
+    entity_id: automation.kitchen_motion_stop_after_bedtime
+    state: 'on'
+  - data: {}
+    entity_id: light.galaxytabs
+    service: light.turn_off
+  mode: single
+- id: galaxy_tab_s6_motion_start
+  alias: Galaxy Tab S6 Motion Start
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_s6_motion
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      deviceID:
+      - galaxytabs6
+      navigation_path: /lovelace/home
+    service: browser_mod.navigate
+  mode: single
+- id: galaxy_tab_s6_motion_stop
+  alias: Galaxy Tab S6 Motion Stop
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_s6_motion
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      deviceID:
+      - galaxytabs6
+      navigation_path: /lovelace-screensaver/home
+    service: browser_mod.navigate
+  - condition: state
+    entity_id: automation.kitchen_motion_stop_after_bedtime
+    state: 'on'
+  - data: {}
+    entity_id: light.galaxytabs6
+    service: light.turn_off
+  mode: single
+- id: galaxy_tab_a_motion_start
+  alias: Galaxy Tab A Motion Start
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_a_motion
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      deviceID:
+      - galaxytaba
+      navigation_path: /lovelace/home
+    service: browser_mod.navigate
+  mode: single
+- id: galaxy_tab_a_motion_stop
+  alias: Galaxy Tab A Motion Stop
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_a_motion
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      deviceID:
+      - galaxytaba
+      navigation_path: /lovelace-screensaver/home
+    service: browser_mod.navigate
+  - condition: state
+    entity_id: automation.kitchen_motion_stop_after_bedtime
+    state: 'on'
+  - data: {}
+    entity_id: light.galaxytaba
+    service: light.turn_off
   mode: single

@@ -70,22 +70,6 @@
                 "version": 1
             },
             {
-                "connection_class": "local_push",
-                "data": {
-                    "user_id": "f8e92c5735024a96a2eea73b2aa8ccff"
-                },
-                "domain": "cast",
-                "entry_id": "0bfc7c8d36f34a05a63e877ab9349cab",
-                "options": {},
-                "source": "zeroconf",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "Google Cast",
-                "unique_id": null,
-                "version": 1
-            },
-            {
                 "connection_class": "local_poll",
                 "data": {
                     "host": "10.0.2.15"
@@ -127,7 +111,7 @@
                     },
                     "app_id": "io.homeassistant.companion.android",
                     "app_name": "Home Assistant",
-                    "app_version": "2.2.1-274-full (274)",
+                    "app_version": "2.3.3-full (343)",
                     "device_id": "d689aabf1278c427",
                     "device_name": "SM-N975U1",
                     "manufacturer": "samsung",
@@ -169,29 +153,6 @@
                 "title": "Mosquitto broker",
                 "unique_id": null,
                 "version": 1
-            },
-            {
-                "connection_class": "local_poll",
-                "data": {
-                    "devices": [
-                        {
-                            "host": "10.0.0.105",
-                            "name": "PlayStation 4",
-                            "region": "United States"
-                        }
-                    ],
-                    "token": "8e0d8ed6542cceece19f5b1088b81346ba48700fc0c1c592a9961bf75d712598"
-                },
-                "domain": "ps4",
-                "entry_id": "efc6d2cd73d8419db5e4bf351121c97f",
-                "options": {},
-                "source": "user",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "PlayStation 4",
-                "unique_id": null,
-                "version": 3
             },
             {
                 "connection_class": "local_poll",
@@ -311,8 +272,8 @@
                     "id": "125975319",
                     "name": "125975319",
                     "token": {
-                        "access_token": "BQDDVo6U9Ne18ZO2mHwi-MBdWME5ZznR_lvTprpNANsoMYN9vaRBJz5NWlDrdxNxKcngJc1gtzZS0oqFkaa476NgkzaV-a_eOjs2Ezg-1ozTzehhjlHw8pzghad42CEmt_sXs3bWnH2vPkAwgQY7gnPceBfNtOJPYoRk",
-                        "expires_at": 1598578551.4274993,
+                        "access_token": "BQDiP93a7suYICOT3HPkGUpuqCF6UFvqsZL_i1XRjr6fZK5XNBPUBNIa0kr-QmQmZES1QXRRj0ridrmAWUTFT4FcMoTNS6tXdV63wfGXiNyrJ8zj0qkZA-yKo0CdqCqV3teXFpfpYqulOQ-buNDCXa5L9fuke0b7VBau",
+                        "expires_at": 1599270646.1117315,
                         "expires_in": 3600,
                         "refresh_token": "AQDy779VHQYss3YLfaoBgbjaGpF0JKM5mGB2tnSgDUx2NjBRFsLB25pULTwoyULa_J2SEavVpn3YnGIRKdhZVcS_SAiAURLUnoFd3CoiZII5lsGqgHNo-KHneGHzjOxpGpg",
                         "scope": "user-modify-playback-state user-read-playback-state user-read-private",
@@ -345,32 +306,6 @@
                 },
                 "title": "Harmony Hub",
                 "unique_id": "16371405",
-                "version": 1
-            },
-            {
-                "connection_class": "cloud_poll",
-                "data": {
-                    "debug": false,
-                    "email": "kbkrunner@gmail.com",
-                    "exclude_devices": [
-                        "Living Room Bose",
-                        "Dining Bose",
-                        "Kitchen Bose"
-                    ],
-                    "include_devices": [],
-                    "password": "I'mOnFire11",
-                    "scan_interval": 5,
-                    "url": "amazon.com"
-                },
-                "domain": "alexa_media",
-                "entry_id": "b05d3291a4b44a97a843316c4ead642e",
-                "options": {},
-                "source": "user",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "kbkrunner@gmail.com - amazon.com",
-                "unique_id": null,
                 "version": 1
             },
             {
@@ -425,6 +360,63 @@
                     "disable_new_entities": false
                 },
                 "title": "Z-Wave (import from configuration.yaml)",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "debug": false,
+                    "email": "kbkrunner@gmail.com",
+                    "exclude_devices": [],
+                    "include_devices": [],
+                    "password": "I'mOnFire11",
+                    "scan_interval": 60,
+                    "url": "amazon.com"
+                },
+                "domain": "alexa_media",
+                "entry_id": "c26982dfb8814190a280c995f744d753",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "kbkrunner@gmail.com - amazon.com",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "user_id": "17ee75ea939346d5a3755554ccdc886c"
+                },
+                "domain": "cast",
+                "entry_id": "c1e0f4f30c0d4372981393e8ad888a3c",
+                "options": {},
+                "source": "zeroconf",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Google Cast",
+                "unique_id": "cast",
+                "version": 1
+            },
+            {
+                "connection_class": "unknown",
+                "data": {
+                    "host": "http://core-almond:3001",
+                    "is_hassio": true,
+                    "onboarded": true,
+                    "type": "local"
+                },
+                "domain": "almond",
+                "entry_id": "91d21e57f23843d88ccf7e6cae2a9ad9",
+                "options": {},
+                "source": "hassio",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Almond",
                 "unique_id": null,
                 "version": 1
             }

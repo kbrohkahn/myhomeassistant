@@ -105,6 +105,31 @@
                 "id": "11a92483744849a9a5d9c69dea2d1843",
                 "type": "module",
                 "url": "local/zha-network-vizualization-card/zha-network-vizualization-card.js"
+            },
+            {
+                "id": "1bcb36cdaeea447a99917bc9b7b1d6e6",
+                "type": "module",
+                "url": "local/targeting-computer-ae.js"
+            },
+            {
+                "id": "330a864e33234a328977efe16c8f3a08",
+                "type": "module",
+                "url": "local/targeting-computer-clock-l.js"
+            },
+            {
+                "id": "46abf00e2e384512886301dcd69f4b62",
+                "type": "css",
+                "url": "local/fonts/AG-Stencil.ttf"
+            },
+            {
+                "id": "7c375f4dd78e42f0b67b5b3de439eda8",
+                "type": "css",
+                "url": "https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap"
+            },
+            {
+                "id": "4a7e26de69534f03862cc9a243b192a6",
+                "type": "module",
+                "url": "/hacsfiles/weather-card/weather-card.js"
             }
         ]
     },

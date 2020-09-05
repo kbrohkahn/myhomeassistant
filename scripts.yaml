@@ -172,11 +172,16 @@ users_away:
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
       automation.hallway_bath_door_motion,automation.master_bath_door_motion,automation.hallway_motion_start_lights,automation.kitchen_motion_start_lights,
-      automation.master_motion_start_lights,automation.sunset
+      automation.master_motion_start_lights,automation.sunset,automation.office_motion_start_when_wfh
     service: automation.turn_off
   - data: {}
     entity_id: automation.nightlight
     service: automation.turn_on
+  - data_template:
+      temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 26
+        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 16 {% endif %}'
+    entity_id: climate.hallway_thermostat
+    service: climate.set_temperature
   - condition: template
     value_template: '{{ (as_timestamp(now()) * 1000 - state_attr(''vacuum.rockrobo'',
       ''last_run_stats'')[''startTime'']) / 1000 > 36 * 3600 }}'
@@ -202,7 +207,7 @@ users_home:
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
       automation.hallway_bath_door_motion,automation.master_bath_door_motion,automation.hallway_motion_start_lights,automation.kitchen_motion_start_lights,
-      automation.master_motion_start_lights,automation.sunset
+      automation.master_motion_start_lights,automation.sunset,automation.office_motion_start_when_wfh
     service: automation.turn_on
   - data: {}
     entity_id: automation.nightlight
@@ -212,6 +217,11 @@ users_home:
   - entity_id:
     - switch.living_room_monitor
     service: switch.turn_on
+  - data_template:
+      temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 24
+        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 18 {% endif %}'
+    entity_id: climate.hallway_thermostat
+    service: climate.set_temperature
   - data: {}
     service: script.create_bose_group
   - delay: 00:00:03
@@ -219,17 +229,7 @@ users_home:
       source: Dining Group
     entity_id: media_player.spotify
     service: media_player.select_source
-  - after: '9:00'
-    before: '18:00'
-    condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  - data: {}
-    service: script.start_the_office
+  mode: single
 bedtime:
   alias: Bedtime
   sequence:
@@ -310,15 +310,13 @@ browser_sound_effect:
       topic: wallpanel/galaxytaba/command
     service: mqtt.publish
   - data_template:
-      media_content_id: /local/audio/{{ sound_effect_filename }}
-      media_content_type: music
-    entity_id: media_player.kbkpc
-    service: media_player.play_media
+      payload: '{"audio": "http://10.0.2.10:8123/local/audio/{{ sound_effect_filename
+        }}"}'
+      topic: wallpanel/galaxytabs/command
+    service: mqtt.publish
   - data_template:
       ignore_bose_volume: '{{ ignore_bose_volume }}'
     service: script.maybe_lower_bose_volume
-  - timeout: 00:00:05
-    wait_template: '{{ is_state(''media_player.kbkpc'', ''standby'') }}'
   mode: single
 play_on_bose:
   alias: Play on Bose
@@ -399,10 +397,9 @@ wake_up:
       topic: wallpanel/galaxystabs/command
     service: mqtt.publish
   - entity_id:
-    - light.kbkpc
     - light.galaxytaba
-    - light.galaxytabs6
     - light.galaxytabs
+    - light.galaxytabs6
     service: light.turn_on
 kill_bose_group:
   alias: Kill Bose Group
@@ -448,9 +445,6 @@ start_the_office:
     - switch.fountain
     - switch.firestone
     service: switch.turn_on
-  - data: {}
-    entity_id: light.kbkpc
-    service: light.turn_on
   - data:
       brightness: 255
     service: script.office_daytime_lights
@@ -466,7 +460,6 @@ stop_the_office:
   sequence:
   - entity_id:
     - light.office
-    - light.kbkpc
     service: light.turn_off
   - data: {}
     entity_id:
@@ -641,20 +634,6 @@ test:
   - entity_id:
     - light.kitchen_hallway
     service: light.turn_off
-run_the_fan:
-  alias: Run the fan
-  sequence:
-  - data:
-      fan_mode: 'on'
-    entity_id: climate.hallway_thermostat
-    service: climate.set_fan_mode
-stop_the_fan:
-  alias: Stop the fan
-  sequence:
-  - data:
-      fan_mode: 'off'
-    entity_id: climate.hallway_thermostat
-    service: climate.set_fan_mode
 run_script_from_popup:
   alias: Run Script From Popup
   sequence:
@@ -708,49 +687,51 @@ maybe_stop_office_tv:
 start_cameras:
   alias: Start Cameras
   sequence:
-  - data_template:
+  - data:
       payload: '{"camera": true}'
       topic: wallpanel/galaxytabs6/command
     service: mqtt.publish
-  - data_template:
+  - data:
       payload: '{"camera": true}'
       topic: wallpanel/galaxytaba/command
     service: mqtt.publish
-  - data_template:
+  - data:
       payload: '{"camera": true}'
       topic: wallpanel/galaxytabs/command
     service: mqtt.publish
+  mode: single
 stop_cameras:
   alias: Stop Cameras
   sequence:
-  - data_template:
+  - data:
       payload: '{"camera": false}'
       topic: wallpanel/galaxytabs6/command
     service: mqtt.publish
-  - data_template:
+  - data:
       payload: '{"camera": false}'
       topic: wallpanel/galaxytaba/command
     service: mqtt.publish
-  - data_template:
+  - data:
       payload: '{"camera": false}'
       topic: wallpanel/galaxytabs/command
     service: mqtt.publish
+  mode: single
 starlight_off:
   alias: Starlight Off
   mode: single
   sequence:
-  - data: {}
-    entity_id: switch.starlight_switchbot
-    service: switch.toggle
-  - data: {}
-    entity_id: switch.starlight_switchbot
-    service: switch.toggle
-  - data: {}
-    entity_id: switch.starlight_switchbot
-    service: switch.toggle
-  - data: {}
-    entity_id: switch.starlight_switchbot
-    service: switch.toggle
+  - data:
+      event: starlight_press
+    service: ifttt.trigger
+  - data:
+      event: starlight_press
+    service: ifttt.trigger
+  - data:
+      event: starlight_press
+    service: ifttt.trigger
+  - data:
+      event: starlight_press
+    service: ifttt.trigger
 start_vacuum:
   alias: Start Vacuum
   mode: single
@@ -792,3 +773,18 @@ guests_away:
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music
     service: automation.turn_on
+start_mop:
+  alias: Start Mop
+  mode: single
+  sequence:
+  - data:
+      fan_speed: mop
+    entity_id: vacuum.rockrobo
+    service: vacuum.set_fan_speed
+  - data:
+      command: zoned_cleanup
+      params:
+        zone_ids:
+        - Mop Area
+    entity_id: vacuum.rockrobo
+    service: vacuum.send_command

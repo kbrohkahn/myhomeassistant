@@ -1,0 +1,69 @@
+{
+    "data": {
+        "config": {
+            "custom_header": {
+                "hidden_tab_redirect": false,
+                "kiosk_mode": true
+            },
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "elements": [
+                                {
+                                    "entity": "weather.home",
+                                    "style": {
+                                        "height": "80%",
+                                        "left": "50%",
+                                        "top": "43%",
+                                        "width": "96%"
+                                    },
+                                    "type": "custom:targeting-computer-card"
+                                },
+                                {
+                                    "style": {
+                                        "left": "50%",
+                                        "top": "92%"
+                                    },
+                                    "type": "custom:targeting-computer-clock-card"
+                                },
+                                {
+                                    "entity": "weather.openweathermap",
+                                    "name": "Home",
+                                    "show_forecast": true,
+                                    "style": ":host {\n  border: #dd0000 solid 4px;\n  top: 45%;\n  left: 20%;\n  width: 30%;\n}\n",
+                                    "type": "custom:weather-card"
+                                },
+                                {
+                                    "artwork": "full-cover",
+                                    "entity": "media_player.spotify",
+                                    "hide": {
+                                        "controls": true,
+                                        "icon": true,
+                                        "name": true,
+                                        "power": true,
+                                        "progress": true,
+                                        "source": true,
+                                        "volume": true
+                                    },
+                                    "style": ":host { \n  width: 30%;\n  left: 80%;\n  top: 43%;\n  padding: 4px;\n  background-color: #dd0000;\n}\n:host .entity__info {\n  #width: 100%;\n  font-size: 2rem;\n  #text-align: center;\n}\n\n:host .attr__media_title {\n  #display: block;\n}\n\n:host .attr__media_artist {\n  #display: none;\n}\n",
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "image": "local/images/black_16x10.png",
+                            "style": ":host {\n  height: 100vh;\n  overflow: visible;\n}\n:host root {\n  height: 100vh;\n}\n:host #image {\n  height: 100vh !important;\n}\n",
+                            "type": "picture-elements"
+                        }
+                    ],
+                    "icon": "mdi:home",
+                    "panel": true,
+                    "path": "home",
+                    "title": "Home"
+                }
+            ]
+        }
+    },
+    "key": "lovelace.lovelace_screensaver",
+    "version": 1
+}

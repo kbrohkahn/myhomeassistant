@@ -6,7 +6,6 @@
                 "button_icons": {
                     "options": "mdi:death-star-variant"
                 },
-                "exceptions": [],
                 "header_text": "{{ user }} | {{ viewTitle }}",
                 "title": "Home"
             },
@@ -77,7 +76,7 @@
                                                 "_icons": true,
                                                 "_names": true,
                                                 "hvac": {
-                                                    "name": "test"
+                                                    "_name": false
                                                 }
                                             },
                                             "decimals": 0,
@@ -88,8 +87,7 @@
                                             "name": false,
                                             "sensors": [
                                                 {
-                                                    "attribute": "current_humidity",
-                                                    "entity": "climate.hallway_thermostat",
+                                                    "entity": "sensor.hallway_thermostat_relative_humidity",
                                                     "name": "Humid",
                                                     "unit": "%"
                                                 }
@@ -100,8 +98,17 @@
                                             "type": "custom:simple-thermostat"
                                         },
                                         {
-                                            "content": "{% if (states('sensor.nws_alerts') | int) > 0 %} # ******* ALERT ******* {% endif %}\n## {{ states('sensor.nws_alerts') }} weather alerts in effect\n{% if (states('sensor.nws_alerts') | int) > 0 %}\n### {{ state_attr('sensor.nws_alerts', 'title') }}\n#### {{ state_attr('sensor.nws_alerts', 'display_desc') }}\n{% endif %}\n",
-                                            "type": "markdown"
+                                            "card": {
+                                                "content": "{% if (states('sensor.nws_alerts') | int) > 0 %} # ******* ALERT ******* {% endif %}\n## {{ states('sensor.nws_alerts') }} weather alerts in effect\n{% if (states('sensor.nws_alerts') | int) > 0 %}\n### {{ state_attr('sensor.nws_alerts', 'title') }}\n#### {{ state_attr('sensor.nws_alerts', 'display_desc') }}\n{% endif %}\n",
+                                                "type": "markdown"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "sensor.nws_alerts",
+                                                    "state_not": "0"
+                                                }
+                                            ],
+                                            "type": "conditional"
                                         }
                                     ],
                                     "type": "vertical-stack"
@@ -185,10 +192,10 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "double_tap_action": {
+                                                    "entity": "light.kitchen",
+                                                    "hold_action": {
                                                         "action": "more-info"
                                                     },
-                                                    "entity": "light.kitchen",
                                                     "icon": "mdi:lightbulb-group",
                                                     "style": {
                                                         "left": "57%",
@@ -471,6 +478,23 @@
                                                 {
                                                     "cards": [
                                                         {
+                                                            "cards": [
+                                                                {
+                                                                    "entity": "switch.at_home",
+                                                                    "type": "button"
+                                                                },
+                                                                {
+                                                                    "entity": "switch.bedtime",
+                                                                    "type": "button"
+                                                                },
+                                                                {
+                                                                    "entity": "switch.cameras",
+                                                                    "type": "button"
+                                                                }
+                                                            ],
+                                                            "type": "horizontal-stack"
+                                                        },
+                                                        {
                                                             "CalEventIcon1Filter": "birthday",
                                                             "CalEventIcon2Filter": "waste,bills",
                                                             "defaultMode": 1,
@@ -490,11 +514,6 @@
                                                             "showDate": false,
                                                             "showMonth": false,
                                                             "type": "custom:atomic-calendar"
-                                                        },
-                                                        {
-                                                            "show_crossed_off": false,
-                                                            "title": "",
-                                                            "type": "custom:our-groceries-card"
                                                         }
                                                     ],
                                                     "type": "vertical-stack"
@@ -502,199 +521,26 @@
                                                 {
                                                     "cards": [
                                                         {
-                                                            "entities": [
-                                                                {
-                                                                    "entity": "automation.kitchen_motion_start_lights",
-                                                                    "icon": "mdi:home-account",
-                                                                    "name": "Home",
-                                                                    "tap_action": {
-                                                                        "action": "call-service",
-                                                                        "service": "browser_mod.popup",
-                                                                        "service_data": {
-                                                                            "card": {
-                                                                                "cards": [
-                                                                                    {
-                                                                                        "cards": [
-                                                                                            {
-                                                                                                "entity": "automation.kitchen_motion_start_lights",
-                                                                                                "icon": "mdi:home-export-outline",
-                                                                                                "name": "Users Away",
-                                                                                                "show_icon": true,
-                                                                                                "show_name": true,
-                                                                                                "tap_action": {
-                                                                                                    "action": "call-service",
-                                                                                                    "service": "script.run_script_from_popup",
-                                                                                                    "service_data": {
-                                                                                                        "script_id": "script.users_away"
-                                                                                                    }
-                                                                                                },
-                                                                                                "type": "button"
-                                                                                            },
-                                                                                            {
-                                                                                                "entity": "automation.kitchen_motion_start_lights",
-                                                                                                "icon": "mdi:home-import-outline",
-                                                                                                "name": "Users Home",
-                                                                                                "show_icon": true,
-                                                                                                "show_name": true,
-                                                                                                "tap_action": {
-                                                                                                    "action": "call-service",
-                                                                                                    "service": "script.run_script_from_popup",
-                                                                                                    "service_data": {
-                                                                                                        "script_id": "script.users_home"
-                                                                                                    }
-                                                                                                },
-                                                                                                "type": "button"
-                                                                                            }
-                                                                                        ],
-                                                                                        "type": "horizontal-stack"
-                                                                                    },
-                                                                                    {
-                                                                                        "cards": [
-                                                                                            {
-                                                                                                "entity": "automation.kitchen_motion_stop_after_bedtime",
-                                                                                                "icon": "mdi:sleep",
-                                                                                                "name": "Bedtime",
-                                                                                                "show_icon": true,
-                                                                                                "show_name": true,
-                                                                                                "tap_action": {
-                                                                                                    "action": "call-service",
-                                                                                                    "service": "script.run_script_from_popup",
-                                                                                                    "service_data": {
-                                                                                                        "script_id": "script.bedtime"
-                                                                                                    }
-                                                                                                },
-                                                                                                "type": "button"
-                                                                                            },
-                                                                                            {
-                                                                                                "entity": "automation.kitchen_motion_stop_after_bedtime",
-                                                                                                "icon": "mdi:alarm",
-                                                                                                "name": "Good Morning",
-                                                                                                "show_icon": true,
-                                                                                                "show_name": true,
-                                                                                                "tap_action": {
-                                                                                                    "action": "call-service",
-                                                                                                    "service": "script.run_script_from_popup",
-                                                                                                    "service_data": {
-                                                                                                        "script_id": "script.good_morning"
-                                                                                                    }
-                                                                                                },
-                                                                                                "type": "button"
-                                                                                            }
-                                                                                        ],
-                                                                                        "type": "horizontal-stack"
-                                                                                    },
-                                                                                    {
-                                                                                        "cards": [
-                                                                                            {
-                                                                                                "entity": "climate.hallway_thermostat",
-                                                                                                "icon": "mdi:fan-off",
-                                                                                                "name": "Stop Fan",
-                                                                                                "show_icon": true,
-                                                                                                "show_name": true,
-                                                                                                "tap_action": {
-                                                                                                    "action": "call-service",
-                                                                                                    "service": "script.run_script_from_popup",
-                                                                                                    "service_data": {
-                                                                                                        "script_id": "script.stop_the_fan"
-                                                                                                    }
-                                                                                                },
-                                                                                                "type": "button"
-                                                                                            },
-                                                                                            {
-                                                                                                "entity": "climate.hallway_thermostat",
-                                                                                                "icon": "mdi:fan",
-                                                                                                "name": "Run Fan",
-                                                                                                "show_icon": true,
-                                                                                                "show_name": true,
-                                                                                                "tap_action": {
-                                                                                                    "action": "call-service",
-                                                                                                    "service": "script.run_script_from_popup",
-                                                                                                    "service_data": {
-                                                                                                        "script_id": "script.run_the_fan"
-                                                                                                    }
-                                                                                                },
-                                                                                                "type": "button"
-                                                                                            }
-                                                                                        ],
-                                                                                        "type": "horizontal-stack"
-                                                                                    },
-                                                                                    {
-                                                                                        "cards": [
-                                                                                            {
-                                                                                                "entity": "script.stop_cameras",
-                                                                                                "hold_action": {
-                                                                                                    "action": "more-info"
-                                                                                                },
-                                                                                                "icon": "mdi:camera-off",
-                                                                                                "show_icon": true,
-                                                                                                "show_name": true,
-                                                                                                "show_state": false,
-                                                                                                "tap_action": {
-                                                                                                    "action": "toggle"
-                                                                                                },
-                                                                                                "type": "button"
-                                                                                            },
-                                                                                            {
-                                                                                                "entity": "script.start_cameras",
-                                                                                                "hold_action": {
-                                                                                                    "action": "more-info"
-                                                                                                },
-                                                                                                "icon": "mdi:camera",
-                                                                                                "show_icon": true,
-                                                                                                "show_name": true,
-                                                                                                "show_state": false,
-                                                                                                "tap_action": {
-                                                                                                    "action": "toggle"
-                                                                                                },
-                                                                                                "type": "button"
-                                                                                            }
-                                                                                        ],
-                                                                                        "type": "horizontal-stack"
-                                                                                    }
-                                                                                ],
-                                                                                "type": "vertical-stack"
-                                                                            },
-                                                                            "deviceID": [
-                                                                                "this"
-                                                                            ],
-                                                                            "title": "Scripts"
-                                                                        }
-                                                                    }
-                                                                },
-                                                                {
-                                                                    "entity": "sensor.theater_systems_watts",
-                                                                    "icon": "mdi:audio-video",
-                                                                    "name": "Theater AV"
-                                                                },
-                                                                {
-                                                                    "entity": "sensor.ups_watts",
-                                                                    "icon": "mdi:battery-charging-100",
-                                                                    "name": "UPS"
-                                                                }
-                                                            ],
-                                                            "show_state": true,
-                                                            "type": "glance"
-                                                        },
-                                                        {
                                                             "cards": [
+                                                                {
+                                                                    "entity": "switch.fan",
+                                                                    "type": "button"
+                                                                },
                                                                 {
                                                                     "entity": "switch.fountain",
                                                                     "type": "button"
                                                                 },
                                                                 {
                                                                     "entity": "switch.starlight",
-                                                                    "icon": "mdi:weather-night",
-                                                                    "name": "Starlight",
-                                                                    "type": "button"
-                                                                },
-                                                                {
-                                                                    "entity": "switch.starlight_switchbot",
-                                                                    "icon": "mdi:gesture-tap-button",
-                                                                    "name": "Switchbot",
                                                                     "type": "button"
                                                                 }
                                                             ],
                                                             "type": "horizontal-stack"
+                                                        },
+                                                        {
+                                                            "show_crossed_off": false,
+                                                            "title": "",
+                                                            "type": "custom:our-groceries-card"
                                                         }
                                                     ],
                                                     "type": "vertical-stack"
@@ -719,9 +565,6 @@
                                                     "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.office_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
                                                     "tap_action": {
                                                         "action": "call-service",
-                                                        "confirmation": {
-                                                            "text": "Toggle office master switch?"
-                                                        },
                                                         "service": "switch.toggle",
                                                         "service_data": {
                                                             "entity_id": "switch.office_master"
@@ -739,9 +582,6 @@
                                                     "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.living_room_monitor', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
                                                     "tap_action": {
                                                         "action": "call-service",
-                                                        "confirmation": {
-                                                            "text": "Toggle living room monitor switch?"
-                                                        },
                                                         "service": "switch.toggle",
                                                         "service_data": {
                                                             "entity_id": "switch.living_room_monitor"
@@ -759,9 +599,6 @@
                                                     "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.theater_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
                                                     "tap_action": {
                                                         "action": "call-service",
-                                                        "confirmation": {
-                                                            "text": "Toggle theater master switch?"
-                                                        },
                                                         "service": "switch.toggle",
                                                         "service_data": {
                                                             "entity_id": "switch.theater_master"
@@ -776,12 +613,10 @@
                                         {
                                             "cards": [
                                                 {
-                                                    "entity": "switch.office_peripherals",
-                                                    "hold_action": {
-                                                        "action": "more-info"
-                                                    },
-                                                    "icon": "mdi:remote",
-                                                    "show_name": false,
+                                                    "entity": "remote.harmony_hub",
+                                                    "name": "Remote",
+                                                    "show_icon": false,
+                                                    "show_state": false,
                                                     "tap_action": {
                                                         "action": "call-service",
                                                         "id": "browser_mod.popup",
@@ -884,12 +719,10 @@
                                                     "type": "button"
                                                 },
                                                 {
-                                                    "entity": "switch.living_room_monitor",
-                                                    "hold_action": {
-                                                        "action": "more-info"
-                                                    },
-                                                    "icon": "mdi:remote",
-                                                    "show_name": false,
+                                                    "entity": "remote.harmony_hub",
+                                                    "name": "Remote",
+                                                    "show_icon": false,
+                                                    "show_state": false,
                                                     "tap_action": {
                                                         "action": "call-service",
                                                         "id": "browser_mod.popup",
@@ -912,12 +745,10 @@
                                                     "type": "button"
                                                 },
                                                 {
-                                                    "entity": "switch.theater_peripherals",
-                                                    "hold_action": {
-                                                        "action": "more-info"
-                                                    },
-                                                    "icon": "mdi:remote",
-                                                    "show_name": false,
+                                                    "entity": "remote.harmony_hub",
+                                                    "name": "Remote",
+                                                    "show_icon": false,
+                                                    "show_state": false,
                                                     "tap_action": {
                                                         "action": "call-service",
                                                         "service": "browser_mod.popup",
@@ -1192,10 +1023,7 @@
                                             "card": {
                                                 "cards": [
                                                     {
-                                                        "entity": "light.theater",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
+                                                        "entity": "remote.harmony_hub",
                                                         "icon": "mdi:audio-video",
                                                         "name": "Hue Sync",
                                                         "show_icon": true,
@@ -1419,15 +1247,11 @@
                                                     },
                                                     {
                                                         "entity": "media_player.theater_stick",
-                                                        "hold_action": {
-                                                            "action": "more-info"
-                                                        },
                                                         "icon": "mdi:play-network",
                                                         "show_icon": true,
                                                         "show_name": true,
                                                         "tap_action": {
                                                             "action": "call-service",
-                                                            "id": "browser_mod.popup",
                                                             "service": "browser_mod.popup",
                                                             "service_data": {
                                                                 "card": {
@@ -1441,13 +1265,277 @@
                                                                     "this"
                                                                 ],
                                                                 "title": "Theater Roku"
-                                                            },
-                                                            "type": "service"
+                                                            }
                                                         },
                                                         "type": "button"
                                                     },
                                                     {
-                                                        "entity": "media_player.playstation_4",
+                                                        "entity": "remote.harmony_hub",
+                                                        "icon": "mdi:sony-playstation",
+                                                        "name": "PS4",
+                                                        "show_icon": true,
+                                                        "show_name": true,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "browser_mod.popup",
+                                                            "service_data": {
+                                                                "card": {
+                                                                    "cards": [
+                                                                        {
+                                                                            "cards": [
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:power",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "PowerOff",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:back",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "Back",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:asterisk",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "Info",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                }
+                                                                            ],
+                                                                            "type": "horizontal-stack"
+                                                                        },
+                                                                        {
+                                                                            "cards": [
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:sony-playstation",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "PS",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:chevron-up",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "DirectionUp",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:volume-high",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "VolumeUp",
+                                                                                            "device": "Theater TV",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                }
+                                                                            ],
+                                                                            "type": "horizontal-stack"
+                                                                        },
+                                                                        {
+                                                                            "cards": [
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:chevron-left",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "DirectionLeft",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:check",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "OK",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:chevron-right",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "DirectionRight",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                }
+                                                                            ],
+                                                                            "type": "horizontal-stack"
+                                                                        },
+                                                                        {
+                                                                            "cards": [
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:arrow-left",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "Back",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:chevron-down",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "DirectionDown",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:volume-medium",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "VolumeDown",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                }
+                                                                            ],
+                                                                            "type": "horizontal-stack"
+                                                                        },
+                                                                        {
+                                                                            "cards": [
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:rewind",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "Rewind",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:play",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "Play",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                },
+                                                                                {
+                                                                                    "entity": "remote.harmony_hub",
+                                                                                    "icon": "mdi:fast-forward",
+                                                                                    "show_name": false,
+                                                                                    "tap_action": {
+                                                                                        "action": "call-service",
+                                                                                        "service": "remote.send_command",
+                                                                                        "service_data": {
+                                                                                            "command": "FastForward",
+                                                                                            "device": "Sony PS4",
+                                                                                            "entity_id": "remote.harmony_hub"
+                                                                                        }
+                                                                                    },
+                                                                                    "type": "button"
+                                                                                }
+                                                                            ],
+                                                                            "type": "horizontal-stack"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "type": "vertical-stack"
+                                                            }
+                                                        },
                                                         "type": "button"
                                                     }
                                                 ],
@@ -1624,7 +1712,7 @@
                                                         "type": "custom:mini-media-player"
                                                     },
                                                     {
-                                                        "entity": "media_player.master_bath_echo_dot",
+                                                        "entity": "media_player.master_bath_echo_plus",
                                                         "group": true,
                                                         "hide": {
                                                             "controls": true,
@@ -1641,6 +1729,82 @@
                                                 {
                                                     "entity": "sensor.spotify_source",
                                                     "state": "Master"
+                                                }
+                                            ],
+                                            "type": "conditional"
+                                        },
+                                        {
+                                            "card": {
+                                                "cards": [
+                                                    {
+                                                        "entity": "media_player.living_room_chromecast",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:play-pause",
+                                                        "show_icon": true,
+                                                        "show_name": false,
+                                                        "show_state": false,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "media_player.media_play_pause",
+                                                            "service_data": {
+                                                                "entity_id": "media_player.living_room_chromecast"
+                                                            }
+                                                        },
+                                                        "type": "button"
+                                                    },
+                                                    {
+                                                        "entity": "media_player.living_room_chromecast",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:volume-medium",
+                                                        "show_icon": true,
+                                                        "show_name": false,
+                                                        "show_state": false,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "media_player.volume_down",
+                                                            "service_data": {
+                                                                "entity_id": "media_player.living_room_chromecast"
+                                                            }
+                                                        },
+                                                        "type": "button"
+                                                    },
+                                                    {
+                                                        "entity": "media_player.living_room_chromecast",
+                                                        "hold_action": {
+                                                            "action": "more-info"
+                                                        },
+                                                        "icon": "mdi:volume-high",
+                                                        "show_icon": true,
+                                                        "show_name": false,
+                                                        "show_state": false,
+                                                        "tap_action": {
+                                                            "action": "call-service",
+                                                            "service": "media_player.volume_up",
+                                                            "service_data": {
+                                                                "entity_id": "media_player.living_room_chromecast"
+                                                            }
+                                                        },
+                                                        "type": "button"
+                                                    }
+                                                ],
+                                                "type": "horizontal-stack"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "media_player.living_room_chromecast",
+                                                    "state_not": "idle"
+                                                },
+                                                {
+                                                    "entity": "media_player.living_room_chromecast",
+                                                    "state_not": "off"
+                                                },
+                                                {
+                                                    "entity": "media_player.living_room_chromecast",
+                                                    "state_not": "unavailable"
                                                 }
                                             ],
                                             "type": "conditional"
@@ -1668,8 +1832,9 @@
                     "cards": [
                         {
                             "aspect_ratio": "50%",
+                            "style": "\n:host {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: -44px;\n  bottom: 0px;\n}\n",
                             "type": "iframe",
-                            "url": "http://10.0.2.140"
+                            "url": "https://vacuum.broh-kahn.com/9c239ab4-ee91-42b3-8f47-4f68010eafc1/"
                         }
                     ],
                     "icon": "mdi:robot-vacuum",
@@ -2254,6 +2419,22 @@
                                         {
                                             "entities": [
                                                 {
+                                                    "entity": "sensor.dining_window_temperature",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.dining_window_power",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "binary_sensor.dining_window_ias_zone",
+                                            "name": "Dining Window",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
                                                     "entity": "sensor.hallway_bath_door_temperature",
                                                     "name": false
                                                 },
@@ -2338,38 +2519,23 @@
                                                 }
                                             ],
                                             "entity": "sensor.galaxy_tab_s_light_level",
-                                            "secondary_info": "last-changed",
-                                            "type": "custom:multiple-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.galaxy_s8_plus_pressure",
-                                                    "name": false
-                                                },
-                                                {
-                                                    "entity": "sensor.galaxy_s8_plus_magnetic_field",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "sensor.galaxy_s8_plus_light_level",
-                                            "name": "Living Room",
-                                            "secondary_info": "last-changed",
-                                            "type": "custom:multiple-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.galaxy_s8_pressure",
-                                                    "name": false
-                                                },
-                                                {
-                                                    "entity": "sensor.galaxy_s8_magnetic_field",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "sensor.galaxy_s8_light_level",
                                             "name": "Office",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.galaxy_tab_s6_pressure",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.galaxy_tab_s6_magnetic_field",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "sensor.galaxy_tab_s6_light_level",
+                                            "name": "Master",
                                             "secondary_info": "last-changed",
                                             "type": "custom:multiple-entity-row"
                                         }
@@ -2380,28 +2546,38 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.master_switch_battery_level"
+                                            "entity": "sensor.master_motion_sensor_temperature",
+                                            "name": "Master"
                                         },
                                         {
-                                            "entity": "sensor.kitchen_switch_battery_level"
+                                            "entity": "sensor.hallway_motion_sensor_temperature",
+                                            "name": "Hallway"
                                         },
                                         {
-                                            "entity": "sensor.office_switch_battery_level"
+                                            "entity": "sensor.kitchen_motion_sensor_temperature",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "sensor.hallway_thermostat_temperature"
                                         }
                                     ],
-                                    "title": "Switches",
-                                    "type": "entities"
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Temperature",
+                                    "type": "history-graph"
                                 },
                                 {
                                     "cards": [
                                         {
                                             "entity": "sensor.galaxy_tab_s6_light_level",
                                             "graph": "line",
+                                            "name": "Master Light",
                                             "type": "sensor"
                                         },
                                         {
                                             "entity": "sensor.galaxy_tab_s_light_level",
                                             "graph": "line",
+                                            "name": "Office Light",
                                             "type": "sensor"
                                         }
                                     ],
@@ -2427,98 +2603,50 @@
                                             "name": "Living Room"
                                         },
                                         {
-                                            "entity": "sensor.theater_systems_watts",
+                                            "entity": "sensor.office_peripherals_watts",
                                             "name": "Theater Systems"
+                                        },
+                                        {
+                                            "entity": "sensor.ups_watts"
                                         }
                                     ],
                                     "hours_to_show": 24,
                                     "refresh_interval": 0,
                                     "title": "Power",
                                     "type": "history-graph"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "climate.hallway_thermostat",
-                                    "name": "Home"
-                                },
-                                {
-                                    "entity": "sensor.master_motion_sensor_temperature",
-                                    "name": "Master"
-                                },
-                                {
-                                    "entity": "sensor.hallway_motion_sensor_temperature",
-                                    "name": "Hallway"
-                                },
-                                {
-                                    "entity": "sensor.kitchen_motion_sensor_temperature",
-                                    "name": "Kitchen"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
-                            "title": "Temperature",
-                            "type": "history-graph"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "aspect_ratio": "0%",
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.galaxy_tab_a_motion"
-                                        },
-                                        {
-                                            "entity": "camera.galaxy_tab_a_camera"
-                                        }
-                                    ],
-                                    "entity": "camera.galaxy_tab_a_camera",
-                                    "image": "local/images/rooms/kitchen.jpg",
-                                    "state_filter": {
-                                        "off": "grayscale(0%)",
-                                        "on": "grayscale(100%)"
-                                    },
-                                    "title": "Kitchen",
-                                    "type": "picture-glance"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "binary_sensor.galaxy_tab_s6_motion"
+                                            "entity": "sensor.master_switch_battery_level"
                                         },
                                         {
-                                            "entity": "camera.galaxy_tab_s6_camera"
+                                            "entity": "sensor.kitchen_switch_battery_level"
+                                        },
+                                        {
+                                            "entity": "sensor.office_switch_battery_level"
                                         }
                                     ],
-                                    "entity": "camera.galaxy_tab_s6_camera",
-                                    "image": "local/images/rooms/master.jpg",
-                                    "state_filter": {
-                                        "off": "grayscale(0%)",
-                                        "on": "grayscale(100%)"
-                                    },
-                                    "title": "Master",
-                                    "type": "picture-glance"
+                                    "type": "entities"
                                 },
                                 {
-                                    "entities": [
+                                    "cards": [
                                         {
-                                            "entity": "binary_sensor.galaxy_tab_s_motion"
+                                            "entity": "sensor.ups_watts",
+                                            "graph": "line",
+                                            "icon": "mdi:car-battery",
+                                            "name": "UPS",
+                                            "type": "sensor"
                                         },
                                         {
-                                            "entity": "camera.galaxy_tab_s_camera"
+                                            "entity": "sensor.theater_systems_watts",
+                                            "graph": "line",
+                                            "icon": "mdi:audio-video",
+                                            "name": "Theater",
+                                            "type": "sensor"
                                         }
                                     ],
-                                    "entity": "camera.galaxy_tab_s_camera",
-                                    "image": "local/images/rooms/office.jpg",
-                                    "state_filter": {
-                                        "off": "grayscale(0%)",
-                                        "on": "grayscale(100%)"
-                                    },
-                                    "title": "Office",
-                                    "type": "picture-glance"
+                                    "type": "horizontal-stack"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -2654,20 +2782,24 @@
                                 {
                                     "cards": [
                                         {
-                                            "detail": 2,
                                             "entity": "sensor.glances_cpu_used",
-                                            "graph": "line",
-                                            "hours_to_show": 12,
-                                            "name": "CPU Used",
-                                            "type": "sensor"
+                                            "max": 100,
+                                            "min": 0,
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 80,
+                                                "yellow": 50
+                                            },
+                                            "type": "gauge"
                                         },
                                         {
-                                            "detail": 2,
                                             "entity": "sensor.glances_ram_used_percent",
-                                            "graph": "line",
-                                            "hours_to_show": 12,
-                                            "name": "RAM Used",
-                                            "type": "sensor"
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 80,
+                                                "yellow": 50
+                                            },
+                                            "type": "gauge"
                                         }
                                     ],
                                     "title": "Server",
@@ -2678,22 +2810,22 @@
                                         {
                                             "entity": "sensor.glances_core_0_temp",
                                             "max": 160,
-                                            "min": 70,
+                                            "min": 20,
                                             "severity": {
-                                                "green": 70,
-                                                "red": 140,
-                                                "yellow": 110
+                                                "green": 20,
+                                                "red": 40,
+                                                "yellow": 30
                                             },
                                             "type": "gauge"
                                         },
                                         {
                                             "entity": "sensor.glances_core_1_temp",
                                             "max": 160,
-                                            "min": 70,
+                                            "min": 20,
                                             "severity": {
-                                                "green": 70,
-                                                "red": 140,
-                                                "yellow": 110
+                                                "green": 20,
+                                                "red": 40,
+                                                "yellow": 30
                                             },
                                             "type": "gauge"
                                         }
@@ -2705,22 +2837,22 @@
                                         {
                                             "entity": "sensor.glances_core_2_temp",
                                             "max": 160,
-                                            "min": 70,
+                                            "min": 20,
                                             "severity": {
-                                                "green": 70,
-                                                "red": 140,
-                                                "yellow": 110
+                                                "green": 20,
+                                                "red": 40,
+                                                "yellow": 30
                                             },
                                             "type": "gauge"
                                         },
                                         {
                                             "entity": "sensor.glances_core_3_temp",
                                             "max": 160,
-                                            "min": 70,
+                                            "min": 20,
                                             "severity": {
-                                                "green": 70,
-                                                "red": 140,
-                                                "yellow": 130
+                                                "green": 20,
+                                                "red": 40,
+                                                "yellow": 30
                                             },
                                             "type": "gauge"
                                         }
@@ -2800,13 +2932,13 @@
                                     "cards": [
                                         {
                                             "entity": "sensor.router_iot_cpu_temp",
-                                            "max": 120,
-                                            "min": 90,
+                                            "max": 50,
+                                            "min": 20,
                                             "name": "CPU",
                                             "severity": {
-                                                "green": 90,
-                                                "red": 120,
-                                                "yellow": 110
+                                                "green": 20,
+                                                "red": 40,
+                                                "yellow": 30
                                             },
                                             "type": "gauge"
                                         },
@@ -2868,13 +3000,64 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:zha-network-visualization-card"
+                            "aspect_ratio": "0%",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.galaxy_tab_a_motion"
+                                },
+                                {
+                                    "entity": "camera.galaxy_tab_a_camera"
+                                }
+                            ],
+                            "entity": "camera.galaxy_tab_a_camera",
+                            "image": "local/images/rooms/kitchen.jpg",
+                            "state_filter": {
+                                "off": "grayscale(0%)",
+                                "on": "grayscale(100%)"
+                            },
+                            "title": "Kitchen",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.galaxy_tab_s6_motion"
+                                },
+                                {
+                                    "entity": "camera.galaxy_tab_s6_camera"
+                                }
+                            ],
+                            "entity": "camera.galaxy_tab_s6_camera",
+                            "image": "local/images/rooms/master.jpg",
+                            "state_filter": {
+                                "off": "grayscale(0%)",
+                                "on": "grayscale(100%)"
+                            },
+                            "title": "Master",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.galaxy_tab_s_motion"
+                                },
+                                {
+                                    "entity": "camera.galaxy_tab_s_camera"
+                                }
+                            ],
+                            "entity": "camera.galaxy_tab_s_camera",
+                            "image": "local/images/rooms/office.jpg",
+                            "state_filter": {
+                                "off": "grayscale(0%)",
+                                "on": "grayscale(100%)"
+                            },
+                            "title": "Office",
+                            "type": "picture-glance"
                         }
                     ],
-                    "icon": "mdi:graph",
-                    "panel": true,
-                    "path": "zigbee",
-                    "title": "Zigbee"
+                    "icon": "mdi:cctv",
+                    "path": "cameras",
+                    "title": "Cameras"
                 }
             ]
         }
