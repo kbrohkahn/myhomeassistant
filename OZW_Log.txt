@@ -1604,3 +1604,21 @@
 2020-09-04 21:30:08.079 Detail, Node009, Refreshed Value: old value=58.0, new value=59.0, type=decimal
 2020-09-04 21:30:08.079 Detail, Node009, Changes to this value are not verified
 2020-09-04 21:30:08.079 Detail, Node009, Notification: ValueChanged
+2020-09-04 21:35:08.544 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x44, 0xad
+2020-09-04 21:35:08.544 Detail, 
+2020-09-04 21:35:08.544 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=58.0%
+2020-09-04 21:35:08.544 Detail, Node009, Refreshed Value: old value=59.0, new value=58.0, type=decimal
+2020-09-04 21:35:08.544 Detail, Node009, Changes to this value are not verified
+2020-09-04 21:35:08.544 Detail, Node009, Notification: ValueChanged
+2020-09-04 21:35:19.903 Detail, Node009,   Received: 0x01, 0x09, 0x00, 0x04, 0x00, 0x09, 0x03, 0x45, 0x03, 0x01, 0xbf
+2020-09-04 21:35:19.903 Detail, 
+2020-09-04 21:35:19.903 Detail, Node009, Refreshed Value: old value=Idle, new value=Running, type=string
+2020-09-04 21:35:19.903 Detail, Node009, Changes to this value are not verified
+2020-09-04 21:35:19.903 Info, Node009, Received thermostat fan state: Running
+2020-09-04 21:35:19.903 Detail, Node009, Notification: ValueChanged
+2020-09-04 21:35:20.788 Detail, Node009,   Received: 0x01, 0x09, 0x00, 0x04, 0x00, 0x09, 0x03, 0x42, 0x03, 0x02, 0xbb
+2020-09-04 21:35:20.788 Detail, 
+2020-09-04 21:35:20.788 Detail, Node009, Refreshed Value: old value=Idle, new value=Cooling, type=string
+2020-09-04 21:35:20.788 Detail, Node009, Changes to this value are not verified
+2020-09-04 21:35:20.788 Info, Node009, Received thermostat operating state: Cooling
+2020-09-04 21:35:20.788 Detail, Node009, Notification: ValueChanged

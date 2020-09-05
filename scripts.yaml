@@ -262,6 +262,9 @@ bedtime:
     - light.living_room
     - light.dining
     - light.theater
+    - light.galaxytaba
+    - light.galaxytabs
+    - light.galaxytabs6
     service: light.turn_off
   - data: {}
     entity_id: switch.starlight
