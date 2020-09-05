@@ -1436,10 +1436,14 @@
                                                 "hide": {
                                                     "controls": true,
                                                     "info": true,
-                                                    "power": true
+                                                    "mute": true,
+                                                    "power": true,
+                                                    "source": true
                                                 },
                                                 "name": "Dining",
-                                                "type": "custom:mini-media-player"
+                                                "type": "custom:mini-media-player",
+                                                "volume_stateless": true,
+                                                "volume_step": 2
                                             },
                                             {
                                                 "entity": "media_player.soundtouch_kitchen",
@@ -1447,10 +1451,14 @@
                                                 "hide": {
                                                     "controls": true,
                                                     "info": true,
-                                                    "power": true
+                                                    "mute": true,
+                                                    "power": true,
+                                                    "source": true
                                                 },
                                                 "name": "Kitchen",
-                                                "type": "custom:mini-media-player"
+                                                "type": "custom:mini-media-player",
+                                                "volume_stateless": true,
+                                                "volume_step": 2
                                             },
                                             {
                                                 "entity": "media_player.soundtouch_living_room",
@@ -1458,10 +1466,14 @@
                                                 "hide": {
                                                     "controls": true,
                                                     "info": true,
-                                                    "power": true
+                                                    "mute": true,
+                                                    "power": true,
+                                                    "source": true
                                                 },
                                                 "name": "Living",
-                                                "type": "custom:mini-media-player"
+                                                "type": "custom:mini-media-player",
+                                                "volume_stateless": true,
+                                                "volume_step": 2
                                             }
                                         ],
                                         "type": "entities"
@@ -1483,10 +1495,15 @@
                                                 "hide": {
                                                     "controls": true,
                                                     "info": true,
-                                                    "power": true
+                                                    "mute": true,
+                                                    "power": true,
+                                                    "progress": true,
+                                                    "source": true
                                                 },
                                                 "name": "Master Echo",
-                                                "type": "custom:mini-media-player"
+                                                "type": "custom:mini-media-player",
+                                                "volume_stateless": true,
+                                                "volume_step": 2
                                             },
                                             {
                                                 "entity": "media_player.master_bath_echo_plus",
@@ -1494,10 +1511,15 @@
                                                 "hide": {
                                                     "controls": true,
                                                     "info": true,
-                                                    "power": true
+                                                    "mute": true,
+                                                    "power": true,
+                                                    "progress": true,
+                                                    "source": true
                                                 },
                                                 "name": "Master Bath",
-                                                "type": "custom:mini-media-player"
+                                                "type": "custom:mini-media-player",
+                                                "volume_stateless": true,
+                                                "volume_step": 2
                                             }
                                         ],
                                         "type": "entities"

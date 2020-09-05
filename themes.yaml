@@ -36,3 +36,25 @@ darkred_old:
   st-font-size-sensors: 18px
   #st-spacing: 2px
   st-mode-background: "var(--paper-card-background-color)"
+
+screensaver:
+  
+  --paper-font-common-base_-_font-size: 64px
+  --paper-font-body1-_font-size: 64px
+  --paper-font-body2-_font-size: 64px
+  --paper-font-headline_-_font-size: 64px
+  --paper-font-title_-_font-size: 64px
+  --paper-font-display1_-_font-size: 64px
+  --paper-font-display2_-_font-size: 64px
+  --paper-font-display3_-_font-size: 64px
+  --paper-font-display4_-_font-size: 64px
+  
+  paper-font-common-base_-_font-size: 64px
+  paper-font-body1-_font-size: 64px
+  paper-font-body2-_font-size: 64px
+  paper-font-headline_-_font-size: 64px
+  paper-font-title_-_font-size: 64px
+  paper-font-display1_-_font-size: 64px
+  paper-font-display2_-_font-size: 64px
+  paper-font-display3_-_font-size: 64px
+  paper-font-display4_-_font-size: 64px

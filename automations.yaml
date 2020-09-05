@@ -353,22 +353,6 @@
       sound_effect_filename: lonely-hello.mp3
     entity_id: media_player.kevin_s_alexa_app_for_pc
     service: script.browser_sound_effect
-- id: kitchen_motion_stop_dashboard
-  alias: Kitchen Motion Stop - Dashboard
-  description: ''
-  trigger:
-  - entity_id: binary_sensor.galaxy_tab_a_motion
-    for: 00:00:25
-    from: 'on'
-    platform: state
-    to: 'off'
-  condition: []
-  action:
-  - data:
-      deviceID:
-      - galaxytaba
-      navigation_path: /lovelace/home
-    service: browser_mod.navigate
 - id: laundry_door_opened
   alias: Laundry Door Opened
   description: ''
@@ -1002,6 +986,9 @@
     to: 'on'
   condition: []
   action:
+  - data: {}
+    entity_id: light.galaxytabs
+    service: light.turn_on
   - data:
       deviceID:
       - galaxytabs
@@ -1021,7 +1008,7 @@
   - data:
       deviceID:
       - galaxytabs
-      navigation_path: /lovelace-screensaver/home
+      navigation_path: /lovelace-screensaver/16x10
     service: browser_mod.navigate
   - condition: state
     entity_id: automation.kitchen_motion_stop_after_bedtime
@@ -1040,6 +1027,9 @@
     to: 'on'
   condition: []
   action:
+  - data: {}
+    entity_id: light.galaxytabs6
+    service: light.turn_on
   - data:
       deviceID:
       - galaxytabs6
@@ -1059,7 +1049,7 @@
   - data:
       deviceID:
       - galaxytabs6
-      navigation_path: /lovelace-screensaver/home
+      navigation_path: /lovelace-screensaver/5x3
     service: browser_mod.navigate
   - condition: state
     entity_id: automation.kitchen_motion_stop_after_bedtime
@@ -1078,6 +1068,9 @@
     to: 'on'
   condition: []
   action:
+  - data: {}
+    entity_id: light.galaxytaba
+    service: light.turn_on
   - data:
       deviceID:
       - galaxytaba
@@ -1097,7 +1090,7 @@
   - data:
       deviceID:
       - galaxytaba
-      navigation_path: /lovelace-screensaver/home
+      navigation_path: /lovelace-screensaver/16x10
     service: browser_mod.navigate
   - condition: state
     entity_id: automation.kitchen_motion_stop_after_bedtime

@@ -109,12 +109,12 @@
             {
                 "id": "1bcb36cdaeea447a99917bc9b7b1d6e6",
                 "type": "module",
-                "url": "local/targeting-computer-ae.js"
+                "url": "local/targeting-computer-ak.js"
             },
             {
                 "id": "330a864e33234a328977efe16c8f3a08",
                 "type": "module",
-                "url": "local/targeting-computer-clock-l.js"
+                "url": "local/targeting-computer-clock-n.js"
             },
             {
                 "id": "46abf00e2e384512886301dcd69f4b62",
@@ -130,6 +130,16 @@
                 "id": "4a7e26de69534f03862cc9a243b192a6",
                 "type": "module",
                 "url": "/hacsfiles/weather-card/weather-card.js"
+            },
+            {
+                "id": "128367a7eec241a59f28fd002c08a8ec",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-hui-element/hui-element.js"
+            },
+            {
+                "id": "de4602c21191401d862c2ccb604646e9",
+                "type": "module",
+                "url": "/hacsfiles/circle-sensor-card/circle-sensor-card.js"
             }
         ]
     },

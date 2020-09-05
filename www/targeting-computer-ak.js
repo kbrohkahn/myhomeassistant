@@ -24,13 +24,13 @@ ha-card {
   border: solid yellow 2px;
   position: absolute;
   border-top: none;
-  animation-duration: 2s;
+  animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
 @keyframes square1 {
-  to  {top: 0%; bottom: 0%; left: 0%; right: 0%}
+  to  {top: 0%; bottom: 0%; left: -40%; right: -40%}
 }
 
 #square1 {
@@ -42,20 +42,8 @@ ha-card {
   animation-name: square1;
 }
 
-@keyframes square2 {
-  to  {top: -9%; bottom: -9%; left: 21%; right: 21%;}
-}6
-
-#square2 {
-  top: 21%;
-  bottom: calc(21% - 3px);
-  left: 35%;
-  right: 35%;
-  animation-name: square2;
-}
-
 @keyframes square3 {
-  to  {top: 21%; bottom: calc(21% - 3px); left: 35%; right: 35%;}
+  to  {top: -9%; bottom: -9%; left: 21%; right: 21%;}
 }
 
 #square3 {
@@ -143,8 +131,7 @@ ha-card {
 </style>
             
 <div id='main'>
-<div class='square' id='square1'></div>
-  <div class='square' id='square2'></div>
+  <div class='square' id='square1'></div>
   <div class='square' id='square3'></div>
   <div class='square' id='square4'></div>
   <div class='square' id='square5'></div>
@@ -162,9 +149,9 @@ ha-card {
 
             this.appendChild(this.card);
             
-            this.card.addEventListener('click', event => {
-                this._fire('hass-more-info', { entityId: entityId });
-            });
+            // this.card.addEventListener('click', event => {
+            //     this._fire('hass-more-info', { entityId: entityId });
+            // });
         }
         
         // const state = hass.states[entityId];
@@ -191,9 +178,9 @@ ha-card {
     }
 
     setConfig(config) {
-        if (!config.entity) {
-            throw new Error('You need to define an entity');
-        }
+        // if (!config.entity) {
+        //     throw new Error('You need to define an entity');
+        // }
         this.config = config;
     }
 

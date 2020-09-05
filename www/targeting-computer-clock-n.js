@@ -18,7 +18,7 @@ class TargetingComputerClockCard extends Polymer.Element {
           }
           #time {
             font-family: 'Allerta Stencil', 'Courier New', sans-serif;
-            font-size: 96px;
+            font-size: 72px;
             padding: 0 16px;
             line-height: normal;
             color: #dd0000;
@@ -40,8 +40,7 @@ class TargetingComputerClockCard extends Polymer.Element {
     
     ready() {
       super.ready();
-      this.t
-      ime = this.$.time;
+      this.time = this.$.time;
       
       this._updateTime();
       setInterval(() => this._updateTime(), 1000);
