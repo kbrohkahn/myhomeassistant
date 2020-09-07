@@ -35,11 +35,10 @@
   alias: Closet Door Closed
   description: ''
   trigger:
-  - device_id: 3cc3dafe6a6f4387a70c01e9b61df7e5
-    domain: binary_sensor
-    entity_id: binary_sensor.master_closet_door_ias_zone
-    platform: device
-    type: turned_off
+  - entity_id: binary_sensor.master_closet_door_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
   condition: []
   action:
   - entity_id: light.master_closet
@@ -48,11 +47,10 @@
   alias: Closet Door Opened
   description: ''
   trigger:
-  - device_id: 3cc3dafe6a6f4387a70c01e9b61df7e5
-    domain: binary_sensor
-    entity_id: binary_sensor.master_closet_door_ias_zone
-    platform: device
-    type: turned_on
+  - entity_id: binary_sensor.master_closet_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
   condition: []
   action:
   - entity_id: light.master_closet
@@ -61,11 +59,10 @@
   alias: Front Door Opened
   description: ''
   trigger:
-  - device_id: 77984a7f835c47eaa6ea202de2a2439a
-    domain: binary_sensor
-    entity_id: binary_sensor.kitchen_door_ias_zone
-    platform: device
-    type: opened
+  - entity_id: binary_sensor.kitchen_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
   condition: []
   action:
   - data_template:
@@ -94,11 +91,10 @@
   alias: Hallway Motion Start - Lights
   description: ''
   trigger:
-  - device_id: bbf915110dab4fdda2020a2477de5ac3
-    domain: binary_sensor
-    entity_id: binary_sensor.hallway_motion_sensor_ias_zone
-    platform: device
-    type: turned_on
+  - entity_id: binary_sensor.hallway_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
   - condition: state
     entity_id: light.hallway
@@ -124,15 +120,11 @@
   alias: Hallway Motion Stop
   description: ''
   trigger:
-  - device_id: bbf915110dab4fdda2020a2477de5ac3
-    domain: binary_sensor
-    entity_id: binary_sensor.hallway_motion_sensor_ias_zone
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 30
-    platform: device
-    type: turned_off
+  - entity_id: binary_sensor.hallway_motion_sensor_ias_zone
+    for: 00:00:15
+    from: 'on'
+    platform: state
+    to: 'off'
   condition:
   - condition: template
     value_template: '{{ (as_timestamp(states.light.hallway.last_changed) - as_timestamp(state_attr(''script.hallway_daytime_lights'',
@@ -141,19 +133,16 @@
   - data: {}
     entity_id: light.hallway
     service: light.turn_off
+  mode: single
 - id: master_motion_stop
   alias: Master Motion Stop
   description: ''
   trigger:
-  - device_id: e9e01a613b63405f8164871d518ed327
-    domain: binary_sensor
-    entity_id: binary_sensor.master_motion_sensor_ias_zone
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 45
-    platform: device
-    type: no_motion
+  - entity_id: binary_sensor.master_motion_sensor_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+    for: 00:00:45
   condition:
   - condition: state
     entity_id: light.master
@@ -176,11 +165,10 @@
   alias: Master Bath Door Opened - Lights
   description: ''
   trigger:
-  - device_id: cb50914109a14e08be30c6bf865afd4c
-    domain: binary_sensor
-    entity_id: binary_sensor.master_bath_door_ias_zone
-    platform: device
-    type: opened
+  - entity_id: binary_sensor.master_bath_door_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
   condition: []
   action:
   - data: {}
@@ -231,11 +219,10 @@
   alias: Master Motion Start - Music
   description: ''
   trigger:
-  - device_id: e9e01a613b63405f8164871d518ed327
-    domain: binary_sensor
-    entity_id: binary_sensor.master_motion_sensor_ias_zone
-    platform: device
-    type: motion
+  - entity_id: binary_sensor.master_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
   - condition: state
     entity_id: media_player.spotify
@@ -273,11 +260,10 @@
   alias: Kitchen Motion Start - Music
   description: ''
   trigger:
-  - device_id: 111dfefb876743e793023c747acff883
-    domain: binary_sensor
-    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
-    platform: device
-    type: motion
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
   - condition: state
     entity_id: media_player.spotify
@@ -317,15 +303,11 @@
   alias: Kitchen Motion Stop After Bedtime
   description: ''
   trigger:
-  - device_id: 111dfefb876743e793023c747acff883
-    domain: binary_sensor
-    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 15
-    platform: device
-    type: no_motion
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    for: 00:00:15
+    from: 'on'
+    platform: state
+    to: 'off'
   condition:
   - condition: state
     entity_id: light.kitchen
@@ -338,15 +320,15 @@
       payload: '{"wake": false, "camera": false}'
       topic: wallpanel/galaxytaba/command
     service: mqtt.publish
+  mode: single
 - id: front_door_knock
   alias: Front Door Knock
   description: ''
   trigger:
-  - device_id: 77984a7f835c47eaa6ea202de2a2439a
-    domain: binary_sensor
-    entity_id: binary_sensor.kitchen_door_accelerometer
-    platform: device
-    type: moving
+  - entity_id: binary_sensor.kitchen_door_accelerometer
+    from: 'off'
+    platform: state
+    to: 'on'
   condition: []
   action:
   - data:
@@ -357,11 +339,10 @@
   alias: Laundry Door Opened
   description: ''
   trigger:
-  - device_id: 2d24486fbbbf44c484116c71b19d9b40
-    domain: binary_sensor
-    entity_id: binary_sensor.laundry_door_ias_zone
-    platform: device
-    type: opened
+  - entity_id: binary_sensor.laundry_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
   condition: []
   action:
   - data: {}
@@ -371,11 +352,10 @@
   alias: Laundry Door Closed
   description: ''
   trigger:
-  - device_id: 2d24486fbbbf44c484116c71b19d9b40
-    domain: binary_sensor
-    entity_id: binary_sensor.laundry_door_ias_zone
-    platform: device
-    type: not_opened
+  - entity_id: binary_sensor.laundry_door_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
   condition: []
   action:
   - data: {}
@@ -385,11 +365,10 @@
   alias: Hallway Bath Door Opened
   description: ''
   trigger:
-  - device_id: b09b9ee0a7894216ba2830aea941bd0a
-    domain: binary_sensor
-    entity_id: binary_sensor.hallway_bath_door_ias_zone
-    platform: device
-    type: opened
+  - entity_id: binary_sensor.hallway_bath_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
   condition: []
   action:
   - data: {}
@@ -402,17 +381,14 @@
   alias: Hallway Bath Door Motion
   description: ''
   trigger:
-  - device_id: b09b9ee0a7894216ba2830aea941bd0a
-    domain: binary_sensor
-    entity_id: binary_sensor.hallway_bath_door_accelerometer
-    platform: device
-    type: moving
+  - entity_id: binary_sensor.hallway_bath_door_accelerometer
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
-  - condition: device
-    device_id: b09b9ee0a7894216ba2830aea941bd0a
-    domain: binary_sensor
+  - condition: state
     entity_id: binary_sensor.hallway_bath_door_ias_zone
-    type: is_open
+    state: 'on'
   - condition: state
     entity_id: light.hallway_bath_light
     state: 'off'
@@ -423,11 +399,9 @@
   - timeout: 00:02:00
     wait_template: '{{ is_state(''binary_sensor.hallway_bath_door_ias_zone'', ''off'')
       }}'
-  - condition: device
-    device_id: b09b9ee0a7894216ba2830aea941bd0a
-    domain: binary_sensor
+  - condition: state
     entity_id: binary_sensor.hallway_bath_door_ias_zone
-    type: is_open
+    state: 'on'
   - data: {}
     entity_id: light.hallway_bath_light
     service: light.turn_off
@@ -440,20 +414,16 @@
     platform: state
     to: 'on'
   condition:
-  - condition: device
-    device_id: b09b9ee0a7894216ba2830aea941bd0a
-    domain: binary_sensor
+  - condition: state
     entity_id: binary_sensor.hallway_bath_door_ias_zone
-    type: is_open
+    state: 'on'
   action:
-  - timeout: 00:02:00
+  - timeout: 00:01:30
     wait_template: '{{ is_state(''binary_sensor.hallway_bath_door_ias_zone'', ''off'')
       }}'
-  - condition: device
-    device_id: b09b9ee0a7894216ba2830aea941bd0a
-    domain: binary_sensor
+  - condition: state
     entity_id: binary_sensor.hallway_bath_door_ias_zone
-    type: is_open
+    state: 'on'
   - data: {}
     entity_id: light.hallway_bath_light
     service: light.turn_off
@@ -461,15 +431,11 @@
   alias: Kitchen Motion Stop During Day
   description: ''
   trigger:
-  - device_id: 111dfefb876743e793023c747acff883
-    domain: binary_sensor
-    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-    platform: device
-    type: no_motion
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    for: 00:01:00
+    from: 'on'
+    platform: state
+    to: 'off'
   condition:
   - condition: template
     value_template: '{{ (as_timestamp(states.light.kitchen.last_changed) - as_timestamp(state_attr(''script.kitchen_daytime_lights_by_sun'',
@@ -520,11 +486,10 @@
   alias: Kitchen Motion Start - Lights
   description: ''
   trigger:
-  - device_id: 111dfefb876743e793023c747acff883
-    domain: binary_sensor
-    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
-    platform: device
-    type: motion
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
   - condition: state
     entity_id: light.kitchen
@@ -537,15 +502,15 @@
       payload: '{"wake": true, "camera": true}'
       topic: wallpanel/galaxytaba/command
     service: mqtt.publish
+  mode: single
 - id: master_motion_start_lights
   alias: 'Master Motion Start '
   description: ''
   trigger:
-  - device_id: e9e01a613b63405f8164871d518ed327
-    domain: binary_sensor
-    entity_id: binary_sensor.master_motion_sensor_ias_zone
-    platform: device
-    type: motion
+  - entity_id: binary_sensor.master_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
   - condition: state
     entity_id: light.master
@@ -593,11 +558,10 @@
   alias: Master Bath Door Opened
   description: ''
   trigger:
-  - device_id: cb50914109a14e08be30c6bf865afd4c
-    domain: binary_sensor
-    entity_id: binary_sensor.master_bath_door_ias_zone
-    platform: device
-    type: opened
+  - entity_id: binary_sensor.master_bath_door_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
   condition: []
   action:
   - data: {}
@@ -609,11 +573,10 @@
   alias: Master Bath Door Motion
   description: ''
   trigger:
-  - device_id: cb50914109a14e08be30c6bf865afd4c
-    domain: binary_sensor
-    entity_id: binary_sensor.master_bath_door_accelerometer
-    platform: device
-    type: moving
+  - entity_id: binary_sensor.master_bath_door_accelerometer
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
   - condition: state
     entity_id: light.master_bath
@@ -630,11 +593,10 @@
   alias: Master Bath Door Motion with Light On
   description: ''
   trigger:
-  - device_id: cb50914109a14e08be30c6bf865afd4c
-    domain: binary_sensor
-    entity_id: binary_sensor.master_bath_door_accelerometer
-    platform: device
-    type: moving
+  - entity_id: binary_sensor.master_bath_door_accelerometer
+    from: 'off'
+    platform: state
+    to: 'on'
   condition:
   - condition: state
     entity_id: light.master_bath
@@ -969,10 +931,20 @@
     event: enter
     platform: zone
     zone: zone.home
-  condition: []
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dining_window_ias_zone
+    state: 'off'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: climate.hallway_thermostat
+      state: 'off'
   action:
-  - data:
-      temperature: 24
+  - data_template:
+      temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 24
+        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 18 {% endif
+        %}'
     entity_id: climate.hallway_thermostat
     service: climate.set_temperature
   mode: single
@@ -1098,4 +1070,30 @@
   - data: {}
     entity_id: light.galaxytaba
     service: light.turn_off
+  mode: single
+- id: dining_window_opened
+  alias: Dining Window Opened
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.dining_window_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    entity_id: climate.hallway_thermostat
+    service: climate.turn_off
+  - data_template:
+      data:
+        type: tts
+      message: "{% set earliest = namespace(time=false) %}\n{% for state in state_attr('weather.openweathermap',\
+        \ 'forecast') -%}\n  {% if earliest.time == false and state.temperature >\
+        \ state_attr('climate.hallway_thermostat', 'current_temperature') %}\n   \
+        \ {% set earliest.time = ((state.datetime / 1000 - as_timestamp(now())) /\
+        \ 3600) | int %}\n  {% endif %}\n  {% set breakVal = 1 %}\n{%- endfor %}\n\
+        Dining window opened, temperature outdoor will surpass indoor in {{ earliest.time\
+        \ }} hours\n"
+      target: Dining Echo Dot
+    service: notify.alexa_media
   mode: single

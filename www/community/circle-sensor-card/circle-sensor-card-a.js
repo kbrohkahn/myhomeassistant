@@ -73,7 +73,7 @@ class CircleSensorCard extends LitElement {
           ${config.name != null ? html`<span id="name">${config.name}</span>` : ''}
           <span id="label" class$="${!!config.name ? 'bold' : ''}">
             <span class="text">
-              ${config.attribute ? state.attributes[config.attribute] : state.state}
+              ${config.attribute ? (state ? state.attributes[config.attribute] : 0) : state.state}
             </span>
             <span class="unit">
               ${config.show_max

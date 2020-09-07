@@ -24,69 +24,79 @@ ha-card {
   border: solid yellow 2px;
   position: absolute;
   border-top: none;
-  animation-duration: 6s;
+  animation-duration: 1s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation-timing-function: steps(8);
+  
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes square1 {
-  to  {top: 0%; bottom: 0%; left: -40%; right: -40%}
+  // to {transform: translate(-50%, -50%) scale(3,3);}
+  to {width: 100%; height: 200%;}
 }
 
 #square1 {
-  top: 0%;
-  bottom: 0%;
-  left: 21%;
-  right: 21%;
+  width: 50%;
+  height: 100%;
   border-bottom: none;
   animation-name: square1;
 }
 
+@keyframes square2 {
+  // to {transform: translate(-50%, -50%) scale(3,3);}
+  to {width: 50%; height: 100%;}
+}
+
+#square2 {
+  width: 16.6%;
+  height: 33.3%;
+  animation-name: square2;
+}
+
 @keyframes square3 {
-  to  {top: -9%; bottom: -9%; left: 21%; right: 21%;}
+  // to {transform: translate(-50%, -50%) scale(3,3);}
+  to {width: 16.6%; height: 33.3%;}
 }
 
 #square3 {
-  top: 37%;
-  bottom: calc(37% - 3px);
-  left: 43%;
-  right: 43%;
+  width: 5.6%;
+  height: 11.3%;
   animation-name: square3;
 }
 
-@keyframes square4 {
-  to  {top: 37%; bottom: calc(37% - 3px); left: 43%; right: 43%;}
+@keyframes square4 {/
+  // to {transform: translate(-50%, -50%) scale(3,3);}
+  to {width: 5.6%; height: 11.3%;}
 }
 
 #square4 {
-  top: 47%;
-  bottom: calc(47% - 3px);
-  left: 48%;
-  right: 48%;
+  width: 1.9%;
+  height: 3.8%;
   animation-name: square4;
 }
 
 @keyframes square5 {
-  to  {top: 47%; bottom: calc(47% - 3px); left: 48%; right: 48%;}
+  // to {transform: translate(-50%, -50%) scale(3,3);}
+  to {width: 1.9%; height: 3.8%;}
 }
 
 #square5 {
-  top: 48%;
-  bottom: 48%;
-  left: 49%;
-  right: 49%;
+  width: 0.7%;
+  height: 1.4%;
   animation-name: square5;
 }
 
 @keyframes square6 {
-  to  {top: 48%; bottom: calc(48% - 3px); left: 49%; right: 49%;}
+  // to {transform: translate(-50%, -50%) scale(3,3);}
+  to {width: 3%; height: 6%;}
 }
 
 #square6 {
-  top: calc(50% - 1px);
-  bottom: calc(50% - 1px);
-  left: calc(50% - 3px);
-  right: calc(50% - 3px);
+  width: 1.5%;
+  height: 3%;
   animation-name: square6;
 }
 
@@ -120,22 +130,22 @@ ha-card {
 }
 
 .diagonal2 {
-  left: 10%;
-  right: 10%;
+  left: 5%;
+  right: 5%;
 }
 
 .diagonal3 {
-  left: -35%;
-  right: -35%;
+  left: -70%;
+  right: -70%;
 }
 </style>
-            
+
 <div id='main'>
   <div class='square' id='square1'></div>
+  <div class='square' id='square2'></div>
   <div class='square' id='square3'></div>
   <div class='square' id='square4'></div>
   <div class='square' id='square5'></div>
-  <div class='square' id='square6'></div>
   
   <div class='diagonal upward diagonal1'></div>
   <div class='diagonal downward diagonal1'></div>

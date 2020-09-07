@@ -1,7 +1,7 @@
 {
     "device_type": "Coordinator",
     "ieee": "00:0d:6f:00:0b:3d:32:f5",
-    "lqi": 254,
+    "lqi": 253,
     "manufacturer": "Silicon Labs",
     "model": "EZSP",
     "neighbours": [
@@ -13,7 +13,7 @@
             "manufacturer": "Samjin",
             "model": "motion",
             "new_joins_accepted": "Not_Accepting",
-            "nwk": "0x023a",
+            "nwk": "0x359f",
             "offline": false,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "relation": "Child",
@@ -24,7 +24,7 @@
             "depth": 15,
             "device_type": "Router",
             "ieee": "24:fd:5b:00:01:05:0f:7a",
-            "lqi": 194,
+            "lqi": 252,
             "manufacturer": "SmartThings",
             "model": "outletv4",
             "new_joins_accepted": "Unknown",

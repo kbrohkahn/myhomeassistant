@@ -55,10 +55,10 @@ class TargetingComputerClockCard extends Polymer.Element {
     }
   
     _updateTime(force = false) {
-      var Digital = new Date();
-      var hours = Digital.getHours().toString();
-      var minutes = Digital.getMinutes().toString();
-      var seconds = Digital.getSeconds().toString();
+      this.Digital = new Date();
+      var hours = this.Digital.getHours().toString();
+      var minutes = this.Digital.getMinutes().toString();
+      var seconds = this.Digital.getSeconds().toString();
   
       if (hours <= 9) {
           hours = "0" + hours;

@@ -1945,32 +1945,6 @@
                 "connections": [
                     [
                         "zigbee",
-                        "28:6d:97:00:01:0c:86:70"
-                    ]
-                ],
-                "entry_type": null,
-                "id": "e9ff6f9809954d119c5184cff2f7dd8e",
-                "identifiers": [
-                    [
-                        "zha",
-                        "28:6d:97:00:01:0c:86:70"
-                    ]
-                ],
-                "manufacturer": "Samjin",
-                "model": "motion",
-                "name": "Samjin motion",
-                "name_by_user": "Kitchen Motion Sensor",
-                "sw_version": "0x00000011",
-                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
-            },
-            {
-                "area_id": "daf77bcc23b74036a51df8a246fff625",
-                "config_entries": [
-                    "c1f7482265824869a092a234b19e118d"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
                         "28:6d:97:00:01:0a:b7:d7"
                     ]
                 ],
@@ -2013,6 +1987,32 @@
                 "name": "SmartThings multiv4",
                 "name_by_user": "Dining Window",
                 "sw_version": "0x0000001b",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": "daf77bcc23b74036a51df8a246fff625",
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0c:86:70"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "e9ff6f9809954d119c5184cff2f7dd8e",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0c:86:70"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "motion",
+                "name": "Samjin motion",
+                "name_by_user": "Kitchen Motion Sensor",
+                "sw_version": "0x00000011",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
             }
         ]

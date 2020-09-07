@@ -24,7 +24,7 @@
                 "id": "lovelace_screensaver",
                 "mode": "storage",
                 "require_admin": false,
-                "show_in_sidebar": true,
+                "show_in_sidebar": false,
                 "title": "Screensaver",
                 "url_path": "lovelace-screensaver"
             }

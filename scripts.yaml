@@ -158,6 +158,9 @@ users_away:
       - light.master_bath_light
       - light.master_bath
       - light.hallway_bath_light
+      - light.galaxytaba
+      - light.galaxytabs
+      - light.galaxytabs6
     service: light.turn_off
   - data:
       source: Galaxy Note10+
@@ -177,11 +180,6 @@ users_away:
   - data: {}
     entity_id: automation.nightlight
     service: automation.turn_on
-  - data_template:
-      temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 26
-        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 16 {% endif %}'
-    entity_id: climate.hallway_thermostat
-    service: climate.set_temperature
   - condition: template
     value_template: '{{ (as_timestamp(now()) * 1000 - state_attr(''vacuum.rockrobo'',
       ''last_run_stats'')[''startTime'']) / 1000 > 36 * 3600 }}'
@@ -200,6 +198,19 @@ users_away:
         - Theater
     entity_id: vacuum.rockrobo
     service: vacuum.send_command
+  - condition: state
+    entity_id: binary_sensor.dining_window_ias_zone
+    state: 'off'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: climate.hallway_thermostat
+      state: 'off'
+  - data_template:
+      temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 26
+        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 16 {% endif %}'
+    entity_id: climate.hallway_thermostat
+    service: climate.set_temperature
   mode: single
 users_home:
   alias: Users Home
@@ -208,6 +219,7 @@ users_home:
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
       automation.hallway_bath_door_motion,automation.master_bath_door_motion,automation.hallway_motion_start_lights,automation.kitchen_motion_start_lights,
       automation.master_motion_start_lights,automation.sunset,automation.office_motion_start_when_wfh
+      
     service: automation.turn_on
   - data: {}
     entity_id: automation.nightlight
@@ -215,13 +227,13 @@ users_home:
   - service_template: "{%- if state_attr('sun.sun', 'elevation') < 6 -%}\n script.lights_home_sunset\n\
       {%- endif -%}"
   - entity_id:
+    - light.galaxytaba
+    - light.galaxytabs
+    - light.galaxytabs6
+    service: light.turn_on
+  - entity_id:
     - switch.living_room_monitor
     service: switch.turn_on
-  - data_template:
-      temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 24
-        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 18 {% endif %}'
-    entity_id: climate.hallway_thermostat
-    service: climate.set_temperature
   - data: {}
     service: script.create_bose_group
   - delay: 00:00:03
@@ -229,6 +241,19 @@ users_home:
       source: Dining Group
     entity_id: media_player.spotify
     service: media_player.select_source
+  - condition: state
+    entity_id: binary_sensor.dining_window_ias_zone
+    state: 'off'
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: climate.hallway_thermostat
+      state: 'off'
+  - data_template:
+      temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 24
+        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 18 {% endif %}'
+    entity_id: climate.hallway_thermostat
+    service: climate.set_temperature
   mode: single
 bedtime:
   alias: Bedtime

@@ -154,7 +154,7 @@
                 "entity_id": "sensor.sm_n975u1_battery_level",
                 "icon": null,
                 "name": null,
-                "original_icon": "mdi:battery-60",
+                "original_icon": "mdi:battery-40",
                 "original_name": "SM-N975U1 Battery Level",
                 "platform": "mobile_app",
                 "supported_features": 0,
@@ -170,7 +170,7 @@
                 "entity_id": "sensor.sm_n975u1_wifi_connection",
                 "icon": null,
                 "name": null,
-                "original_icon": "mdi:wifi-strength-3",
+                "original_icon": "mdi:wifi-strength-1",
                 "original_name": "SM-N975U1 Wifi Connection",
                 "platform": "mobile_app",
                 "supported_features": 0,
@@ -351,22 +351,6 @@
                 "platform": "automation",
                 "supported_features": 0,
                 "unique_id": "front_door_knock",
-                "unit_of_measurement": null
-            },
-            {
-                "capabilities": {},
-                "config_entry_id": null,
-                "device_class": null,
-                "device_id": null,
-                "disabled_by": null,
-                "entity_id": "automation.kitchen_motion_stop_dashboard",
-                "icon": null,
-                "name": null,
-                "original_icon": null,
-                "original_name": "Kitchen Motion Stop - Dashboard",
-                "platform": "automation",
-                "supported_features": 0,
-                "unique_id": "kitchen_motion_stop_dashboard",
                 "unit_of_measurement": null
             },
             {
@@ -2494,7 +2478,7 @@
                 "entity_id": "sensor.sm_n975u1_battery_state",
                 "icon": null,
                 "name": null,
-                "original_icon": "mdi:battery-60",
+                "original_icon": "mdi:battery-40",
                 "original_name": "SM-N975U1 Battery State",
                 "platform": "mobile_app",
                 "supported_features": 0,
@@ -2857,11 +2841,13 @@
                 "capabilities": {
                     "source_list": [
                         "Master",
-                        "Dining Group",
+                        "Dining",
                         "Master Bath Echo Plus",
                         "Dining Echo Dot",
                         "Hallway Bath Echo Flex",
+                        "Living Room",
                         "Master Echo Dot",
+                        "Theater Roku",
                         "SDSA-PC"
                     ]
                 },
@@ -5881,20 +5867,20 @@
             {
                 "capabilities": {
                     "fan_modes": [
-                        "On Low",
                         "Auto Low",
+                        "On Low",
                         "Circulate"
                     ],
                     "hvac_modes": [
+                        "cool",
                         "heat",
-                        "off",
-                        "cool"
+                        "off"
                     ],
                     "max_temp": 35,
                     "min_temp": 7,
                     "preset_modes": [
-                        "Heat Econ",
                         "Cool Econ",
+                        "Heat Econ",
                         "none"
                     ]
                 },
@@ -6039,54 +6025,6 @@
                 "supported_features": 0,
                 "unique_id": "switch.users_home",
                 "unit_of_measurement": null
-            },
-            {
-                "capabilities": {},
-                "config_entry_id": "c1f7482265824869a092a234b19e118d",
-                "device_class": "motion",
-                "device_id": "e9ff6f9809954d119c5184cff2f7dd8e",
-                "disabled_by": null,
-                "entity_id": "binary_sensor.kitchen_motion_sensor_ias_zone",
-                "icon": null,
-                "name": "Kitchen Motion Sensor ias_zone",
-                "original_icon": null,
-                "original_name": "Samjin motion 70860c01 ias_zone",
-                "platform": "zha",
-                "supported_features": 0,
-                "unique_id": "28:6d:97:00:01:0c:86:70-1-1280",
-                "unit_of_measurement": null
-            },
-            {
-                "capabilities": {},
-                "config_entry_id": "c1f7482265824869a092a234b19e118d",
-                "device_class": "battery",
-                "device_id": "e9ff6f9809954d119c5184cff2f7dd8e",
-                "disabled_by": null,
-                "entity_id": "sensor.kitchen_motion_sensor_power",
-                "icon": null,
-                "name": "Kitchen Motion Sensor power",
-                "original_icon": null,
-                "original_name": "Samjin motion 70860c01 power",
-                "platform": "zha",
-                "supported_features": 0,
-                "unique_id": "28:6d:97:00:01:0c:86:70-1-1",
-                "unit_of_measurement": "%"
-            },
-            {
-                "capabilities": {},
-                "config_entry_id": "c1f7482265824869a092a234b19e118d",
-                "device_class": "temperature",
-                "device_id": "e9ff6f9809954d119c5184cff2f7dd8e",
-                "disabled_by": null,
-                "entity_id": "sensor.kitchen_motion_sensor_temperature",
-                "icon": null,
-                "name": "Kitchen Motion Sensor temperature",
-                "original_icon": null,
-                "original_name": "Samjin motion 70860c01 temperature",
-                "platform": "zha",
-                "supported_features": 0,
-                "unique_id": "28:6d:97:00:01:0c:86:70-1-1026",
-                "unit_of_measurement": "\u00b0C"
             },
             {
                 "capabilities": {},
@@ -6390,6 +6328,86 @@
                 "platform": "automation",
                 "supported_features": 0,
                 "unique_id": "galaxy_tab_a_motion_stop",
+                "unit_of_measurement": null
+            },
+            {
+                "capabilities": null,
+                "config_entry_id": "c1f7482265824869a092a234b19e118d",
+                "device_class": "motion",
+                "device_id": "e9ff6f9809954d119c5184cff2f7dd8e",
+                "disabled_by": null,
+                "entity_id": "binary_sensor.kitchen_motion_sensor_ias_zone",
+                "icon": null,
+                "name": "Kitchen Motion Sensor ias_zone",
+                "original_icon": null,
+                "original_name": "Samjin motion 70860c01 ias_zone",
+                "platform": "zha",
+                "supported_features": 0,
+                "unique_id": "28:6d:97:00:01:0c:86:70-1-1280",
+                "unit_of_measurement": null
+            },
+            {
+                "capabilities": null,
+                "config_entry_id": "c1f7482265824869a092a234b19e118d",
+                "device_class": "temperature",
+                "device_id": "e9ff6f9809954d119c5184cff2f7dd8e",
+                "disabled_by": null,
+                "entity_id": "sensor.kitchen_motion_sensor_temperature",
+                "icon": null,
+                "name": "Kitchen Motion Sensor temperature",
+                "original_icon": null,
+                "original_name": "Samjin motion 70860c01 temperature",
+                "platform": "zha",
+                "supported_features": 0,
+                "unique_id": "28:6d:97:00:01:0c:86:70-1-1026",
+                "unit_of_measurement": "\u00b0C"
+            },
+            {
+                "capabilities": null,
+                "config_entry_id": "c1f7482265824869a092a234b19e118d",
+                "device_class": "battery",
+                "device_id": "e9ff6f9809954d119c5184cff2f7dd8e",
+                "disabled_by": null,
+                "entity_id": "sensor.kitchen_motion_sensor_power",
+                "icon": null,
+                "name": "Kitchen Motion Sensor power",
+                "original_icon": null,
+                "original_name": "Samjin motion 70860c01 power",
+                "platform": "zha",
+                "supported_features": 0,
+                "unique_id": "28:6d:97:00:01:0c:86:70-1-1",
+                "unit_of_measurement": "%"
+            },
+            {
+                "capabilities": null,
+                "config_entry_id": null,
+                "device_class": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "automation.dining_window_opened",
+                "icon": null,
+                "name": null,
+                "original_icon": null,
+                "original_name": "Dining Window Opened",
+                "platform": "automation",
+                "supported_features": 0,
+                "unique_id": "1599485211419",
+                "unit_of_measurement": null
+            },
+            {
+                "capabilities": null,
+                "config_entry_id": null,
+                "device_class": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "automation.dining_window_opened_2",
+                "icon": null,
+                "name": null,
+                "original_icon": null,
+                "original_name": "Dining Window Opened",
+                "platform": "automation",
+                "supported_features": 0,
+                "unique_id": "dining_window_opened",
                 "unit_of_measurement": null
             }
         ]
