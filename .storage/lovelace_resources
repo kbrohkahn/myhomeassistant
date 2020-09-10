@@ -109,7 +109,7 @@
             {
                 "id": "1bcb36cdaeea447a99917bc9b7b1d6e6",
                 "type": "module",
-                "url": "local/targeting-computer-bo.js"
+                "url": "local/targeting-computer-bp.js"
             },
             {
                 "id": "330a864e33234a328977efe16c8f3a08",
@@ -140,6 +140,16 @@
                 "id": "de4602c21191401d862c2ccb604646e9",
                 "type": "module",
                 "url": "/hacsfiles/circle-sensor-card/circle-sensor-card-a.js"
+            },
+            {
+                "id": "e96f884b43f447169b1c63ca174d0246",
+                "type": "module",
+                "url": "local/floorplan/floorplan-card.js"
+            },
+            {
+                "id": "8d638be38f76408aa08b411eea025900",
+                "type": "module",
+                "url": "/hacsfiles/custom-sidebar/custom-sidebar.js"
             }
         ]
     },

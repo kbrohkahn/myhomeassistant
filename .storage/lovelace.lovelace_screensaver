@@ -29,6 +29,21 @@
                                     "type": "custom:targeting-computer-clock-card"
                                 },
                                 {
+                                    "entity": "weather.openweathermap",
+                                    "style": {
+                                        "color": "#dd0000",
+                                        "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
+                                        "font-size": "48px",
+                                        "left": "50%",
+                                        "top": "10%"
+                                    },
+                                    "tap_action": {
+                                        "action": "navigate",
+                                        "navigation_path": "/lovelace/home"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
                                     "conditions": [
                                         {
                                             "entity": "media_player.spotify",
@@ -89,38 +104,20 @@
                                     "type": "conditional"
                                 },
                                 {
-                                    "attribute": "temperature",
-                                    "entity": "climate.hallway_thermostat",
-                                    "fill": "#000",
-                                    "font_style": {
-                                        "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                        "font-size": "48px"
-                                    },
-                                    "max": 40,
-                                    "min": -10,
-                                    "stroke_color": "#dd0000",
-                                    "style": {
-                                        "left": "29%",
-                                        "top": "85%",
-                                        "width": "15%"
-                                    },
-                                    "type": "custom:circle-sensor-card",
-                                    "units": "\u00b0C"
-                                },
-                                {
                                     "conditions": [
                                         {
                                             "entity": "climate.hallway_thermostat",
-                                            "state": "off"
+                                            "state_not": "off"
                                         }
                                     ],
                                     "elements": [
                                         {
+                                            "attribute": "temperature",
                                             "entity": "climate.hallway_thermostat",
                                             "fill": "#000",
                                             "font_style": {
                                                 "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                                "font-size": "48px"
+                                                "font-size": "64px"
                                             },
                                             "max": 40,
                                             "min": -10,
@@ -136,42 +133,11 @@
                                     "type": "conditional"
                                 },
                                 {
-                                    "conditions": [
-                                        {
-                                            "entity": "climate.hallway_thermostat",
-                                            "state_not": "off"
-                                        }
-                                    ],
-                                    "elements": [
-                                        {
-                                            "attribute": "temperature",
-                                            "entity": "climate.hallway_thermostat",
-                                            "fill": "#000",
-                                            "font_style": {
-                                                "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                                "font-size": "48px"
-                                            },
-                                            "max": 40,
-                                            "min": -10,
-                                            "stroke_color": "#dd0000",
-                                            "style": {
-                                                "left": "29%",
-                                                "top": "85%",
-                                                "width": "15%"
-                                            },
-                                            "type": "custom:circle-sensor-card",
-                                            "units": "\u00b0C"
-                                        }
-                                    ],
-                                    "type": "conditional"
-                                },
-                                {
-                                    "attribute": "current_temperature",
-                                    "entity": "climate.hallway_thermostat",
+                                    "entity": "sensor.hallway_motion_sensor_temperature",
                                     "fill": "#000",
                                     "font_style": {
                                         "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                        "font-size": "48px"
+                                        "font-size": "64px"
                                     },
                                     "max": 40,
                                     "min": -10,
@@ -182,7 +148,7 @@
                                         "width": "15%"
                                     },
                                     "type": "custom:circle-sensor-card",
-                                    "units": "\u00b0C"
+                                    "units": " "
                                 },
                                 {
                                     "attribute": "temperature",
@@ -190,7 +156,7 @@
                                     "fill": "#000",
                                     "font_style": {
                                         "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                        "font-size": "48px"
+                                        "font-size": "64px"
                                     },
                                     "max": 40,
                                     "min": -10,
@@ -200,8 +166,7 @@
                                         "top": "85%",
                                         "width": "15%"
                                     },
-                                    "type": "custom:circle-sensor-card",
-                                    "units": "\u00b0C"
+                                    "type": "custom:circle-sensor-card"
                                 },
                                 {
                                     "attribute": "humidity",
@@ -209,7 +174,7 @@
                                     "fill": "#000",
                                     "font_style": {
                                         "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                        "font-size": "48px"
+                                        "font-size": "64px"
                                     },
                                     "max": 100,
                                     "min": 0,
@@ -224,7 +189,7 @@
                                 }
                             ],
                             "image": "local/images/black_5x3.png",
-                            "style": "@keyframes ha-card {\n  to {margin: 5px 5px -5px -5px;}\n}\nha-card {\n  margin: -5px -5px 5px 5px;\n  animation: ha-card 60s infinite steps(4, end) alternate;\n}\n",
+                            "style": "@keyframes ha-card {\n  to {margin: 5px 5px -5px -5px;}\n}\nha-card {\n  background: black;\n  margin: -5px -5px 5px 5px;\n  animation: ha-card 60s infinite steps(4, end) alternate;\n}\n",
                             "type": "picture-elements"
                         }
                     ],
@@ -255,6 +220,21 @@
                                     "type": "custom:targeting-computer-clock-card"
                                 },
                                 {
+                                    "entity": "weather.openweathermap",
+                                    "style": {
+                                        "color": "#dd0000",
+                                        "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
+                                        "font-size": "48px",
+                                        "left": "50%",
+                                        "top": "10%"
+                                    },
+                                    "tap_action": {
+                                        "action": "navigate",
+                                        "navigation_path": "/lovelace/home"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
                                     "conditions": [
                                         {
                                             "entity": "media_player.spotify",
@@ -315,38 +295,20 @@
                                     "type": "conditional"
                                 },
                                 {
-                                    "attribute": "temperature",
-                                    "entity": "climate.hallway_thermostat",
-                                    "fill": "#000",
-                                    "font_style": {
-                                        "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                        "font-size": "48px"
-                                    },
-                                    "max": 40,
-                                    "min": -10,
-                                    "stroke_color": "#dd0000",
-                                    "style": {
-                                        "left": "29%",
-                                        "top": "85%",
-                                        "width": "15%"
-                                    },
-                                    "type": "custom:circle-sensor-card",
-                                    "units": "\u00b0C"
-                                },
-                                {
                                     "conditions": [
                                         {
                                             "entity": "climate.hallway_thermostat",
-                                            "state": "off"
+                                            "state_not": "off"
                                         }
                                     ],
                                     "elements": [
                                         {
+                                            "attribute": "temperature",
                                             "entity": "climate.hallway_thermostat",
                                             "fill": "#000",
                                             "font_style": {
                                                 "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                                "font-size": "48px"
+                                                "font-size": "64px"
                                             },
                                             "max": 40,
                                             "min": -10,
@@ -357,6 +319,169 @@
                                                 "width": "15%"
                                             },
                                             "type": "custom:circle-sensor-card"
+                                        }
+                                    ],
+                                    "type": "conditional"
+                                },
+                                {
+                                    "entity": "sensor.hallway_motion_sensor_temperature",
+                                    "fill": "#000",
+                                    "font_style": {
+                                        "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
+                                        "font-size": "64px"
+                                    },
+                                    "max": 40,
+                                    "min": -10,
+                                    "stroke_color": "#dd0000",
+                                    "style": {
+                                        "left": "10%",
+                                        "top": "85%",
+                                        "width": "15%"
+                                    },
+                                    "type": "custom:circle-sensor-card",
+                                    "units": " "
+                                },
+                                {
+                                    "attribute": "temperature",
+                                    "entity": "weather.openweathermap",
+                                    "fill": "#000",
+                                    "font_style": {
+                                        "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
+                                        "font-size": "64px"
+                                    },
+                                    "max": 40,
+                                    "min": -10,
+                                    "stroke_color": "#dd0000",
+                                    "style": {
+                                        "left": "90%",
+                                        "top": "85%",
+                                        "width": "15%"
+                                    },
+                                    "type": "custom:circle-sensor-card"
+                                },
+                                {
+                                    "attribute": "humidity",
+                                    "entity": "weather.openweathermap",
+                                    "fill": "#000",
+                                    "font_style": {
+                                        "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
+                                        "font-size": "64px"
+                                    },
+                                    "max": 100,
+                                    "min": 0,
+                                    "stroke_color": "#dd0000",
+                                    "style": {
+                                        "left": "71%",
+                                        "top": "85%",
+                                        "width": "15%"
+                                    },
+                                    "type": "custom:circle-sensor-card",
+                                    "units": "%"
+                                }
+                            ],
+                            "image": "local/images/black_16x10.png",
+                            "style": "@keyframes ha-card {\n  to {margin: 5px 5px -5px -5px;}\n}\nha-card {\n  background: black;\n  margin: -5px -5px 5px 5px;\n  animation: ha-card 60s infinite steps(4, end) alternate;\n}\n",
+                            "type": "picture-elements"
+                        }
+                    ],
+                    "icon": "",
+                    "panel": true,
+                    "path": "16x10",
+                    "title": "16x10"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "elements": [
+                                {
+                                    "entity": "weather.home",
+                                    "style": {
+                                        "height": "80%",
+                                        "left": "50%",
+                                        "top": "43%",
+                                        "width": "96%"
+                                    },
+                                    "type": "custom:targeting-computer-card"
+                                },
+                                {
+                                    "style": {
+                                        "left": "50%",
+                                        "top": "92%"
+                                    },
+                                    "type": "custom:targeting-computer-clock-card"
+                                },
+                                {
+                                    "entity": "weather.openweathermap",
+                                    "style": {
+                                        "color": "#dd0000",
+                                        "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
+                                        "font-size": "48px",
+                                        "left": "50%",
+                                        "top": "10%"
+                                    },
+                                    "tap_action": {
+                                        "action": "navigate",
+                                        "navigation_path": "/lovelace/home"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "conditions": [
+                                        {
+                                            "entity": "media_player.spotify",
+                                            "state_not": "idle"
+                                        }
+                                    ],
+                                    "elements": [
+                                        {
+                                            "artwork": "full-cover",
+                                            "entity": "media_player.spotify",
+                                            "hide": {
+                                                "controls": true,
+                                                "icon": true,
+                                                "name": true,
+                                                "power": true,
+                                                "progress": true,
+                                                "source": true,
+                                                "volume": true
+                                            },
+                                            "style": ":host {\n  width: 30%;\n  left: 80%;\n  top: 43%;\n  border: solid 4px #dd0000;\n}\n:host {\n{\n}\n",
+                                            "tap_action": {
+                                                "action": "navigate",
+                                                "navigation_path": "/lovelace/home"
+                                            },
+                                            "type": "custom:mini-media-player"
+                                        }
+                                    ],
+                                    "type": "conditional"
+                                },
+                                {
+                                    "conditions": [
+                                        {
+                                            "entity": "media_player.theater_stick",
+                                            "state_not": "unavailable"
+                                        }
+                                    ],
+                                    "elements": [
+                                        {
+                                            "artwork": "full-cover",
+                                            "entity": "media_player.theater_stick",
+                                            "hide": {
+                                                "controls": true,
+                                                "icon": true,
+                                                "name": true,
+                                                "power": true,
+                                                "progress": true,
+                                                "source": true,
+                                                "volume": true
+                                            },
+                                            "style": ":host {\n  width: 30%;\n  left: 20%;\n  top: 43%;\n  border: solid 4px #dd0000;\n}\n:host {\n{\n}\n",
+                                            "tap_action": {
+                                                "action": "navigate",
+                                                "navigation_path": "/lovelace/home"
+                                            },
+                                            "type": "custom:mini-media-player"
                                         }
                                     ],
                                     "type": "conditional"
@@ -375,7 +500,7 @@
                                             "fill": "#000",
                                             "font_style": {
                                                 "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                                "font-size": "48px"
+                                                "font-size": "64px"
                                             },
                                             "max": 40,
                                             "min": -10,
@@ -385,19 +510,17 @@
                                                 "top": "85%",
                                                 "width": "15%"
                                             },
-                                            "type": "custom:circle-sensor-card",
-                                            "units": "\u00b0C"
+                                            "type": "custom:circle-sensor-card"
                                         }
                                     ],
                                     "type": "conditional"
                                 },
                                 {
-                                    "attribute": "current_temperature",
-                                    "entity": "climate.hallway_thermostat",
+                                    "entity": "sensor.hallway_motion_sensor_temperature",
                                     "fill": "#000",
                                     "font_style": {
                                         "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                        "font-size": "48px"
+                                        "font-size": "64px"
                                     },
                                     "max": 40,
                                     "min": -10,
@@ -408,7 +531,7 @@
                                         "width": "15%"
                                     },
                                     "type": "custom:circle-sensor-card",
-                                    "units": "\u00b0C"
+                                    "units": " "
                                 },
                                 {
                                     "attribute": "temperature",
@@ -416,7 +539,7 @@
                                     "fill": "#000",
                                     "font_style": {
                                         "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                        "font-size": "48px"
+                                        "font-size": "64px"
                                     },
                                     "max": 40,
                                     "min": -10,
@@ -426,8 +549,7 @@
                                         "top": "85%",
                                         "width": "15%"
                                     },
-                                    "type": "custom:circle-sensor-card",
-                                    "units": "\u00b0C"
+                                    "type": "custom:circle-sensor-card"
                                 },
                                 {
                                     "attribute": "humidity",
@@ -435,7 +557,7 @@
                                     "fill": "#000",
                                     "font_style": {
                                         "font-family": "'Allerta Stencil', 'Courier New', sans-serif",
-                                        "font-size": "48px"
+                                        "font-size": "64px"
                                     },
                                     "max": 100,
                                     "min": 0,
@@ -450,14 +572,14 @@
                                 }
                             ],
                             "image": "local/images/black_16x10.png",
-                            "style": "@keyframes ha-card {\n  to {margin: 5px 5px -5px -5px;}\n}\nha-card {\n  margin: -5px -5px 5px 5px;\n  animation: ha-card 60s infinite steps(4, end) alternate;\n}\n",
+                            "style": ":host .square {\n  animation: none;\n}\n\n@keyframes ha-card {\n  to {margin: 5px 5px -5px -5px;}\n}\nha-card {\n  background: black;\n  margin: -5px -5px 5px 5px;\n  animation: ha-card 60s infinite steps(4, end) alternate;\n}\n",
                             "type": "picture-elements"
                         }
                     ],
                     "icon": "",
                     "panel": true,
-                    "path": "16x10",
-                    "title": "16x10"
+                    "path": "16x10_slow",
+                    "title": "16x10 Slow"
                 }
             ]
         }

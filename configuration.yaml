@@ -68,8 +68,8 @@ spotcast:
   sp_dc: !secret sp_dc
   sp_key: !secret sp_key
 
-ifttt:
-  key: !secret ifttt_api_key
+#ifttt:
+  #key: !secret ifttt_api_key
 
 discovery:
 
@@ -180,22 +180,23 @@ switch:
     switches:
       starlight: 
         unique_id: switch.starlight
+        value_template: "{{ state_attr('switch.starlight_outlet', 'current_power_w') | float > 1 }}"
         turn_on:
-          service: ifttt.trigger
-          data:
-            event: starlight_press
+          service: script.starlight_on
         turn_off:
-          service: script.starlight_off
+          service: switch.turn_off
+          data:
+            entity_id: switch.starlight_outlet
       office_master:
         unique_id: switch.office_master
-        value_template: "{{ states('sensor.office_peripherals_watts') | float > 30 }}"
+        value_template: "{{ state_attr('switch.office_peripherals', 'current_power_w') | float > 30 }}"
         turn_on:
           service: script.start_the_office
         turn_off:
           service: script.stop_the_office
       theater_master:
         unique_id: switch.theater_master
-        value_template: "{{ states('sensor.theater_peripherals_watts') | float > 20 }}"
+        value_template: "{{ state_attr('switch.theater_peripherals_watts', 'current_power_w') | float > 20 }}"
         turn_on:
           service: script.start_the_theater
         turn_off:
@@ -220,15 +221,15 @@ switch:
           service: script.bedtime
         turn_off:
           service: script.good_morning
-      at_home:
-        unique_id: switch.at_home
-        value_template: "{{ is_state('automation.master_bath_door_motion', 'on') }}"
+      away:
+        unique_id: switch.away
+        value_template: "{{ is_state('automation.kitchen_motion_start_lights', 'off') }}"
         turn_on:
-          service: script.users_home
-        turn_off:
           service: script.users_away
+        turn_off:
+          service: script.users_home
       cameras:
-        unique_id: switch.users_home
+        unique_id: switch.cameras
         value_template: "{{ not is_state('camera.galaxy_tab_a_camera', 'idle') }}"
         turn_on:
           service: script.start_cameras
@@ -283,25 +284,21 @@ sensor:
 
   - platform: template
     sensors:
-      theater_peripherals_watts:
-        friendly_name_template: "{{ states.switch.vesync_switch.theater_peripherals}} Current Consumption"
-        value_template: '{{ states.switch.theater_peripherals.attributes["current_power_w"] | float }}'
-        unit_of_measurement: 'W'
-      theater_systems_watts:
-        friendly_name_template: "{{ states.switch.vesync_switch.theater_systems}} Current Consumption"
-        value_template: '{{ states.switch.theater_systems.attributes["current_power_w"] | float }}'
-        unit_of_measurement: 'W'
-      office_peripherals_watts:
-        friendly_name_template: "{{ states.switch.vesync_switch.office_peripherals}} Current Consumption"
-        value_template: '{{ states.switch.office_peripherals.attributes["current_power_w"] | float }}'
-        unit_of_measurement: 'W'
-      living_room_monitor_watts:
-        friendly_name_template: "{{ states.switch.vesync_switch.living_room_monitor}} Current Consumption"
-        value_template: '{{ states.switch.living_room_monitor.attributes["current_power_w"] | float }}'
-        unit_of_measurement: 'W'
-      spotify_source:
-        friendly_name: "Spotify Source"
-        value_template: "{{ state_attr('media_player.spotify', 'source') }}"
+      # theater_peripherals_watts:
+      #   friendly_name_template: "{{ states.switch.vesync_switch.theater_peripherals}} Current Consumption"
+      #   value_template: '{{ states.switch.theater_peripherals.attributes["current_power_w"] | float }}'
+      #   unit_of_measurement: 'W'
+      # office_peripherals_watts:
+      #   friendly_name_template: "{{ states.switch.vesync_switch.office_peripherals}} Current Consumption"
+      #   value_template: '{{ states.switch.office_peripherals.attributes["current_power_w"] | float }}'
+      #   unit_of_measurement: 'W'
+      # living_room_monitor_watts:
+      #   friendly_name_template: "{{ states.switch.vesync_switch.living_room_monitor}} Current Consumption"
+      #   value_template: '{{ states.switch.living_room_monitor.attributes["current_power_w"] | float }}'
+      #   unit_of_measurement: 'W'
+      # spotify_source:
+      #   friendly_name: "Spotify Source"
+      #   value_template: "{{ state_attr('media_player.spotify', 'source') }}"
       hallway_humidity:
         friendly_name: "Hallway Thermostat Humidity"
         value_template: '{{ state_attr("climate.hallway_thermostat", "current_humidity") }}'

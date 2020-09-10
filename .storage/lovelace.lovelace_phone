@@ -286,7 +286,7 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "switch.at_home",
+                                            "entity": "switch.away",
                                             "type": "button"
                                         },
                                         {
@@ -2631,20 +2631,24 @@
                                 {
                                     "cards": [
                                         {
-                                            "detail": 2,
                                             "entity": "sensor.glances_cpu_used",
-                                            "graph": "line",
-                                            "hours_to_show": 12,
-                                            "name": "CPU Used",
-                                            "type": "sensor"
+                                            "max": 100,
+                                            "min": 0,
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 80,
+                                                "yellow": 50
+                                            },
+                                            "type": "gauge"
                                         },
                                         {
-                                            "detail": 2,
                                             "entity": "sensor.glances_ram_used_percent",
-                                            "graph": "line",
-                                            "hours_to_show": 12,
-                                            "name": "RAM Used",
-                                            "type": "sensor"
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 80,
+                                                "yellow": 50
+                                            },
+                                            "type": "gauge"
                                         }
                                     ],
                                     "title": "Server",
@@ -2654,23 +2658,23 @@
                                     "cards": [
                                         {
                                             "entity": "sensor.glances_core_0_temp",
-                                            "max": 160,
-                                            "min": 70,
+                                            "max": 70,
+                                            "min": 20,
                                             "severity": {
-                                                "green": 70,
-                                                "red": 140,
-                                                "yellow": 110
+                                                "green": 20,
+                                                "red": 50,
+                                                "yellow": 35
                                             },
                                             "type": "gauge"
                                         },
                                         {
                                             "entity": "sensor.glances_core_1_temp",
-                                            "max": 160,
-                                            "min": 70,
+                                            "max": 70,
+                                            "min": 20,
                                             "severity": {
-                                                "green": 70,
-                                                "red": 140,
-                                                "yellow": 110
+                                                "green": 20,
+                                                "red": 50,
+                                                "yellow": 35
                                             },
                                             "type": "gauge"
                                         }
@@ -2681,23 +2685,23 @@
                                     "cards": [
                                         {
                                             "entity": "sensor.glances_core_2_temp",
-                                            "max": 160,
-                                            "min": 70,
+                                            "max": 70,
+                                            "min": 20,
                                             "severity": {
-                                                "green": 70,
-                                                "red": 140,
-                                                "yellow": 110
+                                                "green": 20,
+                                                "red": 50,
+                                                "yellow": 35
                                             },
                                             "type": "gauge"
                                         },
                                         {
                                             "entity": "sensor.glances_core_3_temp",
-                                            "max": 160,
-                                            "min": 70,
+                                            "max": 70,
+                                            "min": 20,
                                             "severity": {
-                                                "green": 70,
-                                                "red": 140,
-                                                "yellow": 130
+                                                "green": 20,
+                                                "red": 50,
+                                                "yellow": 35
                                             },
                                             "type": "gauge"
                                         }

@@ -66,7 +66,6 @@
   condition: []
   action:
   - data_template:
-      media_content_type: sound
       sound_effect_filename: "{% if is_state('person.kevin_broh_kahn', 'home') %}\n\
         \  jabba-the-hutt-laughing.mp3\n{%- else -%}\n  jabba-the-hutt-laughing.mp3\n\
         {%- endif -%}\n"
@@ -238,18 +237,8 @@
   - condition: state
     entity_id: person.kevin_broh_kahn
     state: home
-  - condition: and
-    conditions:
-    - condition: not
-      conditions:
-      - condition: state
-        entity_id: sensor.spotify_source
-        state: Galaxy Note10+
-    - condition: not
-      conditions:
-      - condition: state
-        entity_id: sensor.spotify_source
-        state: PS4-253
+  - condition: template
+    value_template: "{{ state_attr('media_player.spotify', 'source') not in ['Galaxy Note10+', 'PS4-253'] }}"
   action:
   - data:
       source: Master
@@ -282,18 +271,8 @@
   - condition: state
     entity_id: person.kevin_broh_kahn
     state: home
-  - condition: and
-    conditions:
-    - condition: not
-      conditions:
-      - condition: state
-        entity_id: sensor.spotify_source
-        state: Galaxy Note10+
-    - condition: not
-      conditions:
-      - condition: state
-        entity_id: sensor.spotify_source
-        state: PS4-253
+  - condition: template
+    value_template: "{{ state_attr('media_player.spotify', 'source') not in ['Galaxy Note10+', 'PS4-253'] }}"
   action:
   - data: {}
     entity_id: media_player.spotify
@@ -432,7 +411,7 @@
   description: ''
   trigger:
   - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
-    for: 00:01:00
+    for: 00:01:30
     from: 'on'
     platform: state
     to: 'off'
@@ -623,27 +602,9 @@
   condition: []
   action:
   - data:
-      card:
-        cards:
-        - content: '## Humidity above 80%, AC advised'
-          type: markdown
-        - entity: climate.hallway_thermostat
-          icon: mdi:check
-          name: Acknowledge
-          tap_action:
-            action: call-service
-            service: browser_mod.close_popup
-          type: button
-        type: vertical-stack
-      title: Thermostat Alert
-    service: browser_mod.popup
-  - data:
-      data:
-        type: tts
-      message: Humidity above 80%, AC advised
-      target:
-      - media_player.dining_echo_dot
-    service: notify.alexa_media
+      notification_title: Humidity above 80%
+      notification_message: AC advised
+    service: script.notify
   mode: single
 - id: kitchen_overhead_turned_on_invisible
   alias: Kitchen Overhead Turned On Invisible
@@ -734,11 +695,9 @@
     - thu
     - fri
   action:
-  - condition: template
-    value_template: '{{ false }}'
-  - data:
-      event: office_tv_input_hdmi3
-    service: ifttt.trigger
+  - data: {}
+    entity_id: automation.galaxy_tab_s_motion_start
+    service: automation.turn_on
   mode: single
 - id: office_motion_start_when_wfh
   alias: Office Motion Start when WFH
@@ -760,6 +719,9 @@
     - fri
   action:
   - data: {}
+    entity_id: automation.galaxy_tab_s_motion_start
+    service: automation.turn_off
+  - data: {}
     entity_id:
     - light.dining
     - light.kitchen
@@ -770,11 +732,6 @@
   - data: {}
     entity_id: switch.office_master
     service: switch.turn_on
-  - condition: template
-    value_template: '{{ false }}'
-  - data:
-      event: office_tv_input_hdmi1
-    service: ifttt.trigger
   mode: single
 - id: master_bath_light_brightness_changed
   alias: Master Bath Light Brightness Changed
@@ -801,11 +758,9 @@
     value_template: '{{ states(''vacuum.rockrobo'')[:8] == ''cleaning'' }}'
   action:
   - data:
-      data:
-        type: tts
-      message: Vacuum starting, clear floor or say stop vacuum
-      target: Dining Echo Dot
-    service: notify.alexa_media
+      notification_title: Vacuum starting
+      notification_message: Clear floor or say stop vacuum
+    service: script.notify
   mode: single
 - id: theater_stick_paused
   alias: Theater Stick Paused
@@ -898,13 +853,9 @@
   condition: []
   action:
   - data:
-      data:
-        type: tts
-      message: Vacuum error
-      target:
-      - media_player.dining_echo_dot
-      - media_player.master_echo_dot
-    service: notify.alexa_media
+      notification_title: Vacuum error
+      notification_message: Unknown error
+    service: script.notify
   mode: single
 - id: nws_alert
   alias: NWS Alert
@@ -916,18 +867,16 @@
   condition: []
   action:
   - data_template:
-      data:
-        type: tts
-      message: 'NWS Alert: {{ state_attr(''sensor.nws_alerts'', ''title'') }} in effect'
-      target:
-      - media_player.dining_echo_dot
-    service: notify.alexa_media
+      notification_title: NWS Alert
+      notification_message: '{{ state_attr(''sensor.nws_alerts'', ''title'') }} in
+        effect'
+    service: script.notify
   mode: single
 - id: near_home
   alias: Near Home
   description: ''
   trigger:
-  - entity_id: person.kevin_broh_kahn
+  - entity_id: device_tracker.sm_n975u1
     event: enter
     platform: zone
     zone: zone.home
@@ -980,7 +929,7 @@
   - data:
       deviceID:
       - galaxytabs
-      navigation_path: /lovelace-screensaver/16x10
+      navigation_path: /lovelace-screensaver/16x10_slow
     service: browser_mod.navigate
   - condition: state
     entity_id: automation.kitchen_motion_stop_after_bedtime
@@ -1085,15 +1034,90 @@
     entity_id: climate.hallway_thermostat
     service: climate.turn_off
   - data_template:
-      data:
-        type: tts
-      message: "{% set earliest = namespace(time=false) %}\n{% for state in state_attr('weather.openweathermap',\
-        \ 'forecast') -%}\n  {% if earliest.time == false and state.temperature >\
-        \ state_attr('climate.hallway_thermostat', 'current_temperature') %}\n   \
-        \ {% set earliest.time = ((state.datetime / 1000 - as_timestamp(now())) /\
-        \ 3600) | int %}\n  {% endif %}\n  {% set breakVal = 1 %}\n{%- endfor %}\n\
-        Dining window opened, temperature outdoor will surpass indoor in {{ earliest.time\
+      notification_title: Dining window opened
+      notification_message: "{% set earliest = namespace(time=false) %}\n{% for state\
+        \ in state_attr('weather.openweathermap', 'forecast') -%}\n  {% if earliest.time\
+        \ == false and state.temperature > state_attr('climate.hallway_thermostat',\
+        \ 'current_temperature') %}\n    {% set earliest.time = ((state.datetime /\
+        \ 1000 - as_timestamp(now())) / 3600) | int %}\n  {% endif %}\n  {% set breakVal\
+        \ = 1 %}\n{%- endfor %}\nTemperature outdoor will surpass indoor in {{ earliest.time\
         \ }} hours\n"
-      target: Dining Echo Dot
-    service: notify.alexa_media
+    service: script.notify
+  mode: single
+- id: outdoor_temperature_nearing_indoor
+  alias: Outdoor Temperature Nearing Indoor
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ state_attr(''climate.hallway_thermostat'', ''current_temperature'')
+      >= 23 }}'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dining_window_ias_zone
+    state: 'on'
+  action:
+  - data:
+      notification_message: AC advised
+      notification_title: Outdoor temperature reached 23 degrees
+    service: script.notify
+  mode: single
+- id: galaxy_tab_s_light_on
+  alias: Galaxy Tab S Light On
+  description: ''
+  trigger:
+  - entity_id: light.galaxytabs
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - delay: 00:00:05
+  - data:
+      deviceID:
+      - galaxytabs
+      navigation_path: /lovelace-screensaver/16x10_slow
+    service: browser_mod.navigate
+  - data: {}
+    entity_id: light.galaxytabs
+    service: light.turn_off
+  mode: single
+- id: galaxy_tab_s6_light_on
+  alias: Galaxy Tab S6 Light On
+  description: ''
+  trigger:
+  - entity_id: light.galaxytabs6
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - delay: 00:00:05
+  - data:
+      deviceID:
+      - galaxytabs6
+      navigation_path: /lovelace-screensaver/5x3
+    service: browser_mod.navigate
+  - data: {}
+    entity_id: light.galaxytabs6
+    service: light.turn_off
+  mode: single
+- id: galaxy_tab_a_light_on
+  alias: Galaxy Tab A Light On
+  description: ''
+  trigger:
+  - entity_id: light.galaxytaba
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - delay: 00:00:05
+  - data:
+      deviceID:
+      - galaxytaba
+      navigation_path: /lovelace-screensaver/16x10
+    service: browser_mod.navigate
+  - data: {}
+    entity_id: light.galaxytaba
+    service: light.turn_off
   mode: single

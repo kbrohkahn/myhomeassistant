@@ -39,6 +39,24 @@
                         5
                     ]
                 ]
+            },
+            {
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0c:86:70"
+                    ]
+                ],
+                "id": "e9ff6f9809954d119c5184cff2f7dd8e",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0c:86:70"
+                    ]
+                ]
             }
         ],
         "devices": [
@@ -100,7 +118,7 @@
                 ],
                 "manufacturer": "samsung",
                 "model": "SM-N975U1",
-                "name": "SM-N975U1",
+                "name": "Galaxy Note 10",
                 "name_by_user": null,
                 "sw_version": "29",
                 "via_device_id": null
@@ -1199,7 +1217,7 @@
                 "model": "BSB002",
                 "name": "Philips hue",
                 "name_by_user": null,
-                "sw_version": "1940042020",
+                "sw_version": "1940094000",
                 "via_device_id": null
             },
             {
@@ -1997,15 +2015,15 @@
                 "connections": [
                     [
                         "zigbee",
-                        "28:6d:97:00:01:0c:86:70"
+                        "28:6d:97:00:01:11:01:16"
                     ]
                 ],
                 "entry_type": null,
-                "id": "e9ff6f9809954d119c5184cff2f7dd8e",
+                "id": "042e188951ca4336b361bc335085f82f",
                 "identifiers": [
                     [
                         "zha",
-                        "28:6d:97:00:01:0c:86:70"
+                        "28:6d:97:00:01:11:01:16"
                     ]
                 ],
                 "manufacturer": "Samjin",
@@ -2014,6 +2032,137 @@
                 "name_by_user": "Kitchen Motion Sensor",
                 "sw_version": "0x00000011",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": "daf77bcc23b74036a51df8a246fff625",
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "28:6d:97:00:01:0d:aa:20"
+                    ]
+                ],
+                "entry_type": null,
+                "id": "fc73c8d0adb14965aa9c629febdde7bd",
+                "identifiers": [
+                    [
+                        "zha",
+                        "28:6d:97:00:01:0d:aa:20"
+                    ]
+                ],
+                "manufacturer": "Samjin",
+                "model": "multi",
+                "name": "Samjin multi",
+                "name_by_user": "Pantry Door",
+                "sw_version": "0x00000011",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "c26982dfb8814190a280c995f744d753"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "1cafb40216a84afc88b9da0bdfd5b504",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "78aa0852ad33449fbac5c68d6edc54cc"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "UNKNOWN A1ETW4IXK2PYBP",
+                "name": "Kevin's Talk to Alexa",
+                "name_by_user": null,
+                "sw_version": "2020218",
+                "via_device_id": "1cafb40216a84afc88b9da0bdfd5b504"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "0f0478bc734846f790bff3ef6993d4da"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "e13ad0cc932a423cbc6ceeb58125d0d4",
+                "identifiers": [
+                    [
+                        "smartthings",
+                        "C097278B-E3C2-0000-0000-000000000000"
+                    ]
+                ],
+                "manufacturer": "Unavailable",
+                "model": "Samsung OCF Robot Vacuum",
+                "name": "Robot vacuum",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
+                "config_entries": [
+                    "0f0478bc734846f790bff3ef6993d4da"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "f7deed716719414fb6d8e7053f000b48",
+                "identifiers": [
+                    [
+                        "smartthings",
+                        "6063fa94-6263-4e7d-98f6-695084811aaf"
+                    ]
+                ],
+                "manufacturer": "Unavailable",
+                "model": null,
+                "name": "Starlight",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": "252d6f6e725f4b6ca291c2c254967169",
+                "config_entries": [
+                    "0f0478bc734846f790bff3ef6993d4da"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "92b465566b684782b9c702631322c75e",
+                "identifiers": [
+                    [
+                        "smartthings",
+                        "9206b4b3-92ad-4e65-95a3-bfd5464d774c"
+                    ]
+                ],
+                "manufacturer": "Unavailable",
+                "model": null,
+                "name": "Office TV",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "0f0478bc734846f790bff3ef6993d4da"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "a207377741ce42a7990ceb61ed604766",
+                "identifiers": [
+                    [
+                        "smartthings",
+                        "1ef2ee2b-8499-4119-81cd-6130333ad1c3"
+                    ]
+                ],
+                "manufacturer": "Unavailable",
+                "model": null,
+                "name": "KEVIN BROH-KAHN's Galaxy Note10+",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
             }
         ]
     },

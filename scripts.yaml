@@ -175,7 +175,9 @@ users_away:
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
       automation.hallway_bath_door_motion,automation.master_bath_door_motion,automation.hallway_motion_start_lights,automation.kitchen_motion_start_lights,
-      automation.master_motion_start_lights,automation.sunset,automation.office_motion_start_when_wfh
+      automation.master_motion_start_lights,automation.sunset,automation.office_motion_start_when_wfh,
+      automation.galaxy_tab_a_motion_start,automation.galaxy_tab_a_motion_stop, automation.galaxy_tab_s_motion_start,automation.galaxy_tab_s_motion_stop,
+      automation.galaxy_tab_s6_motion_start,automation.galaxy_tab_s6_motion_stop
     service: automation.turn_off
   - data: {}
     entity_id: automation.nightlight
@@ -208,7 +210,8 @@ users_away:
       state: 'off'
   - data_template:
       temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 26
-        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 16 {% endif %}'
+        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 16 {% endif
+        %}'
     entity_id: climate.hallway_thermostat
     service: climate.set_temperature
   mode: single
@@ -218,8 +221,9 @@ users_home:
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
       automation.hallway_bath_door_motion,automation.master_bath_door_motion,automation.hallway_motion_start_lights,automation.kitchen_motion_start_lights,
-      automation.master_motion_start_lights,automation.sunset,automation.office_motion_start_when_wfh
-      
+      automation.master_motion_start_lights,automation.sunset,automation.office_motion_start_when_wfh,
+      automation.galaxy_tab_a_motion_start,automation.galaxy_tab_a_motion_stop, automation.galaxy_tab_s_motion_start,automation.galaxy_tab_s_motion_stop,
+      automation.galaxy_tab_s6_motion_start,automation.galaxy_tab_s6_motion_stop
     service: automation.turn_on
   - data: {}
     entity_id: automation.nightlight
@@ -251,7 +255,8 @@ users_home:
       state: 'off'
   - data_template:
       temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 24
-        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 18 {% endif %}'
+        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 18 {% endif
+        %}'
     entity_id: climate.hallway_thermostat
     service: climate.set_temperature
   mode: single
@@ -261,10 +266,11 @@ bedtime:
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
       automation.kitchen_motion_stop_during_day,automation.humidity_over_50,automation.master_motion_stop,
-      automation.master_motion_start_lights,automation.keep_idiot_echo_bluetooth_connected,automation.front_door_knock
+      automation.master_motion_start_lights,automation.front_door_knock, automation.galaxy_tab_a_motion_start,automation.galaxy_tab_a_motion_stop,
+      automation.galaxy_tab_s_motion_start,automation.galaxy_tab_s_motion_stop, automation.galaxy_tab_s6_motion_start,automation.galaxy_tab_s6_motion_stop
     service: automation.turn_off
   - data: {}
-    entity_id: automation.kitchen_motion_stop_after_bedtime
+    entity_id: automation.kitchen_motion_stop_after_bedtime, automation.galaxy_tab_a_light_on,automation.galaxy_tab_s_light_on,automation.galaxy_tab_s6_light_on
     service: automation.turn_on
   - data:
       brightness: 128
@@ -394,10 +400,11 @@ good_morning:
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
       automation.kitchen_motion_stop_during_day,automation.humidity_over_50,automation.master_motion_stop,
-      automation.master_motion_start_lights,automation.keep_idiot_echo_bluetooth_connected,automation.front_door_knock
+      automation.master_motion_start_lights,automation.front_door_knock, automation.galaxy_tab_a_motion_start,automation.galaxy_tab_a_motion_stop,
+      automation.galaxy_tab_s_motion_start,automation.galaxy_tab_s_motion_stop, automation.galaxy_tab_s6_motion_start,automation.galaxy_tab_s6_motion_stop
     service: automation.turn_on
   - data: {}
-    entity_id: automation.kitchen_motion_stop_after_bedtime
+    entity_id: automation.kitchen_motion_stop_after_bedtime, automation.galaxy_tab_a_light_on,automation.galaxy_tab_s_light_on,automation.galaxy_tab_s6_light_on
     service: automation.turn_off
   - data: {}
     entity_id:
@@ -412,23 +419,43 @@ next_song:
 wake_up:
   alias: Wake Up
   sequence:
-  - data:
-      payload: '{"wake": true}'
-      topic: wallpanel/galaxytaba/command
-    service: mqtt.publish
-  - data:
-      payload: '{"wake": true}'
-      topic: wallpanel/galaxytabs6/command
-    service: mqtt.publish
-  - data:
-      payload: '{"wake": true}'
-      topic: wallpanel/galaxystabs/command
-    service: mqtt.publish
   - entity_id:
     - light.galaxytaba
     - light.galaxytabs
     - light.galaxytabs6
     service: light.turn_on
+  - data:
+      deviceID:
+      - galaxytaba
+      - galaxytabs
+      - galaxytabs6
+      navigation_path: /lovelace/home
+    service: browser_mod.navigate
+  - delay: 00:00:15
+  - data:
+      deviceID:
+      - galaxytaba
+      navigation_path: /lovelace-screensaver/16x10
+    service: browser_mod.navigate
+  - data:
+      deviceID:
+      - galaxytabs6
+      navigation_path: /lovelace-screensaver/5x3
+    service: browser_mod.navigate
+  - data:
+      deviceID:
+      - galaxytabs
+      navigation_path: /lovelace-screensaver/16x10_slow
+    service: browser_mod.navigate
+  - condition: state
+    entity_id: automation.kitchen_motion_stop_after_bedtime
+    state: 'on'
+  - data: {}
+    entity_id:
+    - light.galaxytaba
+    - light.galaxytabs
+    - light.galaxytabs6
+    service: light.turn_off
 kill_bose_group:
   alias: Kill Bose Group
   sequence:
@@ -457,7 +484,6 @@ create_bose_group:
       - media_player.soundtouch_living_room
       - media_player.soundtouch_kitchen
     service: soundtouch.create_zone
-  - delay: 00:00:03
 spotify_to_phone:
   alias: Spotify To Phone
   sequence:
@@ -478,11 +504,7 @@ start_the_office:
     service: script.office_daytime_lights
   - data: {}
     service: script.maybe_start_office_tv
-  - delay: 00:00:05
-  - data:
-      event: office_tv_input_hdmi3
-    entity_id: media_player.office_tv
-    service: ifttt.trigger
+  
 stop_the_office:
   alias: Stop the Office
   sequence:
@@ -695,22 +717,20 @@ master_bath_lights_on:
 maybe_start_office_tv:
   alias: Maybe Start Office TV
   sequence:
-  - below: '30'
-    condition: numeric_state
-    entity_id: sensor.office_peripherals_watts
-  - data:
-      event: office_tv_power
-    service: ifttt.trigger
+  - state: 'off'
+    condition: state
+    entity_id: switch.office_master
+  - entity_id: switch.office_tv
+    service: switch.toggle
   mode: single
 maybe_stop_office_tv:
   alias: Maybe Stop Office TV
   sequence:
-  - above: '30'
-    condition: numeric_state
-    entity_id: sensor.office_peripherals_watts
-  - data:
-      event: office_tv_power
-    service: ifttt.trigger
+  - state: 'on'
+    condition: state
+    entity_id: switch.office_master
+  - entity_id: switch.office_tv
+    service: switch.toggle
   mode: single
 start_cameras:
   alias: Start Cameras
@@ -744,22 +764,28 @@ stop_cameras:
       topic: wallpanel/galaxytabs/command
     service: mqtt.publish
   mode: single
+starlight_on:
+  alias: Starlight On
+  mode: single
+  sequence:
+  - entity_id: switch.starlight_outlet
+    service: switch.turn_on
+  - entity_id: switch.starlight_switchbot
+    service: switch.toggle
 starlight_off:
   alias: Starlight Off
   mode: single
   sequence:
-  - data:
-      event: starlight_press
-    service: ifttt.trigger
-  - data:
-      event: starlight_press
-    service: ifttt.trigger
-  - data:
-      event: starlight_press
-    service: ifttt.trigger
-  - data:
-      event: starlight_press
-    service: ifttt.trigger
+  - entity_id: switch.starlight_switchbot
+    service: switch.toggle
+  - entity_id: switch.starlight_switchbot
+    service: switch.toggle
+  - entity_id: switch.starlight_switchbot
+    service: switch.toggle
+  - entity_id: switch.starlight_switchbot
+    service: switch.toggle
+  - entity_id: switch.starlight_outlet
+    service: switch.turn_off
 start_vacuum:
   alias: Start Vacuum
   mode: single
@@ -816,3 +842,43 @@ start_mop:
         - Mop Area
     entity_id: vacuum.rockrobo
     service: vacuum.send_command
+notify:
+  alias: Notify
+  mode: single
+  sequence:
+  - data_template:
+      data:
+        type: tts
+      message: '{{ notification_title }}. {{ notification_message }}'
+      target: Dining Echo Dot
+    service: notify.alexa_media
+  - data_template:
+      card:
+        cards:
+        - content: '## {{ notification_message }}'
+          type: markdown
+        - entity: script.acknowledge
+          icon: mdi:check
+          name: Acknowledge
+          tap_action:
+            action: call-service
+            service: script.acknowledge
+          type: button
+        type: vertical-stack
+      title: '{{ notification_title }}'
+    service: browser_mod.popup
+  - condition: state
+    entity_id: automation.kitchen_motion_start_lights
+    state: 'off'
+  - data_template:
+      message: '{{ notification_message }}'
+      title: '{{ notification_title }}'
+    service: notify.mobile_app_kevin_s_galaxy_note_10
+acknowledge:
+  alias: Acknowledge
+  mode: single
+  sequence:
+  - data:
+      sound_effect_filename: r2d2-5.mp3
+    service: script.browser_sound_effect
+  - service: browser_mod.close_popup

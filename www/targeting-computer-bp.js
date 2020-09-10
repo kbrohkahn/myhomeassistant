@@ -12,9 +12,8 @@ ha-card {
 }
 
 #main {
-  background: black;  
   border: solid 2px yellow;
-  border-radius: 16px;
+  border-radius: 64px;
   position: relative;
   height: 100%;
   box-sizing: border-box;

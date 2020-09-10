@@ -40,11 +40,8 @@
                                 {
                                     "cards": [
                                         {
-                                            "type": "custom:clock-card"
-                                        },
-                                        {
                                             "entity": "weather.openweathermap",
-                                            "name": "Home",
+                                            "name": "Arlington",
                                             "show_forecast": true,
                                             "style": ":host div.temp-attribute .temp {\n  font-size: 48px;\n}\n:host([narrow]) div.temp-attribute .temp {\n  font-size: 36px;                  \n}\n",
                                             "type": "weather-forecast"
@@ -470,7 +467,7 @@
                                                     "type": "state-icon"
                                                 }
                                             ],
-                                            "image": "local/images/floorplan_cropped.png",
+                                            "image": "local/images/home_as.svg",
                                             "type": "picture-elements"
                                         },
                                         {
@@ -480,7 +477,7 @@
                                                         {
                                                             "cards": [
                                                                 {
-                                                                    "entity": "switch.at_home",
+                                                                    "entity": "switch.away",
                                                                     "type": "button"
                                                                 },
                                                                 {
@@ -554,61 +551,24 @@
                                 {
                                     "cards": [
                                         {
-                                            "entities": [
+                                            "cards": [
                                                 {
-                                                    "entity": "sensor.office_peripherals_watts",
-                                                    "hold_action": {
-                                                        "action": "more-info"
-                                                    },
-                                                    "icon": "mdi:monitor-speaker",
+                                                    "entity": "switch.office_master",
                                                     "name": "Office",
-                                                    "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.office_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
-                                                    "tap_action": {
-                                                        "action": "call-service",
-                                                        "service": "switch.toggle",
-                                                        "service_data": {
-                                                            "entity_id": "switch.office_master"
-                                                        }
-                                                    },
                                                     "type": "entity-button"
                                                 },
                                                 {
-                                                    "entity": "sensor.living_room_monitor_watts",
-                                                    "hold_action": {
-                                                        "action": "more-info"
-                                                    },
-                                                    "icon": "mdi:monitor",
+                                                    "entity": "switch.living_room_monitor",
                                                     "name": "Living Room",
-                                                    "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.living_room_monitor', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
-                                                    "tap_action": {
-                                                        "action": "call-service",
-                                                        "service": "switch.toggle",
-                                                        "service_data": {
-                                                            "entity_id": "switch.living_room_monitor"
-                                                        }
-                                                    },
                                                     "type": "entity-button"
                                                 },
                                                 {
-                                                    "entity": "sensor.theater_peripherals_watts",
-                                                    "hold_action": {
-                                                        "action": "more-info"
-                                                    },
-                                                    "icon": "mdi:theater",
+                                                    "entity": "switch.theater_master",
                                                     "name": "Theater",
-                                                    "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.theater_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
-                                                    "tap_action": {
-                                                        "action": "call-service",
-                                                        "service": "switch.toggle",
-                                                        "service_data": {
-                                                            "entity_id": "switch.theater_master"
-                                                        }
-                                                    },
                                                     "type": "entity-button"
                                                 }
                                             ],
-                                            "style": ":host div:first-child {\n  padding-right: 8px;\n  border-right: solid black 8px;\n}\n:host div:last-child {\n  padding-left: 8px;\n  border-left: solid black 8px;\n}\n",
-                                            "type": "glance"
+                                            "type": "horizontal-stack"
                                         },
                                         {
                                             "cards": [
@@ -2377,22 +2337,6 @@
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.master_motion_sensor_temperature",
-                                                    "name": false
-                                                },
-                                                {
-                                                    "entity": "sensor.master_motion_sensor_power",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "binary_sensor.master_motion_sensor_ias_zone",
-                                            "name": "Master Motion",
-                                            "secondary_info": "last-changed",
-                                            "type": "custom:multiple-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
                                                     "entity": "sensor.kitchen_motion_sensor_temperature",
                                                     "name": false
                                                 },
@@ -2402,7 +2346,23 @@
                                                 }
                                             ],
                                             "entity": "binary_sensor.kitchen_motion_sensor_ias_zone",
-                                            "name": "Kitchen Motion",
+                                            "name": "Kitchen Motion Sensor",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.living_room_motion_sensor_temperature",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.living_room_motion_sensor_power",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "binary_sensor.living_room_motion_sensor_ias_zone",
+                                            "name": "Living Room Motion Sensor",
                                             "secondary_info": "last-changed",
                                             "type": "custom:multiple-entity-row"
                                         },
@@ -2418,10 +2378,32 @@
                                                 }
                                             ],
                                             "entity": "binary_sensor.hallway_motion_sensor_ias_zone",
-                                            "name": "Hallway Motion",
+                                            "name": "Hallway Motion Sensor",
                                             "secondary_info": "last-changed",
                                             "type": "custom:multiple-entity-row"
                                         },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.master_motion_sensor_temperature",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.master_motion_sensor_power",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "binary_sensor.master_motion_sensor_ias_zone",
+                                            "name": "Master Motion Sensor",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
+                                        }
+                                    ],
+                                    "title": "Multipurpose Sensors",
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
                                         {
                                             "entities": [
                                                 {
@@ -2435,6 +2417,22 @@
                                             ],
                                             "entity": "binary_sensor.kitchen_door_ias_zone",
                                             "name": "Kitchen Door",
+                                            "secondary_info": "last-changed",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.pantry_door_temperature",
+                                                    "name": false
+                                                },
+                                                {
+                                                    "entity": "sensor.pantry_door_power",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "binary_sensor.pantry_door_ias_zone",
+                                            "name": "Pantry Door",
                                             "secondary_info": "last-changed",
                                             "type": "custom:multiple-entity-row"
                                         },
@@ -2519,7 +2517,7 @@
                                             "type": "custom:multiple-entity-row"
                                         }
                                     ],
-                                    "title": "Sensors",
+                                    "title": "Multipurpose Sensors",
                                     "type": "entities"
                                 }
                             ],
@@ -2576,11 +2574,12 @@
                                             "name": "Hallway"
                                         },
                                         {
-                                            "entity": "sensor.kitchen_motion_sensor_temperature",
-                                            "name": "Kitchen"
+                                            "entity": "sensor.dining_window_temperature",
+                                            "name": "Dining"
                                         },
                                         {
-                                            "entity": "sensor.hallway_thermostat_temperature"
+                                            "entity": "sensor.kitchen_door_temperature",
+                                            "name": "Kitchen"
                                         }
                                     ],
                                     "hours_to_show": 24,
@@ -2611,31 +2610,56 @@
                         {
                             "cards": [
                                 {
-                                    "entities": [
+                                    "cards": [
                                         {
-                                            "entity": "sensor.theater_peripherals_watts",
-                                            "name": "Theater Peripherals"
+                                            "entity": "sensor.ups_watts",
+                                            "icon": "mdi:car-battery",
+                                            "name": "UPS",
+                                            "type": "entity"
                                         },
                                         {
-                                            "entity": "sensor.theater_systems_watts",
-                                            "name": "Office"
-                                        },
-                                        {
-                                            "entity": "sensor.living_room_monitor_watts",
-                                            "name": "Living Room"
-                                        },
-                                        {
-                                            "entity": "sensor.office_peripherals_watts",
-                                            "name": "Theater Systems"
-                                        },
-                                        {
-                                            "entity": "sensor.ups_watts"
+                                            "attribute": "current_power_w",
+                                            "entity": "switch.theater_peripherals",
+                                            "type": "entity",
+                                            "unit": "W"
                                         }
                                     ],
-                                    "hours_to_show": 24,
-                                    "refresh_interval": 0,
-                                    "title": "Power",
-                                    "type": "history-graph"
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "attribute": "current_power_w",
+                                            "entity": "switch.living_room_monitor",
+                                            "type": "entity",
+                                            "unit": "W"
+                                        },
+                                        {
+                                            "attribute": "current_power_w",
+                                            "entity": "switch.office_peripherals",
+                                            "type": "entity",
+                                            "unit": "W"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.fountain_electrical_measurement",
+                                            "icon": "mdi:fountain",
+                                            "name": "Fountain",
+                                            "type": "entity",
+                                            "unit": "W"
+                                        },
+                                        {
+                                            "attribute": "current_power_w",
+                                            "entity": "switch.starlight_outlet",
+                                            "type": "entity",
+                                            "unit": "W"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
                                 },
                                 {
                                     "entities": [
@@ -2650,25 +2674,6 @@
                                         }
                                     ],
                                     "type": "entities"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.ups_watts",
-                                            "graph": "line",
-                                            "icon": "mdi:car-battery",
-                                            "name": "UPS",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.theater_systems_watts",
-                                            "graph": "line",
-                                            "icon": "mdi:audio-video",
-                                            "name": "Theater",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -2805,8 +2810,6 @@
                                     "cards": [
                                         {
                                             "entity": "sensor.glances_cpu_used",
-                                            "max": 100,
-                                            "min": 0,
                                             "severity": {
                                                 "green": 0,
                                                 "red": 80,
@@ -2831,23 +2834,23 @@
                                     "cards": [
                                         {
                                             "entity": "sensor.glances_core_0_temp",
-                                            "max": 160,
+                                            "max": 70,
                                             "min": 20,
                                             "severity": {
                                                 "green": 20,
-                                                "red": 40,
-                                                "yellow": 30
+                                                "red": 50,
+                                                "yellow": 35
                                             },
                                             "type": "gauge"
                                         },
                                         {
                                             "entity": "sensor.glances_core_1_temp",
-                                            "max": 160,
+                                            "max": 70,
                                             "min": 20,
                                             "severity": {
                                                 "green": 20,
-                                                "red": 40,
-                                                "yellow": 30
+                                                "red": 50,
+                                                "yellow": 35
                                             },
                                             "type": "gauge"
                                         }
@@ -2858,23 +2861,23 @@
                                     "cards": [
                                         {
                                             "entity": "sensor.glances_core_2_temp",
-                                            "max": 160,
+                                            "max": 70,
                                             "min": 20,
                                             "severity": {
                                                 "green": 20,
-                                                "red": 40,
-                                                "yellow": 30
+                                                "red": 50,
+                                                "yellow": 35
                                             },
                                             "type": "gauge"
                                         },
                                         {
                                             "entity": "sensor.glances_core_3_temp",
-                                            "max": 160,
+                                            "max": 70,
                                             "min": 20,
                                             "severity": {
                                                 "green": 20,
-                                                "red": 40,
-                                                "yellow": 30
+                                                "red": 50,
+                                                "yellow": 35
                                             },
                                             "type": "gauge"
                                         }
@@ -3022,64 +3025,105 @@
                     "badges": [],
                     "cards": [
                         {
-                            "aspect_ratio": "0%",
-                            "entities": [
+                            "cards": [
                                 {
-                                    "entity": "binary_sensor.galaxy_tab_a_motion"
+                                    "aspect_ratio": "0%",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_a_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_a_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_a_camera",
+                                    "image": "local/images/rooms/kitchen.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
+                                    "title": "Kitchen",
+                                    "type": "picture-glance"
                                 },
                                 {
-                                    "entity": "camera.galaxy_tab_a_camera"
-                                }
-                            ],
-                            "entity": "camera.galaxy_tab_a_camera",
-                            "image": "local/images/rooms/kitchen.jpg",
-                            "state_filter": {
-                                "off": "grayscale(0%)",
-                                "on": "grayscale(100%)"
-                            },
-                            "title": "Kitchen",
-                            "type": "picture-glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.galaxy_tab_s6_motion"
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_s6_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_s6_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_s6_camera",
+                                    "image": "local/images/rooms/master.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
+                                    "title": "Master",
+                                    "type": "picture-glance"
                                 },
                                 {
-                                    "entity": "camera.galaxy_tab_s6_camera"
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_s_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_s_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_s_camera",
+                                    "image": "local/images/rooms/office.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
+                                    "title": "Office",
+                                    "type": "picture-glance"
                                 }
                             ],
-                            "entity": "camera.galaxy_tab_s6_camera",
-                            "image": "local/images/rooms/master.jpg",
-                            "state_filter": {
-                                "off": "grayscale(0%)",
-                                "on": "grayscale(100%)"
-                            },
-                            "title": "Master",
-                            "type": "picture-glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.galaxy_tab_s_motion"
-                                },
-                                {
-                                    "entity": "camera.galaxy_tab_s_camera"
-                                }
-                            ],
-                            "entity": "camera.galaxy_tab_s_camera",
-                            "image": "local/images/rooms/office.jpg",
-                            "state_filter": {
-                                "off": "grayscale(0%)",
-                                "on": "grayscale(100%)"
-                            },
-                            "title": "Office",
-                            "type": "picture-glance"
+                            "type": "horizontal-stack"
                         }
                     ],
                     "icon": "mdi:cctv",
+                    "panel": true,
                     "path": "cameras",
                     "title": "Cameras"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "config": {
+                                "image": "/local/floorplan/examples/simple/simple.svg?v=1.1.14",
+                                "rules": [
+                                    {
+                                        "entities": [
+                                            "binary_sensor.main_bedroom",
+                                            "binary_sensor.living_area",
+                                            "binary_sensor.double_garage"
+                                        ],
+                                        "states": [
+                                            {
+                                                "class": "binary-sensor-off",
+                                                "state": "off"
+                                            },
+                                            {
+                                                "class": "binary-sensor-on",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "stylesheet": "/local/floorplan/examples/simple/simple.css?v=1.1.14"
+                            },
+                            "title": "Simple Floorplan",
+                            "type": "custom:floorplan-card"
+                        }
+                    ],
+                    "panel": true,
+                    "path": "test",
+                    "title": "test"
                 }
             ]
         }

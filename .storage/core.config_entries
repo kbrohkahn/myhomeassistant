@@ -113,7 +113,7 @@
                     "app_name": "Home Assistant",
                     "app_version": "2.3.3-full (343)",
                     "device_id": "d689aabf1278c427",
-                    "device_name": "SM-N975U1",
+                    "device_name": "Galaxy Note 10",
                     "manufacturer": "samsung",
                     "model": "SM-N975U1",
                     "os_name": "Android",
@@ -272,8 +272,8 @@
                     "id": "125975319",
                     "name": "125975319",
                     "token": {
-                        "access_token": "BQDHf2R8klqC3ZQXV4qbMiVO7g15KZRvxMRRGZBAtZr2sT-GPe5xw8UtAuyEm-i5v4uz8wV-0zZcjI-C5fnc-s3oZVWMJoglc7n1NVyyyNtipAs6ddSYNmc10aTj0OpODIjC8A15QVO3flMmaZ8-ySdU5rozd-DkvKb3",
-                        "expires_at": 1599491480.5518124,
+                        "access_token": "BQAknL_9pOk70ujxTZZUHzXyLnK1rgMVlftDunqEb8IDTIM09nJ5Aai-eVByy_eJKVXdve7_VcYMea2cR_0hKSOtnLh5gJ-5YLRhqkVci6r1saGmzZSM7E_UCp2AZMmJohsH18aRHD5ObRFiYM_vWx6q75IGHO8B5rT7",
+                        "expires_at": 1599752428.1685517,
                         "expires_in": 3600,
                         "refresh_token": "AQDy779VHQYss3YLfaoBgbjaGpF0JKM5mGB2tnSgDUx2NjBRFsLB25pULTwoyULa_J2SEavVpn3YnGIRKdhZVcS_SAiAURLUnoFd3CoiZII5lsGqgHNo-KHneGHzjOxpGpg",
                         "scope": "user-modify-playback-state user-read-playback-state user-read-private",
@@ -419,6 +419,28 @@
                 "title": "Almond",
                 "unique_id": null,
                 "version": 1
+            },
+            {
+                "connection_class": "cloud_push",
+                "data": {
+                    "access_token": "099ccbd1-9e31-4ee5-afcc-2bb3be2e5a9d",
+                    "app_id": "3991d411-a702-4afc-adc0-b56be6b1eb6a",
+                    "client_id": "445c53c4-662a-4ab3-b849-5683b399797d",
+                    "client_secret": "78be39e2-c755-4a70-bb96-7a71d13b3103",
+                    "installed_app_id": "9716ba89-24fd-49e0-872a-b86b61335d5b",
+                    "location_id": "9c58daa6-46f4-4274-872a-6fa82ab59499",
+                    "refresh_token": "6e980935-3132-4bbd-9ae9-e657668daa0d"
+                },
+                "domain": "smartthings",
+                "entry_id": "0f0478bc734846f790bff3ef6993d4da",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Home",
+                "unique_id": "3991d411-a702-4afc-adc0-b56be6b1eb6a_9c58daa6-46f4-4274-872a-6fa82ab59499",
+                "version": 2
             }
         ]
     },
