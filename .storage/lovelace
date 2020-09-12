@@ -40,32 +40,10 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "weather.openweathermap",
-                                            "name": "Arlington",
-                                            "show_forecast": true,
-                                            "style": ":host div.temp-attribute .temp {\n  font-size: 48px;\n}\n:host([narrow]) div.temp-attribute .temp {\n  font-size: 36px;                  \n}\n",
-                                            "type": "weather-forecast"
-                                        },
-                                        {
-                                            "cards": [
-                                                {
-                                                    "entity": "sensor.owm_humidity",
-                                                    "graph": "line",
-                                                    "hours_to_show": 8,
-                                                    "icon": "mdi:air-humidifier",
-                                                    "name": "Humidity",
-                                                    "type": "sensor"
-                                                },
-                                                {
-                                                    "entity": "sensor.owm_wind_speed",
-                                                    "graph": "line",
-                                                    "hours_to_show": 8,
-                                                    "icon": "mdi:weather-windy",
-                                                    "name": "Wind",
-                                                    "type": "sensor"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
+                                            "mode": "hourly",
+                                            "style": ":host ha-card {\n  margin-top: 10px;\n}\n",
+                                            "type": "custom:weather-card-chart",
+                                            "weather": "weather.openweathermap"
                                         },
                                         {
                                             "control": {
@@ -366,105 +344,216 @@
                                                     "type": "conditional"
                                                 },
                                                 {
-                                                    "entity": "light.hallway_bath_light",
-                                                    "style": {
-                                                        "left": "26%",
-                                                        "top": "64%",
-                                                        "transform": "scale(1.5,1.5)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
+                                                    "conditions": [
+                                                        {
+                                                            "entity": "light.hallway_bath_light",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
+                                                        {
+                                                            "entity": "light.hallway_bath_light",
+                                                            "style": {
+                                                                "left": "26%",
+                                                                "top": "64%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
                                                 },
                                                 {
-                                                    "entity": "switch.hallway_bath_fan",
-                                                    "icon": "mdi:fan",
-                                                    "style": {
-                                                        "left": "27%",
-                                                        "top": "86%",
-                                                        "transform": "scale(1.5,1.5)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
+                                                    "conditions": [
+                                                        {
+                                                            "entity": "switch.hallway_bath_fan",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
+                                                        {
+                                                            "entity": "switch.hallway_bath_fan",
+                                                            "icon": "mdi:fan",
+                                                            "style": {
+                                                                "left": "27%",
+                                                                "top": "86%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
                                                 },
                                                 {
-                                                    "entity": "light.laundry_light",
-                                                    "style": {
-                                                        "left": "38%",
-                                                        "top": "84%",
-                                                        "transform": "scale(1.5,1.5)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
+                                                    "conditions": [
+                                                        {
+                                                            "entity": "light.pantry",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
+                                                        {
+                                                            "entity": "light.pantry",
+                                                            "style": {
+                                                                "left": "51%",
+                                                                "top": "88%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
                                                 },
                                                 {
-                                                    "entity": "light.closet_light",
-                                                    "style": {
-                                                        "left": "20%",
-                                                        "top": "76%",
-                                                        "transform": "scale(1.5,1.5)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
+                                                    "conditions": [
+                                                        {
+                                                            "entity": "light.laundry_light",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
+                                                        {
+                                                            "entity": "light.laundry_light",
+                                                            "style": {
+                                                                "left": "38%",
+                                                                "top": "84%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
                                                 },
                                                 {
-                                                    "entity": "light.master_bath_light",
-                                                    "icon": "mdi:lightbulb",
-                                                    "style": {
-                                                        "left": "13%",
-                                                        "top": "70%",
-                                                        "transform": "scale(1.5,1.5)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
+                                                    "conditions": [
+                                                        {
+                                                            "entity": "light.closet_light",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
+                                                        {
+                                                            "entity": "light.closet_light",
+                                                            "style": {
+                                                                "left": "20%",
+                                                                "top": "76%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
                                                 },
                                                 {
-                                                    "entity": "light.master_bath_under_vanity",
-                                                    "icon": "mdi:led-strip-variant",
-                                                    "style": {
-                                                        "left": "8%",
-                                                        "top": "70%",
-                                                        "transform": "scale(1.5,1.5)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
+                                                    "conditions": [
+                                                        {
+                                                            "entity": "light.master_bath_light",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
+                                                        {
+                                                            "entity": "light.master_bath_light",
+                                                            "icon": "mdi:lightbulb",
+                                                            "style": {
+                                                                "left": "13%",
+                                                                "top": "70%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
                                                 },
                                                 {
-                                                    "entity": "light.master_bath_cabinet",
-                                                    "icon": "mdi:led-strip-variant",
-                                                    "style": {
-                                                        "left": "12%",
-                                                        "top": "87%",
-                                                        "transform": "scale(1.5,1.5)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
+                                                    "conditions": [
+                                                        {
+                                                            "entity": "light.master_bath_under_vanity",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
+                                                        {
+                                                            "entity": "light.master_bath_under_vanity",
+                                                            "icon": "mdi:led-strip-variant",
+                                                            "style": {
+                                                                "left": "8%",
+                                                                "top": "70%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
                                                 },
                                                 {
-                                                    "entity": "switch.master_bath_fan",
-                                                    "icon": "mdi:fan",
-                                                    "style": {
-                                                        "left": "2%",
-                                                        "top": "86%",
-                                                        "transform": "scale(1.5,1.5)"
-                                                    },
-                                                    "tap_action": {
-                                                        "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
+                                                    "conditions": [
+                                                        {
+                                                            "entity": "light.master_bath_cabinet",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
+                                                        {
+                                                            "entity": "light.master_bath_cabinet",
+                                                            "icon": "mdi:led-strip-variant",
+                                                            "style": {
+                                                                "left": "12%",
+                                                                "top": "87%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
+                                                },
+                                                {
+                                                    "conditions": [
+                                                        {
+                                                            "entity": "switch.master_bath_fan",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
+                                                        {
+                                                            "entity": "switch.master_bath_fan",
+                                                            "icon": "mdi:fan",
+                                                            "style": {
+                                                                "left": "2%",
+                                                                "top": "86%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
                                                 }
                                             ],
                                             "image": "local/images/home_as.svg",
@@ -492,10 +581,6 @@
                                                             "type": "horizontal-stack"
                                                         },
                                                         {
-                                                            "CalEventIcon1Filter": "birthday",
-                                                            "CalEventIcon2Filter": "waste,bills",
-                                                            "defaultMode": 1,
-                                                            "enableModeChange": true,
                                                             "entities": [
                                                                 {
                                                                     "entity": "calendar.holidays_in_united_states"
@@ -507,10 +592,9 @@
                                                                     "entity": "calendar.kbkrunner_gmail_com"
                                                                 }
                                                             ],
-                                                            "showColors": true,
-                                                            "showDate": false,
-                                                            "showMonth": false,
-                                                            "type": "custom:atomic-calendar"
+                                                            "hoursFormat": "HH:mm",
+                                                            "maxDaysToShow": 7,
+                                                            "type": "custom:atomic-calendar-revive"
                                                         }
                                                     ],
                                                     "type": "vertical-stack"
@@ -1813,6 +1897,139 @@
                     "badges": [],
                     "cards": [
                         {
+                            "cards": [
+                                {
+                                    "entity": "weather.kdca_hourly",
+                                    "show_forecast": true,
+                                    "type": "weather-forecast"
+                                },
+                                {
+                                    "title": "Daily",
+                                    "type": "custom:weather-card-chart",
+                                    "weather": "weather.kdca_daynight"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "defaultMode": "Calendar",
+                                    "disableCalEventLink": false,
+                                    "disableCalLocationLink": false,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "firstDayOfWeek": 1,
+                                    "maxDaysToShow": 7,
+                                    "showDate": false,
+                                    "showLastCalendarWeek": true,
+                                    "sortByStartTime": false,
+                                    "type": "custom:atomic-calendar-revive"
+                                },
+                                {
+                                    "defaultMode": "Event",
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "firstDayOfWeek": 1,
+                                    "hoursFormat": "HH:mm",
+                                    "maxDaysToShow": 7,
+                                    "type": "custom:atomic-calendar-revive"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.home_humidity",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:air-humidifier",
+                                            "name": "Humidity",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.home_precipitation",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "name": "Precipitation",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.home_wind_speed",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:weather-windy",
+                                            "name": "Wind",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.home_pressure",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:gauge",
+                                            "name": "Pressure",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.home_visibility",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "name": "Visibility",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.home_cloud_ceiling",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "name": "Cloud Ceiling",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:calendar",
+                    "path": "calendar",
+                    "title": "Calendar"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
                             "aspect_ratio": "50%",
                             "style": "\n:host {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: -44px;\n  bottom: 0px;\n}\n",
                             "type": "iframe",
@@ -2353,22 +2570,6 @@
                                         {
                                             "entities": [
                                                 {
-                                                    "entity": "sensor.living_room_motion_sensor_temperature",
-                                                    "name": false
-                                                },
-                                                {
-                                                    "entity": "sensor.living_room_motion_sensor_power",
-                                                    "name": false
-                                                }
-                                            ],
-                                            "entity": "binary_sensor.living_room_motion_sensor_ias_zone",
-                                            "name": "Living Room Motion Sensor",
-                                            "secondary_info": "last-changed",
-                                            "type": "custom:multiple-entity-row"
-                                        },
-                                        {
-                                            "entities": [
-                                                {
                                                     "entity": "sensor.hallway_motion_sensor_temperature",
                                                     "name": false
                                                 },
@@ -2399,7 +2600,7 @@
                                             "type": "custom:multiple-entity-row"
                                         }
                                     ],
-                                    "title": "Multipurpose Sensors",
+                                    "title": "Motion Sensors",
                                     "type": "entities"
                                 },
                                 {
@@ -3015,6 +3216,10 @@
                             ],
                             "title": "IOT Router",
                             "type": "vertical-stack"
+                        },
+                        {
+                            "entity": "light.ir_strips",
+                            "type": "light"
                         }
                     ],
                     "icon": "mdi:network",

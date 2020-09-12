@@ -63,27 +63,6 @@
             {
                 "area_id": null,
                 "config_entries": [
-                    "5fe26d04b07847e3a4d2114580556d2e"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "d6c833aeee224c3da655f79dee709522",
-                "identifiers": [
-                    [
-                        "mobile_app",
-                        "392cd2cd72f948a892dcea9e29d2ee59"
-                    ]
-                ],
-                "manufacturer": "samsung",
-                "model": "SM-N975U1",
-                "name": "Kevin's Galaxy Note 10+",
-                "name_by_user": null,
-                "sw_version": "29",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
                     "f56b665083104243be551dd904815b88"
                 ],
                 "connections": [],
@@ -643,7 +622,7 @@
                 ],
                 "manufacturer": "GLEDOPTO",
                 "model": "Extended color light",
-                "name": "Office TV Strip",
+                "name": "Pantry",
                 "name_by_user": null,
                 "sw_version": "2.0.0",
                 "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
@@ -1021,7 +1000,7 @@
                 ],
                 "manufacturer": "Signify Netherlands B.V.",
                 "model": "Hue lightstrip plus",
-                "name": "Living Room Bottom",
+                "name": "Kitchen Bottom",
                 "name_by_user": null,
                 "sw_version": "1.50.2_r30933",
                 "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
@@ -2160,6 +2139,48 @@
                 "manufacturer": "Unavailable",
                 "model": null,
                 "name": "KEVIN BROH-KAHN's Galaxy Note10+",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "d12914ae090043b1909a860347c77dac"
+                ],
+                "connections": [],
+                "entry_type": "service",
+                "id": "266a2a18626c460aaa704f80f91587b1",
+                "identifiers": [
+                    [
+                        "accuweather",
+                        "331250"
+                    ]
+                ],
+                "manufacturer": "AccuWeather, Inc.",
+                "model": null,
+                "name": "AccuWeather",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": "795e81eaddb84a98ae34b766ebe06b1c",
+                "config_entries": [
+                    "95ea7bd442ac436ebd5c275343500103"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "cdf5ae06ea314afbae396e2311fbc833",
+                "identifiers": [
+                    [
+                        "wemo",
+                        "221821K0100C11"
+                    ]
+                ],
+                "manufacturer": "Belkin",
+                "model": "Socket",
+                "name": "Living Room Monitor",
                 "name_by_user": null,
                 "sw_version": null,
                 "via_device_id": null

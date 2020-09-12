@@ -34,6 +34,7 @@ tts:
 weather:
   - platform: openweathermap
     api_key: !secret openweathermap_apikey
+    mode: hourly
 
 
 
@@ -247,6 +248,60 @@ camera:
     mjpeg_url: http://10.0.2.122:2971/camera/stream
     name: Galaxy Tab A Camera
 
+light:
+  - platform: template
+    lights:
+      ir_strips:
+        unique_id: ir_strips
+        turn_on:
+          data:
+            device: 'RGB LED'
+            command: 'PowerOn'
+          entity_id: remote.harmony_hub
+          service: remote.send_command
+        turn_off:
+          - data:
+              device: 'RGB LED'
+              command: 'PowerOn'
+            entity_id: remote.harmony_hub
+            service: remote.send_command
+          - data:
+              device: 'RGB LED'
+              command: 'PowerOff'
+            entity_id: remote.harmony_hub
+            service: remote.send_command
+        set_level:
+          - data:
+              device: 'RGB LED'
+              command: 'Brighter 2'
+              num_repeats: 6
+            entity_id: remote.harmony_hub
+            service: remote.send_command
+          - condition: template
+            value_template: '{{ brightness < 255 - 32 }}'
+          - data_template:
+              device: 'RGB LED'
+              command: 'Darker 2'
+              num_repeats: '{{ (((255 - brightness) / 32) - 1) | int }}'
+            entity_id: remote.harmony_hub
+            service: remote.send_command
+        set_white_value:
+          data:
+            device: 'RGB LED'
+            command: 'White Color'
+          entity_id: remote.harmony_hub
+          service: remote.send_command
+        set_color:
+          data_template:
+            device: 'RGB LED'
+            command: '{{ [''ColorRed'', ''ColorOrange'', ''ColorYellow'', ''ColorGreen'',
+              ''ColorGreen'', ''ColorTurquoise'', ''ColorAqua'',  ''ColorLightBlue'', ''ColorBlue'',    ''ColorPurple'',
+              ''ColorPink'', ''ColorPink''] [((h + 15) % 360 / 30) | int] }}'
+          entity_id: remote.harmony_hub
+          service: remote.send_command
+
+
+
 sensor:
 #  - platform: badnest
 
@@ -264,16 +319,16 @@ sensor:
 #       - type: throughput_network_out
 #         arg: enp3s0
 
-  - platform: openweathermap
-    api_key: !secret openweathermap_apikey
-    forecast: false
-    monitored_conditions:
-      - clouds
-      - weather_code
-      - wind_speed
-      - humidity
-      - rain
-      - snow
+  # - platform: openweathermap
+  #   api_key: !secret openweathermap_apikey
+  #   forecast: false
+  #   monitored_conditions:
+  #     - clouds
+  #     - weather_code
+  #     - wind_speed
+  #     - humidity
+  #     - rain
+  #     - snow
 
   - platform: mqtt
     state_topic: "valetudo/rockrobo/state"
@@ -310,6 +365,22 @@ sensor:
       router_iot_wl_quality_numeric:
         value_template: '{{ states(''sensor.router_iot_wl_quality'')[0:2] | int }}'
         unit_of_measurement: '%'
+      home_humidity:
+        friendly_name_template: "Humidity"
+        value_template: '{{ state_attr("weather.home", "humidity") }}'
+        unit_of_measurement: '%'
+      home_pressure:
+        friendly_name_template: "Pressure"
+        value_template: '{{ state_attr("weather.home", "pressure") }}'
+        unit_of_measurement: 'hPa'
+      home_wind_speed:
+        friendly_name_template: "Wind Speed"
+        value_template: '{{ state_attr("weather.home", "wind_speed") }}'
+        unit_of_measurement: 'km/h'
+      home_visibility:
+        friendly_name_template: "Visibility"
+        value_template: '{{ state_attr("weather.home", "visibility") }}'
+        unit_of_measurement: 'km'
 
   - platform: mqtt
     state_topic: "wallpanel/galaxytaba/sensor/battery"

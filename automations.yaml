@@ -238,7 +238,8 @@
     entity_id: person.kevin_broh_kahn
     state: home
   - condition: template
-    value_template: "{{ state_attr('media_player.spotify', 'source') not in ['Galaxy Note10+', 'PS4-253'] }}"
+    value_template: '{{ state_attr(''media_player.spotify'', ''source'') not in [''Galaxy
+      Note10+'', ''PS4-253''] }}'
   action:
   - data:
       source: Master
@@ -272,7 +273,8 @@
     entity_id: person.kevin_broh_kahn
     state: home
   - condition: template
-    value_template: "{{ state_attr('media_player.spotify', 'source') not in ['Galaxy Note10+', 'PS4-253'] }}"
+    value_template: '{{ state_attr(''media_player.spotify'', ''source'') not in [''Galaxy
+      Note10+'', ''PS4-253''] }}'
   action:
   - data: {}
     entity_id: media_player.spotify
@@ -1119,5 +1121,33 @@
     service: browser_mod.navigate
   - data: {}
     entity_id: light.galaxytaba
+    service: light.turn_off
+  mode: single
+- id: pantry_door_opened
+  alias: Pantry Door Opened
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.pantry_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - data: {}
+    entity_id: light.office_tv_strip
+    service: light.turn_on
+  mode: single
+
+
+- id: pantry_door_closed
+  alias: Pantry Door Closed
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.pantry_door_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+  action:
+  - data: {}
+    entity_id: light.office_tv_strip
     service: light.turn_off
   mode: single

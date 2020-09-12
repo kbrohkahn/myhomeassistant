@@ -150,6 +150,16 @@
                 "id": "8d638be38f76408aa08b411eea025900",
                 "type": "module",
                 "url": "/hacsfiles/custom-sidebar/custom-sidebar.js"
+            },
+            {
+                "id": "1b0af66c111d41538fc4886f0228cd9f",
+                "type": "module",
+                "url": "/hacsfiles/weather-card-chart/weather-card-chart.js"
+            },
+            {
+                "id": "1f9c508cc64347faa5ae929cd825444c",
+                "type": "module",
+                "url": "/hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js"
             }
         ]
     },

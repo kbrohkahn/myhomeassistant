@@ -504,7 +504,6 @@ start_the_office:
     service: script.office_daytime_lights
   - data: {}
     service: script.maybe_start_office_tv
-  
 stop_the_office:
   alias: Stop the Office
   sequence:
@@ -657,33 +656,14 @@ main_lights_random_scene:
 test:
   alias: Test
   sequence:
-  - entity_id:
-    - light.kitchen_right
-    service: light.turn_off
-  - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_mid_right
-    service: light.turn_off
-  - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_mid_left
-    service: light.turn_off
-  - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_left
-    service: light.turn_off
-  - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_forward
-    service: light.turn_off
-  - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_strips
-    service: light.turn_off
-  - delay: 00:00:01
-  - entity_id:
-    - light.kitchen_hallway
-    service: light.turn_off
+  - data_template:
+      command: '{{ [''ColorRed'', ''ColorOrange'', ''ColorYellow'', ''ColorGreen'',
+        ''ColorGreen'', ''ColorTurquoise'', ''ColorAqua'',  ''ColorLightBlue'', ''ColorBlue'',    ''ColorPurple'',
+        ''ColorPink'', ''ColorPink''] [((0 + 15) % 360 / 30) | int] }}'
+      device: RGB LED
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+  mode: single
 run_script_from_popup:
   alias: Run Script From Popup
   sequence:

@@ -1,178 +1,178 @@
 {
     "data": [
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "editable": true,
                     "friendly_name": "Kevin Broh-Kahn",
-                    "gps_accuracy": 12,
+                    "gps_accuracy": 13,
                     "id": "a37ee1cb6921429f86d39fef5b301012",
-                    "latitude": 38.8911025,
-                    "longitude": -77.081712,
-                    "source": "device_tracker.sm_n975u1",
+                    "latitude": 38.8911053,
+                    "longitude": -77.0817692,
+                    "source": "person.kevin_broh_kahn",
                     "user_id": "12a658637c244fe0a8ccb72305833564"
                 },
                 "context": {
-                    "id": "69bb001bf37111eaa2a525782affb792",
+                    "id": "f04da217f49f11ea96381fe21f4bc5c6",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "person.kevin_broh_kahn",
-                "last_changed": "2020-09-10T14:13:50.016532+00:00",
-                "last_updated": "2020-09-10T14:25:01.893877+00:00",
+                "last_changed": "2020-09-12T02:30:35.681868+00:00",
+                "last_updated": "2020-09-12T02:30:35.681868+00:00",
                 "state": "home"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Starlight",
                     "icon": "mdi:weather-night"
                 },
                 "context": {
-                    "id": "da39d717f36f11ea9c1b598b0406b6d9",
+                    "id": "f0f07ddcf49f11eaaa60ad8053d6a7a6",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "switch.starlight",
-                "last_changed": "2020-09-10T14:13:51.636477+00:00",
-                "last_updated": "2020-09-10T14:13:51.636477+00:00",
+                "last_changed": "2020-09-12T02:30:36.749177+00:00",
+                "last_updated": "2020-09-12T02:30:36.749177+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Office Master",
                     "icon": "mdi:monitor-speaker"
                 },
                 "context": {
-                    "id": "e0d1fab0f36f11ea94a1551fbd8a3224",
+                    "id": "f0f081b8f49f11eaa027e1da67c8a689",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "switch.office_master",
-                "last_changed": "2020-09-10T14:14:02.699865+00:00",
-                "last_updated": "2020-09-10T14:14:02.699865+00:00",
-                "state": "on"
+                "last_changed": "2020-09-12T02:30:36.749268+00:00",
+                "last_updated": "2020-09-12T02:30:36.749268+00:00",
+                "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Theater Master",
                     "icon": "mdi:theater"
                 },
                 "context": {
-                    "id": "da39de24f36f11eaaf2bdddabc7b4fb5",
+                    "id": "f0f084cff49f11ea848fe9e4c3a15f41",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "switch.theater_master",
-                "last_changed": "2020-09-10T14:13:51.636651+00:00",
-                "last_updated": "2020-09-10T14:13:51.636651+00:00",
+                "last_changed": "2020-09-12T02:30:36.749346+00:00",
+                "last_updated": "2020-09-12T02:30:36.749346+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Fan",
                     "icon": "mdi:fan"
                 },
                 "context": {
-                    "id": "e12be6cef36f11ea8b68b3b7f955b2e5",
+                    "id": "f0f0881ef49f11ea81d49b833c3596cd",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "switch.fan",
-                "last_changed": "2020-09-10T14:14:03.289198+00:00",
-                "last_updated": "2020-09-10T14:14:03.289198+00:00",
-                "state": "on"
+                "last_changed": "2020-09-12T02:30:36.749430+00:00",
+                "last_updated": "2020-09-12T02:30:36.749430+00:00",
+                "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Bedtime",
                     "icon": "mdi:sleep"
                 },
                 "context": {
-                    "id": "da39e445f36f11ea86bb0fd04e4a2236",
+                    "id": "f0f08b27f49f11eab8a23d4d19b0a09d",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "switch.bedtime",
-                "last_changed": "2020-09-10T14:13:51.636807+00:00",
-                "last_updated": "2020-09-10T14:13:51.636807+00:00",
+                "last_changed": "2020-09-12T02:30:36.749508+00:00",
+                "last_updated": "2020-09-12T02:30:36.749508+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Away",
                     "icon": "mdi:home-export-outline"
                 },
                 "context": {
-                    "id": "da39e738f36f11eab9fd191a86de3caa",
+                    "id": "f0f08e01f49f11eab4a207cfb21dfb76",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "switch.away",
-                "last_changed": "2020-09-10T14:13:51.636882+00:00",
-                "last_updated": "2020-09-10T14:13:51.636882+00:00",
+                "last_changed": "2020-09-12T02:30:36.749580+00:00",
+                "last_updated": "2020-09-12T02:30:36.749580+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Cameras",
                     "icon": "mdi:cctv"
                 },
                 "context": {
-                    "id": "da39ea16f36f11eab2a47f4c4a4179d3",
+                    "id": "f0f09307f49f11ea9f34c1904e87d9cb",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "switch.cameras",
-                "last_changed": "2020-09-10T14:13:51.636956+00:00",
-                "last_updated": "2020-09-10T14:13:51.636956+00:00",
+                "last_changed": "2020-09-12T02:30:36.749710+00:00",
+                "last_updated": "2020-09-12T02:30:36.749710+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Sunset",
                     "id": "sunset",
-                    "last_triggered": "2020-09-07T23:15:38.002423+00:00",
+                    "last_triggered": "2020-09-10T23:10:54.003099+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a2632f36f11eaa5f33fb447541974",
+                    "id": "f0f0c2aff49f11ea84740505abdadb33",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.sunset",
-                "last_changed": "2020-09-10T14:13:51.638499+00:00",
-                "last_updated": "2020-09-10T14:13:51.638499+00:00",
+                "last_changed": "2020-09-12T02:30:36.750935+00:00",
+                "last_updated": "2020-09-12T02:30:36.750935+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -182,228 +182,228 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a2b44f36f11eaa97a47e1e6320d88",
+                    "id": "f0f0c7bff49f11ea83383544ac54bec1",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.nightlight",
-                "last_changed": "2020-09-10T14:13:51.638626+00:00",
-                "last_updated": "2020-09-10T14:13:51.638626+00:00",
+                "last_changed": "2020-09-12T02:30:36.751061+00:00",
+                "last_updated": "2020-09-12T02:30:36.751061+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Closet Door Closed",
                     "id": "closet_door_closed",
-                    "last_triggered": "2020-09-10T12:20:05.247036+00:00",
+                    "last_triggered": "2020-09-11T23:37:12.323390+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a2f99f36f11eaa81ebd037a989944",
+                    "id": "f0f0cbf8f49f11eaafa1099b8e35e037",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.closet_door_closed",
-                "last_changed": "2020-09-10T14:13:51.638737+00:00",
-                "last_updated": "2020-09-10T14:13:51.638737+00:00",
+                "last_changed": "2020-09-12T02:30:36.751169+00:00",
+                "last_updated": "2020-09-12T02:30:36.751169+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Closet Door Opened",
                     "id": "closet_door_opened",
-                    "last_triggered": "2020-09-10T12:19:51.942486+00:00",
+                    "last_triggered": "2020-09-11T23:36:06.344175+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a3469f36f11ea9e28e329ad474824",
+                    "id": "f0f0d0b5f49f11ea922b178802d4c973",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.closet_door_opened",
-                "last_changed": "2020-09-10T14:13:51.638860+00:00",
-                "last_updated": "2020-09-10T14:13:51.638860+00:00",
+                "last_changed": "2020-09-12T02:30:36.751290+00:00",
+                "last_updated": "2020-09-12T02:30:36.751290+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Front Door Opened",
                     "id": "front_door_opened",
-                    "last_triggered": "2020-09-10T12:19:06.811432+00:00",
+                    "last_triggered": "2020-09-12T00:12:03.443635+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a3949f36f11ea9cdf032146d80d42",
+                    "id": "f0f0d57df49f11ea91ef7bbd08b270ea",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.front_door_opened",
-                "last_changed": "2020-09-10T14:13:51.638985+00:00",
-                "last_updated": "2020-09-10T14:13:51.638985+00:00",
+                "last_changed": "2020-09-12T02:30:36.751412+00:00",
+                "last_updated": "2020-09-12T02:30:36.751412+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Hallway Motion Start - Lights",
                     "id": "hallway_motion_start_hallway_lights",
-                    "last_triggered": "2020-09-10T14:16:07.689294+00:00",
+                    "last_triggered": "2020-09-12T01:25:11.210363+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "2b51d8a1f37011eaafb93d04a5c81dc3",
-                    "parent_id": "2b518763f37011eaad49c59edc7792f1",
+                    "id": "f0f0da0ef49f11ea8f5857e8a031f625",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.hallway_motion_start_hallway_lights",
-                "last_changed": "2020-09-10T14:13:51.639105+00:00",
-                "last_updated": "2020-09-10T14:16:07.871027+00:00",
+                "last_changed": "2020-09-12T02:30:36.751529+00:00",
+                "last_updated": "2020-09-12T02:30:36.751529+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Hallway Motion Stop",
                     "id": "hallway_motion_stop",
-                    "last_triggered": "2020-09-10T14:16:38.010166+00:00",
+                    "last_triggered": "2020-09-12T01:25:41.219329+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "3d6471e1f37011eab08d23ac5ae52659",
-                    "parent_id": "3472d7f7f37011eab3f94b66687c8d01",
+                    "id": "f0f0de86f49f11eaaf469bb0c8d29107",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.hallway_motion_stop",
-                "last_changed": "2020-09-10T14:13:51.639223+00:00",
-                "last_updated": "2020-09-10T14:16:38.162199+00:00",
+                "last_changed": "2020-09-12T02:30:36.751643+00:00",
+                "last_updated": "2020-09-12T02:30:36.751643+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Motion Stop",
                     "id": "master_motion_stop",
-                    "last_triggered": "2020-09-10T13:41:28.319286+00:00",
+                    "last_triggered": "2020-09-11T23:39:02.237163+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a4722f36f11ea85ffab134a014455",
+                    "id": "f0f0e2e7f49f11ea9d514781f14fe619",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_motion_stop",
-                "last_changed": "2020-09-10T14:13:51.639338+00:00",
-                "last_updated": "2020-09-10T14:13:51.639338+00:00",
+                "last_changed": "2020-09-12T02:30:36.751755+00:00",
+                "last_updated": "2020-09-12T02:30:36.751755+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Bath Door Opened - Lights",
                     "id": "master_bath_door_opened_lights",
-                    "last_triggered": "2020-09-10T03:50:59.137430+00:00",
+                    "last_triggered": "2020-09-11T23:29:56.539944+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a4bc8f36f11ea9cff6189f0aca81f",
+                    "id": "f0f0e74df49f11ea8cb3c15cdc8e359c",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_bath_door_opened_lights",
-                "last_changed": "2020-09-10T14:13:51.639458+00:00",
-                "last_updated": "2020-09-10T14:13:51.639458+00:00",
+                "last_changed": "2020-09-12T02:30:36.751867+00:00",
+                "last_updated": "2020-09-12T02:30:36.751867+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Office Motion Start - Music",
                     "id": "office_motion_start_music",
-                    "last_triggered": "2020-09-10T14:16:11.561530+00:00",
+                    "last_triggered": "2020-09-11T21:55:13.902185+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "2da0b4e1f37011ea9ac88f889f443a86",
-                    "parent_id": "2da0529ef37011ea9f080314b04daed2",
+                    "id": "f0f0ebbbf49f11ea85f187dbdbd660ad",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.office_motion_start_music",
-                "last_changed": "2020-09-10T14:13:51.639573+00:00",
-                "last_updated": "2020-09-10T14:16:12.020105+00:00",
+                "last_changed": "2020-09-12T02:30:36.751982+00:00",
+                "last_updated": "2020-09-12T02:30:36.751982+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Motion Start - Music",
                     "id": "master_motion_start_music",
-                    "last_triggered": "2020-09-10T14:00:15.825380+00:00",
+                    "last_triggered": "2020-09-11T23:29:46.285841+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a54bcf36f11ea95a7675a0d59bea9",
+                    "id": "f0f0f020f49f11ea930cc74aa140cf49",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_motion_start_music",
-                "last_changed": "2020-09-10T14:13:51.639686+00:00",
-                "last_updated": "2020-09-10T14:13:51.639686+00:00",
+                "last_changed": "2020-09-12T02:30:36.752093+00:00",
+                "last_updated": "2020-09-12T02:30:36.752093+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Kitchen Motion Start - Music",
                     "id": "kitchen_motion_start_music",
-                    "last_triggered": "2020-09-10T13:59:00.453482+00:00",
+                    "last_triggered": "2020-09-11T23:38:06.791387+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a591ff36f11ea8e06e7ac86a83d37",
+                    "id": "f0f0f4baf49f11ea99d6c76e77927767",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.kitchen_motion_start_music",
-                "last_changed": "2020-09-10T14:13:51.639799+00:00",
-                "last_updated": "2020-09-10T14:13:51.639799+00:00",
+                "last_changed": "2020-09-12T02:30:36.752211+00:00",
+                "last_updated": "2020-09-12T02:30:36.752211+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -413,81 +413,81 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a5d83f36f11eabd4a0545f9ce31e3",
+                    "id": "f0f0f908f49f11ea8e07019a60127d47",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.kitchen_motion_stop_after_bedtime",
-                "last_changed": "2020-09-10T14:13:51.639911+00:00",
-                "last_updated": "2020-09-10T14:13:51.639911+00:00",
+                "last_changed": "2020-09-12T02:30:36.752321+00:00",
+                "last_updated": "2020-09-12T02:30:36.752321+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Front Door Knock",
                     "id": "front_door_knock",
-                    "last_triggered": "2020-09-10T12:19:04.690462+00:00",
+                    "last_triggered": "2020-09-12T00:12:02.835421+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a619cf36f11eaaddfc9dd065cb729",
+                    "id": "f0f0fcf1f49f11eab197c577fa30f218",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.front_door_knock",
-                "last_changed": "2020-09-10T14:13:51.640016+00:00",
-                "last_updated": "2020-09-10T14:13:51.640016+00:00",
+                "last_changed": "2020-09-12T02:30:36.752421+00:00",
+                "last_updated": "2020-09-12T02:30:36.752421+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Laundry Door Opened",
                     "id": "laundry_door_opened",
-                    "last_triggered": "2020-09-09T20:11:36.701860+00:00",
+                    "last_triggered": "2020-09-11T21:24:54.174363+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a6608f36f11eabe910bbf474687c9",
+                    "id": "f0f10163f49f11eaa9518dcac24554fd",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.laundry_door_opened",
-                "last_changed": "2020-09-10T14:13:51.640129+00:00",
-                "last_updated": "2020-09-10T14:13:51.640129+00:00",
+                "last_changed": "2020-09-12T02:30:36.752535+00:00",
+                "last_updated": "2020-09-12T02:30:36.752535+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Laundry Door Closed",
                     "id": "laundry_door_closed",
-                    "last_triggered": "2020-09-09T21:56:31.978671+00:00",
+                    "last_triggered": "2020-09-11T21:25:01.166968+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a6a6cf36f11ea9e1e318e2b4edbdd",
+                    "id": "f0f105d2f49f11ea8bfeab613c9bc9b7",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.laundry_door_closed",
-                "last_changed": "2020-09-10T14:13:51.640241+00:00",
-                "last_updated": "2020-09-10T14:13:51.640241+00:00",
+                "last_changed": "2020-09-12T02:30:36.752649+00:00",
+                "last_updated": "2020-09-12T02:30:36.752649+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -497,144 +497,144 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a6ecbf36f11eab7d025d2409ea042",
+                    "id": "f0f10a41f49f11ea8a141d3cbfbf05e9",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.hallway_bath_door_opened",
-                "last_changed": "2020-09-10T14:13:51.640353+00:00",
-                "last_updated": "2020-09-10T14:13:51.640353+00:00",
+                "last_changed": "2020-09-12T02:30:36.752762+00:00",
+                "last_updated": "2020-09-12T02:30:36.752762+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Hallway Bath Door Motion",
                     "id": "hallway_bath_door_motion",
-                    "last_triggered": "2020-09-10T13:37:43.191857+00:00",
+                    "last_triggered": "2020-09-12T01:15:58.793066+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a732ef36f11ea8c530d8f87624bdd",
+                    "id": "f0f10e9af49f11eab9c6897a4242ab68",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.hallway_bath_door_motion",
-                "last_changed": "2020-09-10T14:13:51.640466+00:00",
-                "last_updated": "2020-09-10T14:13:51.640466+00:00",
+                "last_changed": "2020-09-12T02:30:36.752873+00:00",
+                "last_updated": "2020-09-12T02:30:36.752873+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Hallway Bath Light On",
                     "id": "hallway_bath_light_on",
-                    "last_triggered": "2020-09-10T13:37:43.542027+00:00",
+                    "last_triggered": "2020-09-12T01:15:59.147308+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a77aef36f11eaad6fa19ef32b9d8e",
+                    "id": "f0f1132df49f11ea8a7571ebbbd7d1db",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.hallway_bath_light_on",
-                "last_changed": "2020-09-10T14:13:51.640581+00:00",
-                "last_updated": "2020-09-10T14:13:51.640581+00:00",
+                "last_changed": "2020-09-12T02:30:36.752990+00:00",
+                "last_updated": "2020-09-12T02:30:36.752990+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Kitchen Motion Stop During Day",
                     "id": "kitchen_motion_stop_during_day",
-                    "last_triggered": "2020-09-10T12:35:37.786878+00:00",
+                    "last_triggered": "2020-09-12T01:31:34.552932+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a7c25f36f11ea8f71719d92834e09",
+                    "id": "f0f1177ef49f11eaa89b770d9d8574b2",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.kitchen_motion_stop_during_day",
-                "last_changed": "2020-09-10T14:13:51.640695+00:00",
-                "last_updated": "2020-09-10T14:13:51.640695+00:00",
+                "last_changed": "2020-09-12T02:30:36.753101+00:00",
+                "last_updated": "2020-09-12T02:30:36.753101+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Thermostat Fan Schedule",
                     "id": "thermostat_fan_schedule",
-                    "last_triggered": "2020-09-10T14:00:00.002297+00:00",
+                    "last_triggered": "2020-09-11T20:00:00.002446+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a8085f36f11eaaf6c1515882788a2",
+                    "id": "f0f11bdaf49f11eaac5a2b7c735cfb2c",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.thermostat_fan_schedule",
-                "last_changed": "2020-09-10T14:13:51.640808+00:00",
-                "last_updated": "2020-09-10T14:13:51.640808+00:00",
+                "last_changed": "2020-09-12T02:30:36.753212+00:00",
+                "last_updated": "2020-09-12T02:30:36.753212+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Kitchen Motion Start - Lights",
                     "id": "kitchen_motion_start_lights",
-                    "last_triggered": "2020-09-10T13:59:00.454217+00:00",
+                    "last_triggered": "2020-09-12T01:40:35.021402+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a84e9f36f11eabc26af8fe87eb9bd",
+                    "id": "f0f12033f49f11ea88dacbcd1e0d0572",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.kitchen_motion_start_lights",
-                "last_changed": "2020-09-10T14:13:51.640920+00:00",
-                "last_updated": "2020-09-10T14:13:51.640920+00:00",
+                "last_changed": "2020-09-12T02:30:36.753327+00:00",
+                "last_updated": "2020-09-12T02:30:36.753327+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Motion Start ",
                     "id": "master_motion_start_lights",
-                    "last_triggered": "2020-09-10T14:00:15.826126+00:00",
+                    "last_triggered": "2020-09-11T23:37:14.068000+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a894af36f11eaa260335ddd48aaf7",
+                    "id": "f0f124aef49f11ea91425190039c73d5",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_motion_start_lights",
-                "last_changed": "2020-09-10T14:13:51.641032+00:00",
-                "last_updated": "2020-09-10T14:13:51.641032+00:00",
+                "last_changed": "2020-09-12T02:30:36.753438+00:00",
+                "last_updated": "2020-09-12T02:30:36.753438+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -644,81 +644,81 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a8debf36f11ea821b877e40abfca6",
+                    "id": "f0f12915f49f11ea9f3a15a3c95776b2",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.dining_echo_dot_starts_playing",
-                "last_changed": "2020-09-10T14:13:51.641150+00:00",
-                "last_updated": "2020-09-10T14:13:51.641150+00:00",
+                "last_changed": "2020-09-12T02:30:36.753551+00:00",
+                "last_updated": "2020-09-12T02:30:36.753551+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Bath Door Opened",
                     "id": "master_bath_door_opened",
-                    "last_triggered": "2020-09-10T03:50:59.138111+00:00",
+                    "last_triggered": "2020-09-11T23:29:56.540541+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a9249f36f11eaaefded08d967c3f9",
+                    "id": "f0f12eeaf49f11ea9ea48f7698d274ce",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_bath_door_opened",
-                "last_changed": "2020-09-10T14:13:51.641262+00:00",
-                "last_updated": "2020-09-10T14:13:51.641262+00:00",
+                "last_changed": "2020-09-12T02:30:36.753700+00:00",
+                "last_updated": "2020-09-12T02:30:36.753700+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Bath Door Motion",
                     "id": "master_bath_door_motion",
-                    "last_triggered": "2020-09-10T03:55:53.048525+00:00",
+                    "last_triggered": "2020-09-11T23:29:52.476754+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a96d1f36f11eabdbfc53c999aafd1",
+                    "id": "f0f1333af49f11ea965d9bfe699153bb",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_bath_door_motion",
-                "last_changed": "2020-09-10T14:13:51.641378+00:00",
-                "last_updated": "2020-09-10T14:13:51.641378+00:00",
+                "last_changed": "2020-09-12T02:30:36.753810+00:00",
+                "last_updated": "2020-09-12T02:30:36.753810+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Bath Door Motion with Light On",
                     "id": "master_bath_door_motion_with_light_on",
-                    "last_triggered": "2020-09-10T03:58:27.019852+00:00",
+                    "last_triggered": "2020-09-11T23:37:59.584008+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a9b36f36f11ea9beeb1b7f81d5466",
+                    "id": "f0f1377cf49f11eaaf576bfa0ddafcfb",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_bath_door_motion_with_light_on",
-                "last_changed": "2020-09-10T14:13:51.641491+00:00",
-                "last_updated": "2020-09-10T14:13:51.641491+00:00",
+                "last_changed": "2020-09-12T02:30:36.753920+00:00",
+                "last_updated": "2020-09-12T02:30:36.753920+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -728,18 +728,18 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3a9fb1f36f11eab19131e809ab7782",
+                    "id": "f0f13c00f49f11eabf5339b1a83f812a",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.humidity_over_50_2",
-                "last_changed": "2020-09-10T14:13:51.641605+00:00",
-                "last_updated": "2020-09-10T14:13:51.641605+00:00",
+                "last_changed": "2020-09-12T02:30:36.754040+00:00",
+                "last_updated": "2020-09-12T02:30:36.754040+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -749,18 +749,18 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3aa461f36f11eaaa8c434ec56169a8",
+                    "id": "f0f140a0f49f11eab566adc3e96313d1",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.kitchen_overhead_turned_on_invisible_2",
-                "last_changed": "2020-09-10T14:13:51.641725+00:00",
-                "last_updated": "2020-09-10T14:13:51.641725+00:00",
+                "last_changed": "2020-09-12T02:30:36.754154+00:00",
+                "last_updated": "2020-09-12T02:30:36.754154+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -770,123 +770,123 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3aa8bdf36f11eab1e4ef10a0f5af9c",
+                    "id": "f0f14518f49f11eabb8179a4d3066f7a",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.kitchen_strips_turned_on_invisible",
-                "last_changed": "2020-09-10T14:13:51.641837+00:00",
-                "last_updated": "2020-09-10T14:13:51.641837+00:00",
+                "last_changed": "2020-09-12T02:30:36.754268+00:00",
+                "last_updated": "2020-09-12T02:30:36.754268+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Bath Light Switch On",
                     "id": "master_bath_light_switch_on",
-                    "last_triggered": "2020-09-10T13:32:28.360579+00:00",
+                    "last_triggered": "2020-09-11T23:37:41.402594+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3aad13f36f11eaa1c4e550ec4f68fd",
+                    "id": "f0f14965f49f11eaba25ebf18b557464",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_bath_light_switch_on_2",
-                "last_changed": "2020-09-10T14:13:51.641948+00:00",
-                "last_updated": "2020-09-10T14:13:51.641948+00:00",
+                "last_changed": "2020-09-12T02:30:36.754378+00:00",
+                "last_updated": "2020-09-12T02:30:36.754378+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Bath Light Switch Off",
                     "id": "master_bath_light_switch_off",
-                    "last_triggered": "2020-09-10T13:37:35.685996+00:00",
+                    "last_triggered": "2020-09-11T23:38:00.419264+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3ab168f36f11eaa6b68361845d0395",
+                    "id": "f0f14dcaf49f11eab77f19c429517820",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_bath_light_switch_off",
-                "last_changed": "2020-09-10T14:13:51.642058+00:00",
-                "last_updated": "2020-09-10T14:13:51.642058+00:00",
+                "last_changed": "2020-09-12T02:30:36.754491+00:00",
+                "last_updated": "2020-09-12T02:30:36.754491+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Office Motion Stop when WFH",
                     "id": "office_motion_stop_when_wfh",
-                    "last_triggered": "2020-09-10T14:01:17.328081+00:00",
+                    "last_triggered": "2020-09-11T21:57:43.901390+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3ab612f36f11eaab3c257a326337b7",
+                    "id": "f0f15244f49f11eaae91172c48d353d8",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.office_motion_stop_when_wfh",
-                "last_changed": "2020-09-10T14:13:51.642181+00:00",
-                "last_updated": "2020-09-10T14:13:51.642181+00:00",
+                "last_changed": "2020-09-12T02:30:36.754606+00:00",
+                "last_updated": "2020-09-12T02:30:36.754606+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Office Motion Start when WFH",
                     "id": "office_motion_start_when_wfh",
-                    "last_triggered": "2020-09-10T14:28:34.044895+00:00",
+                    "last_triggered": "2020-09-11T21:55:13.902863+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "e82eaca6f37111ea8215dd659833aada",
-                    "parent_id": "e82e3b1ff37111ea9aa2bbfd47e11da8",
+                    "id": "f0f1568df49f11eaa2c08f73a62b444f",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.office_motion_start_when_wfh",
-                "last_changed": "2020-09-10T14:13:51.642295+00:00",
-                "last_updated": "2020-09-10T14:28:34.131198+00:00",
+                "last_changed": "2020-09-12T02:30:36.754715+00:00",
+                "last_updated": "2020-09-12T02:30:36.754715+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Bath Light Brightness Changed",
                     "id": "master_bath_light_brightness_changed",
-                    "last_triggered": "2020-09-10T13:37:35.686788+00:00",
+                    "last_triggered": "2020-09-11T23:38:00.420088+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3abef9f36f11eabd8a89226f1ea6e0",
+                    "id": "f0f15af4f49f11ea9e42c153902fa710",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_bath_light_brightness_changed",
-                "last_changed": "2020-09-10T14:13:51.642406+00:00",
-                "last_updated": "2020-09-10T14:13:51.642406+00:00",
+                "last_changed": "2020-09-12T02:30:36.754828+00:00",
+                "last_updated": "2020-09-12T02:30:36.754828+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -896,123 +896,123 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3ac35ff36f11eaa63e632c64aed112",
+                    "id": "f0f15f97f49f11ea83ad218a322cf5c9",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.vacuum_starting_cleaning",
-                "last_changed": "2020-09-10T14:13:51.642518+00:00",
-                "last_updated": "2020-09-10T14:13:51.642518+00:00",
+                "last_changed": "2020-09-12T02:30:36.754947+00:00",
+                "last_updated": "2020-09-12T02:30:36.754947+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Theater Stick Paused",
                     "id": "theater_stick_paused",
-                    "last_triggered": "2020-09-10T02:55:59.127378+00:00",
+                    "last_triggered": "2020-09-12T01:04:24.126710+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3ac7ccf36f11ea877a3bc71430b26f",
+                    "id": "f0f1640ef49f11eaa5fd6ffa1af4b19f",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.theater_stick_paused_2",
-                "last_changed": "2020-09-10T14:13:51.642632+00:00",
-                "last_updated": "2020-09-10T14:13:51.642632+00:00",
+                "last_changed": "2020-09-12T02:30:36.755061+00:00",
+                "last_updated": "2020-09-12T02:30:36.755061+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Theater Stick Playing",
                     "id": "theater_stick_playing",
-                    "last_triggered": "2020-09-10T02:56:59.132417+00:00",
+                    "last_triggered": "2020-09-12T01:39:24.155375+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3acc49f36f11eabf02699cc342594d",
+                    "id": "f0f168a4f49f11ea96a4614c684bc7fb",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.theater_stick_playing",
-                "last_changed": "2020-09-10T14:13:51.642747+00:00",
-                "last_updated": "2020-09-10T14:13:51.642747+00:00",
+                "last_changed": "2020-09-12T02:30:36.755178+00:00",
+                "last_updated": "2020-09-12T02:30:36.755178+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Bath Fan On",
                     "id": "master_bath_fan_on",
-                    "last_triggered": "2020-09-10T03:44:50.855929+00:00",
+                    "last_triggered": "2020-09-11T23:29:58.265339+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3ad0b9f36f11eab1ea4fb74ce16287",
+                    "id": "f0f16d0df49f11eaa02feb73ec7c5600",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_bath_fan_on_2",
-                "last_changed": "2020-09-10T14:13:51.642860+00:00",
-                "last_updated": "2020-09-10T14:13:51.642860+00:00",
+                "last_changed": "2020-09-12T02:30:36.755291+00:00",
+                "last_updated": "2020-09-12T02:30:36.755291+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Master Bath Fan Off",
                     "id": "master_bath_fan_off",
-                    "last_triggered": "2020-09-10T03:50:39.239427+00:00",
+                    "last_triggered": "2020-09-11T23:34:35.648154+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3ad544f36f11eab66c6fb8027295c0",
+                    "id": "f0f1714df49f11eabb74b15ae234a9d0",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.master_bath_fan_off",
-                "last_changed": "2020-09-10T14:13:51.642976+00:00",
-                "last_updated": "2020-09-10T14:13:51.642976+00:00",
+                "last_changed": "2020-09-12T02:30:36.755400+00:00",
+                "last_updated": "2020-09-12T02:30:36.755400+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
-                    "current": 1,
+                    "current": 0,
                     "friendly_name": "Thermostat Fan Started",
                     "id": "thermostat_fan_started",
-                    "last_triggered": "2020-09-10T14:14:03.289464+00:00",
+                    "last_triggered": "2020-09-12T00:10:10.290681+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "e12bf178f36f11ea987e1b5b8e30a9f4",
-                    "parent_id": "e124ba41f36f11ea8f6695eb0c373d4e",
+                    "id": "f0f175bff49f11ea87d9ddb7237140c0",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.thermostat_fan_started_2",
-                "last_changed": "2020-09-10T14:13:51.643233+00:00",
-                "last_updated": "2020-09-10T14:14:03.289744+00:00",
+                "last_changed": "2020-09-12T02:30:36.755525+00:00",
+                "last_updated": "2020-09-12T02:30:36.755525+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -1022,60 +1022,60 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3ae9daf36f11eaab728f48d30313f8",
+                    "id": "f0f17b60f49f11ea86c9c915f5486b7e",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.vacuum_error_2",
-                "last_changed": "2020-09-10T14:13:51.643505+00:00",
-                "last_updated": "2020-09-10T14:13:51.643505+00:00",
+                "last_changed": "2020-09-12T02:30:36.755658+00:00",
+                "last_updated": "2020-09-12T02:30:36.755658+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "NWS Alert",
                     "id": "nws_alert",
-                    "last_triggered": "2020-09-09T22:56:17.815660+00:00",
+                    "last_triggered": "2020-09-10T17:44:21.719792+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3aee2bf36f11eaba0a9db9e80acae9",
+                    "id": "f0f18283f49f11eabfabc1e1a5b063ed",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.nws_alert_2",
-                "last_changed": "2020-09-10T14:13:51.643615+00:00",
-                "last_updated": "2020-09-10T14:13:51.643615+00:00",
-                "state": "off"
+                "last_changed": "2020-09-12T02:30:36.755840+00:00",
+                "last_updated": "2020-09-12T02:30:36.755840+00:00",
+                "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Near Home",
                     "id": "near_home",
-                    "last_triggered": "2020-09-09T19:05:04.501301+00:00",
+                    "last_triggered": "2020-09-10T22:13:03.231607+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3af206f36f11eabde8e589bc038bc5",
+                    "id": "f0f186bef49f11eaa13ae991b1b81d79",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.near_home_2",
-                "last_changed": "2020-09-10T14:13:51.643713+00:00",
-                "last_updated": "2020-09-10T14:13:51.643713+00:00",
+                "last_changed": "2020-09-12T02:30:36.755948+00:00",
+                "last_updated": "2020-09-12T02:30:36.755948+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -1085,123 +1085,123 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3af62cf36f11eaa5f2377d3513cad3",
+                    "id": "f0f18accf49f11eab4787fa2f3a409c1",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.galaxy_tab_s_motion_start_2",
-                "last_changed": "2020-09-10T14:13:51.643819+00:00",
-                "last_updated": "2020-09-10T14:13:51.643819+00:00",
+                "last_changed": "2020-09-12T02:30:36.756061+00:00",
+                "last_updated": "2020-09-12T02:30:36.756061+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Galaxy Tab S Motion Stop",
                     "id": "galaxy_tab_s_motion_stop",
-                    "last_triggered": "2020-09-10T14:28:01.785841+00:00",
+                    "last_triggered": "2020-09-12T01:41:06.105966+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "d4f45509f37111eaa73af1f682d0c402",
-                    "parent_id": "d4f3e67ef37111ea98c59d1ae3a19ec8",
+                    "id": "f0f18ef5f49f11ea97e09f3ec36c0044",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.galaxy_tab_s_motion_stop",
-                "last_changed": "2020-09-10T14:13:51.643916+00:00",
-                "last_updated": "2020-09-10T14:28:01.802844+00:00",
+                "last_changed": "2020-09-12T02:30:36.756159+00:00",
+                "last_updated": "2020-09-12T02:30:36.756159+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Galaxy Tab S6 Motion Start",
                     "id": "galaxy_tab_s6_motion_start",
-                    "last_triggered": "2020-09-10T14:15:38.881442+00:00",
+                    "last_triggered": "2020-09-11T23:39:03.126153+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "1a261debf37011ea9c821fc9893188a6",
-                    "parent_id": "1a25c752f37011ea8ef07397586f9895",
+                    "id": "f0f1934df49f11ea8ea04575c1c29775",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.galaxy_tab_s6_motion_start",
-                "last_changed": "2020-09-10T14:13:51.644028+00:00",
-                "last_updated": "2020-09-10T14:15:38.898105+00:00",
+                "last_changed": "2020-09-12T02:30:36.756270+00:00",
+                "last_updated": "2020-09-12T02:30:36.756270+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Galaxy Tab S6 Motion Stop",
                     "id": "galaxy_tab_s6_motion_stop",
-                    "last_triggered": "2020-09-10T14:15:53.869034+00:00",
+                    "last_triggered": "2020-09-11T23:39:17.731373+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "23150a92f37011ea831a377f0262abc8",
-                    "parent_id": "2314aa6ef37011ea9625bbcdbe68f3f1",
+                    "id": "f0f19790f49f11eaaf681185236bdf3f",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.galaxy_tab_s6_motion_stop",
-                "last_changed": "2020-09-10T14:13:51.644138+00:00",
-                "last_updated": "2020-09-10T14:15:53.883254+00:00",
+                "last_changed": "2020-09-12T02:30:36.756379+00:00",
+                "last_updated": "2020-09-12T02:30:36.756379+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Galaxy Tab A Motion Start",
                     "id": "galaxy_tab_a_motion_start",
-                    "last_triggered": "2020-09-10T14:15:38.772625+00:00",
+                    "last_triggered": "2020-09-12T02:09:33.555766+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "1a158378f37011eab6116336f65bdfb0",
-                    "parent_id": "1a152a90f37011eabfe2117ea439820f",
+                    "id": "f0f19beaf49f11eaab8aa7f68e769293",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.galaxy_tab_a_motion_start",
-                "last_changed": "2020-09-10T14:13:51.644247+00:00",
-                "last_updated": "2020-09-10T14:15:38.790021+00:00",
+                "last_changed": "2020-09-12T02:30:36.756494+00:00",
+                "last_updated": "2020-09-12T02:30:36.756494+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Galaxy Tab A Motion Stop",
                     "id": "galaxy_tab_a_motion_stop",
-                    "last_triggered": "2020-09-10T14:16:08.780019+00:00",
+                    "last_triggered": "2020-09-12T02:10:03.542273+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "2bf84748f37011eab22f858a08213a39",
-                    "parent_id": "2bf7e8fdf37011ea91d5fdbb5402d1bb",
+                    "id": "f0f1a6f9f49f11eab8754791f9bf8eb2",
+                    "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.galaxy_tab_a_motion_stop",
-                "last_changed": "2020-09-10T14:13:51.644356+00:00",
-                "last_updated": "2020-09-10T14:16:08.793886+00:00",
+                "last_changed": "2020-09-12T02:30:36.756777+00:00",
+                "last_updated": "2020-09-12T02:30:36.756777+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -1211,18 +1211,18 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3b0f6af36f11eaab2737cad3066cc0",
+                    "id": "f0f1ab97f49f11eab8bf136dbd486b9f",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.dining_window_opened_2",
-                "last_changed": "2020-09-10T14:13:51.644465+00:00",
-                "last_updated": "2020-09-10T14:13:51.644465+00:00",
+                "last_changed": "2020-09-12T02:30:36.756892+00:00",
+                "last_updated": "2020-09-12T02:30:36.756892+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -1232,18 +1232,18 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3b13abf36f11eaa9290719bc14b0c2",
+                    "id": "f0f1b013f49f11eaa62f8322d12afd84",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.outdoor_temperature_nearing_indoor_2",
-                "last_changed": "2020-09-10T14:13:51.644574+00:00",
-                "last_updated": "2020-09-10T14:13:51.644574+00:00",
+                "last_changed": "2020-09-12T02:30:36.757007+00:00",
+                "last_updated": "2020-09-12T02:30:36.757007+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
@@ -1253,886 +1253,184 @@
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3b17e0f36f11eaa494f1890c48a256",
+                    "id": "f0f1b460f49f11eaaa97212e03ef033b",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.galaxy_tab_s_light_on_2",
-                "last_changed": "2020-09-10T14:13:51.644681+00:00",
-                "last_updated": "2020-09-10T14:13:51.644681+00:00",
+                "last_changed": "2020-09-12T02:30:36.757117+00:00",
+                "last_updated": "2020-09-12T02:30:36.757117+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Galaxy Tab S6 Light On",
                     "id": "galaxy_tab_s6_light_on",
-                    "last_triggered": "2020-09-10T09:05:51.219524+00:00",
+                    "last_triggered": "2020-09-11T12:19:56.959809+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3b1b7ef36f11eaaf128be507527062",
+                    "id": "f0f1b80df49f11eab6c0fb151cd8a977",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.galaxy_tab_s6_light_on",
-                "last_changed": "2020-09-10T14:13:51.644774+00:00",
-                "last_updated": "2020-09-10T14:13:51.644774+00:00",
+                "last_changed": "2020-09-12T02:30:36.757211+00:00",
+                "last_updated": "2020-09-12T02:30:36.757211+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "current": 0,
                     "friendly_name": "Galaxy Tab A Light On",
                     "id": "galaxy_tab_a_light_on",
-                    "last_triggered": null,
+                    "last_triggered": "2020-09-11T12:20:15.112885+00:00",
                     "mode": "single"
                 },
                 "context": {
-                    "id": "da3b1f09f36f11ea9080f9c54b87f21a",
+                    "id": "f0f1bbc4f49f11eaad4313e7b64b481c",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "automation.galaxy_tab_a_light_on",
-                "last_changed": "2020-09-10T14:13:51.644865+00:00",
-                "last_updated": "2020-09-10T14:13:51.644865+00:00",
+                "last_changed": "2020-09-12T02:30:36.757306+00:00",
+                "last_updated": "2020-09-12T02:30:36.757306+00:00",
                 "state": "off"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
-                    "device_class": "moving",
-                    "friendly_name": "Hallway Bath Door accelerometer"
+                    "current": 0,
+                    "friendly_name": "Pantry Door Opened",
+                    "id": "pantry_door_opened",
+                    "last_triggered": "2020-09-12T01:35:34.675295+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "0f7e8b2cf37011eab1292133580d3f5a",
+                    "id": "f0f1bfa6f49f11eabf5e7bb8a1b68565",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "binary_sensor.hallway_bath_door_accelerometer",
-                "last_changed": "2020-09-10T14:15:21.005979+00:00",
-                "last_updated": "2020-09-10T14:15:21.005979+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "opening",
-                    "friendly_name": "Hallway Bath Door ias_zone"
-                },
-                "context": {
-                    "id": "0f819ab8f37011ea99742df96a1c869f",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.hallway_bath_door_ias_zone",
-                "last_changed": "2020-09-10T14:15:21.026051+00:00",
-                "last_updated": "2020-09-10T14:15:21.026051+00:00",
+                "entity_id": "automation.pantry_door_opened_2",
+                "last_changed": "2020-09-12T02:30:36.757406+00:00",
+                "last_updated": "2020-09-12T02:30:36.757406+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
-                    "device_class": "moving",
-                    "friendly_name": "Laundry Door accelerometer"
+                    "current": 0,
+                    "friendly_name": "Pantry Door Closed",
+                    "id": "pantry_door_closed",
+                    "last_triggered": "2020-09-12T01:35:37.100942+00:00",
+                    "mode": "single"
                 },
                 "context": {
-                    "id": "10856c5cf37011eab9f567a19b1d64f6",
+                    "id": "f0f1c3f4f49f11ea9cac65dba11a4a11",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "binary_sensor.laundry_door_accelerometer",
-                "last_changed": "2020-09-10T14:15:22.728787+00:00",
-                "last_updated": "2020-09-10T14:15:22.728787+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "opening",
-                    "friendly_name": "Laundry Door ias_zone"
-                },
-                "context": {
-                    "id": "108a71f0f37011eaa97e652352d1a75a",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.laundry_door_ias_zone",
-                "last_changed": "2020-09-10T14:15:22.761716+00:00",
-                "last_updated": "2020-09-10T14:15:22.761716+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "Hallway Motion Sensor ias_zone"
-                },
-                "context": {
-                    "id": "3472d7f7f37011eab3f94b66687c8d01",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.hallway_motion_sensor_ias_zone",
-                "last_changed": "2020-09-10T14:16:23.005026+00:00",
-                "last_updated": "2020-09-10T14:16:23.005026+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "moving",
-                    "friendly_name": "Master Closet Door accelerometer"
-                },
-                "context": {
-                    "id": "05ab235cf37011ea8ab78f4bb8a0681a",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.master_closet_door_accelerometer",
-                "last_changed": "2020-09-10T14:15:04.521017+00:00",
-                "last_updated": "2020-09-10T14:15:04.521017+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "Master Closet Door ias_zone"
-                },
-                "context": {
-                    "id": "05b339c4f37011ea9c8d5d30fb9736cb",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.master_closet_door_ias_zone",
-                "last_changed": "2020-09-10T14:15:04.574054+00:00",
-                "last_updated": "2020-09-10T14:15:04.574054+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "moving",
-                    "friendly_name": "Master Bath Door accelerometer"
-                },
-                "context": {
-                    "id": "02961701f37011eab3c2ef89557185ea",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.master_bath_door_accelerometer",
-                "last_changed": "2020-09-10T14:14:59.349910+00:00",
-                "last_updated": "2020-09-10T14:14:59.349910+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "opening",
-                    "friendly_name": "Master Bath Door ias_zone"
-                },
-                "context": {
-                    "id": "029bcbaef37011eab739f93349bdc562",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.master_bath_door_ias_zone",
-                "last_changed": "2020-09-10T14:14:59.387334+00:00",
-                "last_updated": "2020-09-10T14:14:59.387334+00:00",
+                "entity_id": "automation.pantry_door_closed",
+                "last_changed": "2020-09-12T02:30:36.757515+00:00",
+                "last_updated": "2020-09-12T02:30:36.757515+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
-                    "device_class": "motion",
-                    "friendly_name": "Master Motion Sensor ias_zone"
-                },
-                "context": {
-                    "id": "10457411f37011eab0cdd1e2d8f27234",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.master_motion_sensor_ias_zone",
-                "last_changed": "2020-09-10T14:15:22.309594+00:00",
-                "last_updated": "2020-09-10T14:15:22.309594+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "moving",
-                    "friendly_name": "Kitchen Door accelerometer"
-                },
-                "context": {
-                    "id": "030b243bf37011eabf2265a8077d681a",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.kitchen_door_accelerometer",
-                "last_changed": "2020-09-10T14:15:00.117021+00:00",
-                "last_updated": "2020-09-10T14:15:00.117021+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "opening",
-                    "friendly_name": "Kitchen Door ias_zone"
-                },
-                "context": {
-                    "id": "030cf875f37011ea8921e5e7251db32f",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.kitchen_door_ias_zone",
-                "last_changed": "2020-09-10T14:15:00.129019+00:00",
-                "last_updated": "2020-09-10T14:15:00.129019+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "moving",
-                    "friendly_name": "Dining Window accelerometer"
-                },
-                "context": {
-                    "id": "114a97fff37011eaa0d6a7ff6afefe9a",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.dining_window_accelerometer",
-                "last_changed": "2020-09-10T14:15:24.020963+00:00",
-                "last_updated": "2020-09-10T14:15:24.020963+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "Dining Window ias_zone"
-                },
-                "context": {
-                    "id": "114f7b3ef37011ea856f6f20f30ffbfe",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.dining_window_ias_zone",
-                "last_changed": "2020-09-10T14:15:24.053010+00:00",
-                "last_updated": "2020-09-10T14:15:24.053010+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "motion",
-                    "friendly_name": "Kitchen Motion Sensor ias_zone"
-                },
-                "context": {
-                    "id": "dd1ad04df36f11eab4aa27e2b4490c85",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.kitchen_motion_sensor_ias_zone",
-                "last_changed": "2020-09-10T14:13:56.466305+00:00",
-                "last_updated": "2020-09-10T14:13:56.466305+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "moving",
-                    "friendly_name": "Pantry Door accelerometer"
-                },
-                "context": {
-                    "id": "0599f068f37011ea960177309cef18d7",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.pantry_door_accelerometer",
-                "last_changed": "2020-09-10T14:15:04.408302+00:00",
-                "last_updated": "2020-09-10T14:15:04.408302+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "opening",
-                    "friendly_name": "Pantry Door ias_zone"
-                },
-                "context": {
-                    "id": "05a14ce7f37011eaaeca21c78fa6ba6a",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "binary_sensor.pantry_door_ias_zone",
-                "last_changed": "2020-09-10T14:15:04.456559+00:00",
-                "last_updated": "2020-09-10T14:15:04.456559+00:00",
-                "state": "off"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Hallway Bath Door temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "0f5600f6f37011ea843e67dcff32a29a",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.hallway_bath_door_temperature",
-                "last_changed": "2020-09-10T14:15:20.740334+00:00",
-                "last_updated": "2020-09-10T14:15:20.740334+00:00",
-                "state": "24.8"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 2.6,
-                    "device_class": "battery",
-                    "friendly_name": "Hallway Bath Door power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "0f61cd9af37011eaadf5593ac7343ea1",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.hallway_bath_door_power",
-                "last_changed": "2020-09-10T14:15:20.817475+00:00",
-                "last_updated": "2020-09-10T14:15:20.817620+00:00",
-                "state": "72"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Laundry Door temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "106cdcfdf37011ea9182d141427b3ba0",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.laundry_door_temperature",
-                "last_changed": "2020-09-10T14:15:22.567843+00:00",
-                "last_updated": "2020-09-10T14:15:22.567843+00:00",
-                "state": "24.8"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 2.5,
-                    "device_class": "battery",
-                    "friendly_name": "Laundry Door power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "1071ce4df37011ea8c8d370672bf62ed",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.laundry_door_power",
-                "last_changed": "2020-09-10T14:15:22.600081+00:00",
-                "last_updated": "2020-09-10T14:15:22.600216+00:00",
-                "state": "57"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Hallway Motion Sensor temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "0a75d5e6f37011eaad38bb536d11d8fa",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.hallway_motion_sensor_temperature",
-                "last_changed": "2020-09-10T14:15:12.560323+00:00",
-                "last_updated": "2020-09-10T14:15:12.560323+00:00",
-                "state": "25.2"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 2.2,
-                    "device_class": "battery",
-                    "friendly_name": "Hallway Motion Sensor power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "0a7824dcf37011eaa57005a78c574f94",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.hallway_motion_sensor_power",
-                "last_changed": "2020-09-10T14:15:12.575443+00:00",
-                "last_updated": "2020-09-10T14:15:12.575443+00:00",
-                "state": "54"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Master Closet Door temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "f4583d92f37011ea826be9d7784eadfd",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.master_closet_door_temperature",
-                "last_changed": "2020-09-10T14:21:44.953214+00:00",
-                "last_updated": "2020-09-10T14:21:44.953214+00:00",
-                "state": "24.1"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 2.4,
-                    "device_class": "battery",
-                    "friendly_name": "Master Closet Door power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "05b148ecf37011ea8a38d1af3016d3f8",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.master_closet_door_power",
-                "last_changed": "2020-09-10T14:15:04.561335+00:00",
-                "last_updated": "2020-09-10T14:15:04.561335+00:00",
-                "state": "69"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Master Bath Door temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "026cd4aaf37011ea9aa16ba5cecc9bfc",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.master_bath_door_temperature",
-                "last_changed": "2020-09-10T14:14:59.079558+00:00",
-                "last_updated": "2020-09-10T14:14:59.079558+00:00",
-                "state": "24.6"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 2.5,
-                    "device_class": "battery",
-                    "friendly_name": "Master Bath Door power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "0272cf9af37011ea8bd145a45e207e0b",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.master_bath_door_power",
-                "last_changed": "2020-09-10T14:14:59.118475+00:00",
-                "last_updated": "2020-09-10T14:14:59.118716+00:00",
-                "state": "58"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Master Motion Sensor temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "101a7808f37011ea8f39a3380da971a1",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.master_motion_sensor_temperature",
-                "last_changed": "2020-09-10T14:15:22.027872+00:00",
-                "last_updated": "2020-09-10T14:15:22.027872+00:00",
-                "state": "24.7"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 2.8,
-                    "device_class": "battery",
-                    "friendly_name": "Master Motion Sensor power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "101d734ef37011eaac4a632f37efb665",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.master_motion_sensor_power",
-                "last_changed": "2020-09-10T14:15:22.047200+00:00",
-                "last_updated": "2020-09-10T14:15:22.047392+00:00",
-                "state": "97"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Kitchen Door temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "02e48f5bf37011ea8d2ce5e762309ee5",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.kitchen_door_temperature",
-                "last_changed": "2020-09-10T14:14:59.864211+00:00",
-                "last_updated": "2020-09-10T14:14:59.864211+00:00",
-                "state": "23.6"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 2.6,
-                    "device_class": "battery",
-                    "friendly_name": "Kitchen Door power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "02e7fb24f37011ea866d67270caab1ae",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.kitchen_door_power",
-                "last_changed": "2020-09-10T14:14:59.886409+00:00",
-                "last_updated": "2020-09-10T14:14:59.886593+00:00",
-                "state": "72"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Dining Window temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "11212eb7f37011eab13377ab5ed7c814",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.dining_window_temperature",
-                "last_changed": "2020-09-10T14:15:23.749582+00:00",
-                "last_updated": "2020-09-10T14:15:23.749582+00:00",
-                "state": "24.4"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 2.6,
-                    "device_class": "battery",
-                    "friendly_name": "Dining Window power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "11213995f37011eaaeaa697ee9a0f9a7",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.dining_window_power",
-                "last_changed": "2020-09-10T14:15:23.749844+00:00",
-                "last_updated": "2020-09-10T14:15:23.749844+00:00",
-                "state": "84"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Kitchen Motion Sensor temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "dd1bb0e9f36f11eaa369619bcccfcfff",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.kitchen_motion_sensor_temperature",
-                "last_changed": "2020-09-10T14:13:56.472054+00:00",
-                "last_updated": "2020-09-10T14:13:56.472054+00:00",
-                "state": "25.0"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 3.0,
-                    "device_class": "battery",
-                    "friendly_name": "Kitchen Motion Sensor power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "0ed0f93ef37111ea8e9131b4014a3614",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.kitchen_motion_sensor_power",
-                "last_changed": "2020-09-10T14:13:56.472346+00:00",
-                "last_updated": "2020-09-10T14:22:29.365212+00:00",
-                "state": "100"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "temperature",
-                    "friendly_name": "Pantry Door temperature",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "0568d509f37011eaa7c471c3e445c04b",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.pantry_door_temperature",
-                "last_changed": "2020-09-10T14:15:04.086528+00:00",
-                "last_updated": "2020-09-10T14:15:04.086528+00:00",
-                "state": "25.0"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "battery_voltage": 2.8,
-                    "device_class": "battery",
-                    "friendly_name": "Pantry Door power",
-                    "unit_of_measurement": "%"
-                },
-                "context": {
-                    "id": "056abeddf37011ea994f4b4e3ea5dbf1",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.pantry_door_power",
-                "last_changed": "2020-09-10T14:15:04.098873+00:00",
-                "last_updated": "2020-09-10T14:15:04.099008+00:00",
-                "state": "100"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "attribution": "Data retrieved from Speedtest.net by Ookla",
                     "friendly_name": "SpeedTest Ping",
                     "icon": "mdi:speedometer",
-                    "server_country": "United States",
-                    "server_id": "30471",
-                    "server_name": "Washington, DC",
                     "unit_of_measurement": "ms"
                 },
                 "context": {
-                    "id": "ee526688f36f11ea8c2851ab8924fb5b",
+                    "id": "f4787344f49f11eab3b84b3645eec9c5",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "sensor.speedtest_ping",
-                "last_changed": "2020-09-10T14:14:25.351902+00:00",
-                "last_updated": "2020-09-10T14:14:25.351902+00:00",
-                "state": "14.362"
+                "last_changed": "2020-09-12T02:30:42.673367+00:00",
+                "last_updated": "2020-09-12T02:30:42.673367+00:00",
+                "state": "12.648"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
-                    "attribution": "Data retrieved from Speedtest.net by Ookla",
-                    "bytes_received": 116242302,
                     "friendly_name": "SpeedTest Download",
                     "icon": "mdi:speedometer",
-                    "server_country": "United States",
-                    "server_id": "30471",
-                    "server_name": "Washington, DC",
                     "unit_of_measurement": "Mbit/s"
                 },
                 "context": {
-                    "id": "ee52726ef36f11ea898be5c6b56f44d4",
+                    "id": "f4787977f49f11eab455f5dd7d7cf88a",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "sensor.speedtest_download",
-                "last_changed": "2020-09-10T14:14:25.352187+00:00",
-                "last_updated": "2020-09-10T14:14:25.352187+00:00",
-                "state": "92.61"
+                "last_changed": "2020-09-12T02:30:42.673512+00:00",
+                "last_updated": "2020-09-12T02:30:42.673512+00:00",
+                "state": "87.85"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
-                    "attribution": "Data retrieved from Speedtest.net by Ookla",
-                    "bytes_sent": 101924864,
                     "friendly_name": "SpeedTest Upload",
                     "icon": "mdi:speedometer",
-                    "server_country": "United States",
-                    "server_id": "30471",
-                    "server_name": "Washington, DC",
                     "unit_of_measurement": "Mbit/s"
                 },
                 "context": {
-                    "id": "ee527be7f36f11ea985797d2bfaa8d3a",
+                    "id": "f4787debf49f11ea9ca83352feacd877",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "sensor.speedtest_upload",
-                "last_changed": "2020-09-10T14:14:25.352426+00:00",
-                "last_updated": "2020-09-10T14:14:25.352426+00:00",
-                "state": "77.22"
+                "last_changed": "2020-09-12T02:30:42.673644+00:00",
+                "last_updated": "2020-09-12T02:30:42.673644+00:00",
+                "state": "71.48"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "Fountain",
-                    "icon": "mdi:fountain"
-                },
-                "context": {
-                    "id": "dd28b0baf36f11eabfd815dd63822742",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "switch.fountain",
-                "last_changed": "2020-09-10T14:13:56.557252+00:00",
-                "last_updated": "2020-09-10T14:13:56.557252+00:00",
-                "state": "on"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
-            "state": {
-                "attributes": {
-                    "device_class": "power",
-                    "friendly_name": "Fountain electrical_measurement",
-                    "unit_of_measurement": "W"
-                },
-                "context": {
-                    "id": "d29d2237f37111eab1a977c42b3db554",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.fountain_electrical_measurement",
-                "last_changed": "2020-09-10T14:27:57.858906+00:00",
-                "last_updated": "2020-09-10T14:27:57.858906+00:00",
-                "state": "3.0"
-            }
-        },
-        {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "altitude": 64.0,
                     "course": 0,
                     "friendly_name": "Galaxy Note 10",
-                    "gps_accuracy": 12,
-                    "latitude": 38.8911025,
-                    "longitude": -77.081712,
+                    "gps_accuracy": 13,
+                    "latitude": 38.8911053,
+                    "longitude": -77.0817692,
                     "source_type": "gps",
                     "speed": 0,
-                    "vertical_accuracy": 2
+                    "vertical_accuracy": 5
                 },
                 "context": {
-                    "id": "69baead1f37111eabf0557b0eb1bb591",
+                    "id": "f4f11e5cf49f11eaa3128dfc84a0d683",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "device_tracker.sm_n975u1",
-                "last_changed": "2020-09-10T14:25:01.893346+00:00",
-                "last_updated": "2020-09-10T14:25:01.893346+00:00",
+                "last_changed": "2020-09-12T02:30:43.464168+00:00",
+                "last_updated": "2020-09-12T02:30:43.464168+00:00",
                 "state": "home"
             }
         },
         {
-            "last_seen": "2020-09-10T14:29:02.595684+00:00",
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
             "state": {
                 "attributes": {
                     "activity_list": [],
@@ -2141,23 +1439,742 @@
                     "devices_list": [
                         "Philips AV Switch",
                         "Onkyo AV Receiver",
-                        "Excelvan Projector",
                         "Theater Roku",
-                        "Revoltec Light Controller",
-                        "Theater TV"
+                        "Theater TV",
+                        "RGB LED"
                     ],
                     "friendly_name": "Harmony Hub",
                     "last_activity": null,
                     "supported_features": 0
                 },
                 "context": {
-                    "id": "de01bae7f36f11ea88720126fcc0d4f5",
+                    "id": "f59c5e34f49f11ea8d6af92c9bca6775",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "remote.harmony_hub",
-                "last_changed": "2020-09-10T14:13:57.979638+00:00",
-                "last_updated": "2020-09-10T14:13:57.979638+00:00",
+                "last_changed": "2020-09-12T02:30:44.586476+00:00",
+                "last_updated": "2020-09-12T02:30:44.586476+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "opening",
+                    "friendly_name": "Hallway Bath Door ias_zone"
+                },
+                "context": {
+                    "id": "f623bd3bf49f11eaa095a5d1e1179544",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.hallway_bath_door_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.473661+00:00",
+                "last_updated": "2020-09-12T02:30:45.473661+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "moving",
+                    "friendly_name": "Hallway Bath Door accelerometer"
+                },
+                "context": {
+                    "id": "f623c8bcf49f11eab247d5e111f912d7",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.hallway_bath_door_accelerometer",
+                "last_changed": "2020-09-12T02:30:45.473929+00:00",
+                "last_updated": "2020-09-12T02:30:45.473929+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "opening",
+                    "friendly_name": "Laundry Door ias_zone"
+                },
+                "context": {
+                    "id": "f623d2f8f49f11ea880ced9f039d3066",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.laundry_door_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.474191+00:00",
+                "last_updated": "2020-09-12T02:30:45.474191+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "moving",
+                    "friendly_name": "Laundry Door accelerometer"
+                },
+                "context": {
+                    "id": "f623dc70f49f11eaa31c7332e2f52cef",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.laundry_door_accelerometer",
+                "last_changed": "2020-09-12T02:30:45.474433+00:00",
+                "last_updated": "2020-09-12T02:30:45.474433+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Hallway Motion Sensor ias_zone"
+                },
+                "context": {
+                    "id": "f6240b1ff49f11ea8a50d3e98b59b789",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.hallway_motion_sensor_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.475631+00:00",
+                "last_updated": "2020-09-12T02:30:45.475631+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Master Closet Door ias_zone"
+                },
+                "context": {
+                    "id": "f624166af49f11eab78949bacd67763a",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.master_closet_door_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.475918+00:00",
+                "last_updated": "2020-09-12T02:30:45.475918+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "moving",
+                    "friendly_name": "Master Closet Door accelerometer"
+                },
+                "context": {
+                    "id": "f6242009f49f11ea9205fde680773e7e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.master_closet_door_accelerometer",
+                "last_changed": "2020-09-12T02:30:45.476163+00:00",
+                "last_updated": "2020-09-12T02:30:45.476163+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "opening",
+                    "friendly_name": "Master Bath Door ias_zone"
+                },
+                "context": {
+                    "id": "f6242a30f49f11ea897c5b81223ab9d7",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.master_bath_door_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.476423+00:00",
+                "last_updated": "2020-09-12T02:30:45.476423+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "moving",
+                    "friendly_name": "Master Bath Door accelerometer"
+                },
+                "context": {
+                    "id": "f6243370f49f11eabb2eb3e436af0d29",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.master_bath_door_accelerometer",
+                "last_changed": "2020-09-12T02:30:45.476660+00:00",
+                "last_updated": "2020-09-12T02:30:45.476660+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "motion",
+                    "friendly_name": "Master Motion Sensor ias_zone"
+                },
+                "context": {
+                    "id": "f6243dacf49f11ea9acc355c4eed6be4",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.master_motion_sensor_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.476922+00:00",
+                "last_updated": "2020-09-12T02:30:45.476922+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "opening",
+                    "friendly_name": "Kitchen Door ias_zone"
+                },
+                "context": {
+                    "id": "f6244772f49f11ea93a80b4927fd3ff8",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.kitchen_door_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.477172+00:00",
+                "last_updated": "2020-09-12T02:30:45.477172+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "moving",
+                    "friendly_name": "Kitchen Door accelerometer"
+                },
+                "context": {
+                    "id": "f62450e9f49f11eaa517d9e5959a60f8",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.kitchen_door_accelerometer",
+                "last_changed": "2020-09-12T02:30:45.477414+00:00",
+                "last_updated": "2020-09-12T02:30:45.477414+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Dining Window ias_zone"
+                },
+                "context": {
+                    "id": "f6245b38f49f11ea8e380d6fa74805fb",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.dining_window_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.477678+00:00",
+                "last_updated": "2020-09-12T02:30:45.477678+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "moving",
+                    "friendly_name": "Dining Window accelerometer"
+                },
+                "context": {
+                    "id": "f624644cf49f11ea87bb797dcb6d8d63",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.dining_window_accelerometer",
+                "last_changed": "2020-09-12T02:30:45.477910+00:00",
+                "last_updated": "2020-09-12T02:30:45.477910+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "motion",
+                    "friendly_name": "Kitchen Motion Sensor ias_zone"
+                },
+                "context": {
+                    "id": "f6246e11f49f11ea9a25b165d0fe6f69",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.kitchen_motion_sensor_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.478161+00:00",
+                "last_updated": "2020-09-12T02:30:45.478161+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "opening",
+                    "friendly_name": "Pantry Door ias_zone"
+                },
+                "context": {
+                    "id": "f624782af49f11ea8462977ef500edc9",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.pantry_door_ias_zone",
+                "last_changed": "2020-09-12T02:30:45.478419+00:00",
+                "last_updated": "2020-09-12T02:30:45.478419+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "moving",
+                    "friendly_name": "Pantry Door accelerometer"
+                },
+                "context": {
+                    "id": "f6248e8cf49f11ea82212d8e85180f06",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "binary_sensor.pantry_door_accelerometer",
+                "last_changed": "2020-09-12T02:30:45.478995+00:00",
+                "last_updated": "2020-09-12T02:30:45.478995+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Hallway Bath Door power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f6249995f49f11ea82b47be20dee004c",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.hallway_bath_door_power",
+                "last_changed": "2020-09-12T02:30:45.479276+00:00",
+                "last_updated": "2020-09-12T02:30:45.479276+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Hallway Bath Door temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f624a75ef49f11ea87197506f6805035",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.hallway_bath_door_temperature",
+                "last_changed": "2020-09-12T02:30:45.479629+00:00",
+                "last_updated": "2020-09-12T02:30:45.479629+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Laundry Door power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f624b1eef49f11ea9382292d715877b3",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.laundry_door_power",
+                "last_changed": "2020-09-12T02:30:45.479899+00:00",
+                "last_updated": "2020-09-12T02:30:45.479899+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Laundry Door temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f624bbecf49f11ea932e75da3ac7f74a",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.laundry_door_temperature",
+                "last_changed": "2020-09-12T02:30:45.480154+00:00",
+                "last_updated": "2020-09-12T02:30:45.480154+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Hallway Motion Sensor temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f624c5eef49f11ea89837504a9c83606",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.hallway_motion_sensor_temperature",
+                "last_changed": "2020-09-12T02:30:45.480410+00:00",
+                "last_updated": "2020-09-12T02:30:45.480410+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Hallway Motion Sensor power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f624d033f49f11ea9bb0ed6039c8082a",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.hallway_motion_sensor_power",
+                "last_changed": "2020-09-12T02:30:45.480675+00:00",
+                "last_updated": "2020-09-12T02:30:45.480675+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Master Closet Door power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f624da89f49f11ea897e077e4acf77c4",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.master_closet_door_power",
+                "last_changed": "2020-09-12T02:30:45.480938+00:00",
+                "last_updated": "2020-09-12T02:30:45.480938+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Master Closet Door temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f624e47cf49f11eaafd27bffea961fb9",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.master_closet_door_temperature",
+                "last_changed": "2020-09-12T02:30:45.481193+00:00",
+                "last_updated": "2020-09-12T02:30:45.481193+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Master Bath Door power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f624eea0f49f11eab7d2e9453824261e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.master_bath_door_power",
+                "last_changed": "2020-09-12T02:30:45.481452+00:00",
+                "last_updated": "2020-09-12T02:30:45.481452+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Master Bath Door temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f624f93df49f11eab5b5135745234a7a",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.master_bath_door_temperature",
+                "last_changed": "2020-09-12T02:30:45.481724+00:00",
+                "last_updated": "2020-09-12T02:30:45.481724+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Master Motion Sensor temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f6250452f49f11ea8026b3012a58a78b",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.master_motion_sensor_temperature",
+                "last_changed": "2020-09-12T02:30:45.482008+00:00",
+                "last_updated": "2020-09-12T02:30:45.482008+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Master Motion Sensor power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f6250e42f49f11ea8d7451e4fdf4a0ae",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.master_motion_sensor_power",
+                "last_changed": "2020-09-12T02:30:45.482262+00:00",
+                "last_updated": "2020-09-12T02:30:45.482262+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Kitchen Door power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f6251adff49f11eaa098a3b41d5110d7",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.kitchen_door_power",
+                "last_changed": "2020-09-12T02:30:45.482585+00:00",
+                "last_updated": "2020-09-12T02:30:45.482585+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Kitchen Door temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f62524a8f49f11ea8ec269237376c0bf",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.kitchen_door_temperature",
+                "last_changed": "2020-09-12T02:30:45.482835+00:00",
+                "last_updated": "2020-09-12T02:30:45.482835+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Dining Window power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f6252ef3f49f11ea965b1b01d257c2b9",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.dining_window_power",
+                "last_changed": "2020-09-12T02:30:45.483099+00:00",
+                "last_updated": "2020-09-12T02:30:45.483099+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Dining Window temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f62538dff49f11ea80b5938887cdbbb7",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.dining_window_temperature",
+                "last_changed": "2020-09-12T02:30:45.483352+00:00",
+                "last_updated": "2020-09-12T02:30:45.483352+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Kitchen Motion Sensor temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f6254279f49f11ea97abc3a2941ac14e",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.kitchen_motion_sensor_temperature",
+                "last_changed": "2020-09-12T02:30:45.483598+00:00",
+                "last_updated": "2020-09-12T02:30:45.483598+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Kitchen Motion Sensor power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f6254c8af49f11eaaf7bc157ad43d624",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.kitchen_motion_sensor_power",
+                "last_changed": "2020-09-12T02:30:45.483856+00:00",
+                "last_updated": "2020-09-12T02:30:45.483856+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "battery",
+                    "friendly_name": "Pantry Door power",
+                    "unit_of_measurement": "%"
+                },
+                "context": {
+                    "id": "f62556ccf49f11eabd09eb19a3c52acf",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.pantry_door_power",
+                "last_changed": "2020-09-12T02:30:45.484118+00:00",
+                "last_updated": "2020-09-12T02:30:45.484118+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "temperature",
+                    "friendly_name": "Pantry Door temperature",
+                    "unit_of_measurement": "\u00b0C"
+                },
+                "context": {
+                    "id": "f6256089f49f11eaaad0c3d1695db9f9",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.pantry_door_temperature",
+                "last_changed": "2020-09-12T02:30:45.484367+00:00",
+                "last_updated": "2020-09-12T02:30:45.484367+00:00",
+                "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "device_class": "power",
+                    "friendly_name": "Fountain electrical_measurement",
+                    "unit_of_measurement": "W"
+                },
+                "context": {
+                    "id": "f6498309f49f11ea85cddd598346cc10",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "sensor.fountain_electrical_measurement",
+                "last_changed": "2020-09-12T02:30:45.721206+00:00",
+                "last_updated": "2020-09-12T02:30:45.721206+00:00",
+                "state": "0.0"
+            }
+        },
+        {
+            "last_seen": "2020-09-12T02:30:50.844372+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Fountain",
+                    "icon": "mdi:fountain"
+                },
+                "context": {
+                    "id": "f63ccb11f49f11ea8ce285566cb07ac0",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "switch.fountain",
+                "last_changed": "2020-09-12T02:30:45.637853+00:00",
+                "last_updated": "2020-09-12T02:30:45.637853+00:00",
                 "state": "off"
             }
         },
@@ -2311,69 +2328,6 @@
                 "last_changed": "2020-09-09T14:15:44.794004+00:00",
                 "last_updated": "2020-09-09T14:15:44.794004+00:00",
                 "state": "26.5"
-            }
-        },
-        {
-            "last_seen": "2020-09-03T21:19:40.138993+00:00",
-            "state": {
-                "attributes": {
-                    "current": 0,
-                    "friendly_name": "NWS Alert",
-                    "id": "1599167875131",
-                    "last_triggered": "2020-09-03T21:18:57.429072+00:00",
-                    "mode": "single"
-                },
-                "context": {
-                    "id": "1d828b19ee2b11eabfe6bf356cd8055d",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "automation.nws_alert",
-                "last_changed": "2020-09-03T21:19:13.432056+00:00",
-                "last_updated": "2020-09-03T21:19:13.432056+00:00",
-                "state": "on"
-            }
-        },
-        {
-            "last_seen": "2020-09-04T19:08:06.965945+00:00",
-            "state": {
-                "attributes": {
-                    "current": 0,
-                    "friendly_name": "Near Home",
-                    "id": "1599246430522",
-                    "last_triggered": null,
-                    "mode": "single"
-                },
-                "context": {
-                    "id": "d648ceddeee111eab64c1b15aff0d967",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "automation.near_home",
-                "last_changed": "2020-09-04T19:07:11.836963+00:00",
-                "last_updated": "2020-09-04T19:07:11.836963+00:00",
-                "state": "on"
-            }
-        },
-        {
-            "last_seen": "2020-09-04T20:17:28.186435+00:00",
-            "state": {
-                "attributes": {
-                    "current": 0,
-                    "friendly_name": "Galaxy Tab S Motion Start",
-                    "id": "1599250594899",
-                    "last_triggered": null,
-                    "mode": "single"
-                },
-                "context": {
-                    "id": "8871968ceeeb11eab29ea33221fd190d",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "automation.galaxy_tab_s_motion_start",
-                "last_changed": "2020-09-04T20:16:36.209230+00:00",
-                "last_updated": "2020-09-04T20:16:36.209230+00:00",
-                "state": "on"
             }
         },
         {
@@ -2752,6 +2706,27 @@
                 "last_changed": "2020-09-09T21:34:56.107362+00:00",
                 "last_updated": "2020-09-09T21:34:56.107362+00:00",
                 "state": "unavailable"
+            }
+        },
+        {
+            "last_seen": "2020-09-11T18:59:59.739231+00:00",
+            "state": {
+                "attributes": {
+                    "current": 0,
+                    "friendly_name": "Pantry Door Opened",
+                    "id": "1599850756880",
+                    "last_triggered": null,
+                    "mode": "single"
+                },
+                "context": {
+                    "id": "e4eec218f46011eaa66c150f0b3523cd",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.pantry_door_opened",
+                "last_changed": "2020-09-11T18:59:18.311186+00:00",
+                "last_updated": "2020-09-11T18:59:18.311186+00:00",
+                "state": "on"
             }
         }
     ],
