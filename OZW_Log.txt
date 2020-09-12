@@ -1448,3 +1448,632 @@
 2020-09-11 22:32:11.113 Detail, Node009, Refreshed Value: old value=61.0, new value=62.0, type=decimal
 2020-09-11 22:32:11.113 Detail, Node009, Changes to this value are not verified
 2020-09-11 22:32:11.113 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:33:42.119 Info, Node007, Value::Set - COMMAND_CLASS_SWITCH_MULTILEVEL - Level - 0 - 1 - 255
+2020-09-11 22:33:42.119 Info, Node007, SwitchMultilevel::Set - Setting to level 255
+2020-09-11 22:33:42.119 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Set (Node=7): 0x01, 0x0a, 0x00, 0x13, 0x07, 0x03, 0x26, 0x01, 0xff, 0x25, 0x33, 0x2c
+2020-09-11 22:33:42.119 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x34, 0xd5
+2020-09-11 22:33:42.119 Detail, 
+2020-09-11 22:33:42.119 Info, Node007, Sending (Send) message (Callback ID=0x33, Expected Reply=0x13) - SwitchMultilevelCmd_Set (Node=7): 0x01, 0x0a, 0x00, 0x13, 0x07, 0x03, 0x26, 0x01, 0xff, 0x25, 0x33, 0x2c
+2020-09-11 22:33:42.125 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:33:42.125 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:33:42.169 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x33, 0x00, 0xda
+2020-09-11 22:33:42.169 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x33 received (expected 0x33)
+2020-09-11 22:33:42.169 Info, Node007, Request RTT 49 Average Request RTT 76
+2020-09-11 22:33:42.169 Detail,   Expected callbackId was received
+2020-09-11 22:33:42.169 Detail,   Expected reply was received
+2020-09-11 22:33:42.169 Detail,   Message transaction complete
+2020-09-11 22:33:42.169 Detail, 
+2020-09-11 22:33:42.169 Detail, Node007, Removing current message
+2020-09-11 22:33:42.169 Detail, 
+2020-09-11 22:33:42.169 Info, Node007, Sending (Send) message (Callback ID=0x34, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x34, 0xd5
+2020-09-11 22:33:42.175 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:33:42.175 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:33:42.244 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x34, 0x00, 0xdd
+2020-09-11 22:33:42.244 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x34 received (expected 0x34)
+2020-09-11 22:33:42.244 Info, Node007, Request RTT 75 Average Request RTT 75
+2020-09-11 22:33:42.244 Detail,   Expected callbackId was received
+2020-09-11 22:33:42.314 Detail, Node007,   Received: 0x01, 0x08, 0x00, 0x04, 0x00, 0x07, 0x02, 0x82, 0x01, 0x75
+2020-09-11 22:33:42.314 Detail, 
+2020-09-11 22:33:42.314 Info, Node007, Response RTT 145 Average Response RTT 162
+2020-09-11 22:33:42.314 Info, Node007, Received Hail command from node 7
+2020-09-11 22:33:42.314 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x35, 0xd4
+2020-09-11 22:33:42.360 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x63, 0x63, 0x01, 0xd6
+2020-09-11 22:33:42.360 Detail, 
+2020-09-11 22:33:42.360 Info, Node007, Response RTT 191 Average Response RTT 176
+2020-09-11 22:33:42.360 Info, Node007, Received SwitchMultiLevel report: level=99
+2020-09-11 22:33:42.360 Detail, Node007, Refreshed Value: old value=0, new value=99, type=byte
+2020-09-11 22:33:42.360 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:33:42.360 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:33:42.360 Detail, Node007,   Message transaction complete
+2020-09-11 22:33:42.360 Detail, 
+2020-09-11 22:33:42.360 Detail, Node007, Removing current message
+2020-09-11 22:33:42.360 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:33:42.361 Detail, 
+2020-09-11 22:33:42.361 Info, Node007, Sending (Send) message (Callback ID=0x35, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x35, 0xd4
+2020-09-11 22:33:42.367 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:33:42.367 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:33:42.497 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x35, 0x00, 0xdc
+2020-09-11 22:33:42.497 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x35 received (expected 0x35)
+2020-09-11 22:33:42.497 Info, Node007, Request RTT 135 Average Request RTT 105
+2020-09-11 22:33:42.497 Detail,   Expected callbackId was received
+2020-09-11 22:33:42.565 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x63, 0x63, 0x01, 0xd6
+2020-09-11 22:33:42.565 Detail, 
+2020-09-11 22:33:42.565 Info, Node007, Response RTT 203 Average Response RTT 189
+2020-09-11 22:33:42.565 Info, Node007, Received SwitchMultiLevel report: level=99
+2020-09-11 22:33:42.565 Detail, Node007, Refreshed Value: old value=99, new value=99, type=byte
+2020-09-11 22:33:42.565 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:33:42.565 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:33:42.565 Detail, Node007,   Message transaction complete
+2020-09-11 22:33:42.565 Detail, 
+2020-09-11 22:33:42.565 Detail, Node007, Removing current message
+2020-09-11 22:33:42.565 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:34:33.175 Info, Node006, Value::Set - COMMAND_CLASS_SWITCH_MULTILEVEL - Level - 0 - 1 - 0
+2020-09-11 22:34:33.176 Info, Node006, SwitchMultilevel::Set - Setting to level 0
+2020-09-11 22:34:33.176 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Set (Node=6): 0x01, 0x0a, 0x00, 0x13, 0x06, 0x03, 0x26, 0x01, 0x00, 0x25, 0x36, 0xd7
+2020-09-11 22:34:33.176 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x37, 0xd7
+2020-09-11 22:34:33.176 Detail, 
+2020-09-11 22:34:33.176 Info, Node006, Sending (Send) message (Callback ID=0x36, Expected Reply=0x13) - SwitchMultilevelCmd_Set (Node=6): 0x01, 0x0a, 0x00, 0x13, 0x06, 0x03, 0x26, 0x01, 0x00, 0x25, 0x36, 0xd7
+2020-09-11 22:34:33.181 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:33.181 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:33.224 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x36, 0x00, 0xdf
+2020-09-11 22:34:33.224 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x36 received (expected 0x36)
+2020-09-11 22:34:33.224 Info, Node006, Request RTT 48 Average Request RTT 77
+2020-09-11 22:34:33.224 Detail,   Expected callbackId was received
+2020-09-11 22:34:33.224 Detail,   Expected reply was received
+2020-09-11 22:34:33.224 Detail,   Message transaction complete
+2020-09-11 22:34:33.224 Detail, 
+2020-09-11 22:34:33.224 Detail, Node006, Removing current message
+2020-09-11 22:34:33.224 Detail, 
+2020-09-11 22:34:33.224 Info, Node006, Sending (Send) message (Callback ID=0x37, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x37, 0xd7
+2020-09-11 22:34:33.230 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:33.230 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:33.299 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x37, 0x00, 0xde
+2020-09-11 22:34:33.299 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x37 received (expected 0x37)
+2020-09-11 22:34:33.299 Info, Node006, Request RTT 74 Average Request RTT 75
+2020-09-11 22:34:33.299 Detail,   Expected callbackId was received
+2020-09-11 22:34:33.368 Detail, Node006,   Received: 0x01, 0x08, 0x00, 0x04, 0x00, 0x06, 0x02, 0x82, 0x01, 0x74
+2020-09-11 22:34:33.368 Detail, 
+2020-09-11 22:34:33.369 Info, Node006, Response RTT 144 Average Response RTT 164
+2020-09-11 22:34:33.369 Info, Node006, Received Hail command from node 6
+2020-09-11 22:34:33.369 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x38, 0xd8
+2020-09-11 22:34:33.414 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd6
+2020-09-11 22:34:33.414 Detail, 
+2020-09-11 22:34:33.414 Info, Node006, Response RTT 189 Average Response RTT 176
+2020-09-11 22:34:33.414 Info, Node006, Received SwitchMultiLevel report: level=0
+2020-09-11 22:34:33.414 Detail, Node006, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:34:33.414 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:33.414 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:33.414 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:33.414 Detail, 
+2020-09-11 22:34:33.414 Detail, Node006, Removing current message
+2020-09-11 22:34:33.414 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:33.416 Detail, 
+2020-09-11 22:34:33.416 Info, Node006, Sending (Send) message (Callback ID=0x38, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x38, 0xd8
+2020-09-11 22:34:33.421 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:33.421 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:33.547 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x38, 0x00, 0xd1
+2020-09-11 22:34:33.547 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x38 received (expected 0x38)
+2020-09-11 22:34:33.547 Info, Node006, Request RTT 131 Average Request RTT 103
+2020-09-11 22:34:33.547 Detail,   Expected callbackId was received
+2020-09-11 22:34:33.620 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd6
+2020-09-11 22:34:33.620 Detail, 
+2020-09-11 22:34:33.620 Info, Node006, Response RTT 204 Average Response RTT 190
+2020-09-11 22:34:33.620 Info, Node006, Received SwitchMultiLevel report: level=0
+2020-09-11 22:34:33.620 Detail, Node006, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:34:33.620 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:33.620 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:33.620 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:33.620 Detail, 
+2020-09-11 22:34:33.620 Detail, Node006, Removing current message
+2020-09-11 22:34:33.620 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:34.176 Info, mgr,     Refreshing node 6: COMMAND_CLASS_SWITCH_MULTILEVEL index = 0 instance = 1 (to confirm a reported change)
+2020-09-11 22:34:34.176 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x39, 0xd9
+2020-09-11 22:34:34.176 Detail, 
+2020-09-11 22:34:34.176 Info, Node006, Sending (Send) message (Callback ID=0x39, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x39, 0xd9
+2020-09-11 22:34:34.182 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:34.182 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:34.225 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x39, 0x00, 0xd0
+2020-09-11 22:34:34.225 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x39 received (expected 0x39)
+2020-09-11 22:34:34.225 Info, Node006, Request RTT 48 Average Request RTT 75
+2020-09-11 22:34:34.225 Detail,   Expected callbackId was received
+2020-09-11 22:34:34.300 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd6
+2020-09-11 22:34:34.300 Detail, 
+2020-09-11 22:34:34.300 Info, Node006, Response RTT 123 Average Response RTT 156
+2020-09-11 22:34:34.300 Info, Node006, Received SwitchMultiLevel report: level=0
+2020-09-11 22:34:34.300 Detail, Node006, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:34:34.300 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:34.300 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:34.300 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:34.300 Detail, 
+2020-09-11 22:34:34.300 Detail, Node006, Removing current message
+2020-09-11 22:34:34.300 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:34.701 Info, Node006, Value::Set - COMMAND_CLASS_SWITCH_MULTILEVEL - Level - 0 - 1 - 255
+2020-09-11 22:34:34.702 Info, Node006, SwitchMultilevel::Set - Setting to level 255
+2020-09-11 22:34:34.702 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Set (Node=6): 0x01, 0x0a, 0x00, 0x13, 0x06, 0x03, 0x26, 0x01, 0xff, 0x25, 0x3a, 0x24
+2020-09-11 22:34:34.702 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x3b, 0xdb
+2020-09-11 22:34:34.702 Detail, 
+2020-09-11 22:34:34.702 Info, Node006, Sending (Send) message (Callback ID=0x3a, Expected Reply=0x13) - SwitchMultilevelCmd_Set (Node=6): 0x01, 0x0a, 0x00, 0x13, 0x06, 0x03, 0x26, 0x01, 0xff, 0x25, 0x3a, 0x24
+2020-09-11 22:34:34.707 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:34.707 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:34.751 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x3a, 0x00, 0xd3
+2020-09-11 22:34:34.751 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x3a received (expected 0x3a)
+2020-09-11 22:34:34.751 Info, Node006, Request RTT 49 Average Request RTT 62
+2020-09-11 22:34:34.751 Detail,   Expected callbackId was received
+2020-09-11 22:34:34.751 Detail,   Expected reply was received
+2020-09-11 22:34:34.751 Detail,   Message transaction complete
+2020-09-11 22:34:34.751 Detail, 
+2020-09-11 22:34:34.751 Detail, Node006, Removing current message
+2020-09-11 22:34:34.751 Detail, 
+2020-09-11 22:34:34.751 Info, Node006, Sending (Send) message (Callback ID=0x3b, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x3b, 0xdb
+2020-09-11 22:34:34.757 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:34.757 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:34.819 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x3b, 0x00, 0xd2
+2020-09-11 22:34:34.819 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x3b received (expected 0x3b)
+2020-09-11 22:34:34.819 Info, Node006, Request RTT 67 Average Request RTT 64
+2020-09-11 22:34:34.819 Detail,   Expected callbackId was received
+2020-09-11 22:34:34.889 Detail, Node006,   Received: 0x01, 0x08, 0x00, 0x04, 0x00, 0x06, 0x02, 0x82, 0x01, 0x74
+2020-09-11 22:34:34.889 Detail, 
+2020-09-11 22:34:34.889 Info, Node006, Response RTT 137 Average Response RTT 146
+2020-09-11 22:34:34.889 Info, Node006, Received Hail command from node 6
+2020-09-11 22:34:34.889 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x3c, 0xdc
+2020-09-11 22:34:34.935 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x0a, 0x0a, 0x00, 0xd6
+2020-09-11 22:34:34.935 Detail, 
+2020-09-11 22:34:34.935 Info, Node006, Response RTT 183 Average Response RTT 164
+2020-09-11 22:34:34.935 Info, Node006, Received SwitchMultiLevel report: level=10
+2020-09-11 22:34:34.935 Detail, Node006, Refreshed Value: old value=0, new value=10, type=byte
+2020-09-11 22:34:34.935 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:34.935 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:34.935 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:34.935 Detail, 
+2020-09-11 22:34:34.935 Detail, Node006, Removing current message
+2020-09-11 22:34:34.935 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:34.936 Detail, 
+2020-09-11 22:34:34.936 Info, Node006, Sending (Send) message (Callback ID=0x3c, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x3c, 0xdc
+2020-09-11 22:34:34.942 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:34.942 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:35.067 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x3c, 0x00, 0xd5
+2020-09-11 22:34:35.067 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x3c received (expected 0x3c)
+2020-09-11 22:34:35.067 Info, Node006, Request RTT 131 Average Request RTT 97
+2020-09-11 22:34:35.067 Detail,   Expected callbackId was received
+2020-09-11 22:34:35.140 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x0a, 0x0a, 0x00, 0xd6
+2020-09-11 22:34:35.140 Detail, 
+2020-09-11 22:34:35.140 Info, Node006, Response RTT 204 Average Response RTT 184
+2020-09-11 22:34:35.140 Info, Node006, Received SwitchMultiLevel report: level=10
+2020-09-11 22:34:35.140 Detail, Node006, Refreshed Value: old value=10, new value=10, type=byte
+2020-09-11 22:34:35.140 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:35.140 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:35.140 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:35.140 Detail, 
+2020-09-11 22:34:35.140 Detail, Node006, Removing current message
+2020-09-11 22:34:35.140 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:35.178 Info, mgr,     Refreshing node 6: COMMAND_CLASS_SWITCH_MULTILEVEL index = 0 instance = 1 (to confirm a reported change)
+2020-09-11 22:34:35.178 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x3d, 0xdd
+2020-09-11 22:34:35.178 Detail, 
+2020-09-11 22:34:35.178 Info, Node006, Sending (Send) message (Callback ID=0x3d, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x3d, 0xdd
+2020-09-11 22:34:35.183 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:35.183 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:35.257 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x3d, 0x00, 0xd4
+2020-09-11 22:34:35.257 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x3d received (expected 0x3d)
+2020-09-11 22:34:35.257 Info, Node006, Request RTT 79 Average Request RTT 88
+2020-09-11 22:34:35.257 Detail,   Expected callbackId was received
+2020-09-11 22:34:35.330 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x0a, 0x0a, 0x00, 0xd6
+2020-09-11 22:34:35.330 Detail, 
+2020-09-11 22:34:35.330 Info, Node006, Response RTT 151 Average Response RTT 167
+2020-09-11 22:34:35.330 Info, Node006, Received SwitchMultiLevel report: level=10
+2020-09-11 22:34:35.330 Detail, Node006, Refreshed Value: old value=10, new value=10, type=byte
+2020-09-11 22:34:35.330 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:35.330 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:35.330 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:35.330 Detail, 
+2020-09-11 22:34:35.330 Detail, Node006, Removing current message
+2020-09-11 22:34:35.330 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:36.506 Info, Node006, Value::Set - COMMAND_CLASS_SWITCH_MULTILEVEL - Level - 0 - 1 - 0
+2020-09-11 22:34:36.506 Info, Node006, SwitchMultilevel::Set - Setting to level 0
+2020-09-11 22:34:36.506 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Set (Node=6): 0x01, 0x0a, 0x00, 0x13, 0x06, 0x03, 0x26, 0x01, 0x00, 0x25, 0x3e, 0xdf
+2020-09-11 22:34:36.506 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x3f, 0xdf
+2020-09-11 22:34:36.506 Detail, 
+2020-09-11 22:34:36.506 Info, Node006, Sending (Send) message (Callback ID=0x3e, Expected Reply=0x13) - SwitchMultilevelCmd_Set (Node=6): 0x01, 0x0a, 0x00, 0x13, 0x06, 0x03, 0x26, 0x01, 0x00, 0x25, 0x3e, 0xdf
+2020-09-11 22:34:36.512 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:36.512 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:36.555 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x3e, 0x00, 0xd7
+2020-09-11 22:34:36.555 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x3e received (expected 0x3e)
+2020-09-11 22:34:36.555 Info, Node006, Request RTT 49 Average Request RTT 68
+2020-09-11 22:34:36.555 Detail,   Expected callbackId was received
+2020-09-11 22:34:36.555 Detail,   Expected reply was received
+2020-09-11 22:34:36.555 Detail,   Message transaction complete
+2020-09-11 22:34:36.555 Detail, 
+2020-09-11 22:34:36.555 Detail, Node006, Removing current message
+2020-09-11 22:34:36.556 Detail, 
+2020-09-11 22:34:36.556 Info, Node006, Sending (Send) message (Callback ID=0x3f, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x3f, 0xdf
+2020-09-11 22:34:36.562 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:36.562 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:36.629 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x3f, 0x00, 0xd6
+2020-09-11 22:34:36.629 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x3f received (expected 0x3f)
+2020-09-11 22:34:36.629 Info, Node006, Request RTT 73 Average Request RTT 70
+2020-09-11 22:34:36.629 Detail,   Expected callbackId was received
+2020-09-11 22:34:36.699 Detail, Node006,   Received: 0x01, 0x08, 0x00, 0x04, 0x00, 0x06, 0x02, 0x82, 0x01, 0x74
+2020-09-11 22:34:36.699 Detail, 
+2020-09-11 22:34:36.699 Info, Node006, Response RTT 143 Average Response RTT 155
+2020-09-11 22:34:36.699 Info, Node006, Received Hail command from node 6
+2020-09-11 22:34:36.699 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x40, 0xa0
+2020-09-11 22:34:36.744 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd6
+2020-09-11 22:34:36.745 Detail, 
+2020-09-11 22:34:36.745 Info, Node006, Response RTT 189 Average Response RTT 172
+2020-09-11 22:34:36.745 Info, Node006, Received SwitchMultiLevel report: level=0
+2020-09-11 22:34:36.745 Detail, Node006, Refreshed Value: old value=10, new value=0, type=byte
+2020-09-11 22:34:36.745 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:36.745 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:36.745 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:36.745 Detail, 
+2020-09-11 22:34:36.745 Detail, Node006, Removing current message
+2020-09-11 22:34:36.745 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:36.746 Detail, 
+2020-09-11 22:34:36.746 Info, Node006, Sending (Send) message (Callback ID=0x40, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x40, 0xa0
+2020-09-11 22:34:36.751 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:36.751 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:36.877 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x40, 0x00, 0xa9
+2020-09-11 22:34:36.877 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x40 received (expected 0x40)
+2020-09-11 22:34:36.877 Info, Node006, Request RTT 131 Average Request RTT 100
+2020-09-11 22:34:36.877 Detail,   Expected callbackId was received
+2020-09-11 22:34:36.949 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd6
+2020-09-11 22:34:36.949 Detail, 
+2020-09-11 22:34:36.949 Info, Node006, Response RTT 203 Average Response RTT 187
+2020-09-11 22:34:36.949 Info, Node006, Received SwitchMultiLevel report: level=0
+2020-09-11 22:34:36.949 Detail, Node006, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:34:36.949 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:36.950 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:36.950 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:36.950 Detail, 
+2020-09-11 22:34:36.950 Detail, Node006, Removing current message
+2020-09-11 22:34:36.950 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:37.507 Info, mgr,     Refreshing node 6: COMMAND_CLASS_SWITCH_MULTILEVEL index = 0 instance = 1 (to confirm a reported change)
+2020-09-11 22:34:37.508 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x41, 0xa1
+2020-09-11 22:34:37.508 Detail, 
+2020-09-11 22:34:37.508 Info, Node006, Sending (Send) message (Callback ID=0x41, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x41, 0xa1
+2020-09-11 22:34:37.513 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:37.513 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:37.556 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x41, 0x00, 0xa8
+2020-09-11 22:34:37.556 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x41 received (expected 0x41)
+2020-09-11 22:34:37.556 Info, Node006, Request RTT 48 Average Request RTT 74
+2020-09-11 22:34:37.556 Detail,   Expected callbackId was received
+2020-09-11 22:34:37.630 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd6
+2020-09-11 22:34:37.630 Detail, 
+2020-09-11 22:34:37.630 Info, Node006, Response RTT 121 Average Response RTT 154
+2020-09-11 22:34:37.630 Info, Node006, Received SwitchMultiLevel report: level=0
+2020-09-11 22:34:37.630 Detail, Node006, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:34:37.630 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:37.630 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:37.630 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:37.630 Detail, 
+2020-09-11 22:34:37.630 Detail, Node006, Removing current message
+2020-09-11 22:34:37.630 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:38.508 Info, mgr,     Refreshing node 6: COMMAND_CLASS_SWITCH_MULTILEVEL index = 0 instance = 1 (to confirm a reported change)
+2020-09-11 22:34:38.508 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x42, 0xa2
+2020-09-11 22:34:38.508 Detail, 
+2020-09-11 22:34:38.508 Info, Node006, Sending (Send) message (Callback ID=0x42, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x42, 0xa2
+2020-09-11 22:34:38.513 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:38.514 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:38.556 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x42, 0x00, 0xab
+2020-09-11 22:34:38.556 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x42 received (expected 0x42)
+2020-09-11 22:34:38.556 Info, Node006, Request RTT 48 Average Request RTT 61
+2020-09-11 22:34:38.556 Detail,   Expected callbackId was received
+2020-09-11 22:34:38.629 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd6
+2020-09-11 22:34:38.630 Detail, 
+2020-09-11 22:34:38.630 Info, Node006, Response RTT 121 Average Response RTT 137
+2020-09-11 22:34:38.630 Info, Node006, Received SwitchMultiLevel report: level=0
+2020-09-11 22:34:38.630 Detail, Node006, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:34:38.630 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:38.630 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:38.630 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:38.630 Detail, 
+2020-09-11 22:34:38.630 Detail, Node006, Removing current message
+2020-09-11 22:34:38.630 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:38.768 Detail, Node006,   Received: 0x01, 0x08, 0x00, 0x04, 0x00, 0x06, 0x02, 0x82, 0x01, 0x74
+2020-09-11 22:34:38.768 Detail, 
+2020-09-11 22:34:38.768 Info, Node006, Received Hail command from node 6
+2020-09-11 22:34:38.768 Detail, Node006, Queuing (Send) SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x43, 0xa3
+2020-09-11 22:34:38.768 Detail, 
+2020-09-11 22:34:38.768 Info, Node006, Sending (Send) message (Callback ID=0x43, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=6): 0x01, 0x09, 0x00, 0x13, 0x06, 0x02, 0x26, 0x02, 0x25, 0x43, 0xa3
+2020-09-11 22:34:38.774 Detail, Node006,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:34:38.774 Detail, Node006,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:34:38.877 Detail, Node006,   Received: 0x01, 0x05, 0x00, 0x13, 0x43, 0x00, 0xaa
+2020-09-11 22:34:38.877 Detail, Node006,   ZW_SEND_DATA Request with callback ID 0x43 received (expected 0x43)
+2020-09-11 22:34:38.877 Info, Node006, Request RTT 108 Average Request RTT 84
+2020-09-11 22:34:38.877 Detail,   Expected callbackId was received
+2020-09-11 22:34:38.949 Detail, Node006,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x06, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd6
+2020-09-11 22:34:38.949 Detail, 
+2020-09-11 22:34:38.949 Info, Node006, Response RTT 181 Average Response RTT 159
+2020-09-11 22:34:38.949 Info, Node006, Received SwitchMultiLevel report: level=0
+2020-09-11 22:34:38.949 Detail, Node006, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:34:38.949 Detail, Node006, Changes to this value are not verified
+2020-09-11 22:34:38.950 Detail, Node006,   Expected reply and command class was received
+2020-09-11 22:34:38.950 Detail, Node006,   Message transaction complete
+2020-09-11 22:34:38.950 Detail, 
+2020-09-11 22:34:38.950 Detail, Node006, Removing current message
+2020-09-11 22:34:38.950 Detail, Node006, Notification: ValueChanged
+2020-09-11 22:34:51.361 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x62, 0x8b
+2020-09-11 22:34:51.361 Detail, 
+2020-09-11 22:34:51.361 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=61.0%
+2020-09-11 22:34:51.361 Detail, Node009, Refreshed Value: old value=62.0, new value=61.0, type=decimal
+2020-09-11 22:34:51.361 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:34:51.361 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:35:12.479 Info, Node007, Value::Set - COMMAND_CLASS_SWITCH_MULTILEVEL - Level - 0 - 1 - 0
+2020-09-11 22:35:12.479 Info, Node007, SwitchMultilevel::Set - Setting to level 0
+2020-09-11 22:35:12.479 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Set (Node=7): 0x01, 0x0a, 0x00, 0x13, 0x07, 0x03, 0x26, 0x01, 0x00, 0x25, 0x44, 0xa4
+2020-09-11 22:35:12.480 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x45, 0xa4
+2020-09-11 22:35:12.480 Detail, 
+2020-09-11 22:35:12.480 Info, Node007, Sending (Send) message (Callback ID=0x44, Expected Reply=0x13) - SwitchMultilevelCmd_Set (Node=7): 0x01, 0x0a, 0x00, 0x13, 0x07, 0x03, 0x26, 0x01, 0x00, 0x25, 0x44, 0xa4
+2020-09-11 22:35:12.485 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:12.485 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:12.529 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x44, 0x00, 0xad
+2020-09-11 22:35:12.529 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x44 received (expected 0x44)
+2020-09-11 22:35:12.529 Info, Node007, Request RTT 49 Average Request RTT 77
+2020-09-11 22:35:12.529 Detail,   Expected callbackId was received
+2020-09-11 22:35:12.529 Detail,   Expected reply was received
+2020-09-11 22:35:12.529 Detail,   Message transaction complete
+2020-09-11 22:35:12.529 Detail, 
+2020-09-11 22:35:12.529 Detail, Node007, Removing current message
+2020-09-11 22:35:12.529 Detail, 
+2020-09-11 22:35:12.529 Info, Node007, Sending (Send) message (Callback ID=0x45, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x45, 0xa4
+2020-09-11 22:35:12.535 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:12.535 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:12.603 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x45, 0x00, 0xac
+2020-09-11 22:35:12.603 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x45 received (expected 0x45)
+2020-09-11 22:35:12.603 Info, Node007, Request RTT 73 Average Request RTT 75
+2020-09-11 22:35:12.603 Detail,   Expected callbackId was received
+2020-09-11 22:35:12.673 Detail, Node007,   Received: 0x01, 0x08, 0x00, 0x04, 0x00, 0x07, 0x02, 0x82, 0x01, 0x75
+2020-09-11 22:35:12.673 Detail, 
+2020-09-11 22:35:12.673 Info, Node007, Response RTT 143 Average Response RTT 166
+2020-09-11 22:35:12.673 Info, Node007, Received Hail command from node 7
+2020-09-11 22:35:12.673 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x46, 0xa7
+2020-09-11 22:35:12.718 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x00, 0x00, 0x02, 0xd5
+2020-09-11 22:35:12.719 Detail, 
+2020-09-11 22:35:12.719 Info, Node007, Response RTT 189 Average Response RTT 177
+2020-09-11 22:35:12.719 Info, Node007, Received SwitchMultiLevel report: level=0
+2020-09-11 22:35:12.719 Detail, Node007, Refreshed Value: old value=99, new value=0, type=byte
+2020-09-11 22:35:12.719 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:35:12.719 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:35:12.719 Detail, Node007,   Message transaction complete
+2020-09-11 22:35:12.719 Detail, 
+2020-09-11 22:35:12.719 Detail, Node007, Removing current message
+2020-09-11 22:35:12.719 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:35:12.720 Detail, 
+2020-09-11 22:35:12.720 Info, Node007, Sending (Send) message (Callback ID=0x46, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x46, 0xa7
+2020-09-11 22:35:12.732 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:12.732 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:12.857 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x46, 0x00, 0xaf
+2020-09-11 22:35:12.857 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x46 received (expected 0x46)
+2020-09-11 22:35:12.857 Info, Node007, Request RTT 136 Average Request RTT 105
+2020-09-11 22:35:12.857 Detail,   Expected callbackId was received
+2020-09-11 22:35:12.994 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x00, 0x00, 0x01, 0xd6
+2020-09-11 22:35:12.994 Detail, 
+2020-09-11 22:35:12.994 Info, Node007, Response RTT 273 Average Response RTT 225
+2020-09-11 22:35:12.994 Info, Node007, Received SwitchMultiLevel report: level=0
+2020-09-11 22:35:12.994 Detail, Node007, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:35:12.994 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:35:12.994 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:35:12.994 Detail, Node007,   Message transaction complete
+2020-09-11 22:35:12.994 Detail, 
+2020-09-11 22:35:12.994 Detail, Node007, Removing current message
+2020-09-11 22:35:12.994 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:35:13.480 Info, mgr,     Refreshing node 7: COMMAND_CLASS_SWITCH_MULTILEVEL index = 0 instance = 1 (to confirm a reported change)
+2020-09-11 22:35:13.480 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x47, 0xa6
+2020-09-11 22:35:13.480 Detail, 
+2020-09-11 22:35:13.480 Info, Node007, Sending (Send) message (Callback ID=0x47, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x47, 0xa6
+2020-09-11 22:35:13.486 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:13.486 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:13.529 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x47, 0x00, 0xae
+2020-09-11 22:35:13.529 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x47 received (expected 0x47)
+2020-09-11 22:35:13.529 Info, Node007, Request RTT 48 Average Request RTT 76
+2020-09-11 22:35:13.529 Detail,   Expected callbackId was received
+2020-09-11 22:35:13.603 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x00, 0x00, 0x01, 0xd6
+2020-09-11 22:35:13.604 Detail, 
+2020-09-11 22:35:13.604 Info, Node007, Response RTT 123 Average Response RTT 174
+2020-09-11 22:35:13.604 Info, Node007, Received SwitchMultiLevel report: level=0
+2020-09-11 22:35:13.604 Detail, Node007, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:35:13.604 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:35:13.604 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:35:13.604 Detail, Node007,   Message transaction complete
+2020-09-11 22:35:13.604 Detail, 
+2020-09-11 22:35:13.604 Detail, Node007, Removing current message
+2020-09-11 22:35:13.604 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:35:14.481 Info, mgr,     Refreshing node 7: COMMAND_CLASS_SWITCH_MULTILEVEL index = 0 instance = 1 (to confirm a reported change)
+2020-09-11 22:35:14.481 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x48, 0xa9
+2020-09-11 22:35:14.481 Detail, 
+2020-09-11 22:35:14.481 Info, Node007, Sending (Send) message (Callback ID=0x48, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x48, 0xa9
+2020-09-11 22:35:14.487 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:14.487 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:14.530 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x48, 0x00, 0xa1
+2020-09-11 22:35:14.530 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x48 received (expected 0x48)
+2020-09-11 22:35:14.530 Info, Node007, Request RTT 48 Average Request RTT 62
+2020-09-11 22:35:14.530 Detail,   Expected callbackId was received
+2020-09-11 22:35:14.603 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd7
+2020-09-11 22:35:14.604 Detail, 
+2020-09-11 22:35:14.604 Info, Node007, Response RTT 122 Average Response RTT 148
+2020-09-11 22:35:14.604 Info, Node007, Received SwitchMultiLevel report: level=0
+2020-09-11 22:35:14.604 Detail, Node007, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:35:14.604 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:35:14.604 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:35:14.604 Detail, Node007,   Message transaction complete
+2020-09-11 22:35:14.604 Detail, 
+2020-09-11 22:35:14.604 Detail, Node007, Removing current message
+2020-09-11 22:35:14.604 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:35:31.423 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x6c, 0x85
+2020-09-11 22:35:31.423 Detail, 
+2020-09-11 22:35:31.423 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=62.0%
+2020-09-11 22:35:31.423 Detail, Node009, Refreshed Value: old value=61.0, new value=62.0, type=decimal
+2020-09-11 22:35:31.423 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:35:31.423 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:35:42.124 Info, Node007, Value::Set - COMMAND_CLASS_SWITCH_MULTILEVEL - Level - 0 - 1 - 0
+2020-09-11 22:35:42.124 Info, Node007, SwitchMultilevel::Set - Setting to level 0
+2020-09-11 22:35:42.125 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Set (Node=7): 0x01, 0x0a, 0x00, 0x13, 0x07, 0x03, 0x26, 0x01, 0x00, 0x25, 0x49, 0xa9
+2020-09-11 22:35:42.125 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x4a, 0xab
+2020-09-11 22:35:42.125 Detail, 
+2020-09-11 22:35:42.125 Info, Node007, Sending (Send) message (Callback ID=0x49, Expected Reply=0x13) - SwitchMultilevelCmd_Set (Node=7): 0x01, 0x0a, 0x00, 0x13, 0x07, 0x03, 0x26, 0x01, 0x00, 0x25, 0x49, 0xa9
+2020-09-11 22:35:42.130 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:42.130 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:42.174 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x49, 0x00, 0xa0
+2020-09-11 22:35:42.174 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x49 received (expected 0x49)
+2020-09-11 22:35:42.174 Info, Node007, Request RTT 48 Average Request RTT 55
+2020-09-11 22:35:42.174 Detail,   Expected callbackId was received
+2020-09-11 22:35:42.174 Detail,   Expected reply was received
+2020-09-11 22:35:42.174 Detail,   Message transaction complete
+2020-09-11 22:35:42.174 Detail, 
+2020-09-11 22:35:42.174 Detail, Node007, Removing current message
+2020-09-11 22:35:42.174 Detail, 
+2020-09-11 22:35:42.174 Info, Node007, Sending (Send) message (Callback ID=0x4a, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x4a, 0xab
+2020-09-11 22:35:42.180 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:42.180 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:42.242 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x4a, 0x00, 0xa3
+2020-09-11 22:35:42.242 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x4a received (expected 0x4a)
+2020-09-11 22:35:42.242 Info, Node007, Request RTT 68 Average Request RTT 61
+2020-09-11 22:35:42.242 Detail,   Expected callbackId was received
+2020-09-11 22:35:42.312 Detail, Node007,   Received: 0x01, 0x08, 0x00, 0x04, 0x00, 0x07, 0x02, 0x82, 0x01, 0x75
+2020-09-11 22:35:42.312 Detail, 
+2020-09-11 22:35:42.312 Info, Node007, Response RTT 138 Average Response RTT 143
+2020-09-11 22:35:42.312 Info, Node007, Received Hail command from node 7
+2020-09-11 22:35:42.312 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x4b, 0xaa
+2020-09-11 22:35:42.358 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd7
+2020-09-11 22:35:42.358 Detail, 
+2020-09-11 22:35:42.358 Info, Node007, Response RTT 184 Average Response RTT 163
+2020-09-11 22:35:42.358 Info, Node007, Received SwitchMultiLevel report: level=0
+2020-09-11 22:35:42.358 Detail, Node007, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:35:42.358 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:35:42.358 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:35:42.358 Detail, Node007,   Message transaction complete
+2020-09-11 22:35:42.358 Detail, 
+2020-09-11 22:35:42.358 Detail, Node007, Removing current message
+2020-09-11 22:35:42.358 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:35:42.367 Detail, 
+2020-09-11 22:35:42.367 Info, Node007, Sending (Send) message (Callback ID=0x4b, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x4b, 0xaa
+2020-09-11 22:35:42.372 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:42.372 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:42.497 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x4b, 0x00, 0xa2
+2020-09-11 22:35:42.497 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x4b received (expected 0x4b)
+2020-09-11 22:35:42.497 Info, Node007, Request RTT 129 Average Request RTT 95
+2020-09-11 22:35:42.497 Detail,   Expected callbackId was received
+2020-09-11 22:35:42.573 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd7
+2020-09-11 22:35:42.573 Detail, 
+2020-09-11 22:35:42.573 Info, Node007, Response RTT 206 Average Response RTT 184
+2020-09-11 22:35:42.573 Info, Node007, Received SwitchMultiLevel report: level=0
+2020-09-11 22:35:42.573 Detail, Node007, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:35:42.573 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:35:42.573 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:35:42.573 Detail, Node007,   Message transaction complete
+2020-09-11 22:35:42.573 Detail, 
+2020-09-11 22:35:42.573 Detail, Node007, Removing current message
+2020-09-11 22:35:42.573 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:35:43.126 Info, mgr,     Refreshing node 7: COMMAND_CLASS_SWITCH_MULTILEVEL index = 0 instance = 1 (to confirm a reported change)
+2020-09-11 22:35:43.126 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x4c, 0xad
+2020-09-11 22:35:43.126 Detail, 
+2020-09-11 22:35:43.126 Info, Node007, Sending (Send) message (Callback ID=0x4c, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x4c, 0xad
+2020-09-11 22:35:43.131 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:43.131 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:43.174 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x4c, 0x00, 0xa5
+2020-09-11 22:35:43.174 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x4c received (expected 0x4c)
+2020-09-11 22:35:43.174 Info, Node007, Request RTT 48 Average Request RTT 71
+2020-09-11 22:35:43.174 Detail,   Expected callbackId was received
+2020-09-11 22:35:43.243 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd7
+2020-09-11 22:35:43.243 Detail, 
+2020-09-11 22:35:43.243 Info, Node007, Response RTT 117 Average Response RTT 150
+2020-09-11 22:35:43.243 Info, Node007, Received SwitchMultiLevel report: level=0
+2020-09-11 22:35:43.243 Detail, Node007, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:35:43.243 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:35:43.243 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:35:43.243 Detail, Node007,   Message transaction complete
+2020-09-11 22:35:43.243 Detail, 
+2020-09-11 22:35:43.243 Detail, Node007, Removing current message
+2020-09-11 22:35:43.243 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:35:44.127 Info, mgr,     Refreshing node 7: COMMAND_CLASS_SWITCH_MULTILEVEL index = 0 instance = 1 (to confirm a reported change)
+2020-09-11 22:35:44.127 Detail, Node007, Queuing (Send) SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x4d, 0xac
+2020-09-11 22:35:44.127 Detail, 
+2020-09-11 22:35:44.127 Info, Node007, Sending (Send) message (Callback ID=0x4d, Expected Reply=0x04) - SwitchMultilevelCmd_Get (Node=7): 0x01, 0x09, 0x00, 0x13, 0x07, 0x02, 0x26, 0x02, 0x25, 0x4d, 0xac
+2020-09-11 22:35:44.132 Detail, Node007,   Received: 0x01, 0x04, 0x01, 0x13, 0x01, 0xe8
+2020-09-11 22:35:44.132 Detail, Node007,   ZW_SEND_DATA delivered to Z-Wave stack
+2020-09-11 22:35:44.175 Detail, Node007,   Received: 0x01, 0x05, 0x00, 0x13, 0x4d, 0x00, 0xa4
+2020-09-11 22:35:44.176 Detail, Node007,   ZW_SEND_DATA Request with callback ID 0x4d received (expected 0x4d)
+2020-09-11 22:35:44.176 Info, Node007, Request RTT 48 Average Request RTT 59
+2020-09-11 22:35:44.176 Detail,   Expected callbackId was received
+2020-09-11 22:35:44.253 Detail, Node007,   Received: 0x01, 0x0b, 0x00, 0x04, 0x00, 0x07, 0x05, 0x26, 0x03, 0x00, 0x00, 0x00, 0xd7
+2020-09-11 22:35:44.253 Detail, 
+2020-09-11 22:35:44.253 Info, Node007, Response RTT 126 Average Response RTT 138
+2020-09-11 22:35:44.253 Info, Node007, Received SwitchMultiLevel report: level=0
+2020-09-11 22:35:44.253 Detail, Node007, Refreshed Value: old value=0, new value=0, type=byte
+2020-09-11 22:35:44.253 Detail, Node007, Changes to this value are not verified
+2020-09-11 22:35:44.253 Detail, Node007,   Expected reply and command class was received
+2020-09-11 22:35:44.253 Detail, Node007,   Message transaction complete
+2020-09-11 22:35:44.253 Detail, 
+2020-09-11 22:35:44.253 Detail, Node007, Removing current message
+2020-09-11 22:35:44.253 Detail, Node007, Notification: ValueChanged
+2020-09-11 22:40:09.496 Detail, Node009,   Received: 0x01, 0x09, 0x00, 0x04, 0x00, 0x09, 0x03, 0x45, 0x03, 0x01, 0xbf
+2020-09-11 22:40:09.496 Detail, 
+2020-09-11 22:40:09.496 Detail, Node009, Refreshed Value: old value=Idle, new value=Running, type=string
+2020-09-11 22:40:09.496 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:40:09.496 Info, Node009, Received thermostat fan state: Running
+2020-09-11 22:40:09.496 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:40:10.381 Detail, Node009,   Received: 0x01, 0x09, 0x00, 0x04, 0x00, 0x09, 0x03, 0x42, 0x03, 0x02, 0xbb
+2020-09-11 22:40:10.381 Detail, 
+2020-09-11 22:40:10.381 Detail, Node009, Refreshed Value: old value=Idle, new value=Cooling, type=string
+2020-09-11 22:40:10.381 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:40:10.381 Info, Node009, Received thermostat operating state: Cooling
+2020-09-11 22:40:10.381 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:41:31.980 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x62, 0x8b
+2020-09-11 22:41:31.980 Detail, 
+2020-09-11 22:41:31.980 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=61.0%
+2020-09-11 22:41:31.980 Detail, Node009, Refreshed Value: old value=62.0, new value=61.0, type=decimal
+2020-09-11 22:41:31.980 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:41:31.980 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:42:32.073 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x58, 0xb1
+2020-09-11 22:42:32.073 Detail, 
+2020-09-11 22:42:32.073 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=60.0%
+2020-09-11 22:42:32.073 Detail, Node009, Refreshed Value: old value=61.0, new value=60.0, type=decimal
+2020-09-11 22:42:32.073 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:42:32.073 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:43:12.135 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x4e, 0xa7
+2020-09-11 22:43:12.135 Detail, 
+2020-09-11 22:43:12.135 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=59.0%
+2020-09-11 22:43:12.135 Detail, Node009, Refreshed Value: old value=60.0, new value=59.0, type=decimal
+2020-09-11 22:43:12.135 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:43:12.135 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:44:12.228 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x44, 0xad
+2020-09-11 22:44:12.228 Detail, 
+2020-09-11 22:44:12.228 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=58.0%
+2020-09-11 22:44:12.228 Detail, Node009, Refreshed Value: old value=59.0, new value=58.0, type=decimal
+2020-09-11 22:44:12.228 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:44:12.228 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:45:09.492 Detail, Node009,   Received: 0x01, 0x09, 0x00, 0x04, 0x00, 0x09, 0x03, 0x45, 0x03, 0x00, 0xbe
+2020-09-11 22:45:09.492 Detail, 
+2020-09-11 22:45:09.492 Detail, Node009, Refreshed Value: old value=Running, new value=Idle, type=string
+2020-09-11 22:45:09.492 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:45:09.492 Info, Node009, Received thermostat fan state: Idle
+2020-09-11 22:45:09.492 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:45:10.377 Detail, Node009,   Received: 0x01, 0x09, 0x00, 0x04, 0x00, 0x09, 0x03, 0x42, 0x03, 0x00, 0xb9
+2020-09-11 22:45:10.377 Detail, 
+2020-09-11 22:45:10.377 Detail, Node009, Refreshed Value: old value=Cooling, new value=Idle, type=string
+2020-09-11 22:45:10.377 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:45:10.377 Info, Node009, Received thermostat operating state: Idle
+2020-09-11 22:45:10.377 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:45:32.352 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x3a, 0xd3
+2020-09-11 22:45:32.352 Detail, 
+2020-09-11 22:45:32.352 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=57.0%
+2020-09-11 22:45:32.352 Detail, Node009, Refreshed Value: old value=58.0, new value=57.0, type=decimal
+2020-09-11 22:45:32.352 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:45:32.352 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:45:52.383 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x44, 0xad
+2020-09-11 22:45:52.383 Detail, 
+2020-09-11 22:45:52.383 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=58.0%
+2020-09-11 22:45:52.383 Detail, Node009, Refreshed Value: old value=57.0, new value=58.0, type=decimal
+2020-09-11 22:45:52.383 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:45:52.383 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:47:12.507 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x4e, 0xa7
+2020-09-11 22:47:12.507 Detail, 
+2020-09-11 22:47:12.507 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=59.0%
+2020-09-11 22:47:12.507 Detail, Node009, Refreshed Value: old value=58.0, new value=59.0, type=decimal
+2020-09-11 22:47:12.507 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:47:12.507 Detail, Node009, Notification: ValueChanged
+2020-09-11 22:51:12.878 Detail, Node009,   Received: 0x01, 0x0c, 0x00, 0x04, 0x00, 0x09, 0x06, 0x31, 0x05, 0x05, 0x22, 0x02, 0x58, 0xb1
+2020-09-11 22:51:12.879 Detail, 
+2020-09-11 22:51:12.879 Info, Node009, Received SensorMultiLevel report from node 9, instance 1, Relative Humidity: value=60.0%
+2020-09-11 22:51:12.879 Detail, Node009, Refreshed Value: old value=59.0, new value=60.0, type=decimal
+2020-09-11 22:51:12.879 Detail, Node009, Changes to this value are not verified
+2020-09-11 22:51:12.879 Detail, Node009, Notification: ValueChanged

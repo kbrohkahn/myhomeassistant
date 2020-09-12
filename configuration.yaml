@@ -295,7 +295,7 @@ light:
           data_template:
             device: 'RGB LED'
             command: '{{ [''ColorRed'', ''ColorOrange'', ''ColorYellow'', ''ColorGreen'',
-              ''ColorGreen'', ''ColorTurquoise'', ''ColorAqua'',  ''ColorLightBlue'', ''ColorBlue'',    ''ColorPurple'',
+              ''ColorGreen'', ''ColorTurquoise'', ''ColorAqua'',  ''ColorLightBlue'', ''ColorBlue'', ''ColorPurple'',
               ''ColorPink'', ''ColorPink''] [((h + 15) % 360 / 30) | int] }}'
           entity_id: remote.harmony_hub
           service: remote.send_command
