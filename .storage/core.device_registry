@@ -57,6 +57,71 @@
                         "28:6d:97:00:01:0c:86:70"
                     ]
                 ]
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "id": "64098309e0854be39de90e27b6fefbc0",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:42:7c:78-0b"
+                    ]
+                ]
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "id": "26c94d8135f9493bb9acde34c760ea6d",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:7b:07:d0-0b"
+                    ]
+                ]
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "id": "c06c2bde739748f8875b7ba7eb3a61bc",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:42:7b:e0-0b"
+                    ]
+                ]
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "id": "28925b3a62ec4c778413413c440776f5",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:02:56:cc:0f-0b"
+                    ]
+                ]
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "id": "d3b3cc8bbe814760bc8b79c775acf8e6",
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:7a:13:ea-0b"
+                    ]
+                ]
             }
         ],
         "devices": [
@@ -122,90 +187,6 @@
                 "name_by_user": null,
                 "sw_version": "9.3.0",
                 "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "e874e5f825d2430c86a06e314fed196c"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "d3b3cc8bbe814760bc8b79c775acf8e6",
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:17:88:01:03:7a:13:ea-0b"
-                    ]
-                ],
-                "manufacturer": "Signify Netherlands B.V.",
-                "model": "Hue white lamp",
-                "name": "Office C",
-                "name_by_user": null,
-                "sw_version": "1.50.2_r30933",
-                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "e874e5f825d2430c86a06e314fed196c"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "64098309e0854be39de90e27b6fefbc0",
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:17:88:01:03:42:7c:78-0b"
-                    ]
-                ],
-                "manufacturer": "Signify Netherlands B.V.",
-                "model": "Hue white lamp",
-                "name": "Office A",
-                "name_by_user": null,
-                "sw_version": "1.50.2_r30933",
-                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "e874e5f825d2430c86a06e314fed196c"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "c06c2bde739748f8875b7ba7eb3a61bc",
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:17:88:01:03:42:7b:e0-0b"
-                    ]
-                ],
-                "manufacturer": "Signify Netherlands B.V.",
-                "model": "Hue white lamp",
-                "name": "Office B",
-                "name_by_user": null,
-                "sw_version": "1.50.2_r30933",
-                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "e874e5f825d2430c86a06e314fed196c"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "28925b3a62ec4c778413413c440776f5",
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:17:88:01:02:56:cc:0f-0b"
-                    ]
-                ],
-                "manufacturer": "Signify Netherlands B.V.",
-                "model": "Hue white lamp",
-                "name": "Office C",
-                "name_by_user": null,
-                "sw_version": "1.50.2_r30933",
-                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
             },
             {
                 "area_id": null,
@@ -394,27 +375,6 @@
                 "name": "Kitchen Left",
                 "name_by_user": null,
                 "sw_version": "5.130.1.30000",
-                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "e874e5f825d2430c86a06e314fed196c"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "26c94d8135f9493bb9acde34c760ea6d",
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:17:88:01:03:7b:07:d0-0b"
-                    ]
-                ],
-                "manufacturer": "Signify Netherlands B.V.",
-                "model": "Hue white lamp",
-                "name": "Office D",
-                "name_by_user": null,
-                "sw_version": "1.50.2_r30933",
                 "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914"
             },
             {
@@ -1641,258 +1601,6 @@
                 "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
             },
             {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "18de90b519fc403e9f218e2df871cc5a",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "0b93530f88574f38a17e813544b42d6c"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "WHA A3C9PE6TNYLTCH",
-                "name": "Master",
-                "name_by_user": null,
-                "sw_version": "0",
-                "via_device_id": "18de90b519fc403e9f218e2df871cc5a"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "0df4108013994c1fae41ee759ec55ecf",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "99ee573bfb42418b93d0f8878625bb1b"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "THIRD_PARTY_AVS_MEDIA_DISPLAY A1H0CMF1XM0ZP4",
-                "name": "Kitchen Bose",
-                "name_by_user": null,
-                "sw_version": "0",
-                "via_device_id": "0df4108013994c1fae41ee759ec55ecf"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "dd9553ff337342c2a9a2a12d54e1b5b1",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "88b90e278d8548bebcd99d123ae432b9"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "THIRD_PARTY_AVS_MEDIA_DISPLAY A1H0CMF1XM0ZP4",
-                "name": "Dining Bose",
-                "name_by_user": null,
-                "sw_version": "0",
-                "via_device_id": "dd9553ff337342c2a9a2a12d54e1b5b1"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "60330e1eb2f247778cb475db8b080712",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "d8b6829fcaba459ca04286b82bdf4406"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "THIRD_PARTY_AVS_MEDIA_DISPLAY A1H0CMF1XM0ZP4",
-                "name": "Living Room Bose",
-                "name_by_user": null,
-                "sw_version": "0",
-                "via_device_id": "60330e1eb2f247778cb475db8b080712"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "4198850e7405465883792ab9e5b1119f",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G090XG08946230XS"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A1RABVCI4QCIKC",
-                "name": "Master Echo Dot",
-                "name_by_user": null,
-                "sw_version": "4128035204",
-                "via_device_id": "4198850e7405465883792ab9e5b1119f"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "44c5732696ad4342a7c53a4c7c79c491",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G0911M0900150J20"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A1RABVCI4QCIKC",
-                "name": "Dining Echo Dot",
-                "name_by_user": null,
-                "sw_version": "4128035204",
-                "via_device_id": "44c5732696ad4342a7c53a4c7c79c491"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "4ea31540a63a4160974395e3cda27ab2",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G2A0U2040164040E"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A18O6U1UQFJ0XK",
-                "name": "Kevin's 2nd Echo Plus",
-                "name_by_user": null,
-                "sw_version": "0",
-                "via_device_id": "4ea31540a63a4160974395e3cda27ab2"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "d356f3c5780d4e75a9952cd834f35915",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "045DC7BB097B53F50DED80967B437D1C"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "REAVER A1RTAM01W29CUP",
-                "name": "Kevin's Alexa App for PC",
-                "name_by_user": null,
-                "sw_version": "2124690",
-                "via_device_id": "d356f3c5780d4e75a9952cd834f35915"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "347a48b9f9f34f08a857cad5da76b694",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G2A0V704937507L9"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A18O6U1UQFJ0XK",
-                "name": "Master Bath Echo Plus",
-                "name_by_user": null,
-                "sw_version": "4128036484",
-                "via_device_id": "347a48b9f9f34f08a857cad5da76b694"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "058999402fe34500ad532692fbd931c5",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "G0014B0695230F93"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "ECHO A3VRME03NAXFUB",
-                "name": "Hallway Bath Echo Flex",
-                "name_by_user": null,
-                "sw_version": "4128035204",
-                "via_device_id": "058999402fe34500ad532692fbd931c5"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "26c708c50da94c12b3040c92aaba5ba6",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "77f0a66c904f4200a6ca798e4faab587"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "VOX A2TF17PFR55MTB",
-                "name": "This Device",
-                "name_by_user": null,
-                "sw_version": "130050002",
-                "via_device_id": "26c708c50da94c12b3040c92aaba5ba6"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "d9b2e2f7c43f4ce3b2d113ce2f5556ad",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "A87C01926EEA"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "AMAZONMOBILEMUSIC_ANDROID A1DL2DVDQVK3Q",
-                "name": "Kevin's Alexa Apps",
-                "name_by_user": null,
-                "sw_version": "4050010",
-                "via_device_id": "d9b2e2f7c43f4ce3b2d113ce2f5556ad"
-            },
-            {
                 "area_id": "795e81eaddb84a98ae34b766ebe06b1c",
                 "config_entries": [
                     "c1e0f4f30c0d4372981393e8ad888a3c"
@@ -2041,27 +1749,6 @@
             {
                 "area_id": null,
                 "config_entries": [
-                    "c26982dfb8814190a280c995f744d753"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "1cafb40216a84afc88b9da0bdfd5b504",
-                "identifiers": [
-                    [
-                        "alexa_media",
-                        "78aa0852ad33449fbac5c68d6edc54cc"
-                    ]
-                ],
-                "manufacturer": "Amazon",
-                "model": "UNKNOWN A1ETW4IXK2PYBP",
-                "name": "Kevin's Talk to Alexa",
-                "name_by_user": null,
-                "sw_version": "2020218",
-                "via_device_id": "1cafb40216a84afc88b9da0bdfd5b504"
-            },
-            {
-                "area_id": null,
-                "config_entries": [
                     "0f0478bc734846f790bff3ef6993d4da"
                 ],
                 "connections": [],
@@ -2184,6 +1871,258 @@
                 "name_by_user": null,
                 "sw_version": null,
                 "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "ff989e9e1ea64c759f34b797e3fc390d",
+                "identifiers": [
+                    [
+                        "zwave",
+                        10
+                    ]
+                ],
+                "manufacturer": "Leviton",
+                "model": "DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name": "Leviton DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "4269c07b26444e70be84fae2d30fab9e"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "216021fe19ff4cee8eba46a535395c07",
+                "identifiers": [
+                    [
+                        "zwave",
+                        11
+                    ]
+                ],
+                "manufacturer": "Leviton",
+                "model": "DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name": "Leviton DZ6HD-1BZ Decora 600W Smart Dimmer",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "49c869679d214b3a92b668c4df8a77a5"
+            },
+            {
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "0061ff352ac546369ffff47407760f46",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "0b93530f88574f38a17e813544b42d6c"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "WHA A3C9PE6TNYLTCH",
+                "name": "Master",
+                "name_by_user": null,
+                "sw_version": "0",
+                "via_device_id": "0061ff352ac546369ffff47407760f46"
+            },
+            {
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "a0386d7b7ddb471ab5b34fd9c0d373c7",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G090XG08946230XS"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A1RABVCI4QCIKC",
+                "name": "Master Echo Dot",
+                "name_by_user": null,
+                "sw_version": "4128035204",
+                "via_device_id": "a0386d7b7ddb471ab5b34fd9c0d373c7"
+            },
+            {
+                "area_id": "60557a625d30454898715b30865dd6cb",
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "e1687c44a21d42cc99d27b5e4ec5d5b1",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G0911M0900150J20"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A1RABVCI4QCIKC",
+                "name": "Dining Echo Dot",
+                "name_by_user": null,
+                "sw_version": "4128035204",
+                "via_device_id": "e1687c44a21d42cc99d27b5e4ec5d5b1"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "96ad19dcee4d42a987449aaeb1b6d8d3",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G2A0U2040164040E"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A18O6U1UQFJ0XK",
+                "name": "Kevin's 2nd Echo Plus",
+                "name_by_user": null,
+                "sw_version": "0",
+                "via_device_id": "96ad19dcee4d42a987449aaeb1b6d8d3"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "8d276245510a4161b326111e2453b5ea",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "045DC7BB097B53F50DED80967B437D1C"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "REAVER A1RTAM01W29CUP",
+                "name": "Kevin's Alexa App for PC",
+                "name_by_user": null,
+                "sw_version": "2124690",
+                "via_device_id": "8d276245510a4161b326111e2453b5ea"
+            },
+            {
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "8b872a20e55c4e94a538591577aa136b",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G2A0V704937507L9"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A18O6U1UQFJ0XK",
+                "name": "Master Bath Echo Plus",
+                "name_by_user": null,
+                "sw_version": "4128036484",
+                "via_device_id": "8b872a20e55c4e94a538591577aa136b"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "fa460ac288864e35b7d7fd72eaf152c0",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "G0014B0695230F93"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "ECHO A3VRME03NAXFUB",
+                "name": "Hallway Bath Echo Flex",
+                "name_by_user": null,
+                "sw_version": "4128035204",
+                "via_device_id": "fa460ac288864e35b7d7fd72eaf152c0"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "5440868a4f854236800ab15ff508af5f",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "78aa0852ad33449fbac5c68d6edc54cc"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "UNKNOWN A1ETW4IXK2PYBP",
+                "name": "Kevin's Talk to Alexa",
+                "name_by_user": null,
+                "sw_version": "2020218",
+                "via_device_id": "5440868a4f854236800ab15ff508af5f"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "4680af9382e94f419a5976467b3bbdc9",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "77f0a66c904f4200a6ca798e4faab587"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "VOX A2TF17PFR55MTB",
+                "name": "This Device",
+                "name_by_user": null,
+                "sw_version": "130050002",
+                "via_device_id": "4680af9382e94f419a5976467b3bbdc9"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "84e50533c3684a489871b728921f9668"
+                ],
+                "connections": [],
+                "entry_type": null,
+                "id": "becb6411015c478f803ddf4a3ae6a79d",
+                "identifiers": [
+                    [
+                        "alexa_media",
+                        "A87C01926EEA"
+                    ]
+                ],
+                "manufacturer": "Amazon",
+                "model": "AMAZONMOBILEMUSIC_ANDROID A1DL2DVDQVK3Q",
+                "name": "Kevin's Alexa Apps",
+                "name_by_user": null,
+                "sw_version": "4050010",
+                "via_device_id": "becb6411015c478f803ddf4a3ae6a79d"
             }
         ]
     },

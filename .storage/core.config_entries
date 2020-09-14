@@ -64,7 +64,7 @@
                     },
                     "app_id": "io.homeassistant.companion.android",
                     "app_name": "Home Assistant",
-                    "app_version": "2.3.3-full (343)",
+                    "app_version": "2.4.0-full (373)",
                     "device_id": "d689aabf1278c427",
                     "device_name": "Galaxy Note 10",
                     "manufacturer": "samsung",
@@ -225,8 +225,8 @@
                     "id": "125975319",
                     "name": "125975319",
                     "token": {
-                        "access_token": "BQA62OMq8XGFbNm7-NrPHOhUKLXmkUUHPAKiSaTSr2uuNHLEYpVdt3H4-RNBJuSnxNIRYuCHwTvFIYI_-wq5pHva_ICzL5NCDAIE28SksGbJXt3W4IvzSph8nERVaeHGG7D7Q3UD9kkov-exOt4ABmJFwSq9kfAZksaw",
-                        "expires_at": 1599882944.725262,
+                        "access_token": "BQCBsQOTnFXZ04drOzWk0Ea_1UjRY51VWo559TLFK9CF9GfncrHgFYzC8dlArEQcICLVDJxpjhbi3wiCOu-vY7p_LXan21G4I-YKR68YOOqLIwNf5qcO0YSbXcRaE6om2M2KYWRvxCwhhkx_pgMG8Edn9YORbIfTRb9g",
+                        "expires_at": 1600118285.2555923,
                         "expires_in": 3600,
                         "refresh_token": "AQDy779VHQYss3YLfaoBgbjaGpF0JKM5mGB2tnSgDUx2NjBRFsLB25pULTwoyULa_J2SEavVpn3YnGIRKdhZVcS_SAiAURLUnoFd3CoiZII5lsGqgHNo-KHneGHzjOxpGpg",
                         "scope": "user-modify-playback-state user-read-playback-state user-read-private",
@@ -317,28 +317,6 @@
                 "version": 1
             },
             {
-                "connection_class": "cloud_poll",
-                "data": {
-                    "debug": false,
-                    "email": "kbkrunner@gmail.com",
-                    "exclude_devices": [],
-                    "include_devices": [],
-                    "password": "I'mOnFire11",
-                    "scan_interval": 60,
-                    "url": "amazon.com"
-                },
-                "domain": "alexa_media",
-                "entry_id": "c26982dfb8814190a280c995f744d753",
-                "options": {},
-                "source": "user",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "kbkrunner@gmail.com - amazon.com",
-                "unique_id": null,
-                "version": 1
-            },
-            {
                 "connection_class": "local_push",
                 "data": {
                     "user_id": "17ee75ea939346d5a3755554ccdc886c"
@@ -382,7 +360,7 @@
                     "client_secret": "78be39e2-c755-4a70-bb96-7a71d13b3103",
                     "installed_app_id": "9716ba89-24fd-49e0-872a-b86b61335d5b",
                     "location_id": "9c58daa6-46f4-4274-872a-6fa82ab59499",
-                    "refresh_token": "341c5115-b9ff-4f7b-94e8-dff3cc4933a6"
+                    "refresh_token": "c593956a-f8dc-49e8-b98d-bf35d69e95b1"
                 },
                 "domain": "smartthings",
                 "entry_id": "0f0478bc734846f790bff3ef6993d4da",
@@ -445,6 +423,29 @@
                 },
                 "title": "Wemo",
                 "unique_id": "wemo",
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "debug": false,
+                    "email": "kbkrunner@gmail.com",
+                    "exclude_devices": "",
+                    "include_devices": "",
+                    "password": "I'mOnFire11",
+                    "scan_interval": 15,
+                    "securitycode": "283102",
+                    "url": "amazon.com"
+                },
+                "domain": "alexa_media",
+                "entry_id": "84e50533c3684a489871b728921f9668",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "kbkrunner@gmail.com - amazon.com",
+                "unique_id": "kbkrunner@gmail.com - amazon.com",
                 "version": 1
             }
         ]

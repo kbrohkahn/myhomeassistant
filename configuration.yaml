@@ -47,8 +47,9 @@ browser_mod:
     0cf28301_70560337:
       name: galaxytabs6
     02b9eed9_b7405785:
-      name: sdsapc
-      
+      name: sdsa_pc
+    4c680749_cb73bb22:
+      name: kbk_notebook
 # var:
 #   people_home:
 #     initial_value: on
@@ -68,25 +69,22 @@ spotify:
 spotcast:
   sp_dc: !secret sp_dc
   sp_key: !secret sp_key
-
-#ifttt:
-  #key: !secret ifttt_api_key
-
+  
 discovery:
 
 media_player:
   - platform: soundtouch
     host: 10.0.2.160
     port: 8090
-    name: Soundtouch Dining
+    name: Dining
   - platform: soundtouch
     host: 10.0.2.161
     port: 8090
-    name: Soundtouch Kitchen
+    name: Kitchen
   - platform: soundtouch
     host: 10.0.2.162
     port: 8090
-    name: Soundtouch Living Room
+    name: Living Room
 
 
 
@@ -110,11 +108,8 @@ alexa:
         - scene
         - script
         - switch
+        - light
         - vacuum
-      include_entities:
-        - light.master_bath_light
-        - light.hallway_bath_light
-        - light.laundry_light
     entity_config:
       media_player.dining:
         display_categories: SPEAKER
@@ -175,67 +170,9 @@ ddwrt:
 
 zha_map:
   
-switch:
+switch: !include switches.yaml
 
-  - platform: template
-    switches:
-      starlight: 
-        unique_id: switch.starlight
-        value_template: "{{ state_attr('switch.starlight_outlet', 'current_power_w') | float > 1 }}"
-        turn_on:
-          service: script.starlight_on
-        turn_off:
-          service: switch.turn_off
-          data:
-            entity_id: switch.starlight_outlet
-      office_master:
-        unique_id: switch.office_master
-        value_template: "{{ state_attr('switch.office_peripherals', 'current_power_w') | float > 30 }}"
-        turn_on:
-          service: script.start_the_office
-        turn_off:
-          service: script.stop_the_office
-      theater_master:
-        unique_id: switch.theater_master
-        value_template: "{{ state_attr('switch.theater_peripherals_watts', 'current_power_w') | float > 20 }}"
-        turn_on:
-          service: script.start_the_theater
-        turn_off:
-          service: script.stop_the_theater
-      fan:
-        unique_id: switch.fan
-        value_template: "{{ state_attr('climate.hallway_thermostat', 'fan_mode') == 'On Low' }}"
-        turn_on:
-          service: climate.set_fan_mode
-          data:
-            fan_mode: On Low
-            entity_id: climate.hallway_thermostat
-        turn_off:
-          service: climate.set_fan_mode
-          data:
-            fan_mode: Auto Low
-            entity_id: climate.hallway_thermostat
-      bedtime:
-        unique_id: switch.bedtime
-        value_template: "{{ is_state('automation.kitchen_motion_stop_after_bedtime', 'on') }}"
-        turn_on:
-          service: script.bedtime
-        turn_off:
-          service: script.good_morning
-      away:
-        unique_id: switch.away
-        value_template: "{{ is_state('automation.kitchen_motion_start_lights', 'off') }}"
-        turn_on:
-          service: script.users_away
-        turn_off:
-          service: script.users_home
-      cameras:
-        unique_id: switch.cameras
-        value_template: "{{ not is_state('camera.galaxy_tab_a_camera', 'idle') }}"
-        turn_on:
-          service: script.start_cameras
-        turn_off:
-          service: script.stop_cameras
+light: !include lights.yaml
 
 camera:
   - platform: mjpeg
@@ -248,63 +185,10 @@ camera:
     mjpeg_url: http://10.0.2.122:2971/camera/stream
     name: Galaxy Tab A Camera
 
-light:
-  - platform: template
-    lights:
-      ir_strips:
-        unique_id: ir_strips
-        turn_on:
-          data:
-            device: 'RGB LED'
-            command: 'PowerOn'
-          entity_id: remote.harmony_hub
-          service: remote.send_command
-        turn_off:
-          - data:
-              device: 'RGB LED'
-              command: 'PowerOn'
-            entity_id: remote.harmony_hub
-            service: remote.send_command
-          - data:
-              device: 'RGB LED'
-              command: 'PowerOff'
-            entity_id: remote.harmony_hub
-            service: remote.send_command
-        set_level:
-          - data:
-              device: 'RGB LED'
-              command: 'Brighter 2'
-              num_repeats: 6
-            entity_id: remote.harmony_hub
-            service: remote.send_command
-          - condition: template
-            value_template: '{{ brightness < 255 - 32 }}'
-          - data_template:
-              device: 'RGB LED'
-              command: 'Darker 2'
-              num_repeats: '{{ (((255 - brightness) / 32) - 1) | int }}'
-            entity_id: remote.harmony_hub
-            service: remote.send_command
-        set_white_value:
-          data:
-            device: 'RGB LED'
-            command: 'White Color'
-          entity_id: remote.harmony_hub
-          service: remote.send_command
-        set_color:
-          data_template:
-            device: 'RGB LED'
-            command: '{{ [''ColorRed'', ''ColorOrange'', ''ColorYellow'', ''ColorGreen'',
-              ''ColorGreen'', ''ColorTurquoise'', ''ColorAqua'',  ''ColorLightBlue'', ''ColorBlue'', ''ColorPurple'',
-              ''ColorPink'', ''ColorPink''] [((h + 15) % 360 / 30) | int] }}'
-          entity_id: remote.harmony_hub
-          service: remote.send_command
 
 
 
 sensor:
-#  - platform: badnest
-
   - platform: nws_alerts
     zone_id: !secret nws_zone
 

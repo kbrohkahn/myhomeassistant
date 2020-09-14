@@ -7,7 +7,7 @@
                     "options": "mdi:death-star-variant"
                 },
                 "exceptions": [],
-                "header_text": "{{ dayNameShort }} {{ date }}"
+                "header_text": "{{ hours24}}:{{ minutesLZ }} {{ dayNameShort}} {{ date }} | {{ viewTitle }}"
             },
             "decluttering_templates": {
                 "scene_button": {
@@ -39,35 +39,10 @@
                         {
                             "cards": [
                                 {
-                                    "type": "custom:clock-card"
-                                },
-                                {
-                                    "entity": "weather.openweathermap",
-                                    "name": "Home",
-                                    "show_forecast": true,
-                                    "style": ":host div.temp-attribute .temp {\n  font-size: 48px;\n}\n:host([narrow]) div.temp-attribute .temp {\n  font-size: 36px;                  \n}\n",
-                                    "type": "weather-forecast"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.owm_humidity",
-                                            "graph": "line",
-                                            "hours_to_show": 8,
-                                            "icon": "mdi:air-humidifier",
-                                            "name": "Humidity",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.owm_wind_speed",
-                                            "graph": "line",
-                                            "hours_to_show": 8,
-                                            "icon": "mdi:weather-windy",
-                                            "name": "Wind",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
+                                    "mode": "hourly",
+                                    "style": ":host ha-card {\n  margin-top: 10px;\n}\n",
+                                    "type": "custom:weather-card-chart",
+                                    "weather": "weather.openweathermap"
                                 },
                                 {
                                     "control": {
@@ -125,15 +100,21 @@
                                 {
                                     "cards": [
                                         {
+                                            "entity": "light.main",
+                                            "icon": "mdi:palette",
+                                            "name": "Main",
+                                            "type": "light"
+                                        },
+                                        {
                                             "entity": "light.kitchen",
                                             "icon": "mdi:fridge-outline",
                                             "name": "Kitchen",
                                             "type": "light"
                                         },
                                         {
-                                            "entity": "light.hallway",
-                                            "icon": "mdi:door-open",
-                                            "name": "Hallway",
+                                            "entity": "light.dining",
+                                            "icon": "mdi:table-chair",
+                                            "name": "Dining Room",
                                             "type": "light"
                                         }
                                     ],
@@ -142,26 +123,15 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "light.dining",
+                                            "entity": "light.ir_strips",
                                             "icon": "mdi:table-chair",
-                                            "name": "Dining Room",
+                                            "name": "IR Strips",
                                             "type": "light"
                                         },
                                         {
                                             "entity": "light.living_room",
                                             "icon": "mdi:sofa",
                                             "name": "Living Room",
-                                            "type": "light"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "light.main",
-                                            "icon": "mdi:palette",
-                                            "name": "Main",
                                             "type": "light"
                                         },
                                         {
@@ -175,6 +145,12 @@
                                 },
                                 {
                                     "cards": [
+                                        {
+                                            "entity": "light.hallway",
+                                            "icon": "mdi:door-open",
+                                            "name": "Hallway",
+                                            "type": "light"
+                                        },
                                         {
                                             "entity": "light.office",
                                             "icon": "mdi:briefcase",
@@ -258,32 +234,6 @@
                         {
                             "cards": [
                                 {
-                                    "CalEventIcon1Filter": "birthday",
-                                    "CalEventIcon2Filter": "waste,bills",
-                                    "defaultMode": 1,
-                                    "enableModeChange": true,
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.holidays_in_united_states"
-                                        },
-                                        {
-                                            "entity": "calendar.home_brohkahn_gmail_com"
-                                        },
-                                        {
-                                            "entity": "calendar.kbkrunner_gmail_com"
-                                        }
-                                    ],
-                                    "showColors": true,
-                                    "showDate": false,
-                                    "showMonth": false,
-                                    "type": "custom:atomic-calendar"
-                                },
-                                {
-                                    "show_crossed_off": false,
-                                    "title": "",
-                                    "type": "custom:our-groceries-card"
-                                },
-                                {
                                     "cards": [
                                         {
                                             "entity": "switch.away",
@@ -316,6 +266,27 @@
                                         }
                                     ],
                                     "type": "horizontal-stack"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "hoursFormat": "HH:mm",
+                                    "maxDaysToShow": 7,
+                                    "type": "custom:atomic-calendar-revive"
+                                },
+                                {
+                                    "show_crossed_off": false,
+                                    "title": "",
+                                    "type": "custom:our-groceries-card"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -323,7 +294,7 @@
                     ],
                     "icon": "mdi:flash",
                     "path": "power",
-                    "title": "Lights"
+                    "title": "Power"
                 },
                 {
                     "badges": [],
@@ -331,61 +302,24 @@
                         {
                             "cards": [
                                 {
-                                    "entities": [
+                                    "cards": [
                                         {
-                                            "entity": "sensor.office_peripherals_watts",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "icon": "mdi:monitor-speaker",
+                                            "entity": "switch.office_master",
                                             "name": "Office",
-                                            "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.office_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "switch.toggle",
-                                                "service_data": {
-                                                    "entity_id": "switch.office_master"
-                                                }
-                                            },
                                             "type": "entity-button"
                                         },
                                         {
-                                            "entity": "sensor.living_room_monitor_watts",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "icon": "mdi:monitor",
+                                            "entity": "switch.living_room_monitor",
                                             "name": "Living Room",
-                                            "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.living_room_monitor', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "switch.toggle",
-                                                "service_data": {
-                                                    "entity_id": "switch.living_room_monitor"
-                                                }
-                                            },
                                             "type": "entity-button"
                                         },
                                         {
-                                            "entity": "sensor.theater_peripherals_watts",
-                                            "hold_action": {
-                                                "action": "more-info"
-                                            },
-                                            "icon": "mdi:theater",
+                                            "entity": "switch.theater_master",
                                             "name": "Theater",
-                                            "style": ":host {\n  --paper-item-icon-color:\n    {% if is_state('switch.theater_master', 'on') %}\n      var(--state-icon-active-color)\n    {% else %}\n      var(--state-icon-color)\n    {% endif %}\n    ;\n  --mdc-icon-size: 48px;\n}\n",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "switch.toggle",
-                                                "service_data": {
-                                                    "entity_id": "switch.theater_master"
-                                                }
-                                            },
                                             "type": "entity-button"
                                         }
                                     ],
-                                    "style": ":host div:first-child {\n  padding-right: 8px;\n  border-right: solid black 8px;\n}\n:host div:last-child {\n  padding-left: 8px;\n  border-left: solid black 8px;\n}\n",
-                                    "type": "glance"
+                                    "type": "horizontal-stack"
                                 },
                                 {
                                     "cards": [
@@ -1381,7 +1315,7 @@
                                             {
                                                 "data": {
                                                     "card": {
-                                                        "entity": "media_player.soundtouch_dining",
+                                                        "entity": "media_player.dining",
                                                         "hide": {
                                                             "controls": true,
                                                             "icon": true,
@@ -1392,15 +1326,15 @@
                                                         "speaker_group": {
                                                             "entities": [
                                                                 {
-                                                                    "entity_id": "media_player.soundtouch_dining",
+                                                                    "entity_id": "media_player.dining",
                                                                     "name": "Dining"
                                                                 },
                                                                 {
-                                                                    "entity_id": "media_player.soundtouch_kitchen",
+                                                                    "entity_id": "media_player.kitchen",
                                                                     "name": "Kitchen"
                                                                 },
                                                                 {
-                                                                    "entity_id": "media_player.soundtouch_living_room",
+                                                                    "entity_id": "media_player.living_room",
                                                                     "name": "Living Room"
                                                                 }
                                                             ],
@@ -1431,7 +1365,7 @@
                                     "card": {
                                         "entities": [
                                             {
-                                                "entity": "media_player.soundtouch_dining",
+                                                "entity": "media_player.dining",
                                                 "group": true,
                                                 "hide": {
                                                     "controls": true,
@@ -1446,7 +1380,7 @@
                                                 "volume_step": 2
                                             },
                                             {
-                                                "entity": "media_player.soundtouch_kitchen",
+                                                "entity": "media_player.kitchen",
                                                 "group": true,
                                                 "hide": {
                                                     "controls": true,
@@ -1461,7 +1395,7 @@
                                                 "volume_step": 2
                                             },
                                             {
-                                                "entity": "media_player.soundtouch_living_room",
+                                                "entity": "media_player.living_room",
                                                 "group": true,
                                                 "hide": {
                                                     "controls": true,
@@ -1480,7 +1414,7 @@
                                     },
                                     "conditions": [
                                         {
-                                            "entity": "media_player.soundtouch_dining",
+                                            "entity": "media_player.dining",
                                             "state": "playing"
                                         }
                                     ],

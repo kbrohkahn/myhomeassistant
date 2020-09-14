@@ -1,0 +1,357 @@
+{
+    "data": {
+        "binary_sensor": {
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_is_charging": {
+                "added": true,
+                "attributes": {},
+                "device_class": "plug",
+                "icon": "mdi:power-plug-off",
+                "name": "Is Charging",
+                "state": false,
+                "type": "binary_sensor",
+                "unique_id": "is_charging",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_wifi_state": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:wifi",
+                "name": "WiFi State",
+                "state": true,
+                "type": "binary_sensor",
+                "unique_id": "wifi_state",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            }
+        },
+        "deleted_ids": [
+            "08e316a1bbd79244b58b7abb273ffba63f5e478d831bc5f76b5c242bef4cc5b1",
+            "644407155140b7eb315cd39abefe6a218e65648bed0a2f1f17ebb6946c3b2c19",
+            "66a8aef9dbef24153110e8d2410123da9b3a38ddca372e12565f0e3ed399f7cd"
+        ],
+        "sensor": {
+            "66a8aef9dbef24153110e8d2410123da9b3a38ddca372e12565f0e3ed399f7cd_battery_level": {
+                "added": true,
+                "attributes": {
+                    "charger_type": "N/A",
+                    "is_charging": false
+                },
+                "device_class": "battery",
+                "icon": "mdi:battery-90",
+                "name": "Battery Level",
+                "state": 98,
+                "type": "sensor",
+                "unique_id": "battery_level",
+                "unit_of_measurement": "%",
+                "webhook_id": "66a8aef9dbef24153110e8d2410123da9b3a38ddca372e12565f0e3ed399f7cd"
+            },
+            "66a8aef9dbef24153110e8d2410123da9b3a38ddca372e12565f0e3ed399f7cd_geocoded_location": {
+                "added": true,
+                "attributes": {
+                    "Administrative Area": "Virginia",
+                    "Country": "United States",
+                    "ISO Country Code": "US",
+                    "Locality": "Arlington",
+                    "Location": [
+                        38.891190699999996,
+                        -77.0818029
+                    ],
+                    "Postal Code": "22201",
+                    "Sub Administrative Area": "Arlington County",
+                    "Sub Locality": null,
+                    "Sub Thoroughfare": "2001",
+                    "Thoroughfare": "15th Street North"
+                },
+                "icon": "mdi:map",
+                "name": "Geocoded Location",
+                "state": "2001 15th St N, Arlington, VA 22201, USA",
+                "type": "sensor",
+                "unique_id": "geocoded_location",
+                "webhook_id": "66a8aef9dbef24153110e8d2410123da9b3a38ddca372e12565f0e3ed399f7cd"
+            },
+            "66a8aef9dbef24153110e8d2410123da9b3a38ddca372e12565f0e3ed399f7cd_wifi_connection": {
+                "added": true,
+                "attributes": {
+                    "bssid": "98:da:c4:f9:20:77",
+                    "frequency": 5785,
+                    "ip_address": "10.0.1.104",
+                    "is_hidden": false,
+                    "link_speed": 585,
+                    "signal_level": -63
+                },
+                "icon": "mdi:wifi-strength-2",
+                "name": "Wifi Connection",
+                "state": "Omega",
+                "type": "sensor",
+                "unique_id": "wifi_connection",
+                "webhook_id": "66a8aef9dbef24153110e8d2410123da9b3a38ddca372e12565f0e3ed399f7cd"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_audio_sensor": {
+                "added": true,
+                "attributes": {
+                    "audio_mode": "normal",
+                    "is_headphones": false,
+                    "is_mic_muted": false,
+                    "is_music_active": false,
+                    "is_speakerphone_on": false,
+                    "volume_level_alarm": 9,
+                    "volume_level_call": 7,
+                    "volume_level_music": 3,
+                    "volume_level_ring": 0
+                },
+                "icon": "mdi:vibrate",
+                "name": "Audio Sensor",
+                "state": "vibrate",
+                "type": "sensor",
+                "unique_id": "audio_sensor",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_battery_health": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:battery-charging-wireless-20",
+                "name": "Battery Health",
+                "state": "good",
+                "type": "sensor",
+                "unique_id": "battery_health",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_battery_level": {
+                "added": true,
+                "attributes": {},
+                "device_class": "battery",
+                "icon": "mdi:battery-90",
+                "name": "Battery Level",
+                "state": 93,
+                "type": "sensor",
+                "unique_id": "battery_level",
+                "unit_of_measurement": "%",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_battery_state": {
+                "added": true,
+                "attributes": {
+                    "battery_health": "good",
+                    "charger_type": "unknown",
+                    "is_charging": false
+                },
+                "device_class": "battery",
+                "icon": "mdi:battery",
+                "name": "Battery State",
+                "state": "discharging",
+                "type": "sensor",
+                "unique_id": "battery_state",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_bluetooth_connection": {
+                "added": true,
+                "attributes": {
+                    "connected_not_paired_devices": "[88:4A:70:10:9C:BB]",
+                    "connected_paired_devices": "[C0:DC:DA:BB:96:AF]",
+                    "is_bt_on": true,
+                    "paired_devices": "[85:55:06:21:AC:5E, 34:DF:2A:54:2A:39, 00:1D:A5:00:6D:D9, 98:29:A6:F4:80:AA, C0:DC:DA:BB:96:AF, 70:CE:8C:00:8D:A5, 9C:DF:03:04:07:08]"
+                },
+                "icon": "mdi:bluetooth",
+                "name": "Bluetooth Connection",
+                "state": 2,
+                "type": "sensor",
+                "unique_id": "bluetooth_connection",
+                "unit_of_measurement": "connection(s)",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_charger_type": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:battery",
+                "name": "Charger Type",
+                "state": "unknown",
+                "type": "sensor",
+                "unique_id": "charger_type",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_dnd_sensor": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:do-not-disturb",
+                "name": "Do Not Disturb Sensor",
+                "state": "off",
+                "type": "sensor",
+                "unique_id": "dnd_sensor",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_geocoded_location": {
+                "added": true,
+                "attributes": {
+                    "Administrative Area": "Virginia",
+                    "Country": "United States",
+                    "ISO Country Code": "US",
+                    "Latitude": 38.891228,
+                    "Locality": "Arlington",
+                    "Longitude": -77.08191,
+                    "Postal Code": "22201",
+                    "Sub Administrative Area": "Arlington County",
+                    "Sub Locality": "null",
+                    "Sub Thoroughfare": "2001",
+                    "Thoroughfare": "15th Street North"
+                },
+                "icon": "mdi:map",
+                "name": "Geocoded Location",
+                "state": "2001 15th St N, Arlington, VA 22201, USA",
+                "type": "sensor",
+                "unique_id": "geocoded_location",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_last_reboot": {
+                "added": true,
+                "attributes": {
+                    "Local Time": "Tue Sep 08 22:50:56 EDT 2020",
+                    "Time in Milliseconds": 1599619860000.0
+                },
+                "device_class": "timestamp",
+                "icon": "mdi:restart",
+                "name": "Last Reboot",
+                "state": "2020-09-09T02:50:56Z",
+                "type": "sensor",
+                "unique_id": "last_reboot",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_light_sensor": {
+                "added": true,
+                "attributes": {},
+                "device_class": "illuminance",
+                "icon": "mdi:brightness-5",
+                "name": "Light Sensor",
+                "state": "247",
+                "type": "sensor",
+                "unique_id": "light_sensor",
+                "unit_of_measurement": "lx",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_next_alarm": {
+                "added": true,
+                "attributes": {
+                    "Local Time": "Mon Sep 14 11:46:00 EDT 2020",
+                    "Package": "net.dinglisch.android.taskerm",
+                    "Time in Milliseconds": 1600098400000.0
+                },
+                "device_class": "timestamp",
+                "icon": "mdi:alarm",
+                "name": "Next Alarm",
+                "state": "2020-09-14T15:46:00.000Z",
+                "type": "sensor",
+                "unique_id": "next_alarm",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_pressure_sensor": {
+                "added": true,
+                "attributes": {},
+                "device_class": "pressure",
+                "icon": "mdi:gauge",
+                "name": "Pressure Sensor",
+                "state": "1011.5",
+                "type": "sensor",
+                "unique_id": "pressure_sensor",
+                "unit_of_measurement": "hPa",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_proximity_sensor": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:leak",
+                "name": "Proximity Sensor",
+                "state": "far",
+                "type": "sensor",
+                "unique_id": "proximity_sensor",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_public_ip_address": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:ip",
+                "name": "Public IP Address",
+                "state": "71.191.241.133",
+                "type": "sensor",
+                "unique_id": "public_ip_address",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_storage_sensor": {
+                "added": true,
+                "attributes": {
+                    "Free external storage": "7GB",
+                    "Free internal storage": "82GB",
+                    "Total external storage": "7GB",
+                    "Total internal storage": "228GB"
+                },
+                "icon": "mdi:harddisk",
+                "name": "Storage Sensor",
+                "state": 36,
+                "type": "sensor",
+                "unique_id": "storage_sensor",
+                "unit_of_measurement": "%",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_wifi_connection": {
+                "added": true,
+                "attributes": {
+                    "bssid": "98:da:c4:f9:20:7a",
+                    "frequency": 5200,
+                    "ip_address": "10.0.1.120",
+                    "is_hidden": false,
+                    "is_wifi_on": true,
+                    "link_speed": 292,
+                    "signal_level": -72
+                },
+                "icon": "mdi:wifi-strength-1",
+                "name": "Wifi Connection",
+                "state": "Omega",
+                "type": "sensor",
+                "unique_id": "wifi_connection",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_wifi_frequency": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:wifi-strength-1",
+                "name": "WiFi Frequency",
+                "state": 5200,
+                "type": "sensor",
+                "unique_id": "wifi_frequency",
+                "unit_of_measurement": "MHz",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_wifi_ip_address": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:wifi-strength-1",
+                "name": "WiFi IP Address",
+                "state": "10.0.1.120",
+                "type": "sensor",
+                "unique_id": "wifi_ip_address",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_wifi_link_speed": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:wifi-strength-3",
+                "name": "WiFi Link Speed",
+                "state": 866,
+                "type": "sensor",
+                "unique_id": "wifi_link_speed",
+                "unit_of_measurement": "Mbps",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            },
+            "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299_wifi_signal_strength": {
+                "added": true,
+                "attributes": {},
+                "icon": "mdi:wifi-strength-3",
+                "name": "WiFi Signal Strength",
+                "state": -37,
+                "type": "sensor",
+                "unique_id": "wifi_signal_strength",
+                "unit_of_measurement": "dBm",
+                "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
+            }
+        }
+    },
+    "key": "mobile_app",
+    "version": 1
+}

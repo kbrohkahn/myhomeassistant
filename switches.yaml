@@ -1,0 +1,188 @@
+
+- platform: template
+  switches:
+    starlight: 
+      unique_id: switch.starlight
+      value_template: "{{ state_attr('switch.starlight_outlet', 'current_power_w') | float > 1 }}"
+      turn_on:
+        - entity_id: switch.starlight_outlet
+          service: switch.turn_on
+        - entity_id: switch.starlight_switchbot
+          service: switch.toggle
+      turn_off:
+        # - entity_id: switch.starlight_switchbot
+        #   service: switch.toggle
+        # - entity_id: switch.starlight_switchbot
+        #   service: switch.toggle
+        # - entity_id: switch.starlight_switchbot
+        #   service: switch.toggle
+        # - entity_id: switch.starlight_switchbot
+        #   service: switch.toggle
+        - entity_id: switch.starlight_outlet
+          service: switch.turn_off
+    office_master:
+      unique_id: switch.office_master
+      value_template: "{{ state_attr('switch.office_peripherals', 'current_power_w') | float > 30 }}"
+      turn_on:
+        - data: {}
+          entity_id:
+          - switch.fountain
+          - switch.firestone
+          - switch.office_tv
+          service: switch.turn_on
+        - data:
+            brightness: 255
+          entity_id: light.office
+          service: light.turn_on
+      turn_off:
+        - entity_id: light.office
+          service: light.turn_off
+        - data: {}
+          entity_id:
+          - switch.fountain
+          - switch.firestone
+          - switch.office_tv
+          service: switch.turn_off
+    office_tv:
+      unique_id: switch.office_tv
+      value_template: "{{ is_state('switch.office_master', 'on') }}"
+      turn_on:
+        - state: 'off'
+          condition: state
+          entity_id: switch.office_master
+        - entity_id: switch.office_tv_switchbot
+          service: switch.toggle
+      turn_off:
+        - state: 'on'
+          condition: state
+          entity_id: switch.office_master
+        - entity_id: switch.office_tv_switchbot
+          service: switch.toggle
+
+    theater_master:
+      unique_id: switch.theater_master
+      value_template: "{{ state_attr('switch.theater_peripherals_watts', 'current_power_w') | float > 20 }}"
+      turn_on:
+        - data:
+            command: PowerOn
+            device: Theater TV
+          entity_id: remote.harmony_hub
+          service: remote.send_command
+        - data:
+            command: PowerOn
+            device: Philips AV Switch
+          entity_id: remote.harmony_hub
+          service: remote.send_command
+        - data:
+            command: PowerOn
+            device: Onkyo AV Receiver
+          entity_id: remote.harmony_hub
+          service: remote.send_command
+        - data: {}
+          entity_id: switch.living_room_monitor
+          service: switch.turn_off
+      turn_off:
+        - data:
+            command: PowerOff
+            device: Theater TV
+          entity_id: remote.harmony_hub
+          service: remote.send_command
+        - data:
+            command: PowerOff
+            device: Philips AV Switch
+          entity_id: remote.harmony_hub
+          service: remote.send_command
+        - data:
+            command: PowerOff
+            device: Onkyo AV Receiver
+          entity_id: remote.harmony_hub
+          service: remote.send_command
+        - data: {}
+          entity_id: switch.living_room_monitor
+          service: switch.turn_on
+    fan:
+      unique_id: switch.fan
+      value_template: "{{ state_attr('climate.hallway_thermostat', 'fan_mode') == 'On Low' }}"
+      turn_on:
+        service: climate.set_fan_mode
+        data:
+          fan_mode: On Low
+          entity_id: climate.hallway_thermostat
+      turn_off:
+        service: climate.set_fan_mode
+        data:
+          fan_mode: Auto Low
+          entity_id: climate.hallway_thermostat
+    bedtime:
+      unique_id: switch.bedtime
+      value_template: "{{ is_state('automation.kitchen_motion_stop_after_bedtime', 'on') }}"
+      turn_on:
+        service: script.bedtime
+      turn_off:
+        service: script.good_morning
+    away:
+      unique_id: switch.away
+      value_template: "{{ is_state('automation.kitchen_motion_start_lights', 'off') }}"
+      turn_on:
+        service: script.users_away
+      turn_off:
+        service: script.users_home
+    cameras:
+      unique_id: switch.cameras
+      value_template: "{{ not is_state('camera.galaxy_tab_a_camera', 'idle') }}"
+      turn_on:
+        - data:
+            payload: '{"camera": true}'
+            topic: wallpanel/galaxytabs6/command
+          service: mqtt.publish
+        - data:
+            payload: '{"camera": true}'
+            topic: wallpanel/galaxytaba/command
+          service: mqtt.publish
+        - data:
+            payload: '{"camera": true}'
+            topic: wallpanel/galaxytabs/command
+          service: mqtt.publish
+      turn_off:
+        - data:
+            payload: '{"camera": false}'
+            topic: wallpanel/galaxytabs6/command
+          service: mqtt.publish
+        - data:
+            payload: '{"camera": false}'
+            topic: wallpanel/galaxytaba/command
+          service: mqtt.publish
+        - data:
+            payload: '{"camera": false}'
+            topic: wallpanel/galaxytabs/command
+          service: mqtt.publish
+    bose_group:
+      unique_id: switch.bose_group
+      value_template: "{{ state_attr('media_player.dining', 'soundtouch_group') | length == 3 }}"
+      turn_on:
+        - condition: template
+          value_template: '{{ state_attr(''media_player.dining'', ''soundtouch_group'')
+            == None }}'
+        - data:
+            master: media_player.dining
+            slaves:
+            - media_player.living_room
+            - media_player.kitchen
+          service: soundtouch.create_zone
+        - data:
+            volume_level: 0.4
+          entity_id: media_player.dining_bose,media_player.kitchen_bose,media_player.living_room_bose
+          service: media_player.volume_set
+      turn_off:
+        - condition: template
+          value_template: '{{ state_attr("media_player.dining", "soundtouch_zone")
+            != None }}'
+        - data:
+            master: media_player.dining
+            slaves:
+            - media_player.kitchen
+            - media_player.living_room
+          service: soundtouch.remove_zone_slave
+        - data: {}
+          entity_id: media_player.dining, media_player.kitchen, media_player.living_room
+          service: media_player.turn_off

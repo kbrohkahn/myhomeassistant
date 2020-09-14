@@ -27,11 +27,6 @@
                 "url": "/hacsfiles/our-groceries-card/our-groceries-card.js"
             },
             {
-                "id": "b64daf9bb73949c291729f132461fb31",
-                "type": "module",
-                "url": "/hacsfiles/atomic_calendar/atomic_calendar.js"
-            },
-            {
                 "id": "3d79439ae22c486089197752cf50a2a3",
                 "type": "module",
                 "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js"

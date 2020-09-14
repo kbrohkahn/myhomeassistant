@@ -1,16 +1,3 @@
-- id: sunset
-  alias: Sunset
-  trigger:
-  - event: sunset
-    offset: -00:15:00
-    platform: sun
-  condition:
-  - condition: state
-    entity_id: light.living_room
-    state: 'off'
-  action:
-  - service: script.lights_home_sunset
-  mode: single
 - id: nightlight
   alias: Nightlight
   trigger:
@@ -85,7 +72,7 @@
   - data:
       message: Front Door Opened
       title: Hass Home Alert
-    service: notify.mobile_app_sm_n975u1
+    service: notify.mobile_app_galaxy_note_10
 - id: hallway_motion_start_hallway_lights
   alias: Hallway Motion Start - Lights
   description: ''
@@ -99,10 +86,13 @@
     entity_id: light.hallway
     state: 'off'
   action:
-  - data:
+  - data_template:
       brightness: 250
+      hs_color:
+      - '{{ ((12 - (now().hour - 14) % 24) | abs / 12 * 250) | int }}'
+      - 80
     entity_id: light.hallway
-    service: script.hallway_daytime_lights
+    service: light.turn_on
   - condition: and
     conditions:
     - condition: state
@@ -126,8 +116,8 @@
     to: 'off'
   condition:
   - condition: template
-    value_template: '{{ (as_timestamp(states.light.hallway.last_changed) - as_timestamp(state_attr(''script.hallway_daytime_lights'',
-      ''last_triggered''))) | abs < 3 }}'
+    value_template: '{{ (as_timestamp(states.light.hallway.last_changed) - as_timestamp(state_attr(''automation.hallway_motion_start_hallway_lights'',
+      ''last_triggered''))) | abs < 1 }}'
   action:
   - data: {}
     entity_id: light.hallway
@@ -148,7 +138,7 @@
     state: 'on'
   - condition: template
     value_template: '{{ (as_timestamp(states.light.master.last_changed) - as_timestamp(state_attr(''automation.master_motion_start_lights'',
-      ''last_triggered''))) | abs < 3 }}'
+      ''last_triggered''))) | abs < 1 }}'
   - condition: template
     value_template: '{{ state_attr(''light.master'', ''brightness'') == 250 }}'
   action:
@@ -261,13 +251,13 @@
   - condition: or
     conditions:
     - condition: state
-      entity_id: media_player.soundtouch_dining
+      entity_id: media_player.dining
       state: 'off'
     - condition: state
-      entity_id: media_player.soundtouch_dining
+      entity_id: media_player.dining
       state: paused
     - condition: state
-      entity_id: media_player.soundtouch_dining
+      entity_id: media_player.dining
       state: unavailable
   - condition: state
     entity_id: person.kevin_broh_kahn
@@ -294,9 +284,8 @@
     entity_id: light.kitchen
     state: 'on'
   action:
-  - data: {}
+  - service: light.turn_off
     entity_id: light.kitchen
-    service: light.turn_off
   - data:
       payload: '{"wake": false, "camera": false}'
       topic: wallpanel/galaxytaba/command
@@ -419,32 +408,14 @@
     to: 'off'
   condition:
   - condition: template
-    value_template: '{{ (as_timestamp(states.light.kitchen.last_changed) - as_timestamp(state_attr(''script.kitchen_daytime_lights_by_sun'',
-      ''last_triggered''))) | abs < 3 }}'
-  - condition: template
     value_template: '{{ state_attr(''light.kitchen'', ''brightness'') == 250 }}'
-  - condition: state
-    entity_id: light.kitchen
-    state: 'on'
-  - condition: state
-    entity_id: light.living_room
-    state: 'off'
   action:
-  - data:
-      payload: '{"wake": false, "camera": false}'
-      topic: wallpanel/galaxytaba/command
-    service: mqtt.publish
-  - data: {}
-    entity_id: light.kitchen_strips
-    service: light.turn_off
-  - data: {}
-    entity_id: light.kitchen_overhead
-    service: light.turn_off
+  - service: light.turn_off
+    entity_id: light.kitchen
   - condition: template
-    value_template: '{{ (as_timestamp(states.light.dining.last_changed) - as_timestamp(state_attr(''script.kitchen_daytime_lights_by_sun'',
-      ''last_triggered''))) | abs < 3 }}'
-  - data: {}
-    entity_id: light.dining
+    value_template: '{{ (as_timestamp(states.light.kitchen.last_changed) - as_timestamp(states.light.dining.last_changed))
+      | abs < 1 }}'
+  - entity_id: light.dining
     service: light.turn_off
   mode: single
 - id: thermostat_fan_schedule
@@ -472,13 +443,19 @@
     platform: state
     to: 'on'
   condition:
-  - condition: state
-    entity_id: light.kitchen
-    state: 'off'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: light.kitchen
+      state: 'off'
+    - condition: template
+      value_template: '{{ state_attr(''light.kitchen_overhead'', ''brightness'') ==
+        250 }}'
   action:
   - data:
       brightness: 250
-    service: script.kitchen_daytime_lights_by_sun
+    service: light.turn_on
+    entity_id: light.kitchen
   - data:
       payload: '{"wake": true, "camera": true}'
       topic: wallpanel/galaxytaba/command
@@ -608,39 +585,6 @@
       notification_message: AC advised
     service: script.notify
   mode: single
-- id: kitchen_overhead_turned_on_invisible
-  alias: Kitchen Overhead Turned On Invisible
-  description: ''
-  trigger:
-  - entity_id: light.kitchen_overhead
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - condition: template
-    value_template: '{{ state_attr(''light.kitchen_overhead'', ''brightness'') < 5
-      }}'
-  action:
-  - data:
-      brightness: 255
-    entity_id: light.kitchen_overhead
-    service: light.turn_on
-- id: kitchen_strips_turned_on_invisible
-  alias: Kitchen Strips Turned On Invisible
-  description: ''
-  trigger:
-  - entity_id: light.kitchen_strips
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition:
-  - condition: template
-    value_template: '{{ state_attr(''light.kitchen_strips'', ''brightness'') < 5 }}'
-  action:
-  - data:
-      brightness: 255
-    entity_id: light.kitchen_strips
-    service: light.turn_on
 - id: master_bath_light_switch_on
   alias: Master Bath Light Switch On
   description: ''
@@ -696,6 +640,9 @@
     - wed
     - thu
     - fri
+  - condition: state
+    state: 'off'
+    entity_id: light.living_room
   action:
   - data: {}
     entity_id: automation.galaxy_tab_s_motion_start
@@ -796,8 +743,11 @@
     entity_id: light.main
     state: 'on'
   action:
-  - data: {}
-    entity_id: light.main
+  - entity_id:
+    - light.dining
+    - light.living_room
+    - light.hallway
+    - light.kitchen
     service: light.turn_off
   mode: single
 - id: master_bath_fan_on
@@ -839,7 +789,7 @@
       ''On Low'' }}'
   condition: []
   action:
-  - delay: 00:30:00
+  - delay: 00:15:00
   - data:
       fan_mode: Auto Low
     entity_id: climate.hallway_thermostat
@@ -926,6 +876,7 @@
     from: 'on'
     platform: state
     to: 'off'
+    for: 00:00:30
   condition: []
   action:
   - data:
@@ -967,6 +918,7 @@
     from: 'on'
     platform: state
     to: 'off'
+    for: 00:00:30
   condition: []
   action:
   - data:
@@ -1008,6 +960,7 @@
     from: 'on'
     platform: state
     to: 'off'
+    for: 00:00:30
   condition: []
   action:
   - data:
@@ -1133,11 +1086,9 @@
     to: 'on'
   action:
   - data: {}
-    entity_id: light.office_tv_strip
+    entity_id: light.pantry_strip
     service: light.turn_on
   mode: single
-
-
 - id: pantry_door_closed
   alias: Pantry Door Closed
   description: ''
@@ -1148,6 +1099,34 @@
     to: 'off'
   action:
   - data: {}
-    entity_id: light.office_tv_strip
+    entity_id: light.pantry_strip
+    service: light.turn_off
+  mode: single
+- id: office_lamp_on
+  alias: Office Lamp On
+  description: ''
+  trigger:
+  - entity_id: light.office_lamp
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data_template:
+      brightness: '{{ state_attr(''light.office_lamp'', ''brightness'') }}'
+    entity_id: light.office_strips
+    service: light.turn_on
+  mode: single
+- id: office_lamp_off
+  alias: Office Lamp Off
+  description: ''
+  trigger:
+  - entity_id: light.office_lamp
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+    entity_id: light.office_strips
     service: light.turn_off
   mode: single

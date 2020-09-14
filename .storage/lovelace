@@ -6,7 +6,7 @@
                 "button_icons": {
                     "options": "mdi:death-star-variant"
                 },
-                "header_text": "{{ user }} | {{ viewTitle }}",
+                "header_text": "{{ hours24}}:{{ minutesLZ }} {{ dayNameShort}} {{ date }} | {{ user }} | {{ viewTitle }}",
                 "title": "Home"
             },
             "decluttering_templates": {
@@ -106,6 +106,16 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
+                                                    "entity": "light.ir_strips",
+                                                    "icon": "mdi:led-strip-variant",
+                                                    "style": {
+                                                        "left": "72%",
+                                                        "top": "49%",
+                                                        "transform": "scale(2,2)"
+                                                    },
+                                                    "type": "state-icon"
+                                                },
+                                                {
                                                     "conditions": [
                                                         {
                                                             "entity": "light.living_room",
@@ -113,15 +123,6 @@
                                                         }
                                                     ],
                                                     "elements": [
-                                                        {
-                                                            "entity": "light.living_room_bottom",
-                                                            "icon": "mdi:led-strip-variant",
-                                                            "style": {
-                                                                "left": "81%",
-                                                                "top": "7%"
-                                                            },
-                                                            "type": "state-icon"
-                                                        },
                                                         {
                                                             "entity": "light.living_room_strips",
                                                             "icon": "mdi:led-strip-variant",
@@ -207,6 +208,16 @@
                                                                 "left": "67%",
                                                                 "top": "75%",
                                                                 "transform": "scale(2,2)"
+                                                            },
+                                                            "type": "state-icon"
+                                                        },
+                                                        {
+                                                            "entity": "light.kitchen_spotlight",
+                                                            "icon": "mdi:lightbulb-multiple",
+                                                            "style": {
+                                                                "left": "57%",
+                                                                "top": "65%",
+                                                                "transform": "scale(1.5,1.5)"
                                                             },
                                                             "type": "state-icon"
                                                         }
@@ -319,19 +330,20 @@
                                                                 "transform": "scale(2,2)"
                                                             },
                                                             "type": "state-icon"
-                                                        },
+                                                        }
+                                                    ],
+                                                    "type": "conditional"
+                                                },
+                                                {
+                                                    "conditions": [
                                                         {
-                                                            "entity": "light.office_tv_strip",
-                                                            "icon": "mdi:led-strip-variant",
-                                                            "style": {
-                                                                "left": "42%",
-                                                                "top": "6%",
-                                                                "transform": "scale(1.5,1.5)"
-                                                            },
-                                                            "type": "state-icon"
-                                                        },
+                                                            "entity": "light.office_lamp",
+                                                            "state": "on"
+                                                        }
+                                                    ],
+                                                    "elements": [
                                                         {
-                                                            "entity": "light.office_white",
+                                                            "entity": "light.office_lamp",
                                                             "icon": "mdi:lightbulb-multiple",
                                                             "style": {
                                                                 "left": "25%",
@@ -1648,7 +1660,7 @@
                                                     {
                                                         "data": {
                                                             "card": {
-                                                                "entity": "media_player.soundtouch_dining",
+                                                                "entity": "media_player.dining",
                                                                 "hide": {
                                                                     "controls": true,
                                                                     "icon": true,
@@ -1659,15 +1671,15 @@
                                                                 "speaker_group": {
                                                                     "entities": [
                                                                         {
-                                                                            "entity_id": "media_player.soundtouch_dining",
+                                                                            "entity_id": "media_player.dining",
                                                                             "name": "Dining"
                                                                         },
                                                                         {
-                                                                            "entity_id": "media_player.soundtouch_kitchen",
+                                                                            "entity_id": "media_player.kitchen",
                                                                             "name": "Kitchen"
                                                                         },
                                                                         {
-                                                                            "entity_id": "media_player.soundtouch_living_room",
+                                                                            "entity_id": "media_player.living_room",
                                                                             "name": "Living Room"
                                                                         }
                                                                     ],
@@ -1698,7 +1710,7 @@
                                             "card": {
                                                 "entities": [
                                                     {
-                                                        "entity": "media_player.soundtouch_dining",
+                                                        "entity": "media_player.dining",
                                                         "group": true,
                                                         "hide": {
                                                             "controls": true,
@@ -1713,7 +1725,7 @@
                                                         "volume_step": 2
                                                     },
                                                     {
-                                                        "entity": "media_player.soundtouch_kitchen",
+                                                        "entity": "media_player.kitchen",
                                                         "group": true,
                                                         "hide": {
                                                             "controls": true,
@@ -1728,7 +1740,7 @@
                                                         "volume_step": 2
                                                     },
                                                     {
-                                                        "entity": "media_player.soundtouch_living_room",
+                                                        "entity": "media_player.living_room",
                                                         "group": true,
                                                         "hide": {
                                                             "controls": true,
@@ -1747,7 +1759,7 @@
                                             },
                                             "conditions": [
                                                 {
-                                                    "entity": "media_player.soundtouch_dining",
+                                                    "entity": "media_player.dining",
                                                     "state": "playing"
                                                 }
                                             ],
@@ -1914,51 +1926,6 @@
                         {
                             "cards": [
                                 {
-                                    "defaultMode": "Calendar",
-                                    "disableCalEventLink": false,
-                                    "disableCalLocationLink": false,
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.holidays_in_united_states"
-                                        },
-                                        {
-                                            "entity": "calendar.home_brohkahn_gmail_com"
-                                        },
-                                        {
-                                            "entity": "calendar.kbkrunner_gmail_com"
-                                        }
-                                    ],
-                                    "firstDayOfWeek": 1,
-                                    "maxDaysToShow": 7,
-                                    "showDate": false,
-                                    "showLastCalendarWeek": true,
-                                    "sortByStartTime": false,
-                                    "type": "custom:atomic-calendar-revive"
-                                },
-                                {
-                                    "defaultMode": "Event",
-                                    "entities": [
-                                        {
-                                            "entity": "calendar.holidays_in_united_states"
-                                        },
-                                        {
-                                            "entity": "calendar.home_brohkahn_gmail_com"
-                                        },
-                                        {
-                                            "entity": "calendar.kbkrunner_gmail_com"
-                                        }
-                                    ],
-                                    "firstDayOfWeek": 1,
-                                    "hoursFormat": "HH:mm",
-                                    "maxDaysToShow": 7,
-                                    "type": "custom:atomic-calendar-revive"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "cards": [
-                                {
                                     "cards": [
                                         {
                                             "entity": "sensor.home_humidity",
@@ -2020,6 +1987,57 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "defaultMode": "Calendar",
+                                    "disableCalEventLink": false,
+                                    "disableCalLocationLink": false,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "firstDayOfWeek": 1,
+                                    "maxDaysToShow": 7,
+                                    "showDate": false,
+                                    "showLastCalendarWeek": true,
+                                    "sortByStartTime": false,
+                                    "type": "custom:atomic-calendar-revive"
+                                },
+                                {
+                                    "defaultMode": "Event",
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "firstDayOfWeek": 1,
+                                    "hoursFormat": "HH:mm",
+                                    "maxDaysToShow": 7,
+                                    "type": "custom:atomic-calendar-revive"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entity": "vacuum.rockrobo",
+                            "image": "default",
+                            "map": "camera.rockrobo_map",
+                            "type": "custom:vacuum-card"
                         }
                     ],
                     "icon": "mdi:calendar",
@@ -2038,8 +2056,8 @@
                     ],
                     "icon": "mdi:robot-vacuum",
                     "panel": true,
-                    "path": "vacuum-local",
-                    "title": "Vacuum Local"
+                    "path": "vacuum",
+                    "title": "Vacuum"
                 },
                 {
                     "badges": [],
@@ -3216,10 +3234,6 @@
                             ],
                             "title": "IOT Router",
                             "type": "vertical-stack"
-                        },
-                        {
-                            "entity": "light.ir_strips",
-                            "type": "light"
                         }
                     ],
                     "icon": "mdi:network",
@@ -3299,36 +3313,66 @@
                     "badges": [],
                     "cards": [
                         {
-                            "config": {
-                                "image": "/local/floorplan/examples/simple/simple.svg?v=1.1.14",
-                                "rules": [
-                                    {
-                                        "entities": [
-                                            "binary_sensor.main_bedroom",
-                                            "binary_sensor.living_area",
-                                            "binary_sensor.double_garage"
-                                        ],
-                                        "states": [
-                                            {
-                                                "class": "binary-sensor-off",
-                                                "state": "off"
-                                            },
-                                            {
-                                                "class": "binary-sensor-on",
-                                                "state": "on"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "stylesheet": "/local/floorplan/examples/simple/simple.css?v=1.1.14"
-                            },
-                            "title": "Simple Floorplan",
-                            "type": "custom:floorplan-card"
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.sm_n975u1"
+                                }
+                            ],
+                            "hours_to_show": 0,
+                            "type": "map"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.sm_n975u1_wifi_connection",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.sm_n975u1_proximity_sensor",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.sm_n975u1_pressure_sensor",
+                                            "graph": "line",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.sm_n975u1_light_sensor",
+                                            "graph": "line",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.sm_n975u1_battery_level",
+                                            "graph": "line",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.sm_n975u1_bluetooth_connection",
+                                            "graph": "line",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         }
                     ],
-                    "panel": true,
-                    "path": "test",
-                    "title": "test"
+                    "icon": "mdi:cellphone",
+                    "path": "phone",
+                    "title": "Phone"
                 }
             ]
         }
