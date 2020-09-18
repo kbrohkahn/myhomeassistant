@@ -7,7 +7,7 @@
                     "options": "mdi:death-star-variant"
                 },
                 "exceptions": [],
-                "header_text": "{{ hours24}}:{{ minutesLZ }} {{ dayNameShort}} {{ date }} | {{ viewTitle }}"
+                "header_text": "{{ dayNameShort}} {{ date }} | {{ viewTitle }}"
             },
             "decluttering_templates": {
                 "scene_button": {
@@ -1556,6 +1556,160 @@
                         {
                             "cards": [
                                 {
+                                    "entity": "weather.kdca_hourly",
+                                    "show_forecast": true,
+                                    "type": "weather-forecast"
+                                },
+                                {
+                                    "title": "Daily",
+                                    "type": "custom:weather-card-chart",
+                                    "weather": "weather.kdca_daynight"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.home_humidity",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:air-humidifier",
+                                            "name": "Humidity",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.home_precipitation",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "name": "Precipitation",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.home_wind_speed",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:weather-windy",
+                                            "name": "Wind",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.home_pressure",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "icon": "mdi:gauge",
+                                            "name": "Pressure",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.home_visibility",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "name": "Visibility",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.home_cloud_ceiling",
+                                            "graph": "line",
+                                            "hours_to_show": 8,
+                                            "name": "Cloud Ceiling",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "defaultMode": "Calendar",
+                                    "disableCalEventLink": false,
+                                    "disableCalLocationLink": false,
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "firstDayOfWeek": 1,
+                                    "maxDaysToShow": 7,
+                                    "showDate": false,
+                                    "showLastCalendarWeek": true,
+                                    "sortByStartTime": false,
+                                    "type": "custom:atomic-calendar-revive"
+                                },
+                                {
+                                    "defaultMode": "Event",
+                                    "entities": [
+                                        {
+                                            "entity": "calendar.holidays_in_united_states"
+                                        },
+                                        {
+                                            "entity": "calendar.home_brohkahn_gmail_com"
+                                        },
+                                        {
+                                            "entity": "calendar.kbkrunner_gmail_com"
+                                        }
+                                    ],
+                                    "firstDayOfWeek": 1,
+                                    "hoursFormat": "HH:mm",
+                                    "maxDaysToShow": 7,
+                                    "type": "custom:atomic-calendar-revive"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entity": "vacuum.rockrobo",
+                            "image": "default",
+                            "map": "camera.rockrobo_map",
+                            "type": "custom:vacuum-card"
+                        }
+                    ],
+                    "icon": "mdi:calendar",
+                    "path": "calendar",
+                    "title": "Calendar"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "aspect_ratio": "50%",
+                            "style": ":host {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: -44px;\n  bottom: 0px;\n}\n",
+                            "type": "iframe",
+                            "url": "https://vacuum.broh-kahn.com/9c239ab4-ee91-42b3-8f47-4f68010eafc1/"
+                        }
+                    ],
+                    "icon": "mdi:robot-vacuum",
+                    "panel": true,
+                    "path": "vacuum",
+                    "title": "Vacuum"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
                                     "template": "scene_button",
                                     "type": "custom:decluttering-card",
                                     "variables": [
@@ -2052,21 +2206,6 @@
                     "panel": true,
                     "path": "scenes",
                     "title": "Scenes"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "aspect_ratio": "50%",
-                            "style": ":host {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: -44px;\n  bottom: 0px;\n}\n",
-                            "type": "iframe",
-                            "url": "https://vacuum.broh-kahn.com/9c239ab4-ee91-42b3-8f47-4f68010eafc1/"
-                        }
-                    ],
-                    "icon": "mdi:robot-vacuum",
-                    "panel": true,
-                    "path": "vacuum",
-                    "title": "Vacuum"
                 },
                 {
                     "badges": [],

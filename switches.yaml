@@ -27,7 +27,6 @@
         - data: {}
           entity_id:
           - switch.fountain
-          - switch.firestone
           - switch.office_tv
           service: switch.turn_on
         - data:
@@ -40,7 +39,6 @@
         - data: {}
           entity_id:
           - switch.fountain
-          - switch.firestone
           - switch.office_tv
           service: switch.turn_off
     office_tv:
@@ -173,6 +171,10 @@
             volume_level: 0.4
           entity_id: media_player.dining_bose,media_player.kitchen_bose,media_player.living_room_bose
           service: media_player.volume_set
+        - condition: state
+          entity_id: media_player.spotify
+          state: playing
+        - service: script.play_on_bose
       turn_off:
         - condition: template
           value_template: '{{ state_attr("media_player.dining", "soundtouch_zone")

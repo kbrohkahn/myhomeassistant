@@ -1,4 +1,3 @@
-
 users_away:
   alias: Users Away
   sequence:
@@ -10,7 +9,6 @@ users_away:
       - light.master
       - light.theater
       - light.kitchen
-      - light.master_bath_light
       - light.master_bath
       - light.hallway_bath_light
       - light.galaxytaba
@@ -18,8 +16,9 @@ users_away:
       - light.galaxytabs6
       - light.hallway
     service: light.turn_off
-  - data_template:
-      brightness: "{% if state_attr('sun.sun', 'elevation') < 6 %} 128 {% else %} 0 {% endif %}"
+  - data:
+      brightness: '{% if state_attr(''sun.sun'', ''elevation'') < 6 %} 128 {% else
+        %} 0 {% endif %}'
       entity_id: light.kitchen_strips
       rgb_color:
       - 233
@@ -57,54 +56,51 @@ users_away:
   - service: script.maybe_lower_thermostat
   - service: script.maybe_start_vacuum
   mode: single
-
 maybe_lower_thermostat:
   alias: Maybe Lower Thermostat
   sequence:
-    - condition: and
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.dining_window_ias_zone
+      state: 'off'
+    - condition: or
       conditions:
       - condition: state
-        entity_id: binary_sensor.dining_window_ias_zone
-        state: 'off'
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: climate.hallway_thermostat
-          state: 'heat'
-        - condition: state
-          entity_id: climate.hallway_thermostat
-          state: 'cool'
-    - data_template:
-        temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 26
-          {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 16 {% endif
-          %}'
-      entity_id: climate.hallway_thermostat
-      service: script.maybe_lower_thermostat
+        entity_id: climate.hallway_thermostat
+        state: heat
+      - condition: state
+        entity_id: climate.hallway_thermostat
+        state: cool
+  - data:
+      temperature: '{% if is_state(''climate.hallway_thermostat'', ''cool'') %} 26
+        {% elif is_state(''climate.hallway_thermostat'', ''heat'') %} 16 {% endif
+        %}'
+    entity_id: climate.hallway_thermostat
+    service: script.maybe_lower_thermostat
   mode: single
-
 maybe_start_vacuum:
   alias: Maybe Start Vacuum
   sequence:
-    - condition: template
-      value_template: '{{ (as_timestamp(now()) * 1000 - state_attr(''vacuum.rockrobo'',
-        ''last_run_stats'')[''startTime'']) / 1000 > 12 * 3600 }}'
-    - data:
-        command: segmented_cleanup
-        entity_id: vacuum.rockrobo
-        params:
-          segment_ids:
-          - Master Bath
-          - Hallway
-          - Kitchen
-          - Office
-          - Master
-          - Dining
-          - Living Room
-          - Theater
+  - condition: template
+    value_template: '{{ (as_timestamp(now()) * 1000 - state_attr(''vacuum.rockrobo'',
+      ''last_run_stats'')[''startTime'']) / 1000 > 12 * 3600 }}'
+  - data:
+      command: segmented_cleanup
       entity_id: vacuum.rockrobo
-      service: vacuum.send_command
+      params:
+        segment_ids:
+        - Master Bath
+        - Hallway
+        - Kitchen
+        - Office
+        - Master
+        - Dining
+        - Living Room
+        - Theater
+    entity_id: vacuum.rockrobo
+    service: vacuum.send_command
   mode: single
-
 users_home:
   alias: Users Home
   sequence:
@@ -175,32 +171,42 @@ bedtime:
   - data: {}
     entity_id: switch.starlight
     service: switch.turn_on
-  - service: switch.turn_off
-    entity_id: 
-      - switch.theater_master
-      - switch.bose_group
+  - entity_id:
+    - switch.theater_master
+    - switch.bose_group
+    service: switch.turn_off
   - entity_id:
     - switch.living_room_monitor
     - switch.firestone
     - switch.fountain
     service: switch.turn_off
+  - data:
+      data:
+        type: tts
+      message: Next alarm in {{ ((state_attr('sensor.sm_n975u1_next_alarm', 'Time
+        in Milliseconds') / 1000 - as_timestamp(now())) / 3600) | round(2) }} hours
+      target: Master Echo Dot
+    service: notify.alexa_media
   mode: single
 browser_sound_effect:
   alias: Browser Sound Effect
   sequence:
-  - data_template:
-      payload: '{"audio": "http://10.0.2.10:8123/local/audio/{{ sound_effect_filename }}"}'
+  - data:
+      payload: '{"audio": "http://10.0.2.10:8123/local/audio/{{ sound_effect_filename
+        }}"}'
       topic: wallpanel/galaxytabs6/command
     service: mqtt.publish
-  - data_template:
-      payload: '{"audio": "http://10.0.2.10:8123/local/audio/{{ sound_effect_filename }}"}'
+  - data:
+      payload: '{"audio": "http://10.0.2.10:8123/local/audio/{{ sound_effect_filename
+        }}"}'
       topic: wallpanel/galaxytaba/command
     service: mqtt.publish
-  - data_template:
-      payload: '{"audio": "http://10.0.2.10:8123/local/audio/{{ sound_effect_filename }}"}'
+  - data:
+      payload: '{"audio": "http://10.0.2.10:8123/local/audio/{{ sound_effect_filename
+        }}"}'
       topic: wallpanel/galaxytabs/command
     service: mqtt.publish
-  - data_template:
+  - data:
       ignore_bose_volume: '{{ ignore_bose_volume }}'
     service: script.maybe_lower_bose_volume
   mode: single
@@ -213,7 +219,7 @@ play_on_bose:
       source: Dining Group
     entity_id: media_player.spotify
     service: media_player.select_source
-  - timeout: 00:00:02
+  - timeout: 00:00:03
     wait_template: '{{ is_state(''media_player.dining'', ''playing'') }}'
   - condition: or
     conditions:
@@ -290,7 +296,7 @@ wake_up:
       navigation_path: /lovelace-screensaver/16x10_slow
     service: browser_mod.navigate
   - condition: state
-    entity_id: automation.kitchen_motion_stop_after_bedtime
+    entity_id: switch.bedtime
     state: 'on'
   - data: {}
     entity_id:
@@ -308,34 +314,34 @@ maybe_lower_bose_volume:
       state: playing
     - condition: template
       value_template: '{{ not ignore_bose_volume }}'
-  - data_template:
-      volume_level: '{{ state_attr(''media_player.dining'', ''volume_level'')
-        * 0.5 }}'
+  - data:
+      volume_level: '{{ state_attr(''media_player.dining'', ''volume_level'') * 0.5
+        }}'
     entity_id: media_player.dining
     service: media_player.volume_set
-  - data_template:
-      volume_level: '{{ state_attr(''media_player.kitchen'', ''volume_level'')
-        * 0.5 }}'
+  - data:
+      volume_level: '{{ state_attr(''media_player.kitchen'', ''volume_level'') * 0.5
+        }}'
     entity_id: media_player.kitchen
     service: media_player.volume_set
-  - data_template:
+  - data:
       volume_level: '{{ state_attr(''media_player.living_room'', ''volume_level'')
         * 0.5 }}'
     entity_id: media_player.living_room
     service: media_player.volume_set
   - timeout: 00:00:05
     wait_template: '{{ is_state(''media_player.galaxytaba'', ''idle'') }}'
-  - data_template:
-      volume_level: '{{ state_attr(''media_player.dining'', ''volume_level'')
-        * 2.0 }}'
+  - data:
+      volume_level: '{{ state_attr(''media_player.dining'', ''volume_level'') * 2.0
+        }}'
     entity_id: media_player.dining
     service: media_player.volume_set
-  - data_template:
-      volume_level: '{{ state_attr(''media_player.kitchen'', ''volume_level'')
-        * 2.0 }}'
+  - data:
+      volume_level: '{{ state_attr(''media_player.kitchen'', ''volume_level'') * 2.0
+        }}'
     entity_id: media_player.kitchen
     service: media_player.volume_set
-  - data_template:
+  - data:
       volume_level: '{{ state_attr(''media_player.living_room'', ''volume_level'')
         * 2.0 }}'
     entity_id: media_player.living_room
@@ -344,7 +350,7 @@ main_lights_random_scene:
   alias: Main Lights Random Scene
   sequence:
   - service: hue.hue_activate_scene
-    data_template:
+    data:
       group_name: Main
       scene_name: '{{ [ ''Fushimi Inari'', ''Flower Festival'', ''Katsura'', ''Mori
         Pink Balloons'', ''Buddha in Temple'', ''Robot Restaurant'', ''Traffic Cones'',
@@ -359,45 +365,23 @@ main_lights_random_scene:
 test:
   alias: Test
   sequence:
-  - data_template:
-      command: '{{ [''ColorRed'', ''ColorOrange'', ''ColorYellow'', ''ColorGreen'',
-        ''ColorGreen'', ''ColorTurquoise'', ''ColorAqua'',  ''ColorLightBlue'', ''ColorBlue'',    ''ColorPurple'',
-        ''ColorPink'', ''ColorPink''] [((0 + 15) % 360 / 30) | int] }}'
-      device: RGB LED
-    entity_id: remote.harmony_hub
-    service: remote.send_command
+  - data:
+      brightness: '{% if is_state(''light.master_bath_vanity'', ''off'') %} 0 {% elif
+        is_state(''switch.bedtime'', ''on'') %} 64  {% else %} 255 {% endif %}'
+      hs_color:
+      - '{{ (128 / 255 * 360 + 220) % 360 | int }}'
+      - 80
+    entity_id: light.master_bath_cabinet
+    service: light.turn_on
   mode: single
 run_script_from_popup:
   alias: Run Script From Popup
   sequence:
-  - data_template:
+  - data:
       entity_id: '{{ script_id }}'
     service: script.turn_on
   - data: {}
     service: browser_mod.close_popup
-master_bath_lights_on:
-  alias: Master Bath Lights On
-  sequence:
-  - data_template:
-      brightness: '{% if is_state(''automation.kitchen_motion_stop_after_bedtime'',
-        ''on'') %} 64 {% else %} 255 {% endif %} '
-      hs_color:
-      - '{{ (state_attr(''light.master_bath_light'', ''brightness'') / 255 * 360 +
-        220) % 360 | int }}'
-      - 100
-    entity_id: light.master_bath_cabinet
-    service: light.turn_on
-  - data_template:
-      brightness: '{% if is_state(''automation.kitchen_motion_stop_after_bedtime'',
-        ''on'') %} 64 {% else %} 255 {% endif %} '
-      hs_color:
-      - '{{ (state_attr(''light.master_bath_light'', ''brightness'') / 255 * 360 +
-        250) % 360 | int }}'
-      - 100
-    entity_id: light.master_bath_under_vanity
-    service: light.turn_on
-  mode: single
-
 start_vacuum:
   alias: Start Vacuum
   mode: single
@@ -458,13 +442,13 @@ notify:
   alias: Notify
   mode: single
   sequence:
-  - data_template:
+  - data:
       data:
         type: tts
       message: '{{ notification_title }}. {{ notification_message }}'
       target: Dining Echo Dot
     service: notify.alexa_media
-  - data_template:
+  - data:
       card:
         cards:
         - content: '## {{ notification_message }}'
@@ -480,9 +464,9 @@ notify:
       title: '{{ notification_title }}'
     service: browser_mod.popup
   - condition: state
-    entity_id: automation.kitchen_motion_start_lights
-    state: 'off'
-  - data_template:
+    entity_id: switch.away
+    state: 'on'
+  - data:
       message: '{{ notification_message }}'
       title: '{{ notification_title }}'
     service: notify.mobile_app_kevin_s_galaxy_note_10

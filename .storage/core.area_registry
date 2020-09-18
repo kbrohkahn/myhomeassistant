@@ -1,36 +1,40 @@
 {
+    "version": 1,
+    "key": "core.area_registry",
     "data": {
         "areas": [
             {
-                "id": "795e81eaddb84a98ae34b766ebe06b1c",
-                "name": "Living Room"
+                "name": "Living Room",
+                "id": "795e81eaddb84a98ae34b766ebe06b1c"
             },
             {
-                "id": "daf77bcc23b74036a51df8a246fff625",
-                "name": "Kitchen"
+                "name": "Kitchen",
+                "id": "daf77bcc23b74036a51df8a246fff625"
             },
             {
-                "id": "ad0579cdf0244dfc996aa5fe700ae94c",
-                "name": "Den"
+                "name": "Den",
+                "id": "ad0579cdf0244dfc996aa5fe700ae94c"
             },
             {
-                "id": "17bb4caef04b408bb0478dc433f9ada8",
-                "name": "Master"
+                "name": "Master",
+                "id": "17bb4caef04b408bb0478dc433f9ada8"
             },
             {
-                "id": "252d6f6e725f4b6ca291c2c254967169",
-                "name": "Office"
+                "name": "Office",
+                "id": "252d6f6e725f4b6ca291c2c254967169"
             },
             {
-                "id": "60557a625d30454898715b30865dd6cb",
-                "name": "Dining"
+                "name": "Dining",
+                "id": "60557a625d30454898715b30865dd6cb"
             },
             {
-                "id": "adafa7bbf387405e8205e182291055c9",
-                "name": "Hallway"
+                "name": "Hallway",
+                "id": "adafa7bbf387405e8205e182291055c9"
+            },
+            {
+                "name": "Theater",
+                "id": "4db32c27f93611eaa246c7c49d8e427d"
             }
         ]
-    },
-    "key": "core.area_registry",
-    "version": 1
+    }
 }

@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "lovelace_resources",
     "data": {
         "items": [
             {
@@ -149,7 +151,7 @@
             {
                 "id": "1b0af66c111d41538fc4886f0228cd9f",
                 "type": "module",
-                "url": "/hacsfiles/weather-card-chart/weather-card-chart.js"
+                "url": "/hacsfiles/weather-card-chart/weather-card-chart-f.js"
             },
             {
                 "id": "1f9c508cc64347faa5ae929cd825444c",
@@ -157,7 +159,5 @@
                 "url": "/hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js"
             }
         ]
-    },
-    "key": "lovelace_resources",
-    "version": 1
+    }
 }

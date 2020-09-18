@@ -1,8 +1,13 @@
 {
+    "version": 1,
+    "key": "core.config_entries",
     "data": {
         "entries": [
             {
-                "connection_class": "cloud_poll",
+                "entry_id": "f56b665083104243be551dd904815b88",
+                "version": 1,
+                "domain": "hacs",
+                "title": "",
                 "data": {
                     "appdaemon": false,
                     "python_script": false,
@@ -11,52 +16,52 @@
                     "theme": false,
                     "token": "d085db78d621a927dd78b0c954e3cdfef64396c3"
                 },
-                "domain": "hacs",
-                "entry_id": "f56b665083104243be551dd904815b88",
                 "options": {},
-                "source": "user",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "",
-                "unique_id": null,
-                "version": 1
+                "source": "user",
+                "connection_class": "cloud_poll",
+                "unique_id": null
             },
             {
-                "connection_class": "local_poll",
+                "entry_id": "0f7c8ea1b7fb4eed8e69e218c0c640dd",
+                "version": 1,
+                "domain": "hue",
+                "title": "Ignored",
                 "data": {
                     "host": "10.0.2.15"
                 },
-                "domain": "hue",
-                "entry_id": "0f7c8ea1b7fb4eed8e69e218c0c640dd",
                 "options": {},
-                "source": "ignore",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Ignored",
-                "unique_id": "b9655912274a",
-                "version": 1
+                "source": "ignore",
+                "connection_class": "local_poll",
+                "unique_id": "b9655912274a"
             },
             {
-                "connection_class": "cloud_poll",
+                "entry_id": "88255a1681c34f3485dc42d75786d41d",
+                "version": 1,
+                "domain": "vesync",
+                "title": "kbkrunner@gmail.com",
                 "data": {
                     "password": "5H&nGNZ@g8kyxV86",
                     "username": "kbkrunner@gmail.com"
                 },
-                "domain": "vesync",
-                "entry_id": "88255a1681c34f3485dc42d75786d41d",
                 "options": {},
-                "source": "user",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "kbkrunner@gmail.com",
-                "unique_id": null,
-                "version": 1
+                "source": "user",
+                "connection_class": "cloud_poll",
+                "unique_id": null
             },
             {
-                "connection_class": "cloud_push",
+                "entry_id": "788235141890461788e8c7c820f306dd",
+                "version": 1,
+                "domain": "mobile_app",
+                "title": "SM-N975U1",
                 "data": {
                     "app_data": {
                         "push_token": "cJOPob-wsSU:APA91bFswUJaNoPiQqqkOGz1N1u5ceVXAt4-J23BJrqOyb-Au8ftSd3ws0Cqon4Tph8lcCXd2D1YX5OIfLTV0n_fboqVaSiydlLr_U10TKB3pXPD6w2XNJaGe2FwvLP4ZmL6goyYxDfD",
@@ -64,7 +69,7 @@
                     },
                     "app_id": "io.homeassistant.companion.android",
                     "app_name": "Home Assistant",
-                    "app_version": "2.4.0-full (373)",
+                    "app_version": "2.4.1-full (380)",
                     "device_id": "d689aabf1278c427",
                     "device_name": "Galaxy Note 10",
                     "manufacturer": "samsung",
@@ -75,19 +80,19 @@
                     "user_id": "12a658637c244fe0a8ccb72305833564",
                     "webhook_id": "78eba2451437b48d9c4f1f5d7038065ea964aa656a21087a2f022ff0bc26e299"
                 },
-                "domain": "mobile_app",
-                "entry_id": "788235141890461788e8c7c820f306dd",
                 "options": {},
-                "source": "registration",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "SM-N975U1",
-                "unique_id": "io.homeassistant.companion.android-d689aabf1278c427",
-                "version": 1
+                "source": "registration",
+                "connection_class": "cloud_push",
+                "unique_id": "io.homeassistant.companion.android-d689aabf1278c427"
             },
             {
-                "connection_class": "local_push",
+                "entry_id": "9ed2b1841bb646a6ade63ac1d013f289",
+                "version": 1,
+                "domain": "mqtt",
+                "title": "Mosquitto broker",
                 "data": {
                     "broker": "core-mosquitto",
                     "discovery": true,
@@ -96,56 +101,56 @@
                     "protocol": "3.1.1",
                     "username": "homeassistant"
                 },
-                "domain": "mqtt",
-                "entry_id": "9ed2b1841bb646a6ade63ac1d013f289",
                 "options": {},
-                "source": "hassio",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Mosquitto broker",
-                "unique_id": null,
-                "version": 1
+                "source": "hassio",
+                "connection_class": "local_push",
+                "unique_id": null
             },
             {
-                "connection_class": "local_poll",
+                "entry_id": "f5df74a651064e829abde60c284e64c4",
+                "version": 1,
+                "domain": "roku",
+                "title": "Theater Roku",
                 "data": {
                     "host": "10.0.2.50",
                     "name": "Theater Roku"
                 },
-                "domain": "roku",
-                "entry_id": "f5df74a651064e829abde60c284e64c4",
                 "options": {},
-                "source": "ssdp",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Theater Roku",
-                "unique_id": "YH0007197243",
-                "version": 1
+                "source": "ssdp",
+                "connection_class": "local_poll",
+                "unique_id": "YH0007197243"
             },
             {
-                "connection_class": "local_poll",
+                "entry_id": "e874e5f825d2430c86a06e314fed196c",
+                "version": 1,
+                "domain": "hue",
+                "title": "Philips hue",
                 "data": {
                     "host": "10.0.2.15",
                     "username": "8Nfx91yPF6BK4h1HXQUXXndAj8r8bOcP1SsDYMRp"
                 },
-                "domain": "hue",
-                "entry_id": "e874e5f825d2430c86a06e314fed196c",
                 "options": {
                     "allow_hue_groups": true,
                     "allow_unreachable": true
                 },
-                "source": "user",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Philips hue",
-                "unique_id": "00178862c11f",
-                "version": 1
+                "source": "user",
+                "connection_class": "local_poll",
+                "unique_id": "00178862c11f"
             },
             {
-                "connection_class": "local_poll",
+                "entry_id": "8dd72ee558e746e796c34b4cab0f96b8",
+                "version": 1,
+                "domain": "glances",
+                "title": "Glances",
                 "data": {
                     "host": "localhost",
                     "name": "Glances",
@@ -156,21 +161,21 @@
                     "verify_ssl": false,
                     "version": 3
                 },
-                "domain": "glances",
-                "entry_id": "8dd72ee558e746e796c34b4cab0f96b8",
                 "options": {
                     "scan_interval": 60
                 },
-                "source": "user",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Glances",
-                "unique_id": null,
-                "version": 1
+                "source": "user",
+                "connection_class": "local_poll",
+                "unique_id": null
             },
             {
-                "connection_class": "local_push",
+                "entry_id": "431ca060b87843eb898b27a402a3714c",
+                "version": 1,
+                "domain": "plex",
+                "title": "KBK-PC",
                 "data": {
                     "server": "KBK-PC",
                     "server_config": {
@@ -181,24 +186,24 @@
                     },
                     "server_id": "93d5d7465da3cb33e097b788658ee06202872807"
                 },
-                "domain": "plex",
-                "entry_id": "431ca060b87843eb898b27a402a3714c",
                 "options": {
                     "media_player": {
                         "ignore_new_shared_users": false,
                         "use_episode_art": false
                     }
                 },
-                "source": "user",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "KBK-PC",
-                "unique_id": "93d5d7465da3cb33e097b788658ee06202872807",
-                "version": 1
+                "source": "user",
+                "connection_class": "local_push",
+                "unique_id": "93d5d7465da3cb33e097b788658ee06202872807"
             },
             {
-                "connection_class": "local_poll",
+                "entry_id": "cad989027332420ab1109f8d75e78c7c",
+                "version": 1,
+                "domain": "adguard",
+                "title": "AdGuard Home",
                 "data": {
                     "host": "127.0.0.1",
                     "password": null,
@@ -207,80 +212,54 @@
                     "username": null,
                     "verify_ssl": true
                 },
-                "domain": "adguard",
-                "entry_id": "cad989027332420ab1109f8d75e78c7c",
                 "options": {},
+                "system_options": {
+                    "disable_new_entities": false
+                },
                 "source": "hassio",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "AdGuard Home",
-                "unique_id": null,
-                "version": 1
+                "connection_class": "local_poll",
+                "unique_id": null
             },
             {
-                "connection_class": "cloud_poll",
-                "data": {
-                    "auth_implementation": "spotify",
-                    "id": "125975319",
-                    "name": "125975319",
-                    "token": {
-                        "access_token": "BQCBsQOTnFXZ04drOzWk0Ea_1UjRY51VWo559TLFK9CF9GfncrHgFYzC8dlArEQcICLVDJxpjhbi3wiCOu-vY7p_LXan21G4I-YKR68YOOqLIwNf5qcO0YSbXcRaE6om2M2KYWRvxCwhhkx_pgMG8Edn9YORbIfTRb9g",
-                        "expires_at": 1600118285.2555923,
-                        "expires_in": 3600,
-                        "refresh_token": "AQDy779VHQYss3YLfaoBgbjaGpF0JKM5mGB2tnSgDUx2NjBRFsLB25pULTwoyULa_J2SEavVpn3YnGIRKdhZVcS_SAiAURLUnoFd3CoiZII5lsGqgHNo-KHneGHzjOxpGpg",
-                        "scope": "user-modify-playback-state user-read-playback-state user-read-private",
-                        "token_type": "Bearer"
-                    }
-                },
-                "domain": "spotify",
-                "entry_id": "34fe04e761e441dab72667d59f099443",
-                "options": {},
-                "source": "zeroconf",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "125975319",
-                "unique_id": "125975319",
-                "version": 1
-            },
-            {
-                "connection_class": "local_push",
+                "entry_id": "8028143815574e2bb772acd56503b06b",
+                "version": 1,
+                "domain": "harmony",
+                "title": "Harmony Hub",
                 "data": {
                     "host": "10.0.2.100",
                     "name": "Harmony Hub"
                 },
-                "domain": "harmony",
-                "entry_id": "8028143815574e2bb772acd56503b06b",
                 "options": {},
-                "source": "ssdp",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Harmony Hub",
-                "unique_id": "16371405",
-                "version": 1
+                "source": "ssdp",
+                "connection_class": "local_push",
+                "unique_id": "16371405"
             },
             {
-                "connection_class": "local_poll",
-                "data": {},
-                "domain": "speedtestdotnet",
                 "entry_id": "9da01371919a4544859ccc4f68e60dac",
+                "version": 1,
+                "domain": "speedtestdotnet",
+                "title": "SpeedTest",
+                "data": {},
                 "options": {
                     "manual": false,
                     "scan_interval": 30,
                     "server_id": ""
                 },
-                "source": "import",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "SpeedTest",
-                "unique_id": null,
-                "version": 1
+                "source": "import",
+                "connection_class": "local_poll",
+                "unique_id": null
             },
             {
-                "connection_class": "local_push",
+                "entry_id": "c1f7482265824869a092a234b19e118d",
+                "version": 2,
+                "domain": "zha",
+                "title": "HubZ Smart Home Controller, s/n: 8130075A - Silicon Labs",
                 "data": {
                     "device": {
                         "baudrate": 57600,
@@ -288,71 +267,71 @@
                     },
                     "radio_type": "ezsp"
                 },
-                "domain": "zha",
-                "entry_id": "c1f7482265824869a092a234b19e118d",
                 "options": {},
-                "source": "user",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "HubZ Smart Home Controller, s/n: 8130075A - Silicon Labs",
-                "unique_id": null,
-                "version": 2
+                "source": "user",
+                "connection_class": "local_push",
+                "unique_id": null
             },
             {
-                "connection_class": "local_push",
+                "entry_id": "4269c07b26444e70be84fae2d30fab9e",
+                "version": 1,
+                "domain": "zwave",
+                "title": "Z-Wave (import from configuration.yaml)",
                 "data": {
                     "network_key": "0xB7, 0x01, 0x84, 0x22, 0x52, 0x61, 0x2E, 0xE6, 0x50, 0xB1, 0x26, 0x22, 0x5C, 0xB7, 0x8A, 0xDD",
                     "usb_path": "/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_8130075A-if00-port0"
                 },
-                "domain": "zwave",
-                "entry_id": "4269c07b26444e70be84fae2d30fab9e",
                 "options": {},
-                "source": "import",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Z-Wave (import from configuration.yaml)",
-                "unique_id": null,
-                "version": 1
+                "source": "import",
+                "connection_class": "local_push",
+                "unique_id": null
             },
             {
-                "connection_class": "local_push",
+                "entry_id": "c1e0f4f30c0d4372981393e8ad888a3c",
+                "version": 1,
+                "domain": "cast",
+                "title": "Google Cast",
                 "data": {
                     "user_id": "17ee75ea939346d5a3755554ccdc886c"
                 },
-                "domain": "cast",
-                "entry_id": "c1e0f4f30c0d4372981393e8ad888a3c",
                 "options": {},
-                "source": "zeroconf",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Google Cast",
-                "unique_id": "cast",
-                "version": 1
+                "source": "zeroconf",
+                "connection_class": "local_push",
+                "unique_id": "cast"
             },
             {
-                "connection_class": "unknown",
+                "entry_id": "91d21e57f23843d88ccf7e6cae2a9ad9",
+                "version": 1,
+                "domain": "almond",
+                "title": "Almond",
                 "data": {
                     "host": "http://core-almond:3001",
                     "is_hassio": true,
                     "onboarded": true,
                     "type": "local"
                 },
-                "domain": "almond",
-                "entry_id": "91d21e57f23843d88ccf7e6cae2a9ad9",
                 "options": {},
-                "source": "hassio",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Almond",
-                "unique_id": null,
-                "version": 1
+                "source": "hassio",
+                "connection_class": "unknown",
+                "unique_id": null
             },
             {
-                "connection_class": "cloud_push",
+                "entry_id": "0f0478bc734846f790bff3ef6993d4da",
+                "version": 2,
+                "domain": "smartthings",
+                "title": "Home",
                 "data": {
                     "access_token": "099ccbd1-9e31-4ee5-afcc-2bb3be2e5a9d",
                     "app_id": "3991d411-a702-4afc-adc0-b56be6b1eb6a",
@@ -360,73 +339,73 @@
                     "client_secret": "78be39e2-c755-4a70-bb96-7a71d13b3103",
                     "installed_app_id": "9716ba89-24fd-49e0-872a-b86b61335d5b",
                     "location_id": "9c58daa6-46f4-4274-872a-6fa82ab59499",
-                    "refresh_token": "c593956a-f8dc-49e8-b98d-bf35d69e95b1"
+                    "refresh_token": "129082b1-3898-4413-9fc9-6cfe8e124e1b"
                 },
-                "domain": "smartthings",
-                "entry_id": "0f0478bc734846f790bff3ef6993d4da",
                 "options": {},
-                "source": "user",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Home",
-                "unique_id": "3991d411-a702-4afc-adc0-b56be6b1eb6a_9c58daa6-46f4-4274-872a-6fa82ab59499",
-                "version": 2
+                "source": "user",
+                "connection_class": "cloud_push",
+                "unique_id": "3991d411-a702-4afc-adc0-b56be6b1eb6a_9c58daa6-46f4-4274-872a-6fa82ab59499"
             },
             {
-                "connection_class": "cloud_poll",
+                "entry_id": "d12914ae090043b1909a860347c77dac",
+                "version": 1,
+                "domain": "accuweather",
+                "title": "Home",
                 "data": {
                     "api_key": "8CSzoV6EAKpd5HhQcDHRqPqMYGBrKmha",
                     "latitude": 38.89119148956352,
                     "longitude": -77.08185696596956,
                     "name": "Home"
                 },
-                "domain": "accuweather",
-                "entry_id": "d12914ae090043b1909a860347c77dac",
                 "options": {},
-                "source": "user",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "Home",
-                "unique_id": "331250",
-                "version": 1
+                "source": "user",
+                "connection_class": "cloud_poll",
+                "unique_id": "331250"
             },
             {
-                "connection_class": "cloud_poll",
+                "entry_id": "4bc4e496dc674526a84b5f5fb9956c94",
+                "version": 1,
+                "domain": "nws",
+                "title": "KDCA",
                 "data": {
                     "api_key": "{ home.broh-kahn.com, kbkrunner@gmail.com }",
                     "latitude": 38.89119148956352,
                     "longitude": -77.08185696596956,
                     "station": "KDCA"
                 },
-                "domain": "nws",
-                "entry_id": "4bc4e496dc674526a84b5f5fb9956c94",
                 "options": {},
+                "system_options": {
+                    "disable_new_entities": false
+                },
                 "source": "user",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "KDCA",
-                "unique_id": "38.89119148956352_-77.08185696596956",
-                "version": 1
-            },
-            {
-                "connection_class": "local_push",
-                "data": {},
-                "domain": "wemo",
-                "entry_id": "95ea7bd442ac436ebd5c275343500103",
-                "options": {},
-                "source": "homekit",
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "title": "Wemo",
-                "unique_id": "wemo",
-                "version": 1
-            },
-            {
                 "connection_class": "cloud_poll",
+                "unique_id": "38.89119148956352_-77.08185696596956"
+            },
+            {
+                "entry_id": "95ea7bd442ac436ebd5c275343500103",
+                "version": 1,
+                "domain": "wemo",
+                "title": "Wemo",
+                "data": {},
+                "options": {},
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "source": "homekit",
+                "connection_class": "local_push",
+                "unique_id": "wemo"
+            },
+            {
+                "entry_id": "84e50533c3684a489871b728921f9668",
+                "version": 1,
+                "domain": "alexa_media",
+                "title": "kbkrunner@gmail.com - amazon.com",
                 "data": {
                     "debug": false,
                     "email": "kbkrunner@gmail.com",
@@ -437,19 +416,65 @@
                     "securitycode": "283102",
                     "url": "amazon.com"
                 },
-                "domain": "alexa_media",
-                "entry_id": "84e50533c3684a489871b728921f9668",
                 "options": {},
-                "source": "user",
                 "system_options": {
                     "disable_new_entities": false
                 },
-                "title": "kbkrunner@gmail.com - amazon.com",
-                "unique_id": "kbkrunner@gmail.com - amazon.com",
-                "version": 1
+                "source": "user",
+                "connection_class": "cloud_poll",
+                "unique_id": "kbkrunner@gmail.com - amazon.com"
+            },
+            {
+                "entry_id": "4a953e73f91311ea85fff926d740d21e",
+                "version": 1,
+                "domain": "openweathermap",
+                "title": "OpenWeatherMap",
+                "data": {
+                    "platform": "openweathermap",
+                    "api_key": "f10f7cea08b1d2fa1aba85761e397bf3",
+                    "mode": "hourly",
+                    "name": "OpenWeatherMap",
+                    "latitude": 38.89119148956352,
+                    "longitude": -77.08185696596956,
+                    "language": "en"
+                },
+                "options": {
+                    "mode": "hourly",
+                    "language": "en"
+                },
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "source": "import",
+                "connection_class": "cloud_poll",
+                "unique_id": "38.89119148956352--77.08185696596956"
+            },
+            {
+                "entry_id": "ad461475f91411eabeea2db1a62a7937",
+                "version": 1,
+                "domain": "spotify",
+                "title": "kbkrunner",
+                "data": {
+                    "auth_implementation": "spotify",
+                    "token": {
+                        "access_token": "BQAVIhcLUyC_ikHDt9VBJ8mQZphV0LpeMM_M6F4eWUrYyNf4z8TwSGmJFuz20n7IC_KWc9yiQS4Knoe_jeFIkZ6wkiQSCMNG738qga32oJhZy0__mSeU4t0YxXK_pWGm1Dk8_2mqbxvqqKHSEP4tL0ax6kevPDj3dkLIUNGM8tSxkGBp1pmkH9NbReXICw9Q3bMII-s8jA",
+                        "token_type": "Bearer",
+                        "expires_in": 3600,
+                        "refresh_token": "AQBErnjqz83ECMyvNXBqNfZXP5h6oGbt5K3ECstMYBGFfcjlUJIiCvRRbDkqqrN294yF6ZqigUt41XXqVcvWpub-LArV7h5U2nyqScd7xqFwvfMlZmCtPepHU_WbjZokOK8",
+                        "scope": "playlist-read-private playlist-read-collaborative user-modify-playback-state user-library-read user-follow-read user-read-playback-state user-read-recently-played user-read-playback-position user-read-private user-top-read",
+                        "expires_at": 1600396729.9824305
+                    },
+                    "id": "125975319",
+                    "name": "kbkrunner"
+                },
+                "options": {},
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "source": "reauth",
+                "connection_class": "cloud_poll",
+                "unique_id": "125975319"
             }
         ]
-    },
-    "key": "core.config_entries",
-    "version": 1
+    }
 }

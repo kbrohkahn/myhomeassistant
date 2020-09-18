@@ -2,3 +2,5 @@
   sidebar_title: ZWave Graph2
   sidebar_icon: mdi:access-point-network
   url_path: zwave
+  module_url: /zwave
+

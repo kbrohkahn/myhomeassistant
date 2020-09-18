@@ -7,6 +7,7 @@ http:
   trusted_proxies:
     - 127.0.0.1
     - 10.0.2.10
+    - ::1
   cors_allowed_origins:
     - !secret home_assistant_url
   #ssl_certificate: /ssl/fullchain.pem
@@ -30,11 +31,6 @@ recorder:
 # Text to speech
 tts:
   - platform: google_translate
-
-weather:
-  - platform: openweathermap
-    api_key: !secret openweathermap_apikey
-    mode: hourly
 
 
 
@@ -110,13 +106,13 @@ alexa:
         - switch
         - light
         - vacuum
-    entity_config:
-      media_player.dining:
-        display_categories: SPEAKER
-      media_player.living_room:
-        display_categories: SPEAKER
-      media_player.kitchen:
-        display_categories: SPEAKER
+    # entity_config:
+    #   media_player.dining:
+    #     display_categories: SPEAKER
+    #   media_player.living_room:
+    #     display_categories: SPEAKER
+    #   media_player.kitchen:
+    #     display_categories: SPEAKER
 
 vacuum:
   - platform: mqtt
@@ -145,29 +141,8 @@ speedtestdotnet:
 apcupsd:
   host: a722577e-apcupsd
 
-ddwrt:
-  devices:
-    - name: router_iot
-      host: 10.0.2.1
-      username: !secret router_iot_username
-      password: !secret router_iot_password
-      ssl: true
-      verify_ssl: false
-      sensor:
-        - clk_freq
-        - cpu_temp
-        - ip_connections
-        - load_average1
-        - load_average5
-        - load_average15
-        - uptime
-        - voltage
-        - wl_channel
-        - wl_count
-        - wl_quality
-        - wl_rate
-        - wl_xmit
 
+  
 zha_map:
   
 switch: !include switches.yaml
@@ -191,28 +166,6 @@ camera:
 sensor:
   - platform: nws_alerts
     zone_id: !secret nws_zone
-
-#   - platform: systemmonitor
-#     resources:
-#       - type: disk_use_percent
-#         arg: /
-#       - type: memory_use_percent
-#       - type: processor_use
-#       - type: throughput_network_in
-#         arg: enp3s0
-#       - type: throughput_network_out
-#         arg: enp3s0
-
-  # - platform: openweathermap
-  #   api_key: !secret openweathermap_apikey
-  #   forecast: false
-  #   monitored_conditions:
-  #     - clouds
-  #     - weather_code
-  #     - wind_speed
-  #     - humidity
-  #     - rain
-  #     - snow
 
   - platform: mqtt
     state_topic: "valetudo/rockrobo/state"
@@ -331,6 +284,37 @@ binary_sensor:
     payload_on: '{"value":true}'
     payload_off: '{"value":false}'
     device_class: motion 
+
+  - platform: bayesian
+    prior: 0.05
+    probability_threshold: 0.5
+    name: Kitchen Occupied
+    observations:
+      - entity_id: 'binary_sensor.pantry_door_ias_zone'
+        prob_given_true: 1.0
+        prob_given_false: 0.8
+        platform: 'state'
+        to_state: 'open'
+      - entity_id: 'binary_sensor.kitchen_motion_sensor_ias_zone'
+        prob_given_true: 0.95
+        prob_given_false: 0.4
+        platform: 'state'
+        to_state: 'on'
+      - entity_id: 'binary_sensor.galaxy_tab_a_motion'
+        prob_given_true: 0.6
+        prob_given_false: 0.4
+        platform: 'state'
+        to_state: 'on'
+      - entity_id: 'switch.theater_master'
+        prob_given_true: 0.01
+        prob_given_false: 0.002
+        platform: 'state'
+        to_state: 'off'
+      - entity_id: 'switch.office_master'
+        prob_given_true: 0.01
+        prob_given_false: 0.002
+        platform: 'state'
+        to_state: 'off'
 
 
 

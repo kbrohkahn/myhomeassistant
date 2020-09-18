@@ -2,38 +2,29 @@
   lights:
     ir_strips:
       unique_id: light.ir_strips
+      level_template: "{{ (state_attr('switch.ir_strips', 'current_power_w') / 25 * 255) | int | min(255) }}"
+      value_template: "{{ is_state('switch.ir_strips', 'on') }}"
       turn_on:
-        data:
-          device: 'RGB LED'
-          command: 'PowerOn'
-        entity_id: remote.harmony_hub
-        service: remote.send_command
+        entity_id: switch.ir_strips
+        service: switch.turn_on
       turn_off:
-        - data:
-            device: 'RGB LED'
-            command: 'PowerOn'
-          entity_id: remote.harmony_hub
-          service: remote.send_command
-        - data:
-            device: 'RGB LED'
-            command: 'PowerOff'
-          entity_id: remote.harmony_hub
-          service: remote.send_command
-      set_level:
-        - data:
-            device: 'RGB LED'
-            command: 'Brighter 2'
-            num_repeats: 6
-          entity_id: remote.harmony_hub
-          service: remote.send_command
-        - condition: template
-          value_template: '{{ brightness < 255 - 32 }}'
-        - data_template:
-            device: 'RGB LED'
-            command: 'Darker 2'
-            num_repeats: '{{ (((255 - brightness) / 32) - 1) | int }}'
-          entity_id: remote.harmony_hub
-          service: remote.send_command
+        entity_id: switch.ir_strips
+        service: switch.turn_off
+      # set_level:
+      #   - data:
+      #       device: 'RGB LED'
+      #       command: 'Brighter 2'
+      #       num_repeats: 6
+      #     entity_id: remote.harmony_hub
+      #     service: remote.send_command
+      #   - condition: template
+      #     value_template: '{{ brightness < 255 - 32 }}'
+      #   - data:
+      #       device: 'RGB LED'
+      #       command: 'Darker 2'
+      #       num_repeats: '{{ (((255 - brightness) / 32) - 1) | int }}'
+      #     entity_id: remote.harmony_hub
+      #     service: remote.send_command
       set_white_value:
         data:
           device: 'RGB LED'
@@ -41,7 +32,7 @@
         entity_id: remote.harmony_hub
         service: remote.send_command
       set_color:
-        data_template:
+        data:
           device: 'RGB LED'
           command: '{{ [''ColorRed'', ''ColorOrange'', ''ColorYellow'', ''ColorGreen'',
             ''ColorGreen'', ''ColorTurquoise'', ''ColorAqua'',  ''ColorLightBlue'', ''ColorBlue'', ''ColorPurple'',
@@ -54,7 +45,8 @@
       value_template: "{{ is_state('light.kitchen_overhead', 'on') or is_state('light.kitchen_strips', 'on') or is_state('light.kitchen_spotlight', 'on') }}"
       color_template: "{{ state_attr('light.kitchen_overhead', 'hs_color') }}"
       turn_on:
-        - data_template:
+        - data:
+            brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 128 {% else %} 256 {% endif %}'
             hs_color:
             - '{{ (180 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
               ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
@@ -63,10 +55,14 @@
             - 80
           entity_id: light.kitchen_strips
           service: light.turn_on
+        - entity_id: light.kitchen_spotlight
+          service: light.turn_on
+          data:
+            brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 128 {% endif %}'
         - condition: state
-          entity_id: automation.kitchen_motion_stop_after_bedtime
+          entity_id: switch.bedtime
           state: 'off'
-        - data_template:
+        - data:
             hs_color:
             - '{{ (120 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
               ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
@@ -75,21 +71,6 @@
             - 20
           entity_id: light.kitchen_overhead
           service: light.turn_on
-        - entity_id: light.kitchen_spotlight
-          service: light.turn_on
-        - condition: state
-          entity_id: light.dining
-          state: 'off'
-        - data_template:
-            hs_color:
-            - '{{ (180 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
-              ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
-              ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
-              ) / 360 * 180) % 360 }}'
-            - 50
-          entity_id: light.dining
-          service: light.turn_on
-
       turn_off:
         - entity_id: light.kitchen_spotlight
           service: light.turn_off
@@ -113,78 +94,122 @@
           service: light.turn_off
 
       set_level:
-        - data_template:
+        - data:
             brightness: '{{ brightness }}'
           entity_id: light.kitchen_overhead
           service: light.turn_on
-        - data_template:
+        - data:
             brightness: '{{ brightness }}'
           entity_id: light.kitchen_strips
           service: light.turn_on
-        - data_template:
-            brightness: '{{ brightness }}'
+        - data:
+            brightness: 128
           entity_id: light.kitchen_spotlight
           service: light.turn_on
       set_white_value:
-        - data_template:
+        - data:
             white_value: '{{ white_value }}'
           entity_id: light.kitchen_overhead
           service: light.turn_on
-        - data_template:
+        - data:
             white_value: '{{ white_value * 0.6 }}'
           entity_id: light.kitchen_strips
           service: light.turn_on
       set_color:
-        - data_template:
+        - data:
             hs_color: '[ {{ h }}, {{ s * 0.6 }} ]'
           entity_id: light.kitchen_overhead
           service: light.turn_on
-        - data_template:
+        - data:
             hs_color: '[ {{ (h + 30) % 360 }}, {{ s }} ]'
           entity_id: light.kitchen_strips
           service: light.turn_on
 
     office:
       unique_id: light.office
-      level_template: "{{ ((state_attr('light.office_lamp', 'brightness') | int + state_attr('light.office_strips', 'brightness') | int ) / 2) | int }}"
-      value_template: "{{ is_state('light.office_strips', 'on') or is_state('light.office_lamp', 'on') }}"
-      color_template: "{{ state_attr('light.office_strips', 'hs_color') }}"
+      level_template: "{{ ((state_attr('light.office_lamp', 'brightness') | int + state_attr('light.office_hue', 'brightness') | int ) / 2) | int }}"
+      value_template: "{{ is_state('light.office_hue', 'on') or is_state('light.office_lamp', 'on') }}"
+      color_template: "{{ (state_attr('light.office_east_strip', 'hs_color')[0] + state_attr('light.office_west_strip', 'hs_color')[0]) / 2 }}, 
+      {{ (state_attr('light.office_east_strip', 'hs_color')[1] + state_attr('light.office_west_strip', 'hs_color')[1]) / 2 }}"
       turn_on:
-        - data_template:
-            hs_color:
-            - '{{ (180 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
-              ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
-              ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
-              ) / 360 * 180) % 360 }}'
-            - 80
-          entity_id: light.office_strips
-          service: light.turn_on
-        - entity_id: light.office_lamp
-          service: light.turn_on
+        entity_id: light.office_lamp
+        service: light.turn_on
 
       turn_off:
-        - entity_id: light.office_strips
-          service: light.turn_off
-        - delay: 00:00:01
-        - entity_id: light.office_lamp
-          service: light.turn_off
+        entity_id: light.office_lamp
+        service: light.turn_off
 
       set_level:
-        - data_template:
-            brightness: '{{ brightness }}'
-          entity_id: light.office_strips
-          service: light.turn_on
-        - data_template:
-            brightness: '{{ brightness }}'
-          entity_id: light.office_spotlight
-          service: light.turn_on
-      set_white_value:
-        data_template:
-          white_value: '{{ white_value }}'
-        entity_id: light.office_strips
+        data:
+          brightness: '{{ brightness }}'
+        entity_id: light.office_lamp
         service: light.turn_on
       set_color:
-        data_template:
+        data:
           hs_color: '[ {{ h }}, {{ s }}  ]'
-        entity_id: light.office_strips
+        entity_id: light.office_hue
         service: light.turn_on
+
+    master_bath:
+      unique_id: light.master_bath
+      level_template: "{{ ((state_attr('light.master_bath_vanity', 'brightness') | int + state_attr('light.master_bath_hue', 'brightness') | int ) / 2) | int }}"
+      value_template: "{{ is_state('light.master_bath_hue', 'on') or is_state('light.master_bath_vanity', 'on') }}"
+      color_template: "{{ state_attr('light.master_bath_hue', 'hs_color') }}"
+      turn_on:
+        entity_id: light.master_bath_vanity
+        data:
+          brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 255 {% endif %}'
+        service: light.turn_on
+      turn_off:
+        entity_id: light.master_bath_vanity
+        service: light.turn_off
+      set_level:
+        data:
+          brightness: '{{ brightness }}'
+        entity_id: light.master_bath_vanity
+        service: light.turn_on
+      set_white_value:
+        data:
+          white_value: '{{ white_value }}'
+        entity_id: light.master_bath_hue
+        service: light.turn_on
+
+    living_room:
+      unique_id: light.living_room
+      level_template: "{{ state_attr('light.living_room_hue', 'brightness') }}"
+      value_template: "{{ is_state('light.living_room_hue', 'on') or is_state('light.ir_strips', 'on') }}"
+      color_template: "{{ state_attr('light.living_room_hue', 'hs_color') }}"
+
+      turn_on:
+        - entity_id: light.living_room_hue
+          service: light.turn_on
+        - entity_id: light.ir_strips
+          service: light.turn_on
+      turn_off:
+        - entity_id: light.living_room_hue
+          service: light.turn_off
+        - entity_id: light.ir_strips
+          service: light.turn_off
+      set_level:
+        entity_id: light.living_room_hue
+        service: light.turn_on
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.living_room_hue
+          service: light.turn_on
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.ir_strips
+          service: light.turn_on
+      set_color:
+        - entity_id: light.living_room_hue
+          service: light.turn_on
+          data:
+            hs_color: ['{{ h }}', '{{ s }}']
+        - entity_id: light.ir_strips
+          service: light.turn_on
+          data:
+            hs_color: ['{{ h }}', '{{ s }}']

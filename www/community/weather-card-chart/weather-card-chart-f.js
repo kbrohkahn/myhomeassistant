@@ -202,6 +202,7 @@ const locale = {
       super();
       this.mode = 'daily';
       this.weatherIcons = {
+        'exceptional': 'hass:weather-sunny',
         'clear-night': 'hass:weather-night',
         'cloudy': 'hass:weather-cloudy',
         'fog': 'hass:weather-fog',
@@ -295,6 +296,9 @@ const locale = {
     }
   
     drawChart() {
+      if (this.weatherObj.attributes === undefined) {
+        return [];
+      }
       var data = this.weatherObj.attributes.forecast.slice(0,9);
       var locale = this._hass.selectedLanguage || this._hass.language;
       var tempUnit = this._hass.config.unit_system.temperature;

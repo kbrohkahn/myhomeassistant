@@ -1,73 +1,78 @@
 {
+    "version": 1,
+    "key": "zha.storage",
     "data": {
         "devices": [
             {
+                "name": "Silicon Labs EZSP",
                 "ieee": "00:0d:6f:00:0b:3d:32:f5",
-                "last_seen": 1600054068.714917,
-                "name": "Silicon Labs EZSP"
+                "last_seen": 1600392172.7899096
             },
             {
+                "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0a:b7:d7",
-                "last_seen": 1600057909.7297375,
-                "name": "Samjin multi"
+                "last_seen": 1600394284.9285653
             },
             {
+                "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0a:b8:ae",
-                "last_seen": 1600058211.8541443,
-                "name": "Samjin multi"
+                "last_seen": 1600394295.809846
             },
             {
+                "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0a:b2:a6",
-                "last_seen": 1600058217.170287,
-                "name": "Samjin multi"
+                "last_seen": 1600394254.6665022
             },
             {
+                "name": "SmartThings multiv4",
                 "ieee": "24:fd:5b:00:01:03:55:7b",
-                "last_seen": 1600058498.560697,
-                "name": "SmartThings multiv4"
+                "last_seen": 1600394235.3974645
             },
             {
+                "name": "SmartThings multiv4",
                 "ieee": "24:fd:5b:00:01:03:1b:4f",
-                "last_seen": 1600058385.9237273,
-                "name": "SmartThings multiv4"
+                "last_seen": 1600394403.3855922
             },
             {
+                "name": "SmartThings motionv4",
                 "ieee": "24:fd:5b:00:01:06:7c:ad",
-                "last_seen": 1600058220.9541593,
-                "name": "SmartThings motionv4"
+                "last_seen": 1600393973.015546
             },
             {
+                "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0a:a8:7c",
-                "last_seen": 1600058320.6965575,
-                "name": "Samjin multi"
+                "last_seen": 1600394554.1291885
             },
             {
+                "name": "SmartThings outletv4",
                 "ieee": "24:fd:5b:00:01:05:0f:7a",
-                "last_seen": 1600058478.5160356,
-                "name": "SmartThings outletv4"
+                "last_seen": 1600394551.049386
             },
             {
+                "name": "Samjin motion",
                 "ieee": "28:6d:97:00:01:0c:86:70",
-                "last_seen": 1599660943.753362,
-                "name": "Samjin motion"
+                "last_seen": 1599660943.753362
             },
             {
+                "name": "Samjin motion",
                 "ieee": "28:6d:97:00:01:0c:77:b0",
-                "last_seen": 1600057645.4596133,
-                "name": "Samjin motion"
+                "last_seen": 1600394391.2150147
             },
             {
+                "name": "Samjin motion",
                 "ieee": "28:6d:97:00:01:11:01:16",
-                "last_seen": 1600058228.057464,
-                "name": "Samjin motion"
+                "last_seen": 1600394267.8661487
             },
             {
+                "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0d:aa:20",
-                "last_seen": 1600058363.0186064,
-                "name": "Samjin multi"
+                "last_seen": 1600394159.7506547
+            },
+            {
+                "name": "Philips RWL020",
+                "ieee": "00:17:88:01:03:c8:70:79",
+                "last_seen": 1600383914.4951549
             }
         ]
-    },
-    "key": "zha.storage",
-    "version": 1
+    }
 }

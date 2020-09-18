@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
             "custom_header": {
@@ -41,7 +43,7 @@
                                     "cards": [
                                         {
                                             "mode": "hourly",
-                                            "style": ":host ha-card {\n  margin-top: 10px;\n}\n",
+                                            "style": ":host ha-card {\n  #margin-top: 10px;\n}\n\n:host .main {\nline-height: 60px;\nmargin-top: 0;\n}\n\n:host .main div {\nmargin-top: 0;\n}\n",
                                             "type": "custom:weather-card-chart",
                                             "weather": "weather.openweathermap"
                                         },
@@ -96,22 +98,12 @@
                                                     "entity": "light.living_room",
                                                     "icon": "mdi:lightbulb-group",
                                                     "style": {
-                                                        "left": "79%",
-                                                        "top": "22%",
+                                                        "left": "78%",
+                                                        "top": "32%",
                                                         "transform": "scale(3,3)"
                                                     },
                                                     "tap_action": {
                                                         "action": "toggle"
-                                                    },
-                                                    "type": "state-icon"
-                                                },
-                                                {
-                                                    "entity": "light.ir_strips",
-                                                    "icon": "mdi:led-strip-variant",
-                                                    "style": {
-                                                        "left": "72%",
-                                                        "top": "49%",
-                                                        "transform": "scale(2,2)"
                                                     },
                                                     "type": "state-icon"
                                                 },
@@ -124,11 +116,21 @@
                                                     ],
                                                     "elements": [
                                                         {
+                                                            "entity": "light.ir_strips",
+                                                            "icon": "mdi:led-strip-variant",
+                                                            "style": {
+                                                                "left": "78%",
+                                                                "top": "49%",
+                                                                "transform": "scale(2,2)"
+                                                            },
+                                                            "type": "state-icon"
+                                                        },
+                                                        {
                                                             "entity": "light.living_room_strips",
                                                             "icon": "mdi:led-strip-variant",
                                                             "style": {
-                                                                "left": "86%",
-                                                                "top": "43%",
+                                                                "left": "78%",
+                                                                "top": "15%",
                                                                 "transform": "scale(2,2)"
                                                             },
                                                             "type": "state-icon"
@@ -138,7 +140,7 @@
                                                             "icon": "mdi:lightbulb-multiple",
                                                             "style": {
                                                                 "left": "93%",
-                                                                "top": "37%",
+                                                                "top": "40%",
                                                                 "transform": "scale(2,2)"
                                                             },
                                                             "type": "state-icon"
@@ -147,7 +149,7 @@
                                                             "entity": "light.living_room_lamp_spotlight",
                                                             "style": {
                                                                 "left": "96%",
-                                                                "top": "54%"
+                                                                "top": "57%"
                                                             },
                                                             "type": "state-icon"
                                                         }
@@ -159,7 +161,7 @@
                                                     "icon": "mdi:lightbulb-group",
                                                     "style": {
                                                         "left": "78%",
-                                                        "top": "67%",
+                                                        "top": "68%",
                                                         "transform": "scale(3,3)"
                                                     },
                                                     "tap_action": {
@@ -215,8 +217,8 @@
                                                             "entity": "light.kitchen_spotlight",
                                                             "icon": "mdi:lightbulb-multiple",
                                                             "style": {
-                                                                "left": "57%",
-                                                                "top": "65%",
+                                                                "left": "62%",
+                                                                "top": "63%",
                                                                 "transform": "scale(1.5,1.5)"
                                                             },
                                                             "type": "state-icon"
@@ -228,8 +230,8 @@
                                                     "entity": "light.dining",
                                                     "icon": "mdi:lightbulb-group",
                                                     "style": {
-                                                        "left": "53%",
-                                                        "top": "32%",
+                                                        "left": "51%",
+                                                        "top": "36%",
                                                         "transform": "scale(3,3)"
                                                     },
                                                     "tap_action": {
@@ -242,7 +244,7 @@
                                                     "icon": "mdi:lightbulb-multiple",
                                                     "style": {
                                                         "left": "31%",
-                                                        "top": "51%",
+                                                        "top": "57%",
                                                         "transform": "scale(2,2)"
                                                     },
                                                     "tap_action": {
@@ -272,28 +274,38 @@
                                                     ],
                                                     "elements": [
                                                         {
-                                                            "entity": "light.master_surround",
-                                                            "icon": "mdi:lightbulb-multiple",
+                                                            "entity": "light.master_standing_lamp",
                                                             "style": {
-                                                                "left": "2%",
-                                                                "top": "25%",
-                                                                "transform": "scale(2,2)"
+                                                                "left": "1%",
+                                                                "top": "16%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "type": "state-icon"
+                                                        },
+                                                        {
+                                                            "entity": "light.master_table_lamp",
+                                                            "style": {
+                                                                "left": "1%",
+                                                                "top": "47%",
+                                                                "transform": "scale(1.5,1.5)"
                                                             },
                                                             "type": "state-icon"
                                                         },
                                                         {
                                                             "entity": "light.bedside_lamp_south",
                                                             "style": {
-                                                                "left": "22%",
-                                                                "top": "29%"
+                                                                "left": "19%",
+                                                                "top": "16%",
+                                                                "transform": "scale(1.5,1.5)"
                                                             },
                                                             "type": "state-icon"
                                                         },
                                                         {
                                                             "entity": "light.bedside_lamp_north",
                                                             "style": {
-                                                                "left": "22%",
-                                                                "top": "45%"
+                                                                "left": "19%",
+                                                                "top": "47%",
+                                                                "transform": "scale(1.5,1.5)"
                                                             },
                                                             "type": "state-icon"
                                                         }
@@ -305,7 +317,7 @@
                                                     "icon": "mdi:lightbulb-group",
                                                     "style": {
                                                         "left": "32%",
-                                                        "top": "23%",
+                                                        "top": "29%",
                                                         "transform": "scale(3,3)"
                                                     },
                                                     "tap_action": {
@@ -322,32 +334,31 @@
                                                     ],
                                                     "elements": [
                                                         {
-                                                            "entity": "light.office_strips",
+                                                            "entity": "light.office_east_strip",
                                                             "icon": "mdi:led-strip-variant",
                                                             "style": {
-                                                                "left": "33%",
-                                                                "top": "5%",
-                                                                "transform": "scale(2,2)"
+                                                                "left": "25%",
+                                                                "top": "15%",
+                                                                "transform": "scale(1.5,1.5)"
                                                             },
                                                             "type": "state-icon"
-                                                        }
-                                                    ],
-                                                    "type": "conditional"
-                                                },
-                                                {
-                                                    "conditions": [
+                                                        },
                                                         {
-                                                            "entity": "light.office_lamp",
-                                                            "state": "on"
-                                                        }
-                                                    ],
-                                                    "elements": [
+                                                            "entity": "light.office_west_strip",
+                                                            "icon": "mdi:led-strip-variant",
+                                                            "style": {
+                                                                "left": "41%",
+                                                                "top": "15%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "type": "state-icon"
+                                                        },
                                                         {
                                                             "entity": "light.office_lamp",
                                                             "icon": "mdi:lightbulb-multiple",
                                                             "style": {
                                                                 "left": "25%",
-                                                                "top": "33%",
+                                                                "top": "41%",
                                                                 "transform": "scale(2,2)"
                                                             },
                                                             "type": "state-icon"
@@ -367,7 +378,7 @@
                                                             "entity": "light.hallway_bath_light",
                                                             "style": {
                                                                 "left": "26%",
-                                                                "top": "64%",
+                                                                "top": "69%",
                                                                 "transform": "scale(1.5,1.5)"
                                                             },
                                                             "tap_action": {
@@ -436,8 +447,8 @@
                                                         {
                                                             "entity": "light.laundry_light",
                                                             "style": {
-                                                                "left": "38%",
-                                                                "top": "84%",
+                                                                "left": "37%",
+                                                                "top": "83%",
                                                                 "transform": "scale(1.5,1.5)"
                                                             },
                                                             "tap_action": {
@@ -474,64 +485,42 @@
                                                 {
                                                     "conditions": [
                                                         {
-                                                            "entity": "light.master_bath_light",
+                                                            "entity": "light.master_bath",
                                                             "state": "on"
                                                         }
                                                     ],
                                                     "elements": [
                                                         {
-                                                            "entity": "light.master_bath_light",
+                                                            "entity": "light.master_bath_vanity",
                                                             "icon": "mdi:lightbulb",
                                                             "style": {
-                                                                "left": "13%",
-                                                                "top": "70%",
-                                                                "transform": "scale(1.5,1.5)"
-                                                            },
-                                                            "tap_action": {
-                                                                "action": "toggle"
-                                                            },
-                                                            "type": "state-icon"
-                                                        }
-                                                    ],
-                                                    "type": "conditional"
-                                                },
-                                                {
-                                                    "conditions": [
-                                                        {
-                                                            "entity": "light.master_bath_under_vanity",
-                                                            "state": "on"
-                                                        }
-                                                    ],
-                                                    "elements": [
-                                                        {
-                                                            "entity": "light.master_bath_under_vanity",
-                                                            "icon": "mdi:led-strip-variant",
-                                                            "style": {
-                                                                "left": "8%",
-                                                                "top": "70%",
-                                                                "transform": "scale(1.5,1.5)"
-                                                            },
-                                                            "tap_action": {
-                                                                "action": "toggle"
-                                                            },
-                                                            "type": "state-icon"
-                                                        }
-                                                    ],
-                                                    "type": "conditional"
-                                                },
-                                                {
-                                                    "conditions": [
-                                                        {
-                                                            "entity": "light.master_bath_cabinet",
-                                                            "state": "on"
-                                                        }
-                                                    ],
-                                                    "elements": [
-                                                        {
-                                                            "entity": "light.master_bath_cabinet",
-                                                            "icon": "mdi:led-strip-variant",
-                                                            "style": {
                                                                 "left": "12%",
+                                                                "top": "72%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        },
+                                                        {
+                                                            "entity": "light.master_bath_under_vanity",
+                                                            "icon": "mdi:led-strip-variant",
+                                                            "style": {
+                                                                "left": "7%",
+                                                                "top": "72%",
+                                                                "transform": "scale(1.5,1.5)"
+                                                            },
+                                                            "tap_action": {
+                                                                "action": "toggle"
+                                                            },
+                                                            "type": "state-icon"
+                                                        },
+                                                        {
+                                                            "entity": "light.master_bath_cabinet",
+                                                            "icon": "mdi:led-strip-variant",
+                                                            "style": {
+                                                                "left": "11%",
                                                                 "top": "87%",
                                                                 "transform": "scale(1.5,1.5)"
                                                             },
@@ -555,7 +544,7 @@
                                                             "entity": "switch.master_bath_fan",
                                                             "icon": "mdi:fan",
                                                             "style": {
-                                                                "left": "2%",
+                                                                "left": "1%",
                                                                 "top": "86%",
                                                                 "transform": "scale(1.5,1.5)"
                                                             },
@@ -1637,25 +1626,9 @@
                                                         "type": "source"
                                                     },
                                                     {
-                                                        "data": {
-                                                            "card": {
-                                                                "account": "default",
-                                                                "always_play_random_song": false,
-                                                                "grid_covers_per_row": 8,
-                                                                "limit": 13,
-                                                                "spotify_entity": "media_player.spotify",
-                                                                "spotify_installed": "media_player.spotify",
-                                                                "type": "custom:spotify-card"
-                                                            },
-                                                            "deviceID": [
-                                                                "this"
-                                                            ],
-                                                            "large": false,
-                                                            "title": "Playlists"
-                                                        },
-                                                        "icon": "mdi:playlist-music",
-                                                        "id": "browser_mod.popup",
-                                                        "type": "service"
+                                                        "icon": "mdi:cellphone-android",
+                                                        "id": "Galaxy Note10+",
+                                                        "type": "source"
                                                     },
                                                     {
                                                         "data": {
@@ -1991,26 +1964,13 @@
                         {
                             "cards": [
                                 {
-                                    "defaultMode": "Calendar",
-                                    "disableCalEventLink": false,
-                                    "disableCalLocationLink": false,
+                                    "type": "calendar",
                                     "entities": [
-                                        {
-                                            "entity": "calendar.holidays_in_united_states"
-                                        },
-                                        {
-                                            "entity": "calendar.home_brohkahn_gmail_com"
-                                        },
-                                        {
-                                            "entity": "calendar.kbkrunner_gmail_com"
-                                        }
-                                    ],
-                                    "firstDayOfWeek": 1,
-                                    "maxDaysToShow": 7,
-                                    "showDate": false,
-                                    "showLastCalendarWeek": true,
-                                    "sortByStartTime": false,
-                                    "type": "custom:atomic-calendar-revive"
+                                        "calendar.contacts",
+                                        "calendar.home_brohkahn_gmail_com",
+                                        "calendar.holidays_in_united_states",
+                                        "calendar.kbkrunner_gmail_com"
+                                    ]
                                 },
                                 {
                                     "defaultMode": "Event",
@@ -3368,6 +3328,10 @@
                                 }
                             ],
                             "type": "vertical-stack"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.spotify"
                         }
                     ],
                     "icon": "mdi:cellphone",
@@ -3376,7 +3340,5 @@
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }
