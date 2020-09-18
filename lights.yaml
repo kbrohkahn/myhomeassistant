@@ -45,16 +45,21 @@
       value_template: "{{ is_state('light.kitchen_overhead', 'on') or is_state('light.kitchen_strips', 'on') or is_state('light.kitchen_spotlight', 'on') }}"
       color_template: "{{ state_attr('light.kitchen_overhead', 'hs_color') }}"
       turn_on:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop
         - data:
             brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 128 {% else %} 256 {% endif %}'
             hs_color:
-            - '{{ (180 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
-              ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
-              ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
-              ) / 360 * 180) % 360 }}'
+            # - '{{ (180 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
+            #   ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
+            #   ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
+            #   ) / 360 * 180) % 360 }}'
+            - '{{ (((now().hour + now().minute / 60 + 11) % 24 - 12) / 12 | abs * 180 - 120 + 30) % 360}}'
             - 80
           entity_id: light.kitchen_strips
           service: light.turn_on
+        - delay:
+            milliseconds: 100
         - entity_id: light.kitchen_spotlight
           service: light.turn_on
           data:
@@ -62,38 +67,42 @@
         - condition: state
           entity_id: switch.bedtime
           state: 'off'
-        - data:
-            hs_color:
-            - '{{ (120 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
-              ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'',
-              ''azimuth'')) | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) )
-              ) / 360 * 180) % 360}}'
-            - 20
-          entity_id: light.kitchen_overhead
-          service: light.turn_on
+        - delay:
+            milliseconds: 100
+        - service: script.kitchen_lights_on
       turn_off:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop
         - entity_id: light.kitchen_spotlight
           service: light.turn_off
-        - delay: 00:00:01
+        - delay:
+            milliseconds: 500
         - entity_id: light.kitchen_right
           service: light.turn_off
-        - delay: 00:00:01
+        - delay:
+            milliseconds: 500
         - entity_id: light.kitchen_mid_right
           service: light.turn_off
-        - delay: 00:00:01
+        - delay:
+            milliseconds: 500
         - entity_id: light.kitchen_mid_left
           service: light.turn_off
-        - delay: 00:00:01
+        - delay:
+            milliseconds: 500
         - entity_id: light.kitchen_left
           service: light.turn_off
-        - delay: 00:00:01
+        - delay:
+            milliseconds: 500
         - entity_id: light.kitchen_forward
           service: light.turn_off
-        - delay: 00:00:01
+        - delay:
+            milliseconds: 500
         - entity_id: light.kitchen_strips
           service: light.turn_off
 
       set_level:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop
         - data:
             brightness: '{{ brightness }}'
           entity_id: light.kitchen_overhead
@@ -107,6 +116,8 @@
           entity_id: light.kitchen_spotlight
           service: light.turn_on
       set_white_value:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop
         - data:
             white_value: '{{ white_value }}'
           entity_id: light.kitchen_overhead
@@ -116,6 +127,8 @@
           entity_id: light.kitchen_strips
           service: light.turn_on
       set_color:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop
         - data:
             hs_color: '[ {{ h }}, {{ s * 0.6 }} ]'
           entity_id: light.kitchen_overhead
@@ -129,8 +142,8 @@
       unique_id: light.office
       level_template: "{{ ((state_attr('light.office_lamp', 'brightness') | int + state_attr('light.office_hue', 'brightness') | int ) / 2) | int }}"
       value_template: "{{ is_state('light.office_hue', 'on') or is_state('light.office_lamp', 'on') }}"
-      color_template: "{{ (state_attr('light.office_east_strip', 'hs_color')[0] + state_attr('light.office_west_strip', 'hs_color')[0]) / 2 }}, 
-      {{ (state_attr('light.office_east_strip', 'hs_color')[1] + state_attr('light.office_west_strip', 'hs_color')[1]) / 2 }}"
+      color_template: "{{ (state_attr('light.office_strip_east', 'hs_color')[0] + state_attr('light.office_strip_west', 'hs_color')[0]) / 2 }}, 
+      {{ (state_attr('light.office_strip_east', 'hs_color')[1] + state_attr('light.office_strip_west', 'hs_color')[1]) / 2 }}"
       turn_on:
         entity_id: light.office_lamp
         service: light.turn_on
@@ -145,10 +158,77 @@
         entity_id: light.office_lamp
         service: light.turn_on
       set_color:
-        data:
-          hs_color: '[ {{ h }}, {{ s }}  ]'
-        entity_id: light.office_hue
-        service: light.turn_on
+        - data:
+            hs_color: '[ {{ h }}, {{ s }}  ]'
+          entity_id: light.office_strip_east
+          service: light.turn_on
+        - data:
+            hs_color: '[ {{ h }}, {{ s }}  ]'
+          entity_id: light.office_strip_west
+          service: light.turn_on
+    hallway:
+      unique_id: light.hallway
+      level_template: "{{ state_attr('light.hallway_hue', 'brightness') }}"
+      value_template: "{{ is_state('light.hallway_hue', 'on') }}"
+      color_template: "{{ state_attr('light.hallway_hue', 'hs_color') }}"
+      turn_on:
+        - service: automation.turn_off
+          entity_id: automation.hallway_motion_stop
+        - entity_id: light.hallway_hue
+          data:
+            brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 255 {% endif %}'
+          service: light.turn_on
+      turn_off:
+        - service: automation.turn_off
+          entity_id: automation.hallway_motion_stop
+        - entity_id: light.hallway_hue
+          service: light.turn_off
+      set_level:
+        - service: automation.turn_off
+          entity_id: automation.hallway_motion_stop
+        - data:
+            brightness: '{{ brightness }}'
+          entity_id: light.hallway_hue
+          service: light.turn_on
+      set_white_value:
+        - service: automation.turn_off
+          entity_id: automation.hallway_motion_stop
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.hallway_hue
+          service: light.turn_on
+
+    master:
+      unique_id: light.master
+      level_template: "{{ state_attr('light.master_hue', 'brightness') }}"
+      value_template: "{{ is_state('light.master_hue', 'on') }}"
+      color_template: "{{ state_attr('light.master_hue', 'hs_color') }}"
+      turn_on:
+        - service: automation.turn_off
+          entity_id: automation.master_motion_stop
+        - entity_id: light.master_hue
+          data:
+            brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 255 {% endif %}'
+          service: light.turn_on
+      turn_off:
+        - service: automation.turn_off
+          entity_id: automation.master_motion_stop
+        - entity_id: light.master_hue
+          service: light.turn_off
+      set_level:
+        - service: automation.turn_off
+          entity_id: automation.master_motion_stop
+        - data:
+            brightness: '{{ brightness }}'
+          entity_id: light.master_hue
+          service: light.turn_on
+      set_white_value:
+        - service: automation.turn_off
+          entity_id: automation.master_motion_stop
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.master_hue
+          service: light.turn_on
 
     master_bath:
       unique_id: light.master_bath
@@ -158,7 +238,7 @@
       turn_on:
         entity_id: light.master_bath_vanity
         data:
-          brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 255 {% endif %}'
+          brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 170 {% endif %}'
         service: light.turn_on
       turn_off:
         entity_id: light.master_bath_vanity
@@ -210,6 +290,174 @@
           data:
             hs_color: ['{{ h }}', '{{ s }}']
         - entity_id: light.ir_strips
+          service: light.turn_on
+          data:
+            hs_color: ['{{ h }}', '{{ s }}']
+
+    dining:
+      unique_id: light.dining
+      level_template: "{{ state_attr('light.dining_hue', 'brightness') }}"
+      value_template: "{{ is_state('light.dining_hue', 'on') }}"
+      color_template: "{{ state_attr('light.dining_hue', 'hs_color') }}"
+      turn_on:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop_dining_lights
+        - entity_id: light.dining_60
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_120
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_180
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_240
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_300
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_360
+          service: light.turn_on
+      turn_off:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop_dining_lights
+        - entity_id: light.dining_60
+          service: light.turn_off
+        - delay:
+            milliseconds: 500
+        - entity_id: light.dining_120
+          service: light.turn_off
+        - delay:
+            milliseconds: 500
+        - entity_id: light.dining_180
+          service: light.turn_off
+        - delay:
+            milliseconds: 500
+        - entity_id: light.dining_240
+          service: light.turn_off
+        - delay:
+            milliseconds: 500
+        - entity_id: light.dining_300
+          service: light.turn_off
+        - delay:
+            milliseconds: 500
+        - entity_id: light.dining_360
+          service: light.turn_off
+      set_level:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop_dining_lights
+        - data:
+            brightness: '{{ brightness }}'
+          entity_id: light.dining_60
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            brightness: '{{ brightness }}'
+          entity_id: light.dining_120
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            brightness: '{{ brightness }}'
+          entity_id: light.dining_180
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            brightness: '{{ brightness }}'
+          entity_id: light.dining_240
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            brightness: '{{ brightness }}'
+          entity_id: light.dining_300
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            brightness: '{{ brightness }}'
+          entity_id: light.dining_360
+          service: light.turn_on
+      set_white_value:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop_dining_lights
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.dining_60
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.dining_120
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.dining_180
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.dining_240
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.dining_300
+          service: light.turn_on
+        - delay:
+            milliseconds: 150
+        - data:
+            white_value: '{{ white_value }}'
+          entity_id: light.dining_360
+          service: light.turn_on
+
+      set_color:
+        - service: automation.turn_off
+          entity_id: automation.kitchen_motion_stop_dining_lights
+        - entity_id: light.dining_60
+          service: light.turn_on
+          data:
+            hs_color: ['{{ h }}', '{{ s }}']
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_120
+          service: light.turn_on
+          data:
+            hs_color: ['{{ h }}', '{{ s }}']
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_180
+          service: light.turn_on
+          data:
+            hs_color: ['{{ h }}', '{{ s }}']
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_240
+          service: light.turn_on
+          data:
+            hs_color: ['{{ h }}', '{{ s }}']
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_300
+          service: light.turn_on
+          data:
+            hs_color: ['{{ h }}', '{{ s }}']
+        - delay:
+            milliseconds: 150
+        - entity_id: light.dining_360
           service: light.turn_on
           data:
             hs_color: ['{{ h }}', '{{ s }}']

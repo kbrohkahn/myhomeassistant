@@ -334,7 +334,7 @@
                                                     ],
                                                     "elements": [
                                                         {
-                                                            "entity": "light.office_east_strip",
+                                                            "entity": "light.office_strip_east",
                                                             "icon": "mdi:led-strip-variant",
                                                             "style": {
                                                                 "left": "25%",
@@ -344,7 +344,7 @@
                                                             "type": "state-icon"
                                                         },
                                                         {
-                                                            "entity": "light.office_west_strip",
+                                                            "entity": "light.office_strip_west",
                                                             "icon": "mdi:led-strip-variant",
                                                             "style": {
                                                                 "left": "41%",
@@ -2825,17 +2825,19 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "sensor.fountain_electrical_measurement",
+                                            "entity": "switch.fountain",
                                             "icon": "mdi:fountain",
                                             "name": "Fountain",
                                             "type": "entity",
-                                            "unit": "W"
+                                            "unit": "W",
+                                            "attribute": "current_power_w"
                                         },
                                         {
-                                            "attribute": "current_power_w",
-                                            "entity": "switch.starlight_outlet",
+                                            "entity": "sensor.starlight_electrical_measurement",
                                             "type": "entity",
-                                            "unit": "W"
+                                            "unit": "W",
+                                            "icon": "mdi:weather-night",
+                                            "name": "Starlight"
                                         }
                                     ],
                                     "type": "horizontal-stack"
@@ -2849,7 +2851,7 @@
                                             "entity": "sensor.kitchen_switch_battery_level"
                                         },
                                         {
-                                            "entity": "sensor.office_switch_battery_level"
+                                            "entity": "sensor.theater_switch_battery_level"
                                         }
                                     ],
                                     "type": "entities"
@@ -2861,6 +2863,253 @@
                     "icon": "mdi:chart-timeline-variant",
                     "path": "tracking",
                     "title": "Tracking"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.sm_n975u1"
+                                }
+                            ],
+                            "hours_to_show": 0,
+                            "type": "map"
+                        },
+                        {
+                            "title": "Galaxy Note 10+",
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.sm_n975u1_wifi_connection",
+                                            "type": "sensor",
+                                            "name": "Wifi Connection"
+                                        },
+                                        {
+                                            "entity": "sensor.sm_n975u1_proximity_sensor",
+                                            "type": "sensor",
+                                            "name": "Proximity Sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.sm_n975u1_next_alarm",
+                                            "type": "sensor",
+                                            "name": "Next Alarm"
+                                        },
+                                        {
+                                            "entity": "sensor.sm_n975u1_last_reboot",
+                                            "type": "sensor",
+                                            "name": "Last Reboot"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.sm_n975u1_pressure_sensor",
+                                            "graph": "line",
+                                            "type": "sensor",
+                                            "name": "Pressure Sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.sm_n975u1_light_sensor",
+                                            "graph": "line",
+                                            "type": "sensor",
+                                            "name": "Lressure Sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.sm_n975u1_battery_level",
+                                            "type": "sensor",
+                                            "name": "Battery Level",
+                                            "graph": "line"
+                                        },
+                                        {
+                                            "entity": "sensor.sm_n975u1_storage_sensor",
+                                            "graph": "line",
+                                            "type": "sensor",
+                                            "name": "Storage"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "title": "KBK Notebook",
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_battery_remaining",
+                                            "graph": "line",
+                                            "name": "Battery"
+                                        },
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_battery_remaining_time",
+                                            "graph": "line",
+                                            "name": "Remaining"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_cpu_usage",
+                                            "graph": "line",
+                                            "name": "CPU Usage"
+                                        },
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_memory_usage",
+                                            "graph": "line",
+                                            "name": "Memory Usage"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_storage_c_usage",
+                                            "graph": "line",
+                                            "name": "Storage"
+                                        },
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_storage_c_used_space",
+                                            "graph": "line",
+                                            "name": "Available"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_network_0_bps_received",
+                                            "graph": "line",
+                                            "name": "Received"
+                                        },
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_network_0_bps_sent",
+                                            "graph": "line",
+                                            "name": "Sent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_network_0_speed",
+                                            "graph": "line",
+                                            "name": "Speed"
+                                        },
+                                        {
+                                            "type": "sensor",
+                                            "entity": "sensor.kbk_notebook_system_uptime",
+                                            "graph": "line",
+                                            "name": "Uptime"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "icon": "mdi:cellphone",
+                    "path": "phone",
+                    "title": "Phone"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "aspect_ratio": "0%",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_a_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_a_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_a_camera",
+                                    "image": "local/images/rooms/kitchen.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
+                                    "title": "Kitchen",
+                                    "type": "picture-glance"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_s6_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_s6_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_s6_camera",
+                                    "image": "local/images/rooms/master.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
+                                    "title": "Master",
+                                    "type": "picture-glance"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.galaxy_tab_s_motion"
+                                        },
+                                        {
+                                            "entity": "camera.galaxy_tab_s_camera"
+                                        }
+                                    ],
+                                    "entity": "camera.galaxy_tab_s_camera",
+                                    "image": "local/images/rooms/office.jpg",
+                                    "state_filter": {
+                                        "off": "grayscale(0%)",
+                                        "on": "grayscale(100%)"
+                                    },
+                                    "title": "Office",
+                                    "type": "picture-glance"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        }
+                    ],
+                    "icon": "mdi:cctv",
+                    "panel": true,
+                    "path": "cameras",
+                    "title": "Cameras"
                 },
                 {
                     "badges": [],
@@ -3199,144 +3448,6 @@
                     "icon": "mdi:network",
                     "path": "network",
                     "title": "Network"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "aspect_ratio": "0%",
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.galaxy_tab_a_motion"
-                                        },
-                                        {
-                                            "entity": "camera.galaxy_tab_a_camera"
-                                        }
-                                    ],
-                                    "entity": "camera.galaxy_tab_a_camera",
-                                    "image": "local/images/rooms/kitchen.jpg",
-                                    "state_filter": {
-                                        "off": "grayscale(0%)",
-                                        "on": "grayscale(100%)"
-                                    },
-                                    "title": "Kitchen",
-                                    "type": "picture-glance"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.galaxy_tab_s6_motion"
-                                        },
-                                        {
-                                            "entity": "camera.galaxy_tab_s6_camera"
-                                        }
-                                    ],
-                                    "entity": "camera.galaxy_tab_s6_camera",
-                                    "image": "local/images/rooms/master.jpg",
-                                    "state_filter": {
-                                        "off": "grayscale(0%)",
-                                        "on": "grayscale(100%)"
-                                    },
-                                    "title": "Master",
-                                    "type": "picture-glance"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.galaxy_tab_s_motion"
-                                        },
-                                        {
-                                            "entity": "camera.galaxy_tab_s_camera"
-                                        }
-                                    ],
-                                    "entity": "camera.galaxy_tab_s_camera",
-                                    "image": "local/images/rooms/office.jpg",
-                                    "state_filter": {
-                                        "off": "grayscale(0%)",
-                                        "on": "grayscale(100%)"
-                                    },
-                                    "title": "Office",
-                                    "type": "picture-glance"
-                                }
-                            ],
-                            "type": "horizontal-stack"
-                        }
-                    ],
-                    "icon": "mdi:cctv",
-                    "panel": true,
-                    "path": "cameras",
-                    "title": "Cameras"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "device_tracker.sm_n975u1"
-                                }
-                            ],
-                            "hours_to_show": 0,
-                            "type": "map"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.sm_n975u1_wifi_connection",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.sm_n975u1_proximity_sensor",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.sm_n975u1_pressure_sensor",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.sm_n975u1_light_sensor",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.sm_n975u1_battery_level",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        },
-                                        {
-                                            "entity": "sensor.sm_n975u1_bluetooth_connection",
-                                            "graph": "line",
-                                            "type": "sensor"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.spotify"
-                        }
-                    ],
-                    "icon": "mdi:cellphone",
-                    "path": "phone",
-                    "title": "Phone"
                 }
             ]
         }

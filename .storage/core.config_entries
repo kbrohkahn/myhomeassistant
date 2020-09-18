@@ -339,7 +339,7 @@
                     "client_secret": "78be39e2-c755-4a70-bb96-7a71d13b3103",
                     "installed_app_id": "9716ba89-24fd-49e0-872a-b86b61335d5b",
                     "location_id": "9c58daa6-46f4-4274-872a-6fa82ab59499",
-                    "refresh_token": "129082b1-3898-4413-9fc9-6cfe8e124e1b"
+                    "refresh_token": "e0a04e0c-01f2-4f6f-8811-33586fa2e74b"
                 },
                 "options": {},
                 "system_options": {
@@ -457,12 +457,12 @@
                 "data": {
                     "auth_implementation": "spotify",
                     "token": {
-                        "access_token": "BQAVIhcLUyC_ikHDt9VBJ8mQZphV0LpeMM_M6F4eWUrYyNf4z8TwSGmJFuz20n7IC_KWc9yiQS4Knoe_jeFIkZ6wkiQSCMNG738qga32oJhZy0__mSeU4t0YxXK_pWGm1Dk8_2mqbxvqqKHSEP4tL0ax6kevPDj3dkLIUNGM8tSxkGBp1pmkH9NbReXICw9Q3bMII-s8jA",
+                        "access_token": "BQBjZWQWTnJQ6odtyKe9agW10RIqeJTnI0SbG-00MKaAbLrKU2mhQgl4JfPfdXmcSZCY_ojNDpT0DTAyu4GQxvQgCIXurLkMq2BqIPRV9cVKK-xECgxDf3EeOLjzl7rEHHFXsWZAhG6tdH0Ze02kb3aUxMFe2ymSNWc1LM7jP1BJEo8rrLcXm6qGg1EZDytImUOHqARqAg",
                         "token_type": "Bearer",
                         "expires_in": 3600,
                         "refresh_token": "AQBErnjqz83ECMyvNXBqNfZXP5h6oGbt5K3ECstMYBGFfcjlUJIiCvRRbDkqqrN294yF6ZqigUt41XXqVcvWpub-LArV7h5U2nyqScd7xqFwvfMlZmCtPepHU_WbjZokOK8",
                         "scope": "playlist-read-private playlist-read-collaborative user-modify-playback-state user-library-read user-follow-read user-read-playback-state user-read-recently-played user-read-playback-position user-read-private user-top-read",
-                        "expires_at": 1600396729.9824305
+                        "expires_at": 1600472728.6265388
                     },
                     "id": "125975319",
                     "name": "kbkrunner"

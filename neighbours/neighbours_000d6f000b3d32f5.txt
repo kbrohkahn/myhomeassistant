@@ -1,12 +1,27 @@
 {
     "ieee": "00:0d:6f:00:0b:3d:32:f5",
     "nwk": "0x0000",
-    "lqi": 253,
+    "lqi": 254,
     "device_type": "Coordinator",
     "manufacturer": "Silicon Labs",
     "model": "EZSP",
     "offline": false,
     "neighbours": [
+        {
+            "ieee": "00:12:4b:00:1d:84:ea:0e",
+            "nwk": "0x3d08",
+            "lqi": 254,
+            "pan_id": "ff:b7:06:07:d9:6a:72:dc",
+            "device_type": "Router",
+            "rx_on_when_idle": "On",
+            "relation": "None_of_the_above",
+            "new_joins_accepted": "Unknown",
+            "depth": 15,
+            "model": "GL-C-008",
+            "manufacturer": "GLEDOPTO",
+            "offline": false,
+            "supported": true
+        },
         {
             "ieee": "28:6d:97:00:01:11:01:16",
             "nwk": "0x8072",
@@ -38,8 +53,23 @@
             "supported": true
         },
         {
-            "ieee": "00:17:88:01:03:c8:70:79",
-            "nwk": null,
+            "ieee": "00:12:4b:00:1d:43:cd:26",
+            "nwk": "0x5429",
+            "lqi": 158,
+            "pan_id": "ff:b7:06:07:d9:6a:72:dc",
+            "device_type": "Router",
+            "rx_on_when_idle": "On",
+            "relation": "None_of_the_above",
+            "new_joins_accepted": "Unknown",
+            "depth": 15,
+            "model": "GL-C-008",
+            "manufacturer": "GLEDOPTO",
+            "offline": false,
+            "supported": true
+        },
+        {
+            "ieee": "24:fd:5b:00:01:03:1b:4f",
+            "nwk": "0xa299",
             "lqi": 255,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "End_Device",
@@ -47,15 +77,15 @@
             "relation": "Child",
             "new_joins_accepted": "Not_Accepting",
             "depth": 1,
-            "model": null,
-            "manufacturer": null,
+            "model": "multiv4",
+            "manufacturer": "SmartThings",
             "offline": false,
             "supported": true
         },
         {
             "ieee": "24:fd:5b:00:01:05:0f:7a",
             "nwk": "0x50e5",
-            "lqi": 113,
+            "lqi": 254,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -98,6 +128,21 @@
             "supported": true
         },
         {
+            "ieee": "28:6d:97:00:01:0c:77:b0",
+            "nwk": "0xf3bc",
+            "lqi": 255,
+            "pan_id": "ff:b7:06:07:d9:6a:72:dc",
+            "device_type": "End_Device",
+            "rx_on_when_idle": "Off",
+            "relation": "Child",
+            "new_joins_accepted": "Not_Accepting",
+            "depth": 1,
+            "model": "motion",
+            "manufacturer": "Samjin",
+            "offline": false,
+            "supported": true
+        },
+        {
             "ieee": "28:6d:97:00:01:0a:b7:d7",
             "nwk": "0x8f61",
             "lqi": 255,
@@ -109,6 +154,21 @@
             "depth": 1,
             "model": "multi",
             "manufacturer": "Samjin",
+            "offline": false,
+            "supported": true
+        },
+        {
+            "ieee": "00:12:4b:00:1d:44:f7:f1",
+            "nwk": "0x1cdb",
+            "lqi": 254,
+            "pan_id": "ff:b7:06:07:d9:6a:72:dc",
+            "device_type": "Router",
+            "rx_on_when_idle": "On",
+            "relation": "None_of_the_above",
+            "new_joins_accepted": "Unknown",
+            "depth": 15,
+            "model": "GL-C-007",
+            "manufacturer": "GLEDOPTO",
             "offline": false,
             "supported": true
         }

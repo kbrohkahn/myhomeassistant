@@ -6,47 +6,47 @@
             {
                 "name": "Silicon Labs EZSP",
                 "ieee": "00:0d:6f:00:0b:3d:32:f5",
-                "last_seen": 1600392172.7899096
+                "last_seen": 1600470775.054222
             },
             {
                 "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0a:b7:d7",
-                "last_seen": 1600394284.9285653
+                "last_seen": 1600470556.3735597
             },
             {
                 "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0a:b8:ae",
-                "last_seen": 1600394295.809846
+                "last_seen": 1600470475.3222563
             },
             {
                 "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0a:b2:a6",
-                "last_seen": 1600394254.6665022
+                "last_seen": 1600470570.2359543
             },
             {
                 "name": "SmartThings multiv4",
                 "ieee": "24:fd:5b:00:01:03:55:7b",
-                "last_seen": 1600394235.3974645
+                "last_seen": 1600470744.706957
             },
             {
                 "name": "SmartThings multiv4",
                 "ieee": "24:fd:5b:00:01:03:1b:4f",
-                "last_seen": 1600394403.3855922
+                "last_seen": 1600470533.613504
             },
             {
                 "name": "SmartThings motionv4",
                 "ieee": "24:fd:5b:00:01:06:7c:ad",
-                "last_seen": 1600393973.015546
+                "last_seen": 1600470570.4364035
             },
             {
                 "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0a:a8:7c",
-                "last_seen": 1600394554.1291885
+                "last_seen": 1600470647.1787736
             },
             {
                 "name": "SmartThings outletv4",
                 "ieee": "24:fd:5b:00:01:05:0f:7a",
-                "last_seen": 1600394551.049386
+                "last_seen": 1600470807.7829967
             },
             {
                 "name": "Samjin motion",
@@ -56,22 +56,37 @@
             {
                 "name": "Samjin motion",
                 "ieee": "28:6d:97:00:01:0c:77:b0",
-                "last_seen": 1600394391.2150147
+                "last_seen": 1600470677.2888725
             },
             {
                 "name": "Samjin motion",
                 "ieee": "28:6d:97:00:01:11:01:16",
-                "last_seen": 1600394267.8661487
+                "last_seen": 1600470582.5112014
             },
             {
                 "name": "Samjin multi",
                 "ieee": "28:6d:97:00:01:0d:aa:20",
-                "last_seen": 1600394159.7506547
+                "last_seen": 1600470573.4667335
             },
             {
                 "name": "Philips RWL020",
                 "ieee": "00:17:88:01:03:c8:70:79",
                 "last_seen": 1600383914.4951549
+            },
+            {
+                "name": "GLEDOPTO GL-C-008",
+                "ieee": "00:12:4b:00:1d:84:ea:0e",
+                "last_seen": 1600470769.0052714
+            },
+            {
+                "name": "GLEDOPTO GL-C-007",
+                "ieee": "00:12:4b:00:1d:44:f7:f1",
+                "last_seen": 1600470768.9517343
+            },
+            {
+                "name": "GLEDOPTO GL-C-008",
+                "ieee": "00:12:4b:00:1d:43:cd:26",
+                "last_seen": 1600470770.7790823
             }
         ]
     }

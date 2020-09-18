@@ -28,6 +28,12 @@ recorder:
   purge_keep_days: 30
   commit_interval: 5
 
+var:
+  away:
+    initial_value: false
+  bedtime:
+    initial_value: false
+
 # Text to speech
 tts:
   - platform: google_translate
@@ -218,6 +224,7 @@ sensor:
         friendly_name_template: "Visibility"
         value_template: '{{ state_attr("weather.home", "visibility") }}'
         unit_of_measurement: 'km'
+
 
   - platform: mqtt
     state_topic: "wallpanel/galaxytaba/sensor/battery"

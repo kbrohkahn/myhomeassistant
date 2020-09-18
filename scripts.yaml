@@ -2,6 +2,10 @@ users_away:
   alias: Users Away
   sequence:
   - data:
+      value: true
+    service: var.set
+    entity_id: var.away
+  - data:
       entity_id:
       - light.dining
       - light.office
@@ -104,6 +108,10 @@ maybe_start_vacuum:
 users_home:
   alias: Users Home
   sequence:
+  - data:
+      value: false
+    service: var.set
+    entity_id: var.away
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
       automation.hallway_bath_door_motion,automation.master_bath_door_motion,automation.hallway_motion_start_lights,automation.kitchen_motion_start_lights,
@@ -132,14 +140,18 @@ users_home:
 bedtime:
   alias: Bedtime
   sequence:
+  - data:
+      value: true
+    service: var.set
+    entity_id: var.bedtime
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
-      automation.kitchen_motion_stop_during_day,automation.humidity_over_50,automation.master_motion_stop,
+      automation.humidity_over_50,
       automation.master_motion_start_lights,automation.front_door_knock, automation.galaxy_tab_a_motion_start,automation.galaxy_tab_a_motion_stop,
       automation.galaxy_tab_s_motion_start,automation.galaxy_tab_s_motion_stop, automation.galaxy_tab_s6_motion_start,automation.galaxy_tab_s6_motion_stop
     service: automation.turn_off
   - data: {}
-    entity_id: automation.kitchen_motion_stop_after_bedtime, automation.galaxy_tab_a_light_on,automation.galaxy_tab_s_light_on,automation.galaxy_tab_s6_light_on
+    entity_id: automation.galaxy_tab_a_light_on,automation.galaxy_tab_s_light_on,automation.galaxy_tab_s6_light_on
     service: automation.turn_on
   - data:
       brightness: 128
@@ -236,6 +248,10 @@ play_on_bose:
 good_morning:
   alias: Good Morning
   sequence:
+  - data:
+      value: false
+    service: var.set
+    entity_id: var.bedtime
   - entity_id: switch.bose_group
     service: switch.turn_on
   - data:
@@ -252,12 +268,12 @@ good_morning:
     service: mqtt.publish
   - data: {}
     entity_id: automation.office_motion_start_music,automation.master_motion_start_music,automation.kitchen_motion_start_music,
-      automation.kitchen_motion_stop_during_day,automation.humidity_over_50,automation.master_motion_stop,
+      automation.humidity_over_50,
       automation.master_motion_start_lights,automation.front_door_knock, automation.galaxy_tab_a_motion_start,automation.galaxy_tab_a_motion_stop,
       automation.galaxy_tab_s_motion_start,automation.galaxy_tab_s_motion_stop, automation.galaxy_tab_s6_motion_start,automation.galaxy_tab_s6_motion_stop
     service: automation.turn_on
   - data: {}
-    entity_id: automation.kitchen_motion_stop_after_bedtime, automation.galaxy_tab_a_light_on,automation.galaxy_tab_s_light_on,automation.galaxy_tab_s6_light_on
+    entity_id: automation.galaxy_tab_a_light_on,automation.galaxy_tab_s_light_on,automation.galaxy_tab_s6_light_on
     service: automation.turn_off
   - data: {}
     entity_id:
@@ -478,3 +494,55 @@ acknowledge:
       sound_effect_filename: r2d2-5.mp3
     service: script.browser_sound_effect
   - service: browser_mod.close_popup
+kitchen_lights_on:
+  alias: Kitchen Lights On
+  mode: single
+  variables:
+    hue: '{{ (((now().hour + now().minute / 60 + 11) % 24 - 12) / 12 | abs * 180 - 120) % 360}}'
+    brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 128 {% else %} 255 {% endif %}'
+  sequence:
+    - data:
+        brightness: '{{ brightness }}'
+        hs_color:
+        - '{{ hue }}'
+        - 80
+      entity_id: light.kitchen_forward
+      service: light.turn_on
+    - delay:
+        milliseconds: 100
+    - data:
+        brightness: '{{ brightness }}'
+        hs_color:
+        - '{{ hue }}'
+        - 80
+      entity_id: light.kitchen_left
+      service: light.turn_on
+    - delay:
+        milliseconds: 100
+    - data:
+        brightness: '{{ brightness }}'
+        hs_color:
+        - '{{ hue }}'
+        - 80
+      entity_id: light.kitchen_mid_left
+      service: light.turn_on
+    - delay:
+        milliseconds: 100
+    - data:
+        brightness: '{{ brightness }}'
+        hs_color:
+        - '{{ hue }}'
+        - 80
+      entity_id: light.kitchen_mid_right
+      service: light.turn_on
+    - delay:
+        milliseconds: 100
+    - data:
+        brightness: '{{ brightness }}'
+        hs_color:
+        - '{{ hue }}'
+        - 80
+      entity_id: light.kitchen_right
+      service: light.turn_on
+    - delay:
+        milliseconds: 100

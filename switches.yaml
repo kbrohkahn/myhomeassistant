@@ -113,14 +113,14 @@
           entity_id: climate.hallway_thermostat
     bedtime:
       unique_id: switch.bedtime
-      value_template: "{{ is_state('automation.kitchen_motion_stop_after_bedtime', 'on') }}"
+      value_template: "{{ is_state('var.bedtime', true) }}"
       turn_on:
         service: script.bedtime
       turn_off:
         service: script.good_morning
     away:
       unique_id: switch.away
-      value_template: "{{ is_state('automation.kitchen_motion_start_lights', 'off') }}"
+      value_template: "{{ is_state('var.away', true) }}"
       turn_on:
         service: script.users_away
       turn_off:

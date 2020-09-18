@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "lovelace.lovelace_phone",
     "data": {
         "config": {
             "custom_header": {
@@ -195,7 +197,7 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "light.master_bath_light",
+                                            "entity": "light.master_bath_vanity",
                                             "type": "light"
                                         },
                                         {
@@ -2920,7 +2922,5 @@
                 }
             ]
         }
-    },
-    "key": "lovelace.lovelace_phone",
-    "version": 1
+    }
 }

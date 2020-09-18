@@ -452,48 +452,6 @@
                 "identifiers": [
                     [
                         "hue",
-                        "00:12:4b:00:1d:44:f7:f1-0b"
-                    ]
-                ],
-                "manufacturer": "GLEDOPTO",
-                "model": "Extended color light",
-                "name": "Pantry Strip",
-                "sw_version": "2.0.0",
-                "entry_type": null,
-                "id": "e876e6dbffa340c090f01dafdabafc10",
-                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914",
-                "area_id": null,
-                "name_by_user": null
-            },
-            {
-                "config_entries": [
-                    "e874e5f825d2430c86a06e314fed196c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:12:4b:00:1d:43:cd:26-0b"
-                    ]
-                ],
-                "manufacturer": "GLEDOPTO",
-                "model": "Extended color light",
-                "name": "Office East Strip",
-                "sw_version": "2.0.0",
-                "entry_type": null,
-                "id": "c1d9b158865c4c1b993142ba8940b030",
-                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914",
-                "area_id": null,
-                "name_by_user": null
-            },
-            {
-                "config_entries": [
-                    "e874e5f825d2430c86a06e314fed196c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hue",
                         "00:17:88:01:06:53:5e:e8-0b"
                     ]
                 ],
@@ -725,27 +683,6 @@
                 "identifiers": [
                     [
                         "hue",
-                        "00:17:88:01:02:29:9c:b4-0b"
-                    ]
-                ],
-                "manufacturer": "Signify Netherlands B.V.",
-                "model": "Hue white lamp",
-                "name": "Closet Light",
-                "sw_version": "1.50.2_r30933",
-                "entry_type": null,
-                "id": "fc02724ac5e14c92a4532e006f0b97f1",
-                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914",
-                "area_id": null,
-                "name_by_user": null
-            },
-            {
-                "config_entries": [
-                    "e874e5f825d2430c86a06e314fed196c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hue",
                         "00:17:88:01:04:04:f4:7e-0b"
                     ]
                 ],
@@ -881,27 +818,6 @@
                 "sw_version": "6.1.1.28573",
                 "entry_type": null,
                 "id": "6579392cc3d4438ab4580b99e182416f",
-                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914",
-                "area_id": null,
-                "name_by_user": null
-            },
-            {
-                "config_entries": [
-                    "e874e5f825d2430c86a06e314fed196c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:12:4b:00:1d:84:ea:0e-0b"
-                    ]
-                ],
-                "manufacturer": "GLEDOPTO",
-                "model": "Extended color light",
-                "name": "Office West Strip",
-                "sw_version": "2.0.0",
-                "entry_type": null,
-                "id": "cd9ba4d910c44666a335e69732474f5b",
                 "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914",
                 "area_id": null,
                 "name_by_user": null
@@ -1260,8 +1176,8 @@
                 "entry_type": null,
                 "id": "923b446b11aa43f8bb2effba39943632",
                 "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490",
-                "area_id": "252d6f6e725f4b6ca291c2c254967169",
-                "name_by_user": "Fountain"
+                "area_id": "17bb4caef04b408bb0478dc433f9ada8",
+                "name_by_user": "Starlight Outlet"
             },
             {
                 "config_entries": [
@@ -2022,6 +1938,294 @@
                 "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914",
                 "area_id": null,
                 "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "9ed2b1841bb646a6ade63ac1d013f289"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "KBK-NOTEBOOK_CPU"
+                    ]
+                ],
+                "manufacturer": "IOTLink 2.2.0.0",
+                "model": "WORKGROUP",
+                "name": "KBK-NOTEBOOK CPU",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "faee732cf9f111eaab4a23d97f06c136",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "9ed2b1841bb646a6ade63ac1d013f289"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "KBK-NOTEBOOK_Memory"
+                    ]
+                ],
+                "manufacturer": "IOTLink 2.2.0.0",
+                "model": "WORKGROUP",
+                "name": "KBK-NOTEBOOK Memory",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "faefbc50f9f111ea86cef92d8c96ea3b",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "9ed2b1841bb646a6ade63ac1d013f289"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "KBK-NOTEBOOK_Power"
+                    ]
+                ],
+                "manufacturer": "IOTLink 2.2.0.0",
+                "model": "WORKGROUP",
+                "name": "KBK-NOTEBOOK Power",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "faf733baf9f111eab4259bc799a8e97d",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "9ed2b1841bb646a6ade63ac1d013f289"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "KBK-NOTEBOOK_NetworkInfo"
+                    ]
+                ],
+                "manufacturer": "IOTLink 2.2.0.0",
+                "model": "WORKGROUP",
+                "name": "KBK-NOTEBOOK NetworkInfo",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "fafde2edf9f111ea95898dec9e5fcff7",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "9ed2b1841bb646a6ade63ac1d013f289"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "KBK-NOTEBOOK_HardDrive"
+                    ]
+                ],
+                "manufacturer": "IOTLink 2.2.0.0",
+                "model": "WORKGROUP",
+                "name": "KBK-NOTEBOOK HardDrive",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "fb067c63f9f111eab4f07bfadaca377a",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "9ed2b1841bb646a6ade63ac1d013f289"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "KBK-NOTEBOOK_SystemInfo"
+                    ]
+                ],
+                "manufacturer": "IOTLink 2.2.0.0",
+                "model": "WORKGROUP",
+                "name": "KBK-NOTEBOOK SystemInfo",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "fb0f25e3f9f111ea80adef1274df0cb0",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "9ed2b1841bb646a6ade63ac1d013f289"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "KBK-NOTEBOOK_Uptime"
+                    ]
+                ],
+                "manufacturer": "IOTLink 2.2.0.0",
+                "model": "WORKGROUP",
+                "name": "KBK-NOTEBOOK Uptime",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "fb0fb616f9f111ea846adbaf8bec0fa3",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "9ed2b1841bb646a6ade63ac1d013f289"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "KBK-NOTEBOOK_Display-Info"
+                    ]
+                ],
+                "manufacturer": "IOTLink 2.2.0.0",
+                "model": "WORKGROUP",
+                "name": "KBK-NOTEBOOK Display-Info",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "1826f7abf9f211ea96312d4a4e4082dc",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "9ed2b1841bb646a6ade63ac1d013f289"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "KBK-NOTEBOOK_Display-Screenshot"
+                    ]
+                ],
+                "manufacturer": "IOTLink 2.2.0.0",
+                "model": "WORKGROUP",
+                "name": "KBK-NOTEBOOK Display-Screenshot",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "1841760ff9f211eaaa2ed79409229fc0",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:b9:06:df-0b"
+                    ]
+                ],
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue ambiance lamp",
+                "name": "Closet Light",
+                "sw_version": "1.19.0_r19755",
+                "entry_type": null,
+                "id": "bdde4dd6f9fe11ea80e1bdaf9fb333ef",
+                "via_device_id": "cd924f1b76d64862aff6c8d5aa2b8914",
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:12:4b:00:1d:84:ea:0e"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:12:4b:00:1d:84:ea:0e"
+                    ]
+                ],
+                "manufacturer": "GLEDOPTO",
+                "model": "GL-C-008",
+                "name": "GLEDOPTO GL-C-008",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "e86f2718f9ff11ea911e1b63d9bb9484",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490",
+                "area_id": "252d6f6e725f4b6ca291c2c254967169",
+                "name_by_user": "Office Strip West"
+            },
+            {
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:12:4b:00:1d:44:f7:f1"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:12:4b:00:1d:44:f7:f1"
+                    ]
+                ],
+                "manufacturer": "GLEDOPTO",
+                "model": "GL-C-007",
+                "name": "GLEDOPTO GL-C-007",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "f039d35dfa0011eaa736e30ab0f7063d",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490",
+                "area_id": "daf77bcc23b74036a51df8a246fff625",
+                "name_by_user": "Pantry Strip"
+            },
+            {
+                "config_entries": [
+                    "c1f7482265824869a092a234b19e118d"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:12:4b:00:1d:43:cd:26"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:12:4b:00:1d:43:cd:26"
+                    ]
+                ],
+                "manufacturer": "GLEDOPTO",
+                "model": "GL-C-008",
+                "name": "GLEDOPTO GL-C-008",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "3e821c8afa0111ea9a66b3444c4f0c6c",
+                "via_device_id": "d00977c5bab6415fb1eb9e9292ddf490",
+                "area_id": "252d6f6e725f4b6ca291c2c254967169",
+                "name_by_user": "Office Strip East"
             }
         ],
         "deleted_devices": [
@@ -2164,6 +2368,58 @@
                     ]
                 ],
                 "id": "3d2b6d98f93a11eaa4924b72565ec042"
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:02:29:9c:b4-0b"
+                    ]
+                ],
+                "id": "fc02724ac5e14c92a4532e006f0b97f1"
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:12:4b:00:1d:84:ea:0e-0b"
+                    ]
+                ],
+                "id": "cd9ba4d910c44666a335e69732474f5b"
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:12:4b:00:1d:44:f7:f1-0b"
+                    ]
+                ],
+                "id": "e876e6dbffa340c090f01dafdabafc10"
+            },
+            {
+                "config_entries": [
+                    "e874e5f825d2430c86a06e314fed196c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:12:4b:00:1d:43:cd:26-0b"
+                    ]
+                ],
+                "id": "c1d9b158865c4c1b993142ba8940b030"
             }
         ]
     }
