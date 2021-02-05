@@ -1,0 +1,1091 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_backup",
+    "data": {
+        "config": {
+            "decluttering_templates": {
+                "scene_button": {
+                    "card": {
+                        "entity": "light.main",
+                        "image": "local/images/huescenes/[[name]].jpg",
+                        "name": "[[name]]",
+                        "show_state": false,
+                        "state_filter": {
+                            "off": "brightness(50%)",
+                            "on": "brightness(100%)"
+                        },
+                        "tap_action": {
+                            "action": "call-service",
+                            "service": "scene.turn_on",
+                            "service_data": {
+                                "entity_id": "[[id]]"
+                            }
+                        },
+                        "type": "picture-entity"
+                    }
+                },
+                "theater_stick_button": {
+                    "card": {
+                        "entity": "remote.harmony_hub",
+                        "icon": "[[icon]]",
+                        "show_name": false,
+                        "tap_action": {
+                            "action": "call-service",
+                            "service": "remote.send_command",
+                            "service_data": {
+                                "command": "[[command]]",
+                                "entity_id": "remote.theater_stick"
+                            }
+                        },
+                        "type": "button",
+                        "style": ":host ha-card {\n  padding: 48px 0;\n}\n"
+                    }
+                },
+                "theater_tv_button": {
+                    "card": {
+                        "entity": "remote.harmony_hub",
+                        "icon": "[[icon]]",
+                        "show_name": false,
+                        "tap_action": {
+                            "action": "call-service",
+                            "service": "remote.send_command",
+                            "service_data": {
+                                "command": "[[command]]",
+                                "device": "Theater TV",
+                                "entity_id": "remote.harmony_hub"
+                            }
+                        },
+                        "type": "button",
+                        "style": ":host ha-card {\n  padding: 48px 0;\n}\n"
+                    }
+                },
+                "hue_sync_button": {
+                    "card": {
+                        "entity": "remote.harmony_hub",
+                        "icon": "[[icon]]",
+                        "name": "[[name]]",
+                        "tap_action": {
+                            "action": "call-service",
+                            "service": "remote.send_command",
+                            "service_data": {
+                                "command": "[[Command]]",
+                                "device": "Philips AV Switch",
+                                "entity_id": "remote.harmony_hub"
+                            }
+                        },
+                        "type": "button",
+                        "style": ":host ha-card {\n  padding: 48px 0;\n}\n"
+                    }
+                },
+                "ps4_button": {
+                    "card": {
+                        "entity": "remote.harmony_hub",
+                        "icon": "[[icon]]",
+                        "show_name": false,
+                        "tap_action": {
+                            "action": "call-service",
+                            "service": "remote.send_command",
+                            "service_data": {
+                                "command": "[[Command]]",
+                                "device": "Sony PS4",
+                                "entity_id": "remote.harmony_hub"
+                            }
+                        },
+                        "type": "button"
+                    }
+                },
+                "living_room_chromecast_button": {
+                    "card": {
+                        "entity": "media_player.living_room_chromecast",
+                        "icon": "[[icon]]",
+                        "show_name": false,
+                        "tap_action": {
+                            "action": "call-service",
+                            "service": "[[service]]",
+                            "service_data": {
+                                "entity_id": "media_player.living_room_chromecast"
+                            }
+                        },
+                        "type": "button",
+                        "style": ":host ha-card {\n  padding: 48px 0;\n}\n"
+                    }
+                }
+            },
+            "views": [
+                {
+                    "title": "Calendar",
+                    "path": "calendar",
+                    "icon": "mdi:calendar",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "calendar",
+                            "entities": [
+                                "calendar.holidays_in_united_states",
+                                "calendar.home_brohkahn_gmail_com",
+                                "calendar.contacts",
+                                "calendar.kbkrunner_gmail_com"
+                            ],
+                            "initial_view": "dayGridMonth"
+                        }
+                    ]
+                },
+                {
+                    "title": "Map",
+                    "path": "map",
+                    "icon": "mdi:map",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.sm_g781u1"
+                                }
+                            ],
+                            "hours_to_show": 0
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:palette",
+                    "panel": false,
+                    "path": "scenes",
+                    "title": "Scenes",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Fushimi Inari"
+                                                },
+                                                {
+                                                    "id": "scene.fushimi_inari"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Katsura"
+                                                },
+                                                {
+                                                    "id": "scene.katsura"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Buddha in Temple"
+                                                },
+                                                {
+                                                    "id": "scene.buddha_in_temple"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Traffic Cones"
+                                                },
+                                                {
+                                                    "id": "scene.traffic_cones"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Miyajima Cruise"
+                                                },
+                                                {
+                                                    "id": "scene.miyajima_cruise"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Flower Festival"
+                                                },
+                                                {
+                                                    "id": "scene.flower_festival"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Mori Pink Balloons"
+                                                },
+                                                {
+                                                    "id": "scene.mori_pink_balloons"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Robot Restaurant"
+                                                },
+                                                {
+                                                    "id": "scene.robot_restaurant"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Night Dragon"
+                                                },
+                                                {
+                                                    "id": "scene.night_dragon"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Osaka"
+                                                },
+                                                {
+                                                    "id": "scene.osaka"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Buddha"
+                                                },
+                                                {
+                                                    "id": "scene.buddha"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Flower Fuji"
+                                                },
+                                                {
+                                                    "id": "scene.flower_fuji"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Wild Flowers"
+                                                },
+                                                {
+                                                    "id": "scene.wild_flowers"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Mori Flowers"
+                                                },
+                                                {
+                                                    "id": "scene.mori_flowers"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Kodaiji Forest at Night"
+                                                },
+                                                {
+                                                    "id": "scene.kodaiji_forest_at_night"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Sento Entrance"
+                                                },
+                                                {
+                                                    "id": "scene.sento_entrance"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Sento Bridge"
+                                                },
+                                                {
+                                                    "id": "scene.sento_bridge"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Bamboo Forest"
+                                                },
+                                                {
+                                                    "id": "scene.bamboo_forest"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Mori Green Balloons"
+                                                },
+                                                {
+                                                    "id": "scene.mori_green_balloons"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Kodaiji at Night"
+                                                },
+                                                {
+                                                    "id": "scene.kodaiji_at_night"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Grand Turk"
+                                                },
+                                                {
+                                                    "id": "scene.grand_turk"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Mori Turqoise Balloons"
+                                                },
+                                                {
+                                                    "id": "scene.mori_turqoise_balloons"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Mori Rain"
+                                                },
+                                                {
+                                                    "id": "scene.mori_rain"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Pallet Town"
+                                                },
+                                                {
+                                                    "id": "scene.pallet_town"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Ice Cave"
+                                                },
+                                                {
+                                                    "id": "scene.ice_cave"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Himeji"
+                                                },
+                                                {
+                                                    "id": "scene.himeji"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "White Temple"
+                                                },
+                                                {
+                                                    "id": "scene.white_temple"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Phuket"
+                                                },
+                                                {
+                                                    "id": "scene.phuket"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Manly Beach"
+                                                },
+                                                {
+                                                    "id": "scene.manly_beach"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Ginza"
+                                                },
+                                                {
+                                                    "id": "scene.ginza"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "12 Apostles"
+                                                },
+                                                {
+                                                    "id": "scene.12_apostles"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Arashiyama"
+                                                },
+                                                {
+                                                    "id": "scene.arashiyama"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Kimono Forest"
+                                                },
+                                                {
+                                                    "id": "scene.kimono_forest"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Miyajima Sunset"
+                                                },
+                                                {
+                                                    "id": "scene.miyajima_sunset"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Australian Sunrise"
+                                                },
+                                                {
+                                                    "id": "scene.australian_sunrise"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "White Temple Info"
+                                                },
+                                                {
+                                                    "id": "scene.white_temple_info"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Flower Stripes"
+                                                },
+                                                {
+                                                    "id": "scene.flower_stripes"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Fuji Over Flowers"
+                                                },
+                                                {
+                                                    "id": "scene.fuji_over_flowers"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Cambodian Sunset"
+                                                },
+                                                {
+                                                    "id": "scene.cambodian_sunset"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "template": "scene_button",
+                                            "type": "custom:decluttering-card",
+                                            "variables": [
+                                                {
+                                                    "name": "Gion"
+                                                },
+                                                {
+                                                    "id": "scene.gion"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Power",
+                    "path": "power",
+                    "icon": "mdi:battery-50",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "title": "Sensors",
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.kitchen_motion_sensor_power",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "sensor.master_motion_sensor_power",
+                                            "name": "Master"
+                                        },
+                                        {
+                                            "entity": "sensor.office_motion_sensor_power",
+                                            "name": "Office"
+                                        }
+                                    ],
+                                    "refresh_interval": 60,
+                                    "hours_to_show": 72,
+                                    "title": "Motion"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.dining_window_power",
+                                            "name": "Dining"
+                                        },
+                                        {
+                                            "entity": "sensor.kitchen_door_power",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "sensor.pantry_door_power",
+                                            "name": "Pantry"
+                                        },
+                                        {
+                                            "entity": "sensor.laundry_door_power",
+                                            "name": "Laundry"
+                                        },
+                                        {
+                                            "entity": "sensor.master_closet_door_power",
+                                            "name": "M. Closet"
+                                        },
+                                        {
+                                            "entity": "sensor.master_bath_door_power",
+                                            "name": "M. Bath"
+                                        }
+                                    ],
+                                    "refresh_interval": 30,
+                                    "hours_to_show": 72,
+                                    "title": "Multipurpose (Door)"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.theater_switch_battery_level",
+                                            "name": "Theater"
+                                        },
+                                        {
+                                            "entity": "sensor.kitchen_switch_battery_level",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "sensor.office_switch_battery_level",
+                                            "name": "Office"
+                                        }
+                                    ],
+                                    "hours_to_show": 72,
+                                    "title": "Light Switches",
+                                    "refresh_interval": 60
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "title": "Outlet Current",
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.bidet",
+                                            "attribute": "current_power_w"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.theater_systems",
+                                            "attribute": "current_power_w"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.fountain",
+                                            "attribute": "current_power_w"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.starlight_outlet",
+                                            "attribute": "current_power_w"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "sensor.ups_watts"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "sensor.living_room_monitor_electrical_measurement"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Outlet Weekly",
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.bidet",
+                                            "attribute": "weekly_energy_total"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.theater_systems",
+                                            "attribute": "weekly_energy_total"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.fountain",
+                                            "attribute": "weekly_energy_total"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.starlight_outlet",
+                                            "attribute": "weekly_energy_total"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "title": "Outlet History",
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.bidet_current_power",
+                                            "name": "Bidet"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "> 100 W"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.theater_systems_current_power",
+                                            "name": "Theater"
+                                        },
+                                        {
+                                            "entity": "sensor.ups_watts",
+                                            "name": "UPS"
+                                        },
+                                        {
+                                            "entity": "sensor.living_room_monitor_electrical_measurement",
+                                            "name": "Living Room Monitor"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "10 < 100 W"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fountain_current_power",
+                                            "name": "Fountain"
+                                        },
+                                        {
+                                            "entity": "sensor.starlight_current_power",
+                                            "name": "Starlight"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "< 10 W"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Help",
+                    "path": "help",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "elements": [
+                                {
+                                    "entity": "light.living_room",
+                                    "style": {
+                                        "left": "74%",
+                                        "top": "33%",
+                                        "transform": "scale(2,2)"
+                                    },
+                                    "attribute": "friendly_name",
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "light.theater",
+                                    "style": {
+                                        "left": "76%",
+                                        "top": "65%",
+                                        "transform": "scale(2,2)"
+                                    },
+                                    "attribute": "friendly_name",
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "light.kitchen",
+                                    "style": {
+                                        "left": "55%",
+                                        "top": "77%",
+                                        "transform": "scale(2,2)"
+                                    },
+                                    "attribute": "friendly_name",
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "light.dining",
+                                    "style": {
+                                        "left": "49%",
+                                        "top": "38%",
+                                        "transform": "scale(2,2)"
+                                    },
+                                    "attribute": "friendly_name",
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "light.hallway",
+                                    "style": {
+                                        "left": "28%",
+                                        "top": "59%",
+                                        "transform": "scale(1.5,1.5)"
+                                    },
+                                    "attribute": "friendly_name",
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "light.master",
+                                    "style": {
+                                        "left": "7%",
+                                        "top": "30%",
+                                        "transform": "scale(2,2)"
+                                    },
+                                    "attribute": "friendly_name",
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "light.office",
+                                    "style": {
+                                        "left": "31%",
+                                        "top": "29%",
+                                        "transform": "scale(2,2)"
+                                    },
+                                    "attribute": "friendly_name",
+                                    "type": "state-label"
+                                }
+                            ],
+                            "image": "local/images/home_av.svg",
+                            "type": "picture-elements"
+                        }
+                    ]
+                },
+                {
+                    "title": "Test",
+                    "path": "test",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "media_player.snapcast_client_raspberrypi_living_room"
+                                },
+                                {
+                                    "entity": "media_player.snapcast_client_raspberrypi_kitchen"
+                                },
+                                {
+                                    "entity": "media_player.snapcast_client_raspberrypi_theater"
+                                },
+                                {
+                                    "entity": "media_player.snapcast_client_raspberrypi_master"
+                                },
+                                {
+                                    "entity": "media_player.snapcast_client_kbk_pc"
+                                },
+                                {
+                                    "entity": "media_player.snapcast_client_fire_tab"
+                                },
+                                {
+                                    "entity": "media_player.snapcast_client_galaxytaba"
+                                },
+                                {
+                                    "entity": "media_player.snapcast_client_galaxytabs6"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.kevins_iphone_room_presence",
+                                            "attribute": "distance",
+                                            "name": "Dist"
+                                        }
+                                    ],
+                                    "entity": "sensor.kevins_iphone_room_presence",
+                                    "name": "Kevin's iPhone",
+                                    "secondary_info": "last-changed",
+                                    "state_header": "Room",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.kevins_iphone_room_presence_ble",
+                                            "attribute": "distance",
+                                            "name": "Dist"
+                                        }
+                                    ],
+                                    "entity": "sensor.kevins_iphone_room_presence_ble",
+                                    "name": "Kevin's iPhone BLE",
+                                    "secondary_info": "last-changed",
+                                    "state_header": "Room",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.kevins_apple_watch_room_presence",
+                                            "attribute": "distance",
+                                            "name": "Dist"
+                                        }
+                                    ],
+                                    "entity": "sensor.kevins_apple_watch_room_presence",
+                                    "name": "Kevin's Apple Watch",
+                                    "secondary_info": "last-changed",
+                                    "state_header": "Room",
+                                    "type": "custom:multiple-entity-row"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

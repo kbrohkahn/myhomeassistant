@@ -1,0 +1,89 @@
+{
+    "version": 1,
+    "key": "counter",
+    "data": {
+        "items": [
+            {
+                "maximum": 8,
+                "name": "Rooms Since Hallway",
+                "restore": true,
+                "initial": 0,
+                "minimum": 0,
+                "step": 1,
+                "id": "rooms_since_hallway"
+            },
+            {
+                "maximum": 8,
+                "name": "Rooms Since Master",
+                "restore": true,
+                "initial": 0,
+                "minimum": 0,
+                "step": 1,
+                "id": "rooms_since_master"
+            },
+            {
+                "maximum": 8,
+                "name": "Rooms Since Master Bath",
+                "restore": true,
+                "initial": 0,
+                "minimum": 0,
+                "step": 1,
+                "id": "rooms_since_master_bath"
+            },
+            {
+                "maximum": 8,
+                "name": "Rooms Since Hallway Bath",
+                "restore": true,
+                "initial": 0,
+                "minimum": 0,
+                "step": 1,
+                "id": "rooms_since_hallway_bath"
+            },
+            {
+                "maximum": 8,
+                "name": "Rooms Since Office",
+                "restore": true,
+                "initial": 0,
+                "minimum": 0,
+                "step": 1,
+                "id": "rooms_since_office"
+            },
+            {
+                "maximum": 8,
+                "name": "Rooms Since Kitchen",
+                "restore": true,
+                "initial": 0,
+                "minimum": 0,
+                "step": 1,
+                "id": "rooms_since_kitchen"
+            },
+            {
+                "maximum": 8,
+                "name": "Rooms Since Dining",
+                "restore": true,
+                "initial": 0,
+                "minimum": 0,
+                "step": 1,
+                "id": "rooms_since_dining"
+            },
+            {
+                "maximum": 8,
+                "name": "Rooms Since Living Room",
+                "restore": true,
+                "initial": 0,
+                "minimum": 0,
+                "step": 1,
+                "id": "rooms_since_living_room"
+            },
+            {
+                "maximum": 8,
+                "name": "Rooms Since Theater",
+                "restore": true,
+                "initial": 0,
+                "minimum": 0,
+                "step": 1,
+                "id": "rooms_since_theater"
+            }
+        ]
+    }
+}

@@ -1,0 +1,323 @@
+- platform: template
+  lights:
+    ir_strips:
+      unique_id: light.ir_strips
+      value_template: "{{ is_state('input_boolean.ir_strips', 'on') }}"
+      color_template: "{{ state_attr('light.living_room_lamps', 'hs_color') }}"
+      turn_on:
+        - condition: state
+          entity_id: input_boolean.ir_strips
+          state: 'off'
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.ir_strips
+        - service: remote.send_command
+          entity_id: remote.harmony_hub
+          data:
+            device: 'RGB LED'
+            command: 'PowerOn'
+      turn_off:
+        - condition: state
+          entity_id: input_boolean.ir_strips
+          state: 'on'
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.ir_strips
+        - service: remote.send_command
+          entity_id: remote.harmony_hub
+          data:
+            device: 'RGB LED'
+            command: 'PowerOn'
+        - service: remote.send_command
+          entity_id: remote.harmony_hub
+          data:
+            device: 'RGB LED'
+            command: 'PowerOff'
+      # set_level:
+      #   - service: remote.send_command
+      #     entity_id: remote.harmony_hub
+      #     data:
+      #       device: 'RGB LED'
+      #       command: 'Brighter 2'
+      #       num_repeats: 6
+      #   - condition: template
+      #     value_template: '{{ brightness < 255 - 32 }}'
+      #   - service: remote.send_command
+      #     entity_id: remote.harmony_hub
+      #     data:
+      #       device: 'RGB LED'
+      #       command: 'Darker 2'
+      #       num_repeats: '{{ (((255 - brightness) / 32) - 1) | int }}'
+      set_white_value:
+        - service: light.turn_on
+          entity_id: light.ir_strips
+        - service: remote.send_command
+          entity_id: remote.harmony_hub
+          data:
+            device: 'RGB LED'
+            command: 'ColorWhite'
+      set_color:
+        - service: light.turn_on
+          entity_id: light.ir_strips
+        - service: remote.send_command
+          entity_id: remote.harmony_hub
+          data:
+            device: 'RGB LED'
+            command: '{{ [ ''ColorRed'', ''ColorOrange'', ''ColorYellow'', ''ColorGreen'',
+              ''ColorGreen'', ''ColorTurquoise'', ''ColorAqua'',  ''ColorLightBlue'', ''ColorBlue'', ''ColorPurple'',
+              ''ColorPink'', ''ColorPink'' ] [((h + 15) % 360 / 30) | int] }}'
+
+    master_led_strip:
+      unique_id: light.master_led_strip
+      value_template: "{{ is_state('input_boolean.master_led_strip', 'on') }}"
+      color_template: "{{ state_attr('light.master_hue', 'hs_color') }}"
+      turn_on:
+        - condition: state
+          entity_id: input_boolean.master_led_strip
+          state: 'off'
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.master_led_strip
+        - service: switch.toggle
+          entity_id: switch.master_led_strip_power
+      turn_off:
+        - condition: state
+          entity_id: input_boolean.master_led_strip
+          state: 'on'
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.master_led_strip
+        - service: switch.toggle
+          entity_id: switch.master_led_strip_power
+      set_white_value:
+        - service: light.turn_on
+          entity_id: light.master_led_strip
+        - service: switch.toggle
+          entity_id: switch.led_strip_color_white
+      set_color:
+        - service: light.turn_on
+          entity_id: light.master_led_strip
+        - service: switch.toggle
+          data:
+            entity_id: 'switch.master_led_strip_color_{{ [ ''red'', ''orange'', ''yellow'', ''green'',
+              ''green'', ''turquoise'', ''aqua'',  ''aqua'', ''blue'', ''purple'',
+              ''pink'', ''pink'' ] [((h + 15) % 360 / 30) | int] }}'
+
+    kitchen:
+      unique_id: light.kitchen
+      level_template: "{{ state_attr('light.kitchen_overhead', 'brightness') | int }}"
+      value_template: "{{ is_state('light.kitchen_overhead', 'on') or is_state('light.kitchen_strips', 'on') or is_state('light.kitchen_spotlight', 'on') }}"
+      color_template: "{{ state_attr('light.kitchen_overhead', 'hs_color') }}"
+      turn_on:
+        service: script.kitchen_lights_turn_on
+      turn_off:
+        service: script.kitchen_lights_turn_off
+      set_level:
+        service: script.kitchen_lights_set_level
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        service: script.kitchen_lights_set_white_value
+        data:
+          white_value: '{{ white_value }}'
+      set_color:
+        service: script.kitchen_lights_set_color
+        data:
+          h: '{{ h }}'
+          s: '{{ s }}'
+
+    office:
+      unique_id: light.office
+      level_template: "{{ (((states.light.office_lamp.attributes.brightness or 0)
+        + (states.light.office_strip_west.attributes.brightness or 0)
+        + (states.light.office_strip_east.attributes.brightness or 0)) / 3) | int }}"
+      value_template: "{{ is_state('light.office_lamp', 'on')
+        or is_state('light.office_strip_east', 'on')
+        or is_state('light.office_strip_west', 'on') }}"
+      color_template: "{% if not states.light.office_strip_east.attributes.hs_color
+        or not states.light.office_strip_west.attributes.hs_color %} 
+      None
+      {% else %}
+      [{{ ((states.light.office_strip_east.attributes.hs_color[0] | float
+        + states.light.office_strip_west.attributes.hs_color[0] | float) / 2) | float }}, {{
+        ((states.light.office_strip_east.attributes.hs_color[1] | float
+        + states.light.office_strip_west.attributes.hs_color[1] | float) / 2) | float }}]
+      {% endif %}"
+      turn_on:
+        service: script.office_lights_turn_on
+      turn_off:
+        service: script.office_lights_turn_off
+      set_level:
+        service: script.office_lights_set_level
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        service: script.office_lights_set_white_value
+        data:
+          white_value: '{{ white_value }}'
+      set_color:
+        service: script.office_lights_set_color
+        data:
+          h: '{{ h }}'
+          s: '{{ s }}'
+
+    hallway:
+      unique_id: light.hallway
+      level_template: "{{ state_attr('light.hallway_hue', 'brightness') | int }}"
+      value_template: "{{ is_state('light.hallway_north', 'on') or is_state('light.hallway_south', 'on')}}"
+      color_template: "{{ state_attr('light.hallway_hue', 'hs_color') }}"
+      turn_on:
+        service: script.hallway_lights_turn_on
+      turn_off:
+        service: script.hallway_lights_turn_off
+      set_level:
+        service: script.hallway_lights_set_level
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        service: script.hallway_lights_set_white_value
+        data:
+          white_value: '{{ white_value }}'
+      set_color:
+        service: script.hallway_lights_set_color
+        data:
+          h: '{{ h }}'
+          s: '{{ s }}'
+
+    master:
+      unique_id: light.master
+      level_template: "{{ state_attr('light.master_hue', 'brightness') | int }}"
+      value_template: "{{ is_state('light.master_surround', 'on') or is_state('light.master_bedside', 'on') }}"
+      color_template: "{{ state_attr('light.master_hue', 'hs_color') }}"
+      turn_on:
+        service: script.master_lights_turn_on
+      turn_off:
+        service: script.master_lights_turn_off
+      set_level:
+        service: script.master_lights_set_level
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        service: script.master_lights_set_white_value
+        data:
+          white_value: '{{ white_value }}'
+      set_color:
+        service: script.master_lights_set_color
+        data:
+          h: '{{ h }}'
+          s: '{{ s }}'
+          
+    master_bath:
+      unique_id: light.master_bath
+      level_template: "{{ ((state_attr('light.master_bath_vanity', 'brightness') 
+          | int + state_attr('light.master_bath_hue', 'brightness') | int ) / 2) | int }}"
+      value_template: "{{ is_state('light.master_bath_hue', 'on') or is_state('light.master_bath_vanity', 'on') }}"
+      color_template: "{{ state_attr('light.master_bath_hue', 'hs_color') }}"
+      turn_on:
+        service: script.master_bath_lights_turn_on
+      turn_off:
+        service: script.master_bath_lights_turn_off
+      set_level:
+        service: script.master_bath_lights_set_level
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        service: script.master_bath_lights_set_white_value
+        data:
+          white_value: '{{ white_value }}'
+      set_color:
+        service: script.master_bath_lights_set_color
+        data:
+          h: '{{ h }}'
+          s: '{{ s }}'
+          
+    living_room:
+      unique_id: light.living_room
+      level_template: "{{ state_attr('light.living_room_hue', 'brightness') | int }}"
+      value_template: "{{ is_state('light.living_room_hue', 'on') or
+        (is_state('light.ir_strips', 'on') and is_state('light.theater_hue', 'off')) }}"
+      color_template: "{{ state_attr('light.living_room_hue', 'hs_color') }}"
+      turn_on:
+        service: script.living_room_lights_turn_on
+      turn_off:
+        service: script.living_room_lights_turn_off
+      set_level:
+        service: script.living_room_lights_set_level
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        service: script.living_room_lights_set_white_value
+        data:
+          white_value: '{{ white_value }}'
+      set_color:
+        service: script.living_room_lights_set_color
+        data:
+          h: '{{ h }}'
+          s: '{{ s }}'
+
+    dining:
+      unique_id: light.dining
+      level_template: "{{ state_attr('light.dining_hue', 'brightness') | int }}"
+      value_template: "{{ is_state('light.dining_hue', 'on') or 
+        (is_state('light.display_cabinet_strip', 'on') and is_state('light.living_room_strips', 'off')) }}"
+      color_template: "{{ state_attr('light.dining_hue', 'hs_color') }}"
+      turn_on:
+        service: script.dining_lights_turn_on
+      turn_off:
+        service: script.dining_lights_turn_off
+      set_level:
+        service: script.dining_lights_set_level
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        service: script.dining_lights_set_white_value
+        data:
+          white_value: '{{ white_value }}'
+      set_color:
+        service: script.dining_lights_set_color
+        data:
+          h: '{{ h }}'
+          s: '{{ s }}'
+
+    theater:
+      unique_id: light.theater
+      level_template: "{{ state_attr('light.theater_hue', 'brightness') | int }}"
+      value_template: "{{ is_state('light.theater_hue', 'on') or
+        (is_state('light.ir_strips', 'on') and is_state('light.living_room_hue', 'off')) }}"
+      color_template: "{{ state_attr('light.theater_hue', 'hs_color') }}"
+      turn_on:
+        service: script.theater_lights_turn_on
+      turn_off:
+        service: script.theater_lights_turn_off
+      set_level:
+        service: script.theater_lights_set_level
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        service: script.theater_lights_set_white_value
+        data:
+          white_value: '{{ white_value }}'
+      set_color:
+        service: script.theater_lights_set_color
+        data:
+          h: '{{ h }}'
+          s: '{{ s }}'
+
+    main:
+      unique_id: light.main
+      level_template: "{{ state_attr('light.living_room_strips', 'brightness') | int }}"
+      value_template: "{{ is_state('light.living_room_strips', 'on') }}"
+      color_template: "{{ state_attr('light.living_room_strips', 'hs_color') }}"
+      turn_on:
+        service: script.main_lights_turn_on
+      turn_off:
+        service: script.main_lights_turn_off
+      set_level:
+        service: script.main_lights_set_level
+        data:
+          brightness: '{{ brightness }}'
+      set_white_value:
+        service: script.main_lights_set_white_value
+        data:
+          white_value: '{{ white_value }}'
+      set_color:
+        service: script.main_lights_set_color
+        data:
+          h: '{{ h }}'
+          s: '{{ s }}'

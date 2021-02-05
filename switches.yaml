@@ -1,0 +1,331 @@
+- platform: broadlink
+  mac: a0:43:b0:32:cf:fb
+  switches:
+    - name: Office Speakers Power
+      command_on: JgBQAAABKpUTExMRFBITExISFDcTEhMSEzcUOBI4EjgUNxMSEzgSOBM3FBISExM3ExMSEhQSExITEhQ3EzcTExM3EzcUNxM3EwAFKQABKksTAA0FAAAAAAAAAAA=
+      command_off: JgBQAAABKpUTExMRFBITExISFDcTEhMSEzcUOBI4EjgUNxMSEzgSOBM3FBISExM3ExMSEhQSExITEhQ3EzcTExM3EzcUNxM3EwAFKQABKksTAA0FAAAAAAAAAAA=
+    - name: Office Speakers Input
+      command_on: JgBQAAABKpUTExISFBITEhMSFDcTEhMSEzcUNxM4EjgTOBMSEzcTOBM3FBETOBM4EhIUEhMSExIUEhI4ExITExM3EzcUNxM3EwAFKQABKksTAA0FAAAAAAAAAAA=
+      command_off: JgBQAAABKpUTExISFBITEhMSFDcTEhMSEzcUNxM4EjgTOBMSEzcTOBM3FBETOBM4EhIUEhMSExIUEhI4ExITExM3EzcUNxM3EwAFKQABKksTAA0FAAAAAAAAAAA=
+    - name: Office TV Power On
+      command_on: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEjcSNxISEjcSEhISEhISNxISEhISNxISEjcSNxI3EgAE3AABJ0oSAAxS
+      command_off: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEjcSNxISEjcSEhISEhISNxISEhISNxISEjcSNxI3EgAE3AABJ0oSAAxS
+    - name: Office TV Power Off
+      command_on: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEhISEhI3EjcSEhISEhISNxI3EjcSEhISEjcSNxI3EgAE3AABJ0oSAAxS
+      command_off: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEhISEhI3EjcSEhISEhISNxI3EjcSEhISEjcSNxI3EgAE3AABJ0oSAAxS
+    - name: Office TV Volume Up
+      command_on: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxI3EjcSNxI3EhISEhISEhISEhISEhISEhI3EjcSNxI3EgAE3AABJ0oSAAxS
+      command_off: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxI3EjcSNxI3EhISEhISEhISEhISEhISEhI3EjcSNxI3EgAE3AABJ0oSAAxS
+    - name: Office TV Volume Down
+      command_on: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEhISEhISEjcSEhISEhISNxI3EjcSNxISEjcSNxI3EgAE3AABJ0oSAAxS
+      command_off: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEhISEhISEjcSEhISEhISNxI3EjcSNxISEjcSNxI3EgAE3AABJ0oSAAxS
+    - name: Office TV Volume Mute
+      command_on: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEhISEhISEhISNxISEhISNxI3EjcSNxI3EhISNxI3EgAE3AABJ0oSAAxS
+      command_off: JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEhISEhISEhISNxISEhISNxI3EjcSNxI3EhISNxI3EgAE3AABJ0oSAAxS
+
+
+
+- platform: template
+  switches:
+    starlight: 
+      unique_id: switch.starlight
+      value_template: "{{ state_attr('switch.starlight_outlet', 'current_power_w') | float > 1 }}"
+      turn_on:
+        - condition: state
+          entity_id: switch.starlight_outlet
+          state: 'off'
+        - service: switch.turn_on
+          entity_id: switch.starlight_outlet
+        - service: switch.toggle
+          entity_id: switch.starlight_switchbot
+      turn_off:
+        - service: switch.turn_off
+          entity_id: switch.starlight_outlet
+
+    fan:
+      unique_id: switch.fan
+      value_template: "{{ state_attr('climate.hallway_thermostat', 'fan_action') | lower == 'running' }}"
+      turn_on:
+        service: climate.set_fan_mode
+        data:
+          fan_mode: On Low
+          entity_id: climate.hallway_thermostat
+      turn_off:
+        service: climate.set_fan_mode
+        data:
+          fan_mode: Auto Low
+          entity_id: climate.hallway_thermostat
+
+    bedtime:
+      unique_id: switch.bedtime
+      value_template: "{{ is_state('input_boolean.bedtime', 'on') }}"
+      turn_on:
+        - condition: state
+          entity_id: input_boolean.bedtime
+          state: 'off'
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.bedtime
+        - data:
+            brightness: 128
+            rgb_color:
+            - 255
+            - 0
+            - 0
+          entity_id: light.master_surround
+          service: light.turn_on
+        - data:
+            brightness: 255
+            rgb_color:
+            - 255
+            - 255
+            - 128
+          entity_id: light.master_bedside
+          service: light.turn_on
+        - service: switch.turn_on
+          entity_id: switch.starlight
+        - data: {}
+          entity_id: 
+            - light.living_room
+            - light.dining
+            - light.theater
+            - light.kitchen
+            - light.galaxytaba
+            - light.fire_tab
+            - light.galaxytabs6
+          service: light.turn_off
+        - service: switch.turn_off
+          entity_id:
+            - switch.living_room_monitor
+            - switch.fountain
+            - switch.bidet
+        - service: media_player.turn_off
+          entity_id:
+            - media_player.theater_tv
+            - media_player.office_tv
+        - data:
+            data:
+              type: tts
+            message: Next alarm in {{ ((state_attr('sensor.kevin_s_galaxy_note_10_next_alarm', 'Time
+              in Milliseconds') / 1000 - as_timestamp(now())) / 3600) | round(2) }} hours
+            target: Master Echo Dot
+          service: notify.alexa_media
+        - service: input_datetime.set_datetime
+          data:
+            datetime: '{{ states(''sensor.kevin_s_galaxy_note_10_next_alarm'') }}'
+          entity_id: input_datetime.morning_alarm
+      turn_off:
+        - condition: state
+          entity_id: input_boolean.bedtime
+          state: 'on'
+        - service: light.turn_off
+          entity_id: light.master
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.bedtime
+        - data:
+            payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+            topic: wallpanel/fire_tab/command
+          service: mqtt.publish
+        - data:
+            payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+            topic: wallpanel/galaxytaba/command
+          service: mqtt.publish
+        - data:
+            payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+            topic: wallpanel/galaxytabs6/command
+          service: mqtt.publish
+        - service: switch.turn_on
+          entity_id:
+            - switch.living_room_monitor
+            # - switch.home_speakers
+            - switch.bidet
+    away:
+      unique_id: switch.away
+      value_template: "{{ is_state('input_boolean.away', 'on') }}"
+      turn_on:
+        - condition: state
+          entity_id: input_boolean.away
+          state: 'off'
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.away
+        - data: {}
+          entity_id: automation.hallway_bath_door_motion,automation.master_bath_door_motion,
+            automation.room_motion_detected_hallway_lights,
+            automation.kitchen_motion_detected,automation.kitchen_motion_detected_dining_lights,
+            automation.kitchen_motion_detected_living_room_lights,
+            automation.master_motion_detected,automation.office_motion_detected,
+            automation.office_motion_detected_when_wfh,automation.office_left_when_wfh
+          service: automation.turn_off
+        - service: automation.turn_on
+          entity_id: automation.nightlight
+          data: {}
+        - data:
+            entity_id:
+            - light.dining
+            - light.office
+            - light.living_room
+            - light.master
+            - light.hallway
+            - light.theater
+            - light.kitchen_overhead
+            - light.kitchen_spotlight
+            - light.master_bath
+            - light.hallway_bath_light
+            - light.galaxytaba
+            - light.fire_tab
+            - light.galaxytabs6
+            - light.fire_tab
+          service: light.turn_off
+        - data:
+            brightness: '{% if state_attr(''sun.sun'', ''elevation'') < 10 %} 128 {% else
+              %} 0 {% endif %}'
+            entity_id: light.kitchen_strips
+            rgb_color:
+            - 233
+            - 233
+            - 0
+          service: light.turn_on
+        - data:
+            entity_id:
+            - switch.fountain
+            - switch.living_room_monitor
+            - switch.master_bath_fan
+            - switch.hallway_bath_fan
+            # - switch.home_speakers
+            - switch.bidet
+          service: switch.turn_off
+        - service: media_player.turn_off
+          entity_id:
+            - media_player.theater_tv
+            - media_player.office_tv
+        - data:
+            source: 'Kevin''s iPhone'
+          entity_id: media_player.spotify
+          service: media_player.select_source
+        - service: script.data_vacuum_room
+          data:
+            room: '{{ { states.counter.rooms_since_master_bath.state: "Master Bath", 
+              states.counter.rooms_since_master.state: "Master",
+              states.counter.rooms_since_hallway.state: "Hallway",
+              states.counter.rooms_since_hallway_bath.state: "Hallway Bath",
+              states.counter.rooms_since_office.state: "Office",
+              states.counter.rooms_since_kitchen.state: "Kitchen",
+              states.counter.rooms_since_dining.state: "Dining",
+              states.counter.rooms_since_living_room.state: "Living Room",
+              states.counter.rooms_since_theater.state: "Theater" } ["8"] }}'
+      turn_off:
+        - condition: state
+          entity_id: input_boolean.away
+          state: 'on'
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.away
+        - data: {}
+          entity_id: automation.hallway_bath_door_motion,automation.master_bath_door_motion,
+            automation.room_motion_detected_hallway_lights,
+            automation.kitchen_motion_detected,automation.kitchen_motion_detected_dining_lights,
+            automation.kitchen_motion_detected_living_room_lights,
+            automation.master_motion_detected,automation.office_motion_detected,
+            automation.office_motion_detected_when_wfh,automation.office_left_when_wfh
+          service: automation.turn_on
+        - service: automation.turn_off
+          entity_id: automation.nightlight
+          data: {}
+        - service: switch.turn_on
+          entity_id: 
+            - switch.living_room_monitor
+            - switch.bidet
+        - service: automation.trigger
+          entity_id:
+            - automation.kitchen_motion_detected
+            - automation.kitchen_motion_detected_dining_lights
+            - automation.kitchen_motion_detected_living_room_lights
+
+    guests_home:
+      unique_id: switch.guests_home
+      value_template: "{{ is_state('input_boolean.guests_home', 'on') }}"
+      turn_on:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.guests_home
+      turn_off:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.guests_home
+
+    mop:
+      turn_on:
+        - service: vacuum.set_fan_speed
+          entity_id: vacuum.data
+          data:
+            fan_speed: mop
+        - service: vacuum.send_command
+          entity_id: vacuum.data
+          data:
+            command: zoned_cleanup
+            params:
+              zone_ids:
+              - Mop Area
+      turn_off:
+        - service: vacuum.set_fan_speed
+          entity_id: vacuum.data
+          data:
+            fan_speed: min
+        - service: vacuum.stop
+          entity_id: vacuum.data
+
+    working:
+      unique_id: switch.working
+      value_template: "{{ is_state('input_boolean.working', 'on') }}"
+      turn_on:
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.working
+      turn_off:
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.working
+        - service: media_player.turn_off
+          entity_id: media_player.office_tv
+
+    fireplace:
+      unique_id: switch.fireplace
+      value_template: "{{ is_state('input_boolean.fireplace', 'on') }}"
+      turn_on:
+        - condition: state
+          entity_id: input_boolean.fireplace
+          state: 'off'
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.fireplace
+        - service: browser_mod.navigate
+          data:
+            navigation_path: /lovelace-fireplace/home
+            deviceID: raspberrypi_living_room
+      turn_off:
+        - condition: state
+          entity_id: input_boolean.fireplace
+          state: 'on'
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.fireplace
+        - service: browser_mod.navigate
+          data:
+            navigation_path: /lovelace-slideshow/home
+            deviceID: raspberrypi_living_room
+
+    aquarium:
+      unique_id: switch.aquarium
+      value_template: "{{ is_state('input_boolean.aquarium', 'on') }}"
+      turn_on:
+        - condition: state
+          entity_id: input_boolean.aquarium
+          state: 'off'
+        - service: input_boolean.turn_on
+          entity_id: input_boolean.aquarium
+        - service: browser_mod.navigate
+          data:
+            navigation_path: /lovelace-aquarium/home
+            deviceID: raspberrypi_living_room
+      turn_off:
+        - condition: state
+          entity_id: input_boolean.aquarium
+          state: 'on'
+        - service: input_boolean.turn_off
+          entity_id: input_boolean.aquarium
+        - service: browser_mod.navigate
+          data:
+            navigation_path: /lovelace-slideshow/home
+            deviceID: raspberrypi_living_room

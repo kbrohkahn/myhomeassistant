@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_video",
+    "data": {
+        "config": {
+            "kiosk_mode": {
+                "hide_header": true
+            },
+            "views": [
+                {
+                    "title": "Aquarium",
+                    "path": "aquarium",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:video-background-card",
+                            "fileName": "aquarium.mp4"
+                        }
+                    ]
+                },
+                {
+                    "title": "Fireplace",
+                    "path": "fireplace",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:video-background-card",
+                            "fileName": "fireplace.mp4",
+                            "style": "ha-card {\n  overflow: hidden;\n}\n"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,183 @@
+{
+    "version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "id": "9a265d131cdc4ac6b8e4e803d0534275",
+                "type": "js",
+                "url": "local/clock-card.js"
+            },
+            {
+                "id": "cff0e705fe7c458eb225ccf2cd3bef15",
+                "type": "module",
+                "url": "/hacsfiles/simple-thermostat/simple-thermostat.js"
+            },
+            {
+                "id": "ced532654c5e45449e6d335cc6e1d8c6",
+                "type": "js",
+                "url": "/hacsfiles/our-groceries-card/our-groceries-card.js"
+            },
+            {
+                "id": "3d79439ae22c486089197752cf50a2a3",
+                "type": "module",
+                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js"
+            },
+            {
+                "id": "5cbc644802e346759b39c93dbfe3df5e",
+                "type": "module",
+                "url": "local/clock-card-vertical.js"
+            },
+            {
+                "id": "081f8e4a50bb49449a0171f7e3824c77",
+                "type": "module",
+                "url": "local/thermostat-text-l.js"
+            },
+            {
+                "id": "2151a17561c84c7dbfd4c0cf4a5f4d0b",
+                "type": "module",
+                "url": "local/weather-text.js"
+            },
+            {
+                "id": "1fa22bccfa094eb1af92f0e5c35e3307",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-card-mod/card-mod.js"
+            },
+            {
+                "id": "ee67d481200d4994b139cd28ad34e061",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js"
+            },
+            {
+                "id": "71c82eb532d34c02ae253a855923b6ea",
+                "type": "module",
+                "url": "/hacsfiles/lovelace-layout-card/layout-card.js"
+            },
+            {
+                "id": "e718af162a55471389e71f1f0d19efb6",
+                "type": "module",
+                "url": "/hacsfiles/decluttering-card/decluttering-card.js"
+            },
+            {
+                "id": "ee51ac3b9a234865bf233781410e57f2",
+                "type": "module",
+                "url": "/hacsfiles/vacuum-card/vacuum-card.js"
+            },
+            {
+                "id": "74482ae32d8245f0a71beed58aa00773",
+                "type": "module",
+                "url": "/hacsfiles/zha-network-card/zha-network-card.js"
+            },
+            {
+                "id": "11a92483744849a9a5d9c69dea2d1843",
+                "type": "module",
+                "url": "local/zha-network-vizualization-card/zha-network-vizualization-card.js"
+            },
+            {
+                "id": "1bcb36cdaeea447a99917bc9b7b1d6e6",
+                "type": "module",
+                "url": "local/targeting-computer-bp.js"
+            },
+            {
+                "id": "330a864e33234a328977efe16c8f3a08",
+                "type": "module",
+                "url": "local/targeting-computer-clock-o.js"
+            },
+            {
+                "id": "46abf00e2e384512886301dcd69f4b62",
+                "type": "css",
+                "url": "local/fonts/AG-Stencil.ttf"
+            },
+            {
+                "id": "7c375f4dd78e42f0b67b5b3de439eda8",
+                "type": "css",
+                "url": "https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap"
+            },
+            {
+                "id": "de4602c21191401d862c2ccb604646e9",
+                "type": "module",
+                "url": "/hacsfiles/circle-sensor-card/circle-sensor-card.js"
+            },
+            {
+                "id": "e96f884b43f447169b1c63ca174d0246",
+                "type": "module",
+                "url": "local/floorplan/floorplan-card.js"
+            },
+            {
+                "id": "8d638be38f76408aa08b411eea025900",
+                "type": "module",
+                "url": "/hacsfiles/custom-sidebar/custom-sidebar.js"
+            },
+            {
+                "id": "1b0af66c111d41538fc4886f0228cd9f",
+                "type": "module",
+                "url": "/hacsfiles/weather-card-chart/weather-card-chart-r.js"
+            },
+            {
+                "id": "1f9c508cc64347faa5ae929cd825444c",
+                "type": "module",
+                "url": "/hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js"
+            },
+            {
+                "url": "local/countdown-card-p.js",
+                "type": "module",
+                "id": "6a9256fa739d4a989843b38b993421bf"
+            },
+            {
+                "url": "/hacsfiles/lovelace-hui-element/hui-element.js",
+                "type": "module",
+                "id": "78749d3933c14d5daecfac6110bc2d4e"
+            },
+            {
+                "url": "local/temperature-sensor-card-k.js",
+                "type": "module",
+                "id": "1b9473922dcf426482cbdc8fac46ab4a"
+            },
+            {
+                "url": "/hacsfiles/kiosk-mode/kiosk-mode.js",
+                "type": "module",
+                "id": "a524693d73ed4640ad9b1f5b130cd233"
+            },
+            {
+                "url": "/hacsfiles/lovelace-card-templater/lovelace-card-templater.js",
+                "type": "module",
+                "id": "29103f7ec2a9441abd72aaef8797fd0b"
+            },
+            {
+                "url": "/hacsfiles/light-entity-card/light-entity-card.js",
+                "type": "module",
+                "id": "edebfe6bdc6d44cd9499590b33af9c63"
+            },
+            {
+                "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js",
+                "type": "module",
+                "id": "d081a2743b8947c9afad92b31ade88d5"
+            },
+            {
+                "url": "/hacsfiles/lovelace-kanji-clock-card/kanji-clock-card.js",
+                "type": "module",
+                "id": "6e5fb226376d4b3c89f9b9391161fc38"
+            },
+            {
+                "url": "/hacsfiles/lovelace-thermostat-card/main.js",
+                "type": "module",
+                "id": "921196c605ec4f27971fa9a7fb01501d"
+            },
+            {
+                "url": "/hacsfiles/ha-floorplan/floorplan.js",
+                "type": "module",
+                "id": "c196ce402f4e44cc8eb87b666819492b"
+            },
+            {
+                "url": "local/background-video-s.js",
+                "type": "module",
+                "id": "147e9e458467485c984ce1e66f9cb1ce"
+            },
+            {
+                "url": "/hacsfiles/ha-card-weather-conditions/ha-card-weather-conditions.js",
+                "type": "module",
+                "id": "15568669252c426296eb6beb8baf365d"
+            }
+        ]
+    }
+}

@@ -1,0 +1,1333 @@
+data_vacuum_room:
+  alias: Data Vacuum Room
+  sequence:
+  - service: vacuum.send_command
+    entity_id: vacuum.data
+    data:
+      command: segmented_cleanup
+      entity_id: vacuum.data
+      params:
+        segment_ids:
+        - '{{ room }}'
+  - service: vacuum.set_fan_speed
+    entity_id: vacuum.data
+    data:
+      fan_speed: '{% if room in [''Master'', ''Office'', ''Kitchen''] %} high {% else
+        %} medium {% endif %}'
+  - service: input_text.set_value
+    entity_id: input_text.data_current_room
+    data:
+      value: '{{ room }}'
+  mode: single
+  max: 10
+vacuum_kitchen:
+  alias: Vacuum Kitchen
+  sequence:
+  - service: script.data_vacuum_room
+    data:
+      room: Kitchen
+vacuum_master:
+  alias: Vacuum Master
+  sequence:
+  - service: script.data_vacuum_room
+    data:
+      room: Master
+vacuum_master_bath:
+  alias: Vacuum Master Bath
+  sequence:
+  - service: script.data_vacuum_room
+    data:
+      room: Master Bath
+vacuum_hallway:
+  alias: Vacuum Hallway
+  sequence:
+  - service: script.data_vacuum_room
+    data:
+      room: Hallway
+vacuum_hallway_bath:
+  alias: Vacuum Hallway Bath
+  sequence:
+  - service: script.data_vacuum_room
+    data:
+      room: Hallway Bath
+vacuum_office:
+  alias: Vacuum Office
+  sequence:
+  - service: script.data_vacuum_room
+    data:
+      room: Office
+vacuum_dining:
+  alias: Vacuum Dining
+  sequence:
+  - service: script.data_vacuum_room
+    data:
+      room: Dining
+vacuum_living_room:
+  alias: Vacuum Living Room
+  sequence:
+  - service: script.data_vacuum_room
+    data:
+      room: Living Room
+vacuum_theater:
+  alias: Vacuum Theater
+  sequence:
+  - service: script.data_vacuum_room
+    data:
+      room: Theater
+browser_sound_effect:
+  alias: Browser Sound Effect
+  sequence:
+  - service: media_player.select_source
+    data:
+      source: default
+      entity_id: '{% if states.switch.guest_home.state == "on" and states.switch.bedtime.state
+        == "on" %} media_player.snapcast_group_main,media_player.snapcast_group_master
+        {% elif states.switch.guest_home.state == "on" and states.switch.bedtime.state
+        == "off" and now().hour < 9 %} media_player.snapcast_group_main {% else %}
+        media_player.snapcast_group_main,media_player.snapcast_group_office,media_player.snapcast_group_master
+        {% endif %}'
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.mpd
+      media_content_type: music
+      media_content_id: file:///usr/share/hassio/share/media/soundeffects/{{ sound_effect_filename
+        }}
+    entity_id: media_player.mpd
+  - delay: '{{ sound_effect_length }}'
+  - service: media_player.select_source
+    data:
+      source: spotify
+    entity_id: media_player.snapcast_group_main,media_player.snapcast_group_office,media_player.snapcast_group_master
+  - service: media_player.media_stop
+    entity_id: media_player.mpd
+  - service: media_player.turn_off
+    entity_id: media_player.mpd
+  mode: parallel
+  max: 10
+wake_up:
+  alias: Wake Up
+  sequence:
+  - service: light.turn_on
+    entity_id:
+    - light.galaxytaba
+    - light.galaxytabs6
+    - light.fire_tab
+main_lights_random_scene:
+  alias: Main Lights Random Scene
+  sequence:
+  - service: hue.hue_activate_scene
+    data:
+      group_name: Main
+      scene_name: '{{ [ ''Fushimi Inari'', ''Flower Festival'', ''Katsura'', ''Mori
+        Pink Balloons'', ''Buddha in Temple'', ''Robot Restaurant'', ''Traffic Cones'',
+        ''Night Dragon'', ''Miyajima Cruise'', ''Osaka'', ''Buddha'', ''Sento Entrance'',
+        ''Flower Fuji'', ''Sento Bridge'', ''Wild Flowers'', ''Bamboo Forest'', ''Mori
+        Flowers'', ''Mori Green Balloons'', ''Kodaiji Forest at Night'', ''Kodaiji
+        at Night'', ''Grand Turk'', ''Himeji'', ''Mori Turqoise Balloons'', ''White
+        Temple'', ''Mori Rain'', ''Phuket'', ''Pallet Town'', ''Manly Beach'', ''Ice
+        Cave'', ''Ginza'', ''12 Apostles'', ''White Temple Info'', ''Arashiyama'',
+        ''Flower Stripes'', ''Kimono Forest'', ''Fuji Over Flowers'', ''Miyajima Sunset'',
+        ''Cambodian Sunset'', ''Australian Sunrise'', ''Gion'' ] | random }}'
+test:
+  alias: Test
+  sequence:
+  - data:
+      command: PowerOn
+      device: Onkyo AV Receiver
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+  mode: single
+notify:
+  alias: Notify
+  mode: single
+  sequence:
+  - service: browser_mod.popup
+    data:
+      card:
+        cards:
+        - content: '{% if notification_message == "" %} <no message> {% else %} ##
+            {{ notification_message }} {% endif %} '
+          type: markdown
+        - entity: script.acknowledge
+          icon: mdi:check
+          name: Acknowledge
+          tap_action:
+            action: call-service
+            service: script.acknowledge
+          type: button
+        type: vertical-stack
+      title: '{{ notification_title }}'
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  - service: notify.alexa_media
+    data:
+      data:
+        type: tts
+      message: '{% if notification_message == "" %} {{ notification_title }} {% else
+        %} {{ notification_title }}. {{ notification_message }} {% endif %}'
+      target: Dining Echo Dot
+  - condition: state
+    entity_id: switch.away
+    state: 'on'
+  - service: notify.mobile_app_kevin_s_galaxy_note_10
+    data:
+      message: '{{ notification_message }}'
+      title: '{{ notification_title }}'
+acknowledge:
+  alias: Acknowledge
+  mode: single
+  sequence:
+  - service: browser_mod.close_popup
+  - service: script.browser_sound_effect
+    data:
+      sound_effect_length: 00:00:02
+      sound_effect_filename: r2d2-5.mp3
+good_morning:
+  alias: Good Morning
+  sequence:
+  - condition: state
+    entity_id: person.kevin_broh_kahn
+    state: home
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.bedtime
+  mode: single
+bedtime:
+  alias: Bedtime
+  sequence:
+  - condition: state
+    entity_id: person.kevin_broh_kahn
+    state: home
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.bedtime
+  mode: single
+change_spotify_source:
+  alias: Change Spotify Source
+  fields:
+    source:
+      description: Source to play on
+      example: Snapcast
+  variables:
+    old_source: '{{ states.media_player.spotify.attributes.source }}'
+  sequence:
+  - service: '{% if old_source == ''Snapcast'' and source == ''SDSA-PC'' %}
+
+      script.office_speakers_input_double_toggle
+
+      {% elif old_source == ''SDSA-PC'' and source == ''Snapcast'' %}
+
+      script.office_speakers_input_single_toggle
+
+      {% else %}
+
+      script.do_nothing
+
+      {% endif %}
+
+      '
+  - condition: template
+    value_template: '{{ old_source != source }}'
+  - service: media_player.select_source
+    data:
+      source: '{{ source }}'
+    entity_id: media_player.spotify
+  mode: single
+update_template_lights:
+  alias: Update Template Lights
+  sequence:
+  - service: homeassistant.update_entity
+    data: {}
+    entity_id:
+    - light.kitchen
+    - light.dining
+    - light.living_room
+    - light.theater
+    - light.hallway
+    - light.office
+    - light.master
+  mode: single
+office_tv_input_hdmi_1:
+  alias: Office TV - Input HDMI 1
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.broadlink_rm4_pro_remote
+      command: b64:JgCQAAABJJMSExI3EhMROBITETgSNxE4ETgSNxE4EhMQFRITETgSNxE4ETgSExEUEhMRFBEUERMSExITETgSNxE4EjcSNxE4FAAE0wABJJMSExE4ExIROBEUEDkROBE4EjcROBE4ERQSExETEjgROBE4ETgSExETERQSExEVEDgRFBITETgSNxI3EjcSNxITEgANBQ==
+    entity_id: remote.broadlink_rm4_pro_remote
+  - delay: 00:00:01
+  - service: remote.send_command
+    data:
+      entity_id: remote.broadlink_rm4_pro_remote
+      command:
+      - b64:JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxI3EhISNxI3EhISNxISEhISEhI3EhISEhI3EhISNxI3EgAE3AABJ0oSAAxS
+      - b64:JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEjcSEhI3EhISNxISEhISNxISEjcSEhI3EhISNxI3EgAE3AABJ0oSAAxS
+    entity_id: remote.broadlink_rm4_pro_remote
+  mode: single
+office_tv_input_hdmi_2:
+  alias: Office TV - Input HDMI 2
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.broadlink_rm4_pro_remote
+      command: b64:JgCQAAABJJMSExI3EhMROBITETgSNxE4ETgSNxE4EhMQFRITETgSNxE4ETgSExEUEhMRFBEUERMSExITETgSNxE4EjcSNxE4FAAE0wABJJMSExE4ExIROBEUEDkROBE4EjcROBE4ERQSExETEjgROBE4ETgSExETERQSExEVEDgRFBITETgSNxI3EjcSNxITEgANBQ==
+    entity_id: remote.broadlink_rm4_pro_remote
+  - delay: 00:00:01
+  - service: remote.send_command
+    data:
+      entity_id: remote.broadlink_rm4_pro_remote
+      command:
+      - b64:JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxI3EhISNxI3EhISNxISEhISEhI3EhISEhI3EhISNxI3EgAE3AABJ0oSAAxS
+      - b64:JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxI3EhISNxI3EhISNxISEhISEhI3EhISEhI3EhISNxI3EgAE3AABJ0oSAAxS
+      - b64:JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEjcSEhI3EhISNxISEhISNxISEjcSEhI3EhISNxI3EgAE3AABJ0oSAAxS
+    entity_id: remote.broadlink_rm4_pro_remote
+  mode: single
+office_tv_input_hdmi_3:
+  alias: Office TV - Input HDMI 3
+  sequence:
+  - service: remote.send_command
+    data:
+      entity_id: remote.broadlink_rm4_pro_remote
+      command: b64:JgCQAAABJJMSExI3EhMROBITETgSNxE4ETgSNxE4EhMQFRITETgSNxE4ETgSExEUEhMRFBEUERMSExITETgSNxE4EjcSNxE4FAAE0wABJJMSExE4ExIROBEUEDkROBE4EjcROBE4ERQSExETEjgROBE4ETgSExETERQSExEVEDgRFBITETgSNxI3EjcSNxITEgANBQ==
+    entity_id: remote.broadlink_rm4_pro_remote
+  - delay: 00:00:01
+  - service: remote.send_command
+    data:
+      entity_id: remote.broadlink_rm4_pro_remote
+      command:
+      - b64:JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxI3EhISNxI3EhISNxISEhISEhI3EhISEhI3EhISNxI3EgAE3AABJ0oSAAxS
+      - b64:JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxI3EhISNxI3EhISNxISEhISEhI3EhISEhI3EhISNxI3EgAE3AABJ0oSAAxS
+      - b64:JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxI3EhISNxI3EhISNxISEhISEhI3EhISEhI3EhISNxI3EgAE3AABJ0oSAAxS
+      - b64:JgBQAAABJ5QSEhI3EhISNxISEjcSNxI3EjcSNxI3EhISEhISEjcSNxISEjcSEhI3EhISNxISEhISNxISEjcSEhI3EhISNxI3EgAE3AABJ0oSAAxS
+    entity_id: remote.broadlink_rm4_pro_remote
+  mode: single
+reset_tablet_dashboard:
+  alias: Reset Tablet Dashboard
+  sequence:
+  - data:
+      deviceID: '{{browser_mod_id}}'
+    service: browser_mod.close_popup
+  - service: light.turn_off
+    data:
+      entity_id: light.{{browser_mod_id}}
+  - service: browser_mod.navigate
+    data:
+      deviceID:
+      - '{{browser_mod_id}}'
+      navigation_path: /lovelace/floorplan
+2_30_commercial:
+  alias: 2:30 Commercial
+  sequence:
+  - service: remote.send_command
+    data:
+      command: InputBd/Dvd
+      device: Onkyo AV Receiver
+    entity_id: remote.harmony_hub
+  - delay: 00:02:15
+  - service: remote.send_command
+    data:
+      command: InputVcr/Dvr
+      device: Onkyo AV Receiver
+    entity_id: remote.harmony_hub
+  mode: single
+bath_time:
+  alias: Bath Time
+  sequence:
+  - service: spotcast.start
+    data:
+      device_name: Master Bath Echo Plus
+      uri: spotify:playlist:1Y2C4qpZQI0UA7kHihZ5NL
+      shuffle: true
+      repeat: context
+      start_volume: 60
+      force_playback: true
+      random_song: true
+  mode: single
+power_off_theater_tv_if_no_video:
+  alias: Power Off Theater TV if No Video
+  sequence:
+  - condition: state
+    entity_id: binary_sensor.theater_playing_or_paused
+    state: 'off'
+  - service: media_player.turn_off
+    entity_id: media_player.theater_tv
+  mode: single
+power_off_living_room_speakers_if_tv_off:
+  alias: Power Off Living Room Speakers if TV Off
+  sequence:
+  - service: remote.send_command
+    data:
+      command: PowerOff
+      device: Onkyo AV Receiver
+    entity_id: remote.harmony_hub
+  mode: single
+do_nothing:
+  alias: Do Nothing
+  sequence:
+  - service: homeassistant.update_entity
+    entity_id: switch.office_speakers_input
+  mode: single
+office_speakers_input_single_toggle:
+  alias: Office Speakers Input Single Toggle
+  sequence:
+  - service: switch.toggle
+    entity_id: switch.office_speakers_input
+  mode: single
+office_speakers_input_double_toggle:
+  alias: Office Speakers Input Double Toggle
+  sequence:
+  - service: switch.toggle
+    entity_id: switch.office_speakers_input
+  - service: switch.toggle
+    entity_id: switch.office_speakers_input
+  mode: single
+kitchen_lights_turn_on:
+  alias: Kitchen Lights Turn On
+  mode: parallel
+  variables:
+    brightness: '{% if states.switch.bedtime == ''on'' %} 64 {% else %} {{ (192 +
+      state_attr(''sun.sun'', ''elevation'') | int) | min(255) }} {% endif %}'
+    oldHue: '{{ (180 - (atan(state_attr(''sun.sun'', ''elevation'') / (180 - state_attr(''sun.sun'',
+      ''azimuth''))) / pi * 180 + (90 * (1 - ( ( (180 - state_attr(''sun.sun'', ''azimuth''))
+      | abs) /  (180 - state_attr(''sun.sun'', ''azimuth'')) ) ) ) ) / 360 * 180)
+      % 360 }}'
+    h: '{{ (((now().hour + now().minute / 60 + 11) % 24 - 12) / 12 | abs * 180 - 120)
+      % 360}}'
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected
+  - service: light.turn_on
+    entity_id: light.galaxytaba
+  - service: light.turn_on
+    entity_id: light.kitchen_strips
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ (h - 60) % 360}}'
+      - 100
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    entity_id: light.kitchen_spotlight
+    data:
+      brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 128
+        {% endif %}'
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    entity_id: light.kitchen_forward
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 70
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    entity_id: light.kitchen_left
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 70
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    entity_id: light.kitchen_mid_left
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 70
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    entity_id: light.kitchen_mid_right
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 70
+  - delay:
+      milliseconds: 100
+  - service: light.turn_on
+    entity_id: light.kitchen_right
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 70
+kitchen_lights_turn_off:
+  alias: Kitchen Lights Turn Off
+  mode: parallel
+  sequence:
+  - service: light.turn_off
+    entity_id:
+    - light.kitchen_spotlight
+    - light.kitchen_hue
+  - service: script.reset_tablet_dashboard
+    data:
+      browser_mod_id: galaxytaba
+kitchen_lights_set_level:
+  alias: Kitchen Lights Set Level
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected
+  - service: light.turn_on
+    entity_id: light.kitchen_overhead
+    data:
+      brightness: '{{ brightness }}'
+  - service: light.turn_on
+    entity_id: light.kitchen_strips
+    data:
+      brightness: '{{ brightness }}'
+  - service: light.turn_on
+    entity_id: light.kitchen_spotlight
+    data:
+      brightness: 128
+kitchen_lights_set_white_value:
+  alias: Kitchen Lights Set White Value
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected
+  - service: light.turn_on
+    entity_id: light.kitchen_overhead
+    data:
+      white_value: '{{ white_value }}'
+  - service: light.turn_on
+    entity_id: light.kitchen_strips
+    data:
+      white_value: '{{ white_value * 0.6 }}'
+kitchen_lights_set_color:
+  alias: Kitchen Lights Set Color
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected
+  - service: light.turn_on
+    entity_id: light.kitchen_overhead
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s * 0.6 }}'
+  - service: light.turn_on
+    entity_id: light.kitchen_strips
+    data:
+      hs_color:
+      - '{{ (h - 60) % 360 }}'
+      - '{{ s }}'
+office_lights_turn_on:
+  alias: Office Lights Turn On
+  mode: parallel
+  variables:
+    brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 255 {%
+      endif %}'
+  sequence:
+  - service: light.turn_on
+    entity_id: light.fire_tab
+  - service: light.turn_on
+    entity_id: light.office
+    data:
+      brightness: '{{ brightness }}'
+  - service: automation.turn_off
+    entity_id: automation.office_motion_undetected
+office_lights_turn_off:
+  alias: Office Lights Turn Off
+  mode: parallel
+  sequence:
+  - service: light.turn_off
+    entity_id:
+    - light.office_lamp
+    - light.office_strip_west
+    - light.office_strip_east
+    - light.office_tv_strip
+    - light.office_bedside_lamp
+  - service: script.reset_tablet_dashboard
+    data:
+      browser_mod_id: fire_tab
+office_lights_set_level:
+  alias: Office Lights Set Level
+  mode: parallel
+  variables:
+    hue_brightness: '{% if brightness == 0 %} 0 {% elif is_state(''switch.bedtime'',
+      ''on'') %} 128 {% else %} 255 {% endif %}'
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.office_motion_undetected
+  - service: light.turn_on
+    entity_id: light.office_lamp
+    data:
+      brightness: '{{ brightness }}'
+  - data:
+      hs_color:
+      - '{{ ((brightness / 255 * 360 + 0) % 360) | int }}'
+      - 100
+      brightness: '{{ hue_brightness }}'
+    entity_id:
+    - light.office_strip_east
+    - light.office_tv_strip
+    service: light.turn_on
+  - data:
+      hs_color:
+      - '{{ ((brightness / 255 * 360 + 60) % 360) | int }}'
+      - 100
+      brightness: '{{ hue_brightness }}'
+    entity_id:
+    - light.office_strip_west
+    - light.office_bedside_lamp
+    service: light.turn_on
+  - service: '{% if states.light.office_lamp.state == "off" %} 
+      switch.turn_off {% else %} switch.turn_on {% endif %}'
+    entity_id: switch.fountain
+  - service: '{% if states.light.office_lamp.state == "off" or brightness <= 32 
+      or states.binary_sensor.dark_while_not_bedtime.state == "off" %}
+      light.turn_off {% else %} light.turn_on {% endif %}'
+    entity_id: light.firestone
+office_lights_set_color:
+  alias: Office Lights Set Color
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.office_motion_undetected
+  - service: light.turn_on
+    entity_id:
+    - light.office_strip_east
+    - light.office_tv_strip
+    data:
+      hs_color:
+      - '{{ (h - 15) % 360 }}'
+      - '{{ s }}'
+  - service: light.turn_on
+    entity_id:
+    - light.office_strip_west
+    - light.office_bedside_lamp
+    data:
+      hs_color:
+      - '{{ (h + 15) % 360 }}'
+      - '{{ s }}'
+office_lights_set_white_value:
+  alias: Office Lights Set White Value
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.office_motion_undetected
+  - service: light.turn_on
+    entity_id:
+    - light.office_strip_west
+    - light.office_strip_east
+    - light.office_tv_strip
+    - light.office_bedside_lamp
+    data:
+      white_value: '{{ white_value }}'
+hallway_lights_turn_on:
+  alias: Kitchen Lights Turn On
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.hallway_hue
+    data:
+      hs_color:
+      - '{{ (((now().hour + now().minute / 60 + 11) % 24 - 12) / 12 | abs * 180 -
+        120) % 360}}'
+      - 70
+      brightness: '{% if states.switch.bedtime == "on" %} 64 {% elif states.sun.sun.attributes.elevation
+        < 10 %} 128 {% else %} 255 {% endif %}'
+  - service: automation.turn_off
+    entity_id: automation.room_motion_undetected_hallway_lights
+hallway_lights_turn_off:
+  alias: Hallway Lights Turn Off
+  mode: parallel
+  sequence:
+  - service: light.turn_off
+    entity_id: light.hallway_hue
+hallway_lights_set_level:
+  alias: Hallway Lights Set Level
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.room_motion_undetected_hallway_lights
+  - service: light.turn_on
+    entity_id: light.hallway_hue
+    data:
+      brightness: '{{ brightness }}'
+hallway_lights_set_white_value:
+  alias: Hallway Lights Set White Value
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.room_motion_undetected_hallway_lights
+  - service: light.turn_on
+    entity_id: light.hallway_hue
+    data:
+      white_value: '{{ white_value }}'
+hallway_lights_set_color:
+  alias: Hallway Lights Set Color
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.room_motion_undetected_hallway_lights
+  - service: light.turn_on
+    entity_id: light.hallway_hue
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+master_lights_turn_on:
+  alias: Master Lights Turn On
+  mode: parallel
+  variables:
+    brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 255 {%
+      endif %}'
+    h: '{{ (((now().hour + now().minute / 60 + 11) % 24 - 12) / 12 | abs * 180 - 120)
+      % 360 }}'
+  sequence:
+  - service: light.turn_on
+    entity_id: light.galaxytabs6
+  - service: light.turn_on
+    entity_id: light.master_surround
+    data:
+      hs_color:
+      - '{{ h }}'
+      - 80
+      brightness: 255
+  - service: light.turn_on
+    entity_id: light.master_bedside
+    data:
+      hs_color:
+      - '{{ (h + 60) % 360 }}'
+      - 50
+      brightness: 255
+  - service: automation.turn_off
+    entity_id: automation.master_motion_undetected
+  - condition: numeric_state
+    entity_id: sun.sun
+    attribute: elevation
+    below: '10'
+  - service: light.turn_on
+    entity_id: light.master_led_strip
+  - service: switch.turn_on
+    entity_id: switch.starlight
+master_lights_turn_off:
+  alias: Master Lights Turn Off
+  mode: parallel
+  sequence:
+  - service: light.turn_off
+    entity_id:
+    - light.master_hue
+    - light.master_led_strip
+  - service: script.reset_tablet_dashboard
+    data:
+      browser_mod_id: galaxytabs6
+  - service: switch.turn_off
+    entity_id: switch.starlight
+master_lights_set_level:
+  alias: Master Lights Set Level
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.master_motion_undetected
+  - service: light.turn_on
+    entity_id: light.master_hue
+    data:
+      brightness: '{{ brightness }}'
+master_lights_set_white_value:
+  alias: Master Lights Set White Value
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.master_motion_undetected
+  - service: light.turn_on
+    entity_id:
+    - light.master_hue
+    - light.master_led_strip
+    data:
+      white_value: '{{ white_value }}'
+master_lights_set_color:
+  alias: Master Lights Set Color
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.master_motion_undetected
+  - service: light.turn_on
+    entity_id:
+    - light.master_bedside
+    - light.master_led_strip
+    data:
+      hs_color:
+      - '{{ (h + 0) % 360 }}'
+      - '{{ s }}'
+  - service: light.turn_on
+    entity_id: light.master_surround
+    data:
+      hs_color:
+      - '{{ (h + 60) % 360 }}'
+      - '{{ s }}'
+master_bath_lights_turn_on:
+  alias: Master Bath Lights Turn On
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.master_bath
+    data:
+      brightness: '{{ (((12 - ((now().hour + now().minute / 60 + 11) % 24)) / 12)
+        | abs * 255) | int }}'
+master_bath_lights_turn_off:
+  alias: Master Bath Lights Turn Off
+  mode: parallel
+  sequence:
+  - service: light.turn_off
+    entity_id:
+    - light.master_bath_vanity
+    - light.master_bath_cabinet
+    - light.master_bath_under_vanity
+master_bath_lights_set_level:
+  alias: Master Bath Lights Set Level
+  mode: parallel
+  variables:
+    strip_brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %}
+      255 {% endif %}'
+    h: '{{ (( brightness / 255 * 360) % 360) | int }}'
+  sequence:
+  - service: light.turn_on
+    entity_id: light.master_bath_vanity
+    data:
+      brightness: '{{ brightness }}'
+  - data:
+      brightness: '{{ strip_brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 80
+    entity_id: light.master_bath_cabinet
+    service: light.turn_on
+  - data:
+      brightness: '{{ strip_brightness }}'
+      hs_color:
+      - '{{ (h + 60) % 360 }}'
+      - 80
+    entity_id: light.master_bath_under_vanity
+    service: light.turn_on
+master_bath_lights_set_white_value:
+  alias: Master Bath Lights Set White Value
+  mode: parallel
+  sequence:
+  - data:
+      white_value: '{{ white_value }}'
+    entity_id: light.master_bath_hue
+    service: light.turn_on
+master_bath_lights_set_color:
+  alias: Master Bath Lights Set Level
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.master_bath_hue
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+living_room_lights_turn_on:
+  alias: Living Room Lights Turn On
+  mode: parallel
+  variables:
+    brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 64 {% else %} 255 {%
+      endif %}'
+  sequence:
+  - service: light.turn_on
+    entity_id:
+    - light.living_room_hue
+    - light.ir_strips
+    - light.display_cabinet_strip
+    data:
+      brightness: '{{ brightness }}'
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected_living_room_lights
+living_room_lights_turn_off:
+  alias: Living Room Lights Turn Off
+  mode: parallel
+  sequence:
+  - service: light.turn_off
+    entity_id:
+    - light.living_room_hue
+    - light.ir_strips
+  - condition: state
+    entity_id: light.dining_hue
+    state: 'off'
+  - service: light.turn_off
+    entity_id: light.display_cabinet_strip
+living_room_lights_set_level:
+  alias: Living Room Lights Set Level
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.living_room_hue
+    data:
+      brightness: '{{ brightness }}'
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected_living_room_lights
+living_room_lights_set_white_value:
+  alias: Living Room Lights Set White Value
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.living_room_hue
+    data:
+      white_value: '{{ white_value }}'
+  - service: light.turn_on
+    entity_id: light.ir_strips
+    data:
+      white_value: '{{ white_value }}'
+  - service: light.turn_on
+    entity_id: light.display_cabinet_strip
+    data:
+      white_value: '{{ white_value }}'
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected_living_room_lights
+living_room_lights_set_color:
+  alias: Living Room Lights Set White Value
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.living_room_strips
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - service: light.turn_on
+    entity_id:
+    - light.living_room_lamps
+    - light.ir_strips
+    data:
+      hs_color:
+      - '{{ (h - 30) % 360 }}'
+      - '{{ s }}'
+  - service: light.turn_on
+    entity_id:
+    - light.living_room_lamp_spotlight
+    - light.living_room_lanterns
+    data:
+      hs_color:
+      - '{{ (h + 30) % 360 }}'
+      - '{{ s }}'
+  - service: light.turn_on
+    entity_id: light.display_cabinet_strip
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected_living_room_lights
+dining_lights_turn_on:
+  alias: Office Lights Turn On
+  mode: parallel
+  variables:
+    brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 128 {% else %} 255
+      {% endif %}'
+    h: '{{ (((now().hour + now().minute / 60 + 11) % 24 - 12) / 12 | abs * 180 - 120)
+      % 360}}'
+  sequence:
+  - service: light.turn_on
+    entity_id: light.dining_60
+    data:
+      brightness: '{% if is_state(''switch.bedtime'', ''on'') %} 128 {% else %} 255
+        {% endif %}'
+      hs_color:
+      - '{{ h }}'
+      - 40
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_120
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 40
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_180
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 40
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_240
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 40
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_300
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 40
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_360
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 40
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected_dining_lights
+  - condition: state
+    entity_id: light.living_room_strips
+    state: 'off'
+  - service: light.turn_on
+    entity_id: light.display_cabinet_strip
+    data:
+      brightness: '{{ brightness }}'
+      hs_color:
+      - '{{ h }}'
+      - 100
+dining_lights_turn_off:
+  alias: Office Lights Turn Off
+  mode: parallel
+  sequence:
+  - service: light.turn_off
+    entity_id: light.dining_hue
+  - condition: state
+    entity_id: light.living_room_hue
+    state: 'off'
+  - service: light.turn_off
+    entity_id: light.display_cabinet_strip
+dining_lights_set_level:
+  alias: Office Lights Set Level
+  mode: parallel
+  sequence:
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected_dining_lights
+  - service: light.turn_on
+    entity_id: light.dining_60
+    data:
+      brightness: '{{ brightness }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_120
+    data:
+      brightness: '{{ brightness }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_180
+    data:
+      brightness: '{{ brightness }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_240
+    data:
+      brightness: '{{ brightness }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_300
+    data:
+      brightness: '{{ brightness }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_360
+    data:
+      brightness: '{{ brightness }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.display_cabinet_strip
+    data:
+      brightness: '{{ brightness }}'
+dining_lights_set_white_value:
+  alias: Office Lights Set White Value
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.dining_60
+    data:
+      white_value: '{{ white_value }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_120
+    data:
+      white_value: '{{ white_value }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_180
+    data:
+      white_value: '{{ white_value }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_240
+    data:
+      white_value: '{{ white_value }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_300
+    data:
+      white_value: '{{ white_value }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_360
+    data:
+      white_value: '{{ white_value }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.display_cabinet_strip
+    data:
+      white_value: '{{ white_value }}'
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected_dining_lights
+dining_lights_set_color:
+  alias: Office Lights Set White Color
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.dining_60
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_120
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_180
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_240
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_300
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.dining_360
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - delay:
+      milliseconds: 150
+  - service: light.turn_on
+    entity_id: light.display_cabinet_strip
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - service: automation.turn_off
+    entity_id: automation.kitchen_motion_undetected_dining_lights
+theater_lights_turn_on:
+  alias: Theater Lights Turn On
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.theater_hue
+  - service: light.turn_on
+    entity_id: light.ir_strips
+theater_lights_turn_off:
+  alias: Theater Lights Turn On
+  mode: parallel
+  sequence:
+  - service: light.turn_off
+    entity_id: light.theater_hue
+  - condition: state
+    entity_id: light.living_room_hue
+    state: 'off'
+  - service: light.turn_off
+    entity_id: light.ir_strips
+theater_lights_set_level:
+  alias: Theater Lights Turn On
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.theater_hue
+    data:
+      brightness: '{{ brightness }}'
+theater_lights_set_white_value:
+  alias: Theater Lights Turn On
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.theater_hue
+    data:
+      white_value: '{{ white_value }}'
+  - service: light.turn_on
+    entity_id: light.ir_strips
+    data:
+      white_value: '{{ white_value }}'
+theater_lights_set_color:
+  alias: Theater Lights Turn On
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.theater_hue
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - service: light.turn_on
+    entity_id: light.ir_strips
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+main_lights_turn_on:
+  alias: Main Lights Turn On
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id: light.main
+    data:
+      hs_color:
+      - '{{ (((now().hour + now().minute / 60 + 11) % 24 - 12) / 12 | abs * 180 -
+        120) % 360}}'
+      - 80
+      brightness: 255
+  - service: automation.turn_off
+    entity_id:
+    - automation.room_motion_undetected_hallway_lights
+    - automation.kitchen_motion_undetected
+    - automation.kitchen_motion_undetected_living_room_lights
+    - automation.kitchen_motion_undetected_dining_lights
+main_lights_turn_off:
+  alias: Main Lights Turn Off
+  mode: parallel
+  sequence:
+  - service: light.turn_off
+    entity_id:
+      - light.kitchen
+      - light.dining
+      - light.hallway
+      - light.living_room
+main_lights_set_level:
+  alias: Main Lights Set Level
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id:
+      - light.kitchen
+      - light.dining
+      - light.hallway
+      - light.living_room
+    data:
+      brightness: '{{ brightness }}'
+  - service: automation.turn_off
+    entity_id:
+    - automation.room_motion_undetected_hallway_lights
+    - automation.kitchen_motion_undetected
+    - automation.kitchen_motion_undetected_living_room_lights
+    - automation.kitchen_motion_undetected_dining_lights
+main_lights_set_white_value:
+  alias: Main Lights Set White Value
+  mode: parallel
+  sequence:
+  - service: light.turn_on
+    entity_id:
+      - light.kitchen
+      - light.dining
+      - light.hallway
+      - light.living_room
+    data:
+      white_value: '{{ white_value }}'
+  - service: automation.turn_off
+    entity_id:
+    - automation.room_motion_undetected_hallway_lights
+    - automation.kitchen_motion_undetected
+    - automation.kitchen_motion_undetected_living_room_lights
+    - automation.kitchen_motion_undetected_dining_lights
+main_lights_set_color:
+  alias: Main Lights Set Color
+  mode: parallel
+  variables:
+    complement_h: '{{ (h + (states.input_number.main_lights_secondary_angle.state
+      | int)) % 360 }}'
+  sequence:
+  - service: light.turn_on
+    entity_id: light.kitchen_spotlight
+  - service: light.turn_on
+    entity_id:
+    - light.living_room_strips
+    - light.hallway_hue
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ s }}'
+  - service: light.turn_on
+    entity_id:
+    - light.dining_hue
+    - light.living_room_lamp_spotlight
+    data:
+      hs_color:
+      - '{{ complement_h }}'
+      - '{{ 2 * s / 3 }}'
+  - service: light.turn_on
+    entity_id:
+    - light.living_room_lanterns
+    - light.ir_strips
+    - light.kitchen_strips
+    data:
+      hs_color:
+      - '{{ complement_h }}'
+      - '{{ s }}'
+  - service: light.turn_on
+    entity_id:
+    - light.kitchen_overhead
+    - light.living_room_lamps
+    data:
+      hs_color:
+      - '{{ h }}'
+      - '{{ 2 * s / 3 }}'
+  - service: light.turn_on
+    entity_id: light.display_cabinet_strip
+    data:
+      hs_color:
+      - '{{ h }}'
+      - 100
+  - service: automation.turn_off
+    entity_id:
+    - automation.room_motion_undetected_hallway_lights
+    - automation.kitchen_motion_undetected
+    - automation.kitchen_motion_undetected_living_room_lights
+    - automation.kitchen_motion_undetected_dining_lights

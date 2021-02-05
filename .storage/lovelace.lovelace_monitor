@@ -1,0 +1,1078 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_monitor",
+    "data": {
+        "config": {
+            "decluttering_templates": {
+                "scene_button": {
+                    "card": {
+                        "entity": "light.main",
+                        "image": "local/images/huescenes/[[name]].jpg",
+                        "name": "[[name]]",
+                        "show_state": false,
+                        "state_filter": {
+                            "off": "brightness(50%)",
+                            "on": "brightness(100%)"
+                        },
+                        "tap_action": {
+                            "action": "call-service",
+                            "service": "scene.turn_on",
+                            "service_data": {
+                                "entity_id": "[[id]]"
+                            }
+                        },
+                        "type": "picture-entity"
+                    }
+                }
+            },
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.ups_load",
+                                            "max": 100,
+                                            "min": 0,
+                                            "type": "gauge"
+                                        },
+                                        {
+                                            "entity": "sensor.ups_time_left",
+                                            "max": 60,
+                                            "min": 0,
+                                            "type": "gauge"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "automation.office_motion_detected_when_wfh",
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "automation.office_left_when_wfh",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "automation.office_motion_detected",
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "automation.office_motion_undetected",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "automation.front_door_closed",
+                                            "type": "button"
+                                        },
+                                        {
+                                            "entity": "automation.slideshow",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "button",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "entity": "automation.data_finished_room"
+                                        },
+                                        {
+                                            "type": "button",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "entity": "automation.data_starting_cleaning"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.processor_use",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 80,
+                                                "yellow": 50
+                                            },
+                                            "type": "gauge",
+                                            "min": 0,
+                                            "max": 100
+                                        },
+                                        {
+                                            "entity": "sensor.processor_temperature",
+                                            "severity": {
+                                                "green": 10,
+                                                "red": 60,
+                                                "yellow": 40
+                                            },
+                                            "type": "gauge",
+                                            "min": 10,
+                                            "max": 70
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.memory_use_percent",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 80,
+                                                "yellow": 50
+                                            },
+                                            "type": "gauge",
+                                            "min": 0,
+                                            "max": 100
+                                        },
+                                        {
+                                            "entity": "sensor.memory_use",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 13000,
+                                                "yellow": 8000
+                                            },
+                                            "type": "gauge",
+                                            "min": 0,
+                                            "max": 16000
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.swap_use_percent",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 80,
+                                                "yellow": 50
+                                            },
+                                            "type": "gauge",
+                                            "min": 0,
+                                            "max": 100
+                                        },
+                                        {
+                                            "entity": "sensor.swap_use",
+                                            "max": 1870,
+                                            "min": 0,
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 1500,
+                                                "yellow": 800
+                                            },
+                                            "type": "gauge"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.disk_use_percent",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 80,
+                                                "yellow": 50
+                                            },
+                                            "type": "gauge",
+                                            "min": 0,
+                                            "max": 100
+                                        },
+                                        {
+                                            "entity": "sensor.disk_use",
+                                            "max": 64,
+                                            "min": 0,
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 51,
+                                                "yellow": 32
+                                            },
+                                            "type": "gauge"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.verizon_fios_g1100_internetgateway_packets_s_sent",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "sensor.verizon_fios_g1100_internetgateway_kib_s_sent",
+                                            "name": "IOT WAN Send",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.verizon_fios_g1100_internetgateway_packets_s_received",
+                                                    "name": false
+                                                }
+                                            ],
+                                            "entity": "sensor.verizon_fios_g1100_internetgateway_kib_s_received",
+                                            "name": "IOT WAN Receive",
+                                            "type": "custom:multiple-entity-row"
+                                        }
+                                    ],
+                                    "title": "IOT WAN"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "detail": 2,
+                                            "entity": "sensor.speedtest_download",
+                                            "graph": "line",
+                                            "icon": "mdi:download",
+                                            "name": "Download",
+                                            "type": "sensor",
+                                            "hours_to_show": 24
+                                        },
+                                        {
+                                            "detail": 2,
+                                            "entity": "sensor.speedtest_upload",
+                                            "graph": "line",
+                                            "icon": "mdi:upload",
+                                            "name": "Upload",
+                                            "type": "sensor",
+                                            "hours_to_show": 24
+                                        },
+                                        {
+                                            "detail": 2,
+                                            "entity": "sensor.speedtest_ping",
+                                            "graph": "line",
+                                            "name": "Ping",
+                                            "type": "sensor",
+                                            "hours_to_show": 24
+                                        }
+                                    ],
+                                    "type": "horizontal-stack",
+                                    "title": "Internet"
+                                },
+                                {
+                                    "type": "picture",
+                                    "image": "https://www.thinkbroadband.com/broadband/monitoring/quality/share/929d851b434c6f16b389fd151a065d73d9c997fc.png",
+                                    "style": "ha-card {\n  border-radius: 16px;\n  border-right: solid black 2px;\n  box-sizing: inset-box;\n}  \n",
+                                    "tap_action": {
+                                        "action": "none"
+                                    },
+                                    "hold_action": {
+                                        "action": "none"
+                                    }
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.adguard_average_processing_speed",
+                                            "graph": "line",
+                                            "name": "Speed",
+                                            "type": "sensor",
+                                            "hours_to_show": 72
+                                        },
+                                        {
+                                            "entity": "sensor.adguard_dns_queries_blocked_ratio",
+                                            "graph": "line",
+                                            "name": "Blocked",
+                                            "type": "sensor",
+                                            "hours_to_show": 72
+                                        }
+                                    ],
+                                    "title": "AdGuard",
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:network",
+                    "path": "network",
+                    "title": "Network"
+                },
+                {
+                    "title": "Power",
+                    "path": "power",
+                    "icon": "mdi:battery-50",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "title": "Sensors",
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.kitchen_motion_sensor_power",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "sensor.master_motion_sensor_power",
+                                            "name": "Master"
+                                        },
+                                        {
+                                            "entity": "sensor.office_motion_sensor_power",
+                                            "name": "Office"
+                                        }
+                                    ],
+                                    "refresh_interval": 60,
+                                    "hours_to_show": 72,
+                                    "title": "Motion"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.dining_window_power",
+                                            "name": "Dining"
+                                        },
+                                        {
+                                            "entity": "sensor.kitchen_door_power",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "sensor.pantry_door_power",
+                                            "name": "Pantry"
+                                        },
+                                        {
+                                            "entity": "sensor.laundry_door_power",
+                                            "name": "Laundry"
+                                        },
+                                        {
+                                            "entity": "sensor.master_closet_door_power",
+                                            "name": "M. Closet"
+                                        },
+                                        {
+                                            "entity": "sensor.master_bath_door_power",
+                                            "name": "M. Bath"
+                                        }
+                                    ],
+                                    "refresh_interval": 30,
+                                    "hours_to_show": 72,
+                                    "title": "Multipurpose (Door)"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.theater_switch_battery_level",
+                                            "name": "Theater"
+                                        },
+                                        {
+                                            "entity": "sensor.kitchen_switch_battery_level",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "sensor.office_switch_battery_level",
+                                            "name": "Office"
+                                        }
+                                    ],
+                                    "hours_to_show": 72,
+                                    "title": "Light Switches",
+                                    "refresh_interval": 60
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "title": "Current",
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.bidet",
+                                            "attribute": "current_power_w"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.theater_systems",
+                                            "attribute": "current_power_w"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.fountain",
+                                            "attribute": "current_power_w"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.starlight_outlet",
+                                            "attribute": "current_power_w"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "sensor.ups_watts"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "sensor.living_room_monitor_electrical_measurement"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Weekly",
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.bidet",
+                                            "attribute": "weekly_energy_total"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.theater_systems",
+                                            "attribute": "weekly_energy_total"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "horizontal-stack",
+                                    "cards": [
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.fountain",
+                                            "attribute": "weekly_energy_total"
+                                        },
+                                        {
+                                            "type": "entity",
+                                            "entity": "switch.starlight_outlet",
+                                            "attribute": "weekly_energy_total"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "title": "History",
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.bidet_current_power",
+                                            "name": "Bidet"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "> 100 W"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.theater_systems_current_power",
+                                            "name": "Theater"
+                                        },
+                                        {
+                                            "entity": "sensor.ups_watts",
+                                            "name": "UPS"
+                                        },
+                                        {
+                                            "entity": "sensor.living_room_monitor_electrical_measurement",
+                                            "name": "Living Room Monitor"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "10 < 100 W"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.fountain_current_power",
+                                            "name": "Fountain"
+                                        },
+                                        {
+                                            "entity": "sensor.starlight_current_power",
+                                            "name": "Starlight"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "< 10 W"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Temperature",
+                    "path": "temperature",
+                    "icon": "mdi:thermometer",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.hallway_thermostat_temperature",
+                                            "name": "Hallway"
+                                        },
+                                        {
+                                            "entity": "sensor.kitchen_door_temperature",
+                                            "name": "Kitchen"
+                                        },
+                                        {
+                                            "entity": "sensor.kitchen_motion_sensor_temperature",
+                                            "name": "Dining"
+                                        },
+                                        {
+                                            "entity": "sensor.master_motion_sensor_temperature",
+                                            "name": "Master"
+                                        },
+                                        {
+                                            "entity": "sensor.office_motion_sensor_temperature",
+                                            "name": "Office"
+                                        }
+                                    ],
+                                    "refresh_interval": 30,
+                                    "title": "Room Temperature",
+                                    "hours_to_show": 72
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.broadlink_rm4_pro_temperature",
+                                            "name": "Desk"
+                                        },
+                                        {
+                                            "entity": "sensor.pantry_door_temperature",
+                                            "name": "Pantry"
+                                        },
+                                        {
+                                            "entity": "sensor.hallway_bath_door_temperature",
+                                            "name": "Hallway Bath"
+                                        },
+                                        {
+                                            "entity": "sensor.laundry_door_temperature",
+                                            "name": "Laundry"
+                                        },
+                                        {
+                                            "entity": "sensor.master_closet_door_temperature",
+                                            "name": "Closet"
+                                        },
+                                        {
+                                            "entity": "sensor.master_bath_door_temperature",
+                                            "name": "Master Bath"
+                                        }
+                                    ],
+                                    "refresh_interval": 60,
+                                    "hours_to_show": 72,
+                                    "title": "Closed Temperature"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.openweathermap_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.dining_window_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.hallway_thermostat_temperature"
+                                        }
+                                    ],
+                                    "refresh_interval": 0,
+                                    "hours_to_show": 72,
+                                    "title": "Outdoor Temperature"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.accuweather_humidity",
+                                            "name": "Outdoor Humidity"
+                                        },
+                                        {
+                                            "entity": "sensor.broadlink_rm4_pro_humidity",
+                                            "name": "Desk Humidity"
+                                        }
+                                    ],
+                                    "hours_to_show": 72,
+                                    "refresh_interval": 60,
+                                    "title": "Humidity"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.estimated_accuweather_illuminance",
+                                            "name": "Accuweather"
+                                        },
+                                        {
+                                            "entity": "sensor.estimated_met_no_illuminance",
+                                            "name": "Met.No"
+                                        },
+                                        {
+                                            "entity": "sensor.fire_tab_light_level",
+                                            "name": "Office"
+                                        },
+                                        {
+                                            "entity": "sensor.galaxy_tab_s6_light_level",
+                                            "name": "Master"
+                                        }
+                                    ],
+                                    "refresh_interval": 60,
+                                    "hours_to_show": 72,
+                                    "title": "Illuminance"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.accuweather_precipitation",
+                                            "graph": "line",
+                                            "hours_to_show": 72,
+                                            "type": "sensor",
+                                            "name": "Precipitation"
+                                        },
+                                        {
+                                            "entity": "sensor.accuweather_visibility",
+                                            "graph": "line",
+                                            "hours_to_show": 72,
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.accuweather_pressure",
+                                            "graph": "line",
+                                            "hours_to_show": 72,
+                                            "icon": "mdi:gauge",
+                                            "type": "sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.accuweather_wind_speed",
+                                            "graph": "line",
+                                            "hours_to_show": 72,
+                                            "icon": "mdi:weather-windy",
+                                            "type": "sensor"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.openweathermap_cloud_coverage",
+                                            "graph": "line",
+                                            "hours_to_show": 72,
+                                            "type": "sensor",
+                                            "name": "Cloud Coverage"
+                                        },
+                                        {
+                                            "entity": "sensor.accuweather_cloud_ceiling",
+                                            "graph": "line",
+                                            "hours_to_show": 72,
+                                            "type": "sensor",
+                                            "name": "Cloud Ceiling"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.thermostat_heating_time",
+                                            "name": "Heating Time"
+                                        },
+                                        {
+                                            "entity": "sensor.fan_running_time",
+                                            "name": "Fan Time"
+                                        }
+                                    ],
+                                    "hours_to_show": 72,
+                                    "refresh_interval": 0,
+                                    "title": "Thermostat Time (3 day)"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.thermostat_hvac_action"
+                                        },
+                                        {
+                                            "entity": "sensor.thermostat_fan_action"
+                                        }
+                                    ],
+                                    "hours_to_show": 72,
+                                    "refresh_interval": 0,
+                                    "title": "Thermostat (24 hour)"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.thermostat_hvac_action"
+                                        },
+                                        {
+                                            "entity": "sensor.thermostat_fan_action"
+                                        }
+                                    ],
+                                    "hours_to_show": 8,
+                                    "refresh_interval": 0,
+                                    "title": "Thermostat (8 hour)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:motion-sensor",
+                    "path": "sensors",
+                    "title": "Sensors",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.kitchen_motion_sensor_ias_zone",
+                                            "name": "Motion"
+                                        },
+                                        {
+                                            "entity": "light.kitchen",
+                                            "name": "All Lights"
+                                        },
+                                        {
+                                            "entity": "light.kitchen_strips",
+                                            "name": "Strips"
+                                        },
+                                        {
+                                            "entity": "light.kitchen_overhead",
+                                            "name": "Overhead"
+                                        },
+                                        {
+                                            "entity": "light.kitchen_spotlight",
+                                            "name": "Spotlight"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Kitchen"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.kitchen_motion_sensor_ias_zone",
+                                            "name": "Motion"
+                                        },
+                                        {
+                                            "entity": "light.dining",
+                                            "name": "All Lights"
+                                        },
+                                        {
+                                            "entity": "light.dining_hue",
+                                            "name": "Chandelier"
+                                        },
+                                        {
+                                            "entity": "light.display_cabinet_strip",
+                                            "name": "Cabinet"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Dining"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.kitchen_motion_sensor_ias_zone",
+                                            "name": "Motion"
+                                        },
+                                        {
+                                            "entity": "light.living_room",
+                                            "name": "All Lights"
+                                        },
+                                        {
+                                            "entity": "light.living_room_lanterns",
+                                            "name": "Chandelier"
+                                        },
+                                        {
+                                            "entity": "light.living_room_strips",
+                                            "name": "Strips"
+                                        },
+                                        {
+                                            "entity": "light.ir_strips",
+                                            "name": "Baseboard"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Living Room"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.pantry_door_ias_zone",
+                                            "name": "Door"
+                                        },
+                                        {
+                                            "entity": "light.pantry_strip",
+                                            "name": "Lights"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Pantry"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.kitchen_motion_sensor_ias_zone",
+                                            "name": "Kitchen Motion"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.office_motion_sensor_ias_zone",
+                                            "name": "Office Motion"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.master_motion_sensor_ias_zone",
+                                            "name": "Master Motion"
+                                        },
+                                        {
+                                            "entity": "light.hallway",
+                                            "name": "Lights"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Hallway"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.hallway_bath_door_ias_zone",
+                                            "name": "Door"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.hallway_bath_door_accelerometer",
+                                            "name": "Door Motion"
+                                        },
+                                        {
+                                            "entity": "light.hallway_bath_light",
+                                            "name": "Lights"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Hallway Bath"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.office_motion_sensor_ias_zone",
+                                            "name": "Motion"
+                                        },
+                                        {
+                                            "entity": "light.office",
+                                            "name": "All Lights"
+                                        },
+                                        {
+                                            "entity": "light.office_lamp",
+                                            "name": "Lamp"
+                                        },
+                                        {
+                                            "entity": "switch.firestone",
+                                            "name": "Firestone"
+                                        },
+                                        {
+                                            "entity": "switch.fountain",
+                                            "name": "Fountain"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Office"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.laundry_door_ias_zone",
+                                            "name": "Door"
+                                        },
+                                        {
+                                            "entity": "light.laundry_light",
+                                            "name": "Light"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Laundry"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.master_motion_sensor_ias_zone",
+                                            "name": "Motion"
+                                        },
+                                        {
+                                            "entity": "light.master",
+                                            "name": "All Lights"
+                                        },
+                                        {
+                                            "entity": "light.master_surround",
+                                            "name": "Surround"
+                                        },
+                                        {
+                                            "entity": "light.master_bedside",
+                                            "name": "Bedside"
+                                        },
+                                        {
+                                            "entity": "light.master_led_strip",
+                                            "name": "Strip"
+                                        },
+                                        {
+                                            "entity": "switch.starlight",
+                                            "name": "Starlight"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Master"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.master_bath_door_ias_zone",
+                                            "name": "Door"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.master_bath_door_accelerometer",
+                                            "name": "Door Motion"
+                                        },
+                                        {
+                                            "entity": "light.master_bath",
+                                            "name": "Lights"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Master Bath"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.master_closet_door_ias_zone",
+                                            "name": "Door"
+                                        },
+                                        {
+                                            "entity": "light.master_closet",
+                                            "name": "Light"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Master Closet"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ]
+                },
+                {
+                    "title": "Snapcast",
+                    "path": "snapcast",
+                    "icon": "mdi:music",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "iframe",
+                            "url": "http://10.0.2.10:1780/",
+                            "aspect_ratio": "50%"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

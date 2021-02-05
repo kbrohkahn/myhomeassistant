@@ -1,0 +1,65 @@
+media_player.soundtouch_dining:
+  icon: mdi:speaker
+media_player.soundtouch_kitchen:
+  icon: mdi:speaker
+media_player.soundtouch_master:
+  icon: mdi:speaker
+sensor.home_visibility:
+  icon: mdi:eye
+sensor.openweathermap_cloud_coverage:
+  icon: mdi:cloud-question
+light.master_hue:
+  icon: mdi:lightbulb-multiple
+light.dining_hue:
+  icon: mdi:ceiling-light
+light.kitchen_hue:
+  icon: mdi:lightbulb-multiple
+light.hallway_hue:
+  icon: mdi:dome-light
+light.living_room_hue:
+  icon: mdi:lightbulb-multiple
+light.theater_hue:
+  icon: mdi:lightbulb-multiple
+light.master_bedside:
+  icon: mdi:lamps
+light.master_surround:
+  icon: mdi:lightbulb-multiple
+light.living_room_strips:
+  icon: mdi:led-strip
+light.living_room_lamps:
+  icon: mdi:floor-lamp-dual
+light.kitchen_overhead:
+  icon: mdi:ceiling-light
+light.kitchen_strips:
+  icon: mdi:led-strip-variant
+light.tv_ambilight:
+  icon: mdi:television-ambient-light
+light.theater_surround:
+  icon: mdi:globe-light
+light.master_closet:
+  icon: mdi:dome-light
+light.galaxytaba:
+  icon: mdi:tablet-dashboard
+light.galaxytabs:
+  icon: mdi:tablet-dashboard
+light.fire_tab:
+  icon: mdi:tablet-dashboard
+light.main: {}
+light.main_a:
+  icon: mdi:lightbulb-group
+light.main_b:
+  icon: mdi:lightbulb-group
+light.main_c:
+  icon: mdi:lightbulb-group
+light.main_d:
+  icon: mdi:lightbulb-group
+light.master_bath_hue:
+  icon: mdi:lightbulb-multiple
+light.living_room_lanterns:
+  icon: mdi:globe-light
+light.galaxytabs6:
+  icon: mdi:tablet-dashboard
+media_player.office_tv:
+  icon: mdi:monitor-speaker
+media_player.theater_tv:
+  icon: mdi:theater

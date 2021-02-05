@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "key": "input_text",
+    "data": {
+        "items": [
+            {
+                "name": "Slide",
+                "icon": "mdi:image-album",
+                "mode": "text",
+                "min": 0,
+                "max": 100,
+                "id": "slide"
+            },
+            {
+                "name": "Scene",
+                "min": 0,
+                "mode": "text",
+                "max": 100,
+                "id": "scene"
+            },
+            {
+                "name": "Slide Date and Time",
+                "max": 100,
+                "min": 0,
+                "mode": "text",
+                "id": "slide_date_and_time"
+            },
+            {
+                "name": "Slide Location",
+                "min": 0,
+                "mode": "text",
+                "max": 100,
+                "id": "slide_location"
+            },
+            {
+                "name": "Data Current Room",
+                "mode": "text",
+                "min": 0,
+                "max": 100,
+                "id": "data_room"
+            }
+        ]
+    }
+}

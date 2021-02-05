@@ -1,0 +1,476 @@
+
+- id: kitchen_switch_turn_on_pressed
+  alias: Kitchen Switch Turn On Pressed
+  description: ''
+  trigger:
+  - device_id: 5f45866c6e1a4562b51d341dcc4dc565
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: turn_on
+  condition: []
+  action:
+  - service: script.browser_sound_effect
+    data:
+      sound_effect_length: 00:00:02
+      sound_effect_filename: tos-intercom.mp3
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: kitchen_switch_turn_off_pressed
+  alias: Kitchen Switch Turn Off Pressed
+  description: ''
+  trigger:
+  - device_id: 5f45866c6e1a4562b51d341dcc4dc565
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: turn_off
+  condition: []
+  action:
+  - service: script.browser_sound_effect
+    data:
+      sound_effect_length: 00:00:02
+      sound_effect_filename: lonely-hello.mp3
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: kitchen_switch_dim_down_pressed
+  alias: Kitchen Switch Dim Down Pressed
+  description: ''
+  trigger:
+  - device_id: 5f45866c6e1a4562b51d341dcc4dc565
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: dim_down
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.home
+  - delay:
+      milliseconds: 500
+  - service: light.toggle
+    data: {}
+    entity_id: light.home
+  - delay:
+      milliseconds: 500
+  - service: light.toggle
+    data: {}
+    entity_id: light.home
+  - delay:
+      milliseconds: 500
+  - service: light.toggle
+    data: {}
+    entity_id: light.home
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: kitchen_switch_dim_up_pressed
+  alias: Kitchen Switch Dim Up Pressed
+  description: ''
+  trigger:
+  - device_id: 5f45866c6e1a4562b51d341dcc4dc565
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: dim_up
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.home
+  - delay:
+      milliseconds: 500
+  - service: light.toggle
+    data: {}
+    entity_id: light.home
+  - delay:
+      milliseconds: 500
+  - service: light.toggle
+    data: {}
+    entity_id: light.home
+  - delay:
+      milliseconds: 500
+  - service: light.toggle
+    data: {}
+    entity_id: light.home
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+
+- id: office_switch_turn_on_pressed
+  alias: Office Switch Turn On Pressed
+  description: ''
+  trigger:
+  - device_id: 6579392cc3d4438ab4580b99e182416f
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: turn_on
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: light.office
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: office_switch_turn_off_pressed
+  alias: Office Switch Turn Off Pressed
+  description: ''
+  trigger:
+  - device_id: 6579392cc3d4438ab4580b99e182416f
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: turn_off
+  condition: []
+  action:
+  - service: light.turn_off
+    entity_id: light.office
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: office_switch_dim_down_pressed
+  alias: Office Switch Dim Down Pressed
+  description: ''
+  trigger:
+  - device_id: 6579392cc3d4438ab4580b99e182416f
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: dim_down
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: light.office
+    data:
+      brightness: '{{ state_attr(''light.office'', ''brightness'') | int - 32 | max(0)
+        }}'
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: office_switch_dim_up_pressed
+  alias: Office Switch Dim Up Pressed
+  description: ''
+  trigger:
+  - device_id: 6579392cc3d4438ab4580b99e182416f
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: dim_up
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: light.office
+    data:
+      brightness: '{{ state_attr(''light.office'', ''brightness'') | int + 32 | min(255)
+        }}'
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: office_switch_turn_on_long_pressed
+  alias: Office Switch Turn On Long Pressed
+  description: ''
+  trigger:
+  - device_id: 6579392cc3d4438ab4580b99e182416f
+    domain: hue
+    platform: device
+    type: remote_button_long_release
+    subtype: turn_on
+  condition: []
+  action:
+  - service: switch.turn_on
+    entity_id: switch.fountain
+  mode: single
+- id: office_switch_turn_off_long_pressed
+  alias: Office Switch Turn Off Long Pressed
+  description: ''
+  trigger:
+  - device_id: 6579392cc3d4438ab4580b99e182416f
+    domain: hue
+    platform: device
+    type: remote_button_long_release
+    subtype: turn_off
+  condition: []
+  action:
+  - service: switch.turn_off
+    entity_id: switch.fountain
+  mode: single
+- id: alarm_time_changed
+  alias: Alarm Time Changed
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.sm_g781u1_next_alarm
+  condition: []
+  action:
+  - service: input_datetime.set_datetime
+    data:
+      timestamp: '{{ as_timestamp(states(''sensor.sm_g781u1_next_alarm'')) }}'
+    entity_id: input_datetime.morning_alarm
+  mode: restart
+
+  - id: aqara_cube_rotated_right
+  alias: Aqara Cube Rotated Right
+  description: ''
+  trigger:
+  - device_id: b348d219736f837228a017b970291cda
+    domain: zha
+    platform: device
+    type: device_rotated
+    subtype: right
+  condition: []
+  action:
+  - service: media_player.volume_up
+    data: {}
+    entity_id: media_player.office_tv
+  mode: single
+
+- id: aqara_cube_rotated_left
+  alias: Aqara Cube Rotated Left
+  description: ''
+  trigger:
+  - device_id: b348d219736f837228a017b970291cda
+    domain: zha
+    platform: device
+    type: device_rotated
+    subtype: left
+  condition: []
+  action:
+  - service: media_player.volume_down
+    data: {}
+    entity_id: media_player.office_tv
+  mode: single
+
+- id: theater_switch_turn_on_pressed
+  alias: Theater Switch Turn On Pressed
+  description: ''
+  trigger:
+  - device_id: 804dc8a0227c4a478a15cc0af7139a83
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: turn_on
+  condition: []
+  action:
+  - service: remote.send_command
+    data:
+      device: Philips AV Switch
+      command: SyncOn
+    entity_id: remote.harmony_hub
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: theater_switch_turn_off_pressed
+  alias: Theater Switch Turn Off Pressed
+  description: ''
+  trigger:
+  - device_id: 804dc8a0227c4a478a15cc0af7139a83
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: turn_off
+  condition: []
+  action:
+  - service: remote.send_command
+    data:
+      device: Philips AV Switch
+      command: SyncOff
+    entity_id: remote.harmony_hub
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: theater_switch_dim_down_pressed
+  alias: Theater Switch Dim Down Pressed
+  description: ''
+  trigger:
+  - device_id: 804dc8a0227c4a478a15cc0af7139a83
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: dim_down
+  condition: []
+  action:
+  - service: media_player.volume_down
+    data: {}
+    entity_id: media_player.sync_box
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: theater_switch_dim_up_pressed
+  alias: Theater Switch Dim Up Pressed
+  description: ''
+  trigger:
+  - device_id: 804dc8a0227c4a478a15cc0af7139a83
+    domain: hue
+    platform: device
+    type: remote_button_short_release
+    subtype: dim_up
+  condition: []
+  action:
+  - service: media_player.volume_up
+    data: {}
+    entity_id: media_player.sync_box
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: theater_switch_turn_on_long_pressed
+  alias: Theater Switch Turn On Long Pressed
+  description: ''
+  trigger:
+  - device_id: 804dc8a0227c4a478a15cc0af7139a83
+    domain: hue
+    platform: device
+    type: remote_button_long_release
+    subtype: turn_on
+  condition: []
+  action:
+  - service: remote.send_command
+    data:
+      device: Philips AV Switch
+      command: BackgroundLightingOn
+    entity_id: remote.harmony_hub
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: theater_switch_turn_off_long_pressed
+  alias: Theater Switch Turn Off Long Pressed
+  description: ''
+  trigger:
+  - device_id: 804dc8a0227c4a478a15cc0af7139a83
+    domain: hue
+    platform: device
+    type: remote_button_long_release
+    subtype: turn_off
+  condition: []
+  action:
+  - service: remote.send_command
+    data:
+      device: Philips AV Switch
+      command: BackgroundLightingOff
+    entity_id: remote.harmony_hub
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: theater_switch_dim_down_long_pressed
+  alias: Theater Switch Dim Down Long Pressed
+  description: ''
+  trigger:
+  - device_id: 804dc8a0227c4a478a15cc0af7139a83
+    domain: hue
+    platform: device
+    type: remote_button_long_release
+    subtype: dim_down
+  condition: []
+  action:
+  - service: remote.send_command
+    data:
+      device: Philips AV Switch
+      command: IntensityDown
+    entity_id: remote.harmony_hub
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+- id: theater_switch_dim_up_long_pressed
+  alias: Theater Switch Dim Up Long Pressed
+  description: ''
+  trigger:
+  - device_id: 804dc8a0227c4a478a15cc0af7139a83
+    domain: hue
+    platform: device
+    type: remote_button_long_release
+    subtype: dim_up
+  condition: []
+  action:
+  - service: remote.send_command
+    data:
+      device: Philips AV Switch
+      command: IntensityUp
+    entity_id: remote.harmony_hub
+  - service: light.turn_off
+    entity_id: light.master_closet
+  mode: single
+
+- id: pantry_door_opened
+  alias: Pantry Door Opened
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.pantry_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - data: {}
+    entity_id: light.pantry_strip
+    service: light.turn_on
+  mode: single
+- id: pantry_door_closed
+  alias: Pantry Door Closed
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.pantry_door_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+  action:
+  - data: {}
+    entity_id: light.pantry_strip
+    service: light.turn_off
+  mode: single
+
+- id: closet_door_closed
+  alias: Closet Door Closed
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.master_closet_door_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - entity_id: light.master_closet
+    service: light.turn_off
+- id: closet_door_opened
+  alias: Closet Door Opened
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.master_closet_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - entity_id: light.master_closet
+    service: light.turn_on
+    data:
+      brightness: 255
+      color_temp: 1
+  mode: single
+- id: laundry_door_opened
+  alias: Laundry Door Opened
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.laundry_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.laundry_light
+    service: light.turn_on
+- id: laundry_door_closed
+  alias: Laundry Door Closed
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.laundry_door_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.laundry_light
+    service: light.turn_off

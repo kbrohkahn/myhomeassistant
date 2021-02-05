@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_fireplace",
+    "data": {
+        "config": {
+            "kiosk_mode": {
+                "hide_header": true,
+                "hide_sidebar": true
+            },
+            "views": [
+                {
+                    "title": "Home",
+                    "path": "home",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "picture-elements",
+                            "image": "local/images/black_16x9.png",
+                            "elements": [
+                                {
+                                    "type": "custom:video-background-card",
+                                    "local": true,
+                                    "fileName": "fireplace.mp4",
+                                    "style": {
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%"
+                                    }
+                                }
+                            ],
+                            "style": "ha-card {\n  overflow: hidden;\n}\n"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

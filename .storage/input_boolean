@@ -1,0 +1,50 @@
+{
+    "version": 1,
+    "key": "input_boolean",
+    "data": {
+        "items": [
+            {
+                "name": "Bedtime Boolean",
+                "icon": "mdi:sleep",
+                "id": "bedtime"
+            },
+            {
+                "name": "Away Boolean",
+                "icon": "mdi:home-export-outline",
+                "id": "away"
+            },
+            {
+                "name": "Guests Home",
+                "icon": "mdi:home-plus",
+                "id": "guests_home"
+            },
+            {
+                "name": "Working",
+                "icon": "mdi:desk",
+                "id": "working"
+            },
+            {
+                "name": "IR Strips",
+                "icon": "mdi:led-strip-variant",
+                "id": "ir_strips"
+            },
+            {
+                "name": "Master LED Strip",
+                "icon": "mdi:led-strip-variant",
+                "id": "master_led_strip"
+            },
+            {
+                "name": "Kitchen Motion Triggered Lights",
+                "id": "kitchen_motion_triggered_lights"
+            },
+            {
+                "name": "Fireplace",
+                "id": "fireplace"
+            },
+            {
+                "name": "Aquarium",
+                "id": "aquarium"
+            }
+        ]
+    }
+}

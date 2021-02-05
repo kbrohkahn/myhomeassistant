@@ -1,0 +1,10 @@
+{
+    "ieee": "00:12:4b:00:1d:84:ea:0e",
+    "nwk": "0x3d08",
+    "lqi": null,
+    "device_type": "Router",
+    "manufacturer": "GLEDOPTO",
+    "model": "GL-C-008",
+    "offline": false,
+    "neighbours": []
+}

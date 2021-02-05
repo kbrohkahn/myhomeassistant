@@ -1,0 +1,103 @@
+{
+    "version": 1,
+    "key": "zha.storage",
+    "data": {
+        "devices": [
+            {
+                "name": "Silicon Labs EZSP",
+                "ieee": "00:0d:6f:00:0b:3d:32:f5",
+                "last_seen": 1612539347.3811078
+            },
+            {
+                "name": "Samjin multi",
+                "ieee": "28:6d:97:00:01:0a:b7:d7",
+                "last_seen": 1612543840.2086742
+            },
+            {
+                "name": "Samjin multi",
+                "ieee": "28:6d:97:00:01:0a:b8:ae",
+                "last_seen": 1612543823.3461816
+            },
+            {
+                "name": "Samjin multi",
+                "ieee": "28:6d:97:00:01:0a:b2:a6",
+                "last_seen": 1612543924.83143
+            },
+            {
+                "name": "SmartThings multiv4",
+                "ieee": "24:fd:5b:00:01:03:55:7b",
+                "last_seen": 1612543946.1378589
+            },
+            {
+                "name": "SmartThings multiv4",
+                "ieee": "24:fd:5b:00:01:03:1b:4f",
+                "last_seen": 1612544065.250893
+            },
+            {
+                "name": "Samjin multi",
+                "ieee": "28:6d:97:00:01:0a:a8:7c",
+                "last_seen": 1612543927.660747
+            },
+            {
+                "name": "SmartThings outletv4",
+                "ieee": "24:fd:5b:00:01:05:0f:7a",
+                "last_seen": 1612544120.1824014
+            },
+            {
+                "name": "Samjin motion",
+                "ieee": "28:6d:97:00:01:0c:86:70",
+                "last_seen": 1612543881.4210703
+            },
+            {
+                "name": "Samjin motion",
+                "ieee": "28:6d:97:00:01:0c:77:b0",
+                "last_seen": 1612543927.8310905
+            },
+            {
+                "name": "Samjin motion",
+                "ieee": "28:6d:97:00:01:11:01:16",
+                "last_seen": 1612544108.383408
+            },
+            {
+                "name": "Samjin multi",
+                "ieee": "28:6d:97:00:01:0d:aa:20",
+                "last_seen": 1612543856.587329
+            },
+            {
+                "name": "GLEDOPTO GL-C-008",
+                "ieee": "00:12:4b:00:1d:84:ea:0e",
+                "last_seen": 1612544109.8822827
+            },
+            {
+                "name": "GLEDOPTO GL-C-007",
+                "ieee": "00:12:4b:00:1d:44:f7:f1",
+                "last_seen": 1612541908.2557387
+            },
+            {
+                "name": "GLEDOPTO GL-C-008",
+                "ieee": "00:12:4b:00:1d:43:cd:26",
+                "last_seen": 1612544109.8715925
+            },
+            {
+                "name": "GLEDOPTO GL-C-008",
+                "ieee": "00:12:4b:00:1d:84:e2:37",
+                "last_seen": 1612544110.3351655
+            },
+            {
+                "name": "LUMI lumi.sensor_cube",
+                "ieee": "00:15:8d:00:05:44:a3:99",
+                "last_seen": 1612542759.4919531
+            },
+            {
+                "name": "innr SP 224",
+                "ieee": "5c:02:72:ff:fe:a9:ec:11",
+                "last_seen": 1612543761.0817297
+            },
+            {
+                "name": "innr SP 224",
+                "ieee": "5c:02:72:ff:fe:af:81:6e",
+                "last_seen": 1612543988.0818815
+            }
+        ]
+    }
+}

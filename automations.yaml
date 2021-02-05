@@ -1,0 +1,2191 @@
+- id: nightlight
+  alias: Nightlight
+  trigger:
+  - at: '23:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id:
+      - light.kitchen
+      - light.dining
+      - light.living_room
+      - light.theater
+      - light.office
+      - light.master
+    service: light.turn_off
+  - data:
+      brightness: 64
+      entity_id: light.hallway
+    service: light.turn_on
+- id: front_door_opened
+  alias: Front Door Opened
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kitchen_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      sound_effect_length: '{% if states.switch.bedtime.state == ''on'' %} 00:00:03
+        {% elif is_state(''person.kevin_broh_kahn'', ''home'') %} 00:00:04 {% else
+        %} 00:00:09 {% endif %}'
+      sound_effect_filename: '{% if states.switch.bedtime.state == ''on'' %} Alien
+        Pain Screech V2 05.mp3 {% elif is_state(''person.kevin_broh_kahn'', ''home'')
+        %} ALIEN Vocal Suspects A HP 04.mp3 {% else %} ALIEN VOX SPAWN 02.mp3 {% endif
+        %}'
+    service: script.browser_sound_effect
+  - condition: template
+    value_template: '{{ as_timestamp(now()) - as_timestamp(states.switch.away.last_changed)
+      > 120 }}'
+  - service: switch.turn_off
+    entity_id: switch.away
+  - condition: state
+    entity_id: person.kevin_broh_kahn
+    state: not_home
+  - data:
+      message: Front Door Opened
+      title: Hass Home Alert
+    service: notify.mobile_app_kevin_s_galaxy_note_10
+  mode: single
+- id: master_motion_undetected
+  alias: Master Motion Undetected
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.master_motion_sensor_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+    for: 00:00:60
+  condition:
+  - condition: state
+    entity_id: light.master
+    state: 'on'
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  action:
+  - entity_id: light.master
+    service: light.turn_off
+  - data:
+      brightness: '{% if states.binary_sensor.dark_while_not_bedtime.state == "on"
+        %} 32 {% else %} 0 {% endif %}'
+    entity_id: light.master_surround
+    service: light.turn_on
+  - service: automation.turn_on
+    entity_id: automation.master_motion_undetected
+  mode: single
+- id: hallway_bath_door_opened
+  alias: Hallway Bath Door Opened
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.hallway_bath_door_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    entity_id: switch.hallway_bath_fan
+    service: switch.turn_off
+  - data: {}
+    entity_id: light.hallway_bath_light
+    service: light.turn_off
+- id: hallway_bath_door_motion
+  alias: Hallway Bath Door Motion
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.hallway_bath_door_accelerometer
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.hallway_bath_door_ias_zone
+    state: 'on'
+  - condition: state
+    entity_id: light.hallway_bath_light
+    state: 'off'
+  action:
+  - data: {}
+    entity_id: light.hallway_bath_light
+    service: light.turn_on
+  - timeout: 00:01:30
+    wait_template: '{{ is_state(''binary_sensor.hallway_bath_door_ias_zone'', ''off'')
+      }}'
+  - condition: state
+    entity_id: binary_sensor.hallway_bath_door_ias_zone
+    state: 'on'
+  - data: {}
+    entity_id: light.hallway_bath_light
+    service: light.turn_off
+  mode: single
+- id: hallway_bath_light_on
+  alias: Hallway Bath Light On
+  description: ''
+  trigger:
+  - entity_id: light.hallway_bath_light
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.hallway_bath_door_ias_zone
+    state: 'on'
+  action:
+  - timeout: 00:01:30
+    wait_template: '{{ is_state(''binary_sensor.hallway_bath_door_ias_zone'', ''off'')
+      }}'
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.hallway_bath_fan
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.hallway_bath_door_ias_zone
+      state: 'on'
+  - data: {}
+    entity_id: light.hallway_bath_light
+    service: light.turn_off
+  mode: single
+- id: kitchen_motion_undetected
+  alias: Kitchen Motion Undetected
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    for: 00:01:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: light.living_room_strips
+    state: 'off'
+  variables:
+    brightness: '{% if states.binary_sensor.dark_while_not_bedtime.state == "on" %}
+      32 {% else %} 0 {% endif %}'
+  action:
+  - entity_id: light.kitchen_spotlight
+    service: light.turn_off
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.kitchen_right
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.kitchen_mid_right
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.kitchen_mid_left
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.kitchen_left
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.kitchen_forward
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - condition: state
+    entity_id: binary_sensor.theater_playing_or_paused
+    state: 'off'
+  - entity_id: light.kitchen_strips
+    data:
+      brightness: '{{ brightness }}'
+    service: light.turn_on
+  mode: restart
+- id: kitchen_motion_undetected_dining_lights
+  alias: Kitchen Motion Undetected - Dining Lights
+  description: ''
+  variables:
+    brightness: '{% if states.binary_sensor.dark_while_not_bedtime.state == "on" %}
+      32 {% else %} 0 {% endif %}'
+  trigger:
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    for: 00:01:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: light.living_room_strips
+    state: 'off'
+  action:
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.dining_60
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.dining_120
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - entity_id: light.dining_180
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.dining_240
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.dining_300
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.dining_360
+    data:
+      brightness: 0
+    service: light.turn_on
+  - delay:
+      seconds: 2
+  - entity_id: light.dining_hue
+    data:
+      brightness: 0
+    service: light.turn_on
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - condition: state
+    entity_id: light.living_room_strips
+    state: 'off'
+  - entity_id: light.display_cabinet_strip
+    data:
+      brightness: '{{ brightness }}'
+    service: light.turn_on
+  mode: single
+- id: fan_schedule_warm_weather
+  alias: Fan Schedule - Warm Weather
+  description: ''
+  trigger:
+  - hours: /2
+    platform: time_pattern
+  condition:
+  - after: 09:00:00
+    before: '18:00:00'
+    condition: time
+  - condition: numeric_state
+    entity_id: weather.met_no
+    attribute: temperature
+    above: '9.9'
+  action:
+  - entity_id: switch.fan
+    service: switch.turn_on
+  - delay: 00:15:00
+  - entity_id: switch.fan
+    service: switch.turn_off
+  mode: single
+- id: fan_schedule_cold_weather
+  alias: Fan Schedule - Cold Weather
+  description: ''
+  trigger:
+  - hours: /4
+    platform: time_pattern
+  condition:
+  - after: '11:00:00'
+    before: '17:00:00'
+    condition: time
+  - condition: numeric_state
+    entity_id: weather.met_no
+    attribute: temperature
+    below: '10.0'
+  action:
+  - entity_id: switch.fan
+    service: switch.turn_on
+  - delay: 00:05:00
+  - entity_id: switch.fan
+    service: switch.turn_off
+  mode: single
+- id: master_motion_detected_music
+  alias: Master Motion Detected - Music
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.master_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  action:
+  - service: media_player.volume_set
+    data:
+      volume_level: '{{ states.media_player.snapcast_group_master.attributes.volume_level
+        | max(1.0) }}'
+    entity_id: media_player.snapcast_group_master
+  - service: media_player.volume_set
+    data:
+      volume_level: '{{ states.media_player.snapcast_group_office.attributes.volume_level
+        | max(0.4) }}'
+    entity_id: media_player.snapcast_group_office
+  - service: media_player.volume_set
+    data:
+      volume_level: '{{ states.media_player.snapcast_group_main.attributes.volume_level
+        | max(0.4) }}'
+    entity_id: media_player.snapcast_group_main
+- id: master_motion_detected
+  alias: Master Motion Detected
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.master_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: light.master
+      state: 'off'
+    - condition: state
+      entity_id: automation.master_motion_undetected
+      state: 'on'
+  action:
+  - entity_id: light.master
+    service: light.turn_on
+  - service: automation.turn_on
+    entity_id: automation.master_motion_undetected
+  mode: single
+- id: master_bath_door_motion
+  alias: Master Bath Door Motion
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.master_bath_door_accelerometer
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+  - data: {}
+    entity_id: light.master_bath
+    service: light.toggle
+  - data: {}
+    entity_id: switch.master_bath_fan
+    service: switch.turn_off
+  mode: single
+- id: humidity_over_50
+  alias: Humidity over 80%
+  description: ''
+  trigger:
+  - above: 80
+    entity_id: sensor.hallway_thermostat
+    platform: numeric_state
+    value_template: '{{ states.sensor.hallway_thermostat_humidity.state }}'
+  condition: []
+  action:
+  - data:
+      notification_title: Humidity above 80%
+      notification_message: AC advised
+    service: script.notify
+  mode: single
+- id: office_motion_detected_when_wfh
+  alias: Office Motion Detected when WFH
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.office_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.working
+    state: 'on'
+  - condition: state
+    entity_id: switch.guests_home
+    state: 'off'
+  action:
+  - data: {}
+    entity_id: light.office
+    service: light.turn_on
+  - service: media_player.turn_on
+    entity_id: media_player.office_tv
+  - service: remote.send_command
+    data:
+      command: PowerOff
+      device: Onkyo AV Receiver
+    entity_id: remote.harmony_hub
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.living_room_monitor
+  mode: parallel
+  max: 10
+- id: office_left_when_wfh
+  alias: Office Left When WFH
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.working
+    state: 'on'
+  - condition: state
+    entity_id: switch.guests_home
+    state: 'off'
+  action:
+  - service: remote.send_command
+    data:
+      command: PowerOn
+      device: Onkyo AV Receiver
+    entity_id: remote.harmony_hub
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.living_room_monitor
+  - data: {}
+    entity_id: light.office
+    service: light.turn_off
+  mode: parallel
+  max: 10
+- id: master_bath_vanity_changed
+  alias: Master Bath Vanity Changed
+  description: ''
+  trigger:
+  - entity_id: light.master_bath_vanity
+    platform: state
+  action:
+  - data:
+      brightness: '{% if trigger.to_state.state == ''off'' %} 0 {% elif is_state(''switch.bedtime'',
+        ''on'') %} 64 {% else %} 255 {% endif %}'
+      hs_color:
+      - '{% if trigger.to_state.state == ''off'' %} 0 {% else %} {{ ((trigger.to_state.attributes.brightness
+        / 255 * 360 - 30) % 360) | int }} {% endif %}'
+      - 80
+    entity_id: light.master_bath_cabinet
+    service: light.turn_on
+  - data:
+      brightness: '{% if trigger.to_state.state == ''off'' %} 0 {% elif is_state(''switch.bedtime'',
+        ''on'') %} 64 {% else %} 255 {% endif %}'
+      hs_color:
+      - '{% if trigger.to_state.state == ''off'' %} 0 {% else %} {{ ((trigger.to_state.attributes.brightness
+        / 255 * 360 - 0) % 360) | int }} {% endif %}'
+      - 80
+    entity_id: light.master_bath_under_vanity
+    service: light.turn_on
+  - condition: template
+    value_template: '{{ trigger.to_state.state == ''off'' }}'
+  - entity_id: switch.master_bath_fan
+    service: switch.turn_off
+  mode: restart
+- id: office_lamp_changed
+  alias: Office Lamp Changed
+  description: ''
+  trigger:
+  - entity_id: light.office_lamp
+    platform: state
+  action:
+  - service: automation.turn_off
+    entity_id: automation.office_motion_undetected
+  - service: script.office_lights_set_level
+    data:
+      brightness: '{{ trigger.to_state.attributes.brightness }}'
+  mode: restart
+- id: data_starting_cleaning
+  alias: Data Starting Cleaning
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.data_valetudo_state
+    from: '8'
+    to: '18'
+  action:
+  - data:
+      notification_title: Data starting cleaning
+      notification_message: 'Clear floor or say turn off Data. Order: {{ rooms["7"]
+        }}, {{ rooms["6"] }}, {{ rooms["5"] }}, {{ rooms["4"] }}, {{ rooms["3"] }},
+        {{ rooms["2"] }}, {{ rooms["1"] }}, {{ rooms["0"] }}'
+    service: script.notify
+  variables:
+    rooms: '{{ { states.counter.rooms_since_master_bath.state: "Master Bath", states.counter.rooms_since_master.state:
+      "Master", states.counter.rooms_since_hallway.state: "Hallway",states.counter.rooms_since_hallway_bath.state:
+      "Hallway Bath",states.counter.rooms_since_office.state: "Office",states.counter.rooms_since_kitchen.state:
+      "Kitchen",states.counter.rooms_since_dining.state: "Dining",states.counter.rooms_since_living_room.state:
+      "Living Room",states.counter.rooms_since_theater.state: "Theater" } }}'
+  mode: single
+- id: theater_stops_playing
+  alias: Theater Stops Playing
+  description: ''
+  trigger:
+  - entity_id: media_player.theater_roku_ultra
+    from: playing
+    platform: state
+  - entity_id: media_player.playstation_4
+    from: playing
+    platform: state
+  condition: []
+  action:
+  - data: {}
+    entity_id:
+    - light.living_room_lamps
+    - light.ir_strips
+    service: light.turn_on
+  mode: single
+- id: theater_starts_playing
+  alias: Theater Starts Playing
+  description: ''
+  trigger:
+  - entity_id: media_player.theater_roku_ultra
+    to: playing
+    platform: state
+  - entity_id: media_player.playstation_4
+    to: playing
+    platform: state
+  condition: []
+  action:
+  - entity_id:
+    - light.dining
+    - light.hallway
+    - light.kitchen_spotlight
+    - light.kitchen_overhead
+    - light.living_room_strips
+    - light.living_room_lamps
+    - light.living_room_lanterns
+    - light.ir_strips
+    service: light.turn_off
+  - entity_id:
+    - light.living_room_lamp_spotlight
+    - light.kitchen_strips
+    service: light.turn_on
+  - service: media_player.media_pause
+    data: {}
+    entity_id: media_player.spotify
+  mode: single
+- id: master_bath_fan_on
+  alias: Master Bath Fan On
+  description: ''
+  trigger:
+  - entity_id: switch.master_bath_fan
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      volume_level: '{{ (states.media_player.master_bath_echo_plus.attributes.volume_level
+        + 0.2) | min(1.0) }}'
+    entity_id: media_player.master_bath_echo_plus
+    service: media_player.volume_set
+  mode: single
+- id: master_bath_fan_off
+  alias: Master Bath Fan Off
+  description: ''
+  trigger:
+  - entity_id: switch.master_bath_fan
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      volume_level: '{{ (states.media_player.master_bath_echo_plus.attributes.volume_level
+        - 0.2) | max(0.0) }}'
+    entity_id: media_player.master_bath_echo_plus
+    service: media_player.volume_set
+  mode: single
+- id: data_error
+  alias: Data Error
+  description: ''
+  trigger:
+  - entity_id: vacuum.data
+    platform: state
+    to: error
+  condition: []
+  action:
+  - data:
+      notification_message: '{{ state_attr(''vacuum.data'', ''valetudo_state'').id
+        }}'
+      notification_title: Data error
+    service: script.notify
+  mode: single
+- id: nws_alert
+  alias: NWS Alert
+  description: ''
+  trigger:
+  - entity_id: sensor.nws_alerts
+    from: '0'
+    platform: state
+  condition: []
+  action:
+  - data:
+      notification_title: NWS Alert
+      notification_message: '{{ state_attr(''sensor.nws_alerts'', ''title'') }} in
+        effect'
+    service: script.notify
+  mode: single
+- id: near_home
+  alias: Near Home
+  description: ''
+  trigger:
+  - entity_id: person.kevin_broh_kahn
+    event: enter
+    platform: zone
+    zone: zone.home
+  condition: []
+  action:
+  - data:
+      temperature: '{% if is_state("climate.hallway_thermostat", "cool") %} {{ states.climate.hallway_thermostat.attributes.temperature
+        - 2 }} {% elif is_state("climate.hallway_thermostat", "heat") %} {{ states.climate.hallway_thermostat.attributes.temperature
+        + 2 }} {% else %} {{ states.climate.hallway_thermostat.attributes.temperature
+        }} {% endif %}'
+    entity_id: climate.hallway_thermostat
+    service: climate.set_temperature
+  - service: vacuum.pause
+    data: {}
+    entity_id: vacuum.data
+  - delay: 00:00:03
+  - service: vacuum.send_command
+    data:
+      command: go_to
+      params:
+        spot_id: Dining Corner
+    entity_id: vacuum.data
+  mode: single
+- id: galaxy_tab_s_motion_changed
+  alias: Galaxy Tab S Motion Changed
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_s_motion
+    platform: state
+  condition: []
+  action:
+  - service: image_processing.scan
+    entity_id: image_processing.doods_galaxy_tab_s
+  mode: queued
+  max: 10
+- id: galaxy_tab_s6_motion_changed
+  alias: Galaxy Tab S6 Motion Changed
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_s6_motion
+    platform: state
+  condition: []
+  action:
+  - service: image_processing.scan
+    entity_id: image_processing.doods_galaxy_tab_s6
+  mode: queued
+  max: 10
+- id: galaxy_tab_a_motion_changed
+  alias: Galaxy Tab A Motion Changed
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.galaxy_tab_a_motion
+    platform: state
+  condition: []
+  action:
+  - service: image_processing.scan
+    entity_id: image_processing.doods_galaxy_tab_a
+  mode: queued
+  max: 10
+- id: dining_window_opened
+  alias: Dining Window Opened
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.dining_window_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    entity_id: climate.hallway_thermostat
+    service: climate.turn_off
+  - data:
+      notification_message: "{% set earliest = namespace(time=false) %}\n{% for state\
+        \ in state_attr('weather.openweathermap', 'forecast') -%}\n  {% if earliest.time\
+        \ == false and state.temperature >= 25 %}\n    {% set earliest.time = ((state.datetime\
+        \ / 1000 - as_timestamp(now())) / 3600) | int %}\n  {% endif %}\n  {% set\
+        \ breakVal = 1 %}\n{%- endfor %}\nTemperature outdoor will reach 25 in {{\
+        \ earliest.time }} hours\n"
+      notification_title: Dining window opened
+    service: script.notify
+  mode: single
+- id: outdoor_temperature_nearing_indoor
+  alias: Outdoor Temperature Nearing 24
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: weather.home
+    attribute: temperature
+    above: 23
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dining_window_ias_zone
+    state: 'on'
+  action:
+  - data:
+      notification_message: AC advised
+      notification_title: Outdoor temperature reached 24 degrees
+    service: script.notify
+  mode: single
+- id: galaxy_tab_s6_light_on
+  alias: Galaxy Tab S6 Light On
+  description: ''
+  trigger:
+  - entity_id: light.galaxytabs66
+    from: 'off'
+    platform: state
+    to: 'on'
+    for: 00:00:30
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: switch.bedtime
+      state: 'on'
+    - condition: state
+      entity_id: switch.away
+      state: 'on'
+  action:
+  - service: script.reset_tablet_dashboard
+    data:
+      browser_mod_id: galaxytabs6
+  mode: restart
+- id: fire_tab_light_on
+  alias: Fire Tab Light On
+  description: ''
+  trigger:
+  - entity_id: light.fire_tab
+    from: 'off'
+    platform: state
+    to: 'on'
+    for: 00:00:30
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: switch.bedtime
+      state: 'on'
+    - condition: state
+      entity_id: switch.away
+      state: 'on'
+  action:
+  - service: script.reset_tablet_dashboard
+    data:
+      browser_mod_id: fire_tab
+  mode: restart
+- id: galaxy_tab_a_light_on
+  alias: Galaxy Tab A Light On
+  description: ''
+  trigger:
+  - entity_id: light.galaxytaba
+    from: 'off'
+    platform: state
+    to: 'on'
+    for: 00:00:30
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: switch.bedtime
+      state: 'on'
+    - condition: state
+      entity_id: switch.away
+      state: 'on'
+  action:
+  - service: script.reset_tablet_dashboard
+    data:
+      browser_mod_id: galaxytaba
+  mode: restart
+- id: master_surround_off
+  alias: Master Surround Off
+  description: ''
+  trigger:
+  - entity_id: light.master_surround
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - entity_id: switch.starlight
+    service: switch.turn_off
+  - service: light.turn_off
+    entity_id: light.master_led_strip
+  mode: single
+- id: alarm_lights
+  alias: Alarm Lights
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:25:00
+  condition:
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'on'
+  - condition: state
+    entity_id: light.master
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness: 64
+      transition: 60
+      hs_color:
+      - 330
+      - 100
+    entity_id: light.master_hue
+  - delay: 00:01:00
+  - service: light.turn_on
+    data:
+      brightness: 128
+      transition: 60
+      hs_color:
+      - 0
+      - 100
+    entity_id: light.master_hue
+  - delay: 00:01:00
+  - service: light.turn_on
+    data:
+      brightness: 192
+      transition: 60
+      hs_color:
+      - 30
+      - 100
+    entity_id: light.master_hue
+  - delay: 00:01:00
+  - service: light.turn_on
+    data:
+      brightness: 256
+      transition: 60
+      hs_color:
+      - 60
+      - 100
+    entity_id: light.master_hue
+  mode: single
+- id: slideshow
+  alias: Slideshow
+  description: ''
+  trigger:
+  - platform: time_pattern
+    seconds: /30
+  condition: []
+  action:
+  - service: input_text.set_value
+    data:
+      value: '{{ ["Arashiyama", "Atomic Bomb Dome across River", "Atomic Bomb Dome",
+        "Atomic Bomb-surviving Tree", "Avalanche over Parking Lot", "Avalanche", "Bamboo
+        Forest", "Bike Storage", "Chiba City Marines", "Children''s Peace Monument",
+        "Daimaru Kyoto", "Daimonjicho", "Eikan-do Zenrin-ji - ", "Eikan-do Zenrin-ji
+        Pond", "Eikan-do Zenrin-ji Zen Garden", "Flame of Peace", "Flower Festival
+        Four Corners", "Flower Festival Pattern", "Flower Festival Pink", "Flower
+        Festival Wall", "Fourth Station", "Fushimi Inari Entrance", "Fushimi Inari
+        Leaving", "Fushimi Inari Outside", "Fushimi Inari Summit", "Fushimi Inari",
+        "Geisha Doko", "Ginza Reco Billboard Street", "Ginza Ricoh Billboard", "Gion",
+        "Godzilla", "Heian Shrine Entrance", "Heian Shrine Gate", "Heian Shrine",
+        "Higashimuki Shopping Street", "Higashiyama Carport", "Higashiyama Hill",
+        "Higashiyama Street", "Himeji Bay", "Himeji Castle Courtyard", "Himeji Castle
+        from Corridor", "Himeji Castle from Park", "Himeji Castle Gate", "Himeji Castle
+        Model", "Himeji Castle over Walls", "Himeji Castle Room", "Himeji Castle Structure",
+        "Himeji Castle", "Himeji Corridor", "Himeji from Himeji Castle", "Hiroshima
+        Bay ", "Hiroshima Bay from Mount Misen Observatory", "Hiroshima Bay", "Hiroshima
+        Castle Bunker", "Hiroshima Castle Moat", "Hiroshima Castle", "Hiroshima Central
+        Park", "Hiroshima Victims Memorial Cenotaph", "Ice Cave Blue Ice", "Ice Cave
+        Icicle", "Ice Cave Offering", "Imperial Palace - ", "Imperial Palace - ",
+        "Imperial Palace - Chowaden Reception Hall Courtyard", "Imperial Palace -
+        Chowaden Reception Hall", "Imperial Palace - Fujimi-Tamon Defence House",
+        "Imperial Palace - Tree Mounds", "Imperial Palace Turret", "Itsukushima Shrine
+        at Night", "Itsukushima Shrine from Boat", "Itsukushima Shrine from Ferry",
+        "Itsukushima Shrine Sunset", "Itsukushima Shrine", "Jisho-Ji Mount Fuji and
+        Sand Rows", "Jisho-Ji Mount Fuji", "Jisho-Ji Sand Rows", "Jisho-Ji Walking
+        Path", "Jisho-Ji", "Karp Statue", "Katsura Imperial Villa Bridge", "Katsura
+        Imperial Villa Entrance", "Katsura Imperial Villa Fence", "Katsura Imperial
+        Villa Pond Trees", "Katsura Imperial Villa Pond", "Katsura Imperial Villa
+        Teahouse Exterior", "Katsura Imperial Villa Teahouse Fireplace", "Katsura
+        Imperial Villa Teahouse Interior", "Katsura Imperial Villa Teahouses", "Katsura
+        Imperial Villa Viewpoint", "Katsura Imperial Villa Walking Bridge", "Katsura
+        Imperial Villa Walkway", "Katsura Imperial Villa", "Katsura River", "Kimono
+        Forest", "Kofuki-Ji", "Kyoto from Arashiyama", "Kyoto from Fushimi Inari",
+        "Kyoto from Jisho-Ji", "Kyoto from Nanzen-Ji", "Kyoto National Garden Exit",
+        "Kyoto Tower", "Lake Kawaguchi Sunrise", "Meiji Shrine ", "Meiji Shrine Purification
+        Fountain", "Meiji Shrine Sake Barrels", "Meiji Shrine Wine Barrels", "Meiji
+        Shrine", "Miyajima Boat Cruise", "Miyajima Ferry Floating Shrines", "Miyajima
+        Ferry", "Miyajima Sunset", "Momijidani Park Bridge", "Momijidani Park Falls",
+        "Momijidani Park Trail", "Momijidani Park Waterfall", "Monkey Flying", "Monkey
+        Gazing", "Monkey Waiting", "Mount Fuji and Rokkakuda", "Mount Fuji and Ryokan
+        from Rokkakudo", "Mount Fuji from Ryokan Roof", "Mount Fuji from Ryokan Room",
+        "Mount Fuji from Shinkansen", "Mount Fuji of Flowers", "Mount Fuji over Flowers",
+        "Mount Fuji over Lake Kawaguchi", "Mount Fuji Over Long Grass", "Mount Fuji
+        over Tulips", "Mount Fuji Over Walkway", "Mount Fuji over Wildflowers", "Mount
+        Fuji Photographer", "Mount Misen Observatory Shrine", "Mount Misen Observatory
+        Sunset", "Mount Misen Sunset", "Nanzen-Ji", "Nara Deer", "Nara from Todai-ji",
+        "Nezu Museum Red Maple", "Nezu Museum Waterfall", "Philosopher''s Walk", "Rat
+        Shrine", "Reisen Dori", "Rokkakudo Fisherman", "Rokkunda Waves", "Roppongi
+        Hills - Northeast Tokyo", "Roppongi Hills - Northwest Tokyo", "Roppongi Hills
+        - South Tokyo", "Roppongi HIlls - Southeast Tokyo", "Roppongi Hills - Southwest
+        Tokyo", "Roppongi HIlls - Tokyo Tower", "Roppongi Hills - West Tokyo", "Roppongi
+        HIlls Maman Spider", "Ryokan Cherry Blossoms", "Sagami Bay from Shinkansen",
+        "Sento Imperial Palace Entrance Garden", "Sento Imperial Palace Entrance",
+        "Sento Imperial Palace Exit", "Sento Imperial Palace Garden Bridge over Pond",
+        "Sento Imperial Palace Garden Bridge", "Sento Imperial Palace Garden Bridges",
+        "Sento Imperial Palace Garden Entrance", "Sento Imperial Palace Garden Pond",
+        "Sento Imperial Palace Garden Stone Path", "Sento Imperial Palace Garden Stones",
+        "Sento Imperial Palace Garden Stream", "Sento Imperial Palace Garden Teahouse
+        Interior", "Sento Imperial Palace Garden Teahouse", "Sento Imperial Palace
+        Garden Trees", "Sento Imperial Palace Garden", "Sento Imperial Palace Rear",
+        "Sento Imperial Palace Tree Roots", "Sento Imperial Palace Wall", "Sera Comedy
+        Show", "Shibuya Crossing", "Shinkansen", "Suirokaku Water Bridge Arches",
+        "Suirokaku Water Bridge", "Tamanoi-beya Sumo Stable", "Todai-Ji Lawn", "Todai-ji
+        Model", "Todai-Ji Nigatsudo", "Todai-ji", "Tokyo Station", "Train Wash", "Yagizaki
+        Park"] | random }}'
+    entity_id: input_text.slide
+  - service: local_file.update_file_path
+    entity_id: camera.current_slide
+    data:
+      file_path: /share/images/slideshow/{{ states('input_text.slide') }}.jpg
+  - service: input_text.set_value
+    data:
+      value: '{{ { ''Arashiyama'': ''4/26/2019 15:21'', ''Atomic Bomb Dome across
+        River'': ''4/25/2019 12:23'', ''Atomic Bomb Dome'': ''4/25/2019 12:07'', ''Atomic
+        Bomb-surviving Tree'': ''4/25/2019 11:34'', ''Avalanche over Parking Lot'':
+        ''4/22/2019 10:08'', ''Avalanche'': ''4/22/2019 10:01'', ''Bamboo Forest'':
+        ''4/26/2019 16:04'', ''Bike Storage'': ''4/19/2019 10:18'', ''Chiba City Marines'':
+        ''9/21/2020 10:22'', ''Children''''s Peace Monument'': ''4/25/2019 12:25'',
+        ''Daimaru Kyoto'': ''4/22/2019 19:46'', ''Daimonjicho'': ''4/26/2019 12:26'',
+        ''Eikan-do Zenrin-ji - '': ''4/23/2019 11:59'', ''Eikan-do Zenrin-ji Pond'':
+        ''4/23/2019 12:01'', ''Eikan-do Zenrin-ji Zen Garden'': ''4/23/2019 11:16'',
+        ''Flame of Peace'': ''4/25/2019 12:31'', ''Flower Festival Four Corners'':
+        ''4/22/2019 12:21'', ''Flower Festival Pattern'': ''4/22/2019 12:14'', ''10521207
+        Flower Festival Pink'': ''4/22/2019 12:07'', ''Flower Festival Wall'': ''4/22/2019
+        12:03'', ''Fourth Station'': ''4/22/2019 10:09'', ''Fushimi Inari Entrance'':
+        ''4/23/2019 15:03'', ''Fushimi Inari Leaving'': ''4/23/2019 16:30'', ''Fushimi
+        Inari Outside'': ''4/23/2019 15:23'', ''Fushimi Inari Summit'': ''4/23/2019
+        15:38'', ''Fushimi Inari'': ''4/23/2019 15:20'', ''Geisha Doko'': ''4/27/2019
+        17:38'', ''Ginza Reco Billboard Street'': ''4/20/2019 19:37'', ''Ginza Ricoh
+        Billboard'': ''4/20/2019 19:39'', ''Gion'': ''4/26/2019 19:00'', ''Godzilla'':
+        ''4/21/2019 07:43'', ''Heian Shrine Entrance'': ''4/23/2019 13:54'', ''Heian
+        Shrine Gate'': ''4/23/2019 13:46'', ''Heian Shrine'': ''4/23/2019 13:55'',
+        ''Higashimuki Shopping Street'': ''4/24/2019 13:26'', ''Higashiyama Carport'':
+        ''4/23/2019 11:04'', ''Higashiyama Hill'': ''4/23/2019 10:38'', ''Higashiyama
+        Street'': ''4/23/2019 10:37'', ''Himeji Bay'': ''4/27/2019 14:14'', ''Himeji
+        Castle Courtyard'': ''4/27/2019 12:24'', ''Himeji Castle from Corridor'':
+        ''4/27/2019 13:01'', ''Himeji Castle from Park'': ''4/27/2019 13:04'', ''Himeji
+        Castle Gate'': ''4/27/2019 12:33'', ''Himeji Castle Model'': ''4/27/2019 12:17'',
+        ''Himeji Castle over Walls'': ''4/27/2019 11:22'', ''Himeji Castle Room'':
+        ''4/27/2019 13:01'', ''Himeji Castle Structure'': ''4/27/2019 12:12'', ''Himeji
+        Castle'': ''4/27/2019 12:40'', ''Himeji Corridor'': ''4/27/2019 12:48'', ''Himeji
+        from Himeji Castle'': ''4/27/2019 12:03'', ''Hiroshima Bay 2'': ''4/25/2019
+        17:42'', ''Hiroshima Bay from Mount Misen Observatory'': ''4/25/2019 17:52'',
+        ''Hiroshima Bay'': ''4/25/2019 17:40'', ''Hiroshima Castle Bunker'': ''4/25/2019
+        11:31'', ''Hiroshima Castle Moat'': ''4/25/2019 11:18'', ''Hiroshima Castle'':
+        ''4/25/2019 11:20'', ''Hiroshima Central Park'': ''4/25/2019 11:41'', ''Hiroshima
+        Victims Memorial Cenotaph'': ''4/25/2019 12:33'', ''Ice Cave Blue Ice'': ''4/22/2019
+        11:08'', ''Ice Cave Icicle'': ''4/22/2019 11:08'', ''Ice Cave Offering'':
+        ''4/22/2019 11:08'', ''Imperial Palace - '': ''4/20/2019 10:25'', ''Imperial
+        Palace - 2'': ''4/20/2019 10:28'', ''Imperial Palace - Chowaden Reception
+        Hall Courtyard'': ''4/20/2019 10:30'', ''Imperial Palace - Chowaden Reception
+        Hall'': ''4/20/2019 10:29'', ''Imperial Palace - Fujimi-Tamon Defence House'':
+        ''4/20/2019 11:10'', ''Imperial Palace - Tree Mounds'': ''4/20/2019 10:32'',
+        ''Imperial Palace Turret'': ''4/20/2019 10:20'', ''Itsukushima Shrine at Night'':
+        ''4/25/2019 20:03'', ''Itsukushima Shrine from Boat'': ''4/25/2019 19:33'',
+        ''Itsukushima Shrine from Ferry'': ''4/25/2019 16:02'', ''Itsukushima Shrine
+        Sunset'': ''4/25/2019 18:45'', ''Itsukushima Shrine'': ''4/25/2019 16:39'',
+        ''Jisho-Ji Mount Fuji and Sand Rows'': ''4/23/2019 10:00'', ''Jisho-Ji Mount
+        Fuji'': ''4/23/2019 09:59'', ''Jisho-Ji Sand Rows'': ''4/23/2019 09:58'',
+        ''Jisho-Ji Walking Path'': ''4/23/2019 10:01'', ''Jisho-Ji'': ''4/23/2019
+        10:11'', ''Karp Statue'': ''4/25/2019 11:47'', ''Katsura Imperial Villa Bridge'':
+        ''4/28/2019 09:37'', ''Katsura Imperial Villa Entrance'': ''4/28/2019 09:26'',
+        ''Katsura Imperial Villa Fence'': ''4/28/2019 09:23'', ''Katsura Imperial
+        Villa Pond Trees'': ''4/28/2019 09:44'', ''Katsura Imperial Villa Pond'':
+        ''4/28/2019 09:49'', ''Katsura Imperial Villa Teahouse Exterior'': ''4/28/2019
+        09:40'', ''Katsura Imperial Villa Teahouse Fireplace'': ''4/28/2019 09:41'',
+        ''Katsura Imperial Villa Teahouse Interior'': ''4/28/2019 09:38'', ''Katsura
+        Imperial Villa Teahouses'': ''4/28/2019 09:36'', ''Katsura Imperial Villa
+        Viewpoint'': ''4/28/2019 09:45'', ''Katsura Imperial Villa Walking Bridge'':
+        ''4/28/2019 09:51'', ''Katsura Imperial Villa Walkway'': ''4/28/2019 09:29'',
+        ''Katsura Imperial Villa'': ''4/28/2019 09:35'', ''Katsura River'': ''4/26/2019
+        15:37'', ''Kimono Forest'': ''4/26/2019 15:47'', ''Kofuki-Ji'': ''4/24/2019
+        10:46'', ''Kyoto from Arashiyama'': ''4/26/2019 15:05'', ''Kyoto from Fushimi
+        Inari'': ''4/23/2019 15:28'', ''Kyoto from Jisho-Ji'': ''4/23/2019 10:08'',
+        ''Kyoto from Nanzen-Ji'': ''4/23/2019 11:50'', ''Kyoto National Garden Exit'':
+        ''4/26/2019 12:01'', ''Kyoto Tower'': ''4/26/2019 20:49'', ''Lake Kawaguchi
+        Sunrise'': ''4/22/2019 06:02'', ''Meiji Shrine '': ''4/19/2019 14:51'', ''Meiji
+        Shrine Purification Fountain'': ''4/19/2019 15:02'', ''Meiji Shrine Sake Barrels'':
+        ''4/19/2019 14:44'', ''Meiji Shrine Wine Barrels'': ''4/19/2019 14:45'', ''Meiji
+        Shrine'': ''4/19/2019 14:51'', ''Miyajima Boat Cruise'': ''4/25/2019 19:38'',
+        ''Miyajima Ferry Floating Shrines'': ''4/25/2019 15:58'', ''Miyajima Ferry'':
+        ''4/25/2019 15:57'', ''Miyajima Sunset'': ''4/25/2019 18:47'', ''Momijidani
+        Park Bridge'': ''4/25/2019 16:52'', ''Momijidani Park Falls'': ''4/25/2019
+        17:02'', ''Momijidani Park Trail'': ''4/25/2019 17:03'', ''Momijidani Park
+        Waterfall'': ''4/25/2019 16:57'', ''Monkey Flying'': ''4/26/2019 15:16'',
+        ''Monkey Gazing'': ''4/26/2019 15:10'', ''Monkey Waiting'': ''4/26/2019 15:10'',
+        ''Mount Fuji and Rokkakuda'': ''4/21/2019 15:19'', ''Mount Fuji and Ryokan
+        from Rokkakudo'': ''4/21/2019 15:14'', ''Mount Fuji from Ryokan Roof'': ''4/21/2019
+        14:58'', ''Mount Fuji from Ryokan Room'': ''4/21/2019 14:53'', ''Mount Fuji
+        from Shinkansen'': ''4/21/2019 12:02'', ''Mount Fuji of Flowers'': ''4/22/2019
+        06:49'', ''Mount Fuji over Flowers'': ''4/22/2019 06:48'', ''Mount Fuji over
+        Lake Kawaguchi'': ''4/22/2019 06:59'', ''Mount Fuji Over Long Grass'': ''4/21/2019
+        15:22'', ''Mount Fuji over Tulips'': ''4/22/2019 06:46'', ''Mount Fuji Over
+        Walkway'': ''4/22/2019 06:49'', ''Mount Fuji over Wildflowers'': ''4/22/2019
+        06:44'', ''Mount Fuji Photographer'': ''4/22/2019 07:00'', ''Mount Misen Observatory
+        Shrine'': ''4/25/2019 18:00'', ''Mount Misen Observatory Sunset'': ''4/25/2019
+        17:54'', ''Mount Misen Sunset'': ''4/25/2019 17:50'', ''Nanzen-Ji'': ''4/23/2019
+        12:18'', ''Nara Deer'': ''4/24/2019 11:04'', ''Nara from Todai-ji'': ''4/24/2019
+        12:17'', ''Nezu Museum Red Maple'': ''4/19/2019 12:19'', ''Nezu Museum Waterfall'':
+        ''4/19/2019 12:15'', '' 5500 Notes.txt'': ''9/21/2020 07:28'', ''Philosopher''''s
+        Walk'': ''4/23/2019 10:44'', ''Rat Shrine'': ''4/23/2019 10:55'', ''Reisen
+        Dori'': ''4/23/2019 14:18'', ''Rokkakudo Fisherman'': ''4/21/2019 15:18'',
+        ''Rokkunda Waves'': ''4/21/2019 15:19'', ''Roppongi Hills - Northeast Tokyo'':
+        ''4/19/2019 16:00'', ''Roppongi Hills - Northwest Tokyo'': ''4/19/2019 16:08'',
+        ''Roppongi Hills - South Tokyo'': ''4/19/2019 16:00'', ''Roppongi HIlls -
+        Southeast Tokyo'': ''4/19/2019 16:00'', ''Roppongi Hills - Southwest Tokyo'':
+        ''4/19/2019 16:07'', ''Roppongi HIlls - Tokyo Tower'': ''4/19/2019 15:59'',
+        ''Roppongi Hills - West Tokyo'': ''4/19/2019 16:05'', ''Roppongi HIlls Maman
+        Spider'': ''4/19/2019 16:25'', ''Ryokan Cherry Blossoms'': ''4/21/2019 15:05'',
+        ''Sagami Bay from Shinkansen'': ''4/21/2019 11:45'', ''Sento Imperial Palace
+        Entrance Garden'': ''4/26/2019 11:11'', ''Sento Imperial Palace Entrance'':
+        ''4/26/2019 11:07'', ''Sento Imperial Palace Exit'': ''4/26/2019 11:48'',
+        ''Sento Imperial Palace Garden Bridge over Pond'': ''4/26/2019 11:34'', ''Sento
+        Imperial Palace Garden Bridge'': ''4/26/2019 11:23'', ''Sento Imperial Palace
+        Garden Bridges'': ''4/26/2019 11:34'', ''Sento Imperial Palace Garden Entrance'':
+        ''4/26/2019 11:17'', ''Sento Imperial Palace Garden Pond'': ''4/26/2019 11:23'',
+        ''Sento Imperial Palace Garden Stone Path'': ''4/26/2019 11:39'', ''Sento
+        Imperial Palace Garden Stones'': ''4/26/2019 11:32'', ''Sento Imperial Palace
+        Garden Stream'': ''4/26/2019 11:24'', ''Sento Imperial Palace Garden Teahouse
+        Interior'': ''4/26/2019 11:41'', ''Sento Imperial Palace Garden Teahouse'':
+        ''4/26/2019 11:39'', ''Sento Imperial Palace Garden Trees'': ''4/26/2019 11:21'',
+        ''Sento Imperial Palace Garden'': ''4/26/2019 11:32'', ''Sento Imperial Palace
+        Rear'': ''4/26/2019 11:15'', ''Sento Imperial Palace Tree Roots'': ''4/26/2019
+        11:49'', ''Sento Imperial Palace Wall'': ''4/26/2019 10:24'', ''Sera Comedy
+        Show'': ''4/19/2019 18:22'', ''Shibuya Crossing'': ''4/19/2019 14:05'', ''Shinkansen'':
+        ''4/21/2019 12:08'', ''Suirokaku Water Bridge Arches'': ''4/23/2019 12:23'',
+        ''Suirokaku Water Bridge'': ''4/23/2019 12:22'', ''Tamanoi-beya Sumo Stable'':
+        ''4/19/2019 08:11'', ''Todai-Ji Lawn'': ''4/24/2019 12:35'', ''Todai-ji Model'':
+        ''4/24/2019 12:45'', ''Todai-Ji Nigatsudo'': ''4/24/2019 12:11'', ''Todai-ji'':
+        ''4/24/2019 12:37'', ''Tokyo Station'': ''4/20/2019 11:39'', ''Train Wash'':
+        ''4/26/2019 14:20'', ''Yagizaki Park'': ''4/21/2019 15:11'' }[ states(''input_text.slide'')
+        ] }}'
+    entity_id: input_text.slide_date_and_time
+  - service: input_text.set_value
+    data:
+      value: '{{ { ''Arashiyama'': ''Nishikyo Ward, Kyoto, Japan'', ''Atomic Bomb
+        Dome across River'': ''Naka Ward, Hiroshima, Japan'', ''Atomic Bomb Dome'':
+        ''Naka Ward, Hiroshima, Japan'', ''Atomic Bomb-surviving Tree'': ''Naka Ward,
+        Hiroshima, Japan'', ''Avalanche over Parking Lot'': ''Minamitsuru District,
+        Yamanashi, Japan'', ''Avalanche'': ''Minamitsuru District, Yamanashi, Japan'',
+        ''Bamboo Forest'': ''Ukyo Ward, Kyoto, Japan'', ''Bike Storage'': ''Adachi
+        City, Tokyo, Japan'', ''Chiba City Marines'': ''9/21/2020 10:22'', ''Children''''s
+        Peace Monument'': ''Naka Ward, Hiroshima, Japan'', ''Daimaru Kyoto'': ''Shimogyo
+        Ward, Kyoto, Japan'', ''Daimonjicho'': ''Nakagyo Ward, Kyoto, Japan'', ''Eikan-do
+        Zenrin-ji - '': ''Sakyo Ward, Kyoto, Japan'', ''Eikan-do Zenrin-ji Pond'':
+        ''Sakyo Ward, Kyoto, Japan'', ''Eikan-do Zenrin-ji Zen Garden'': ''Sakyo Ward,
+        Kyoto, Japan'', ''Flame of Peace'': ''Naka Ward, Hiroshima, Japan'', ''Flower
+        Festival Four Corners'': ''Fujikawaguchiko, Minamitsuru District, Japan'',
+        ''Flower Festival Pattern'': ''Fujikawaguchiko, Minamitsuru District, Japan'',
+        ''Flower Festival Pink'': ''Fujikawaguchiko, Minamitsuru District, Japan'',
+        ''Flower Festival Wall'': ''Fujikawaguchiko, Minamitsuru District, Japan'',
+        ''Fourth Station'': ''Minamitsuru District, Yamanashi, Japan'', ''Fushimi
+        Inari Entrance'': ''Fushimi Ward, Kyoto, Japan'', ''Fushimi Inari Leaving'':
+        ''Fushimi Ward, Kyoto, Japan'', ''Fushimi Inari Outside'': ''Fushimi Ward,
+        Kyoto, Japan'', ''Fushimi Inari Summit'': ''Fushimi Ward, Kyoto, Japan'',
+        ''Fushimi Inari'': ''Fushimi Ward, Kyoto, Japan'', ''Geisha Doko'': ''Nakagyo
+        Ward, Kyoto, Japan'', ''Ginza Reco Billboard Street'': ''Chuo City, Tokyo,
+        Japan'', ''Ginza Ricoh Billboard'': ''Chuo City, Tokyo, Japan'', ''Gion'':
+        ''Higashiyama Ward, Kyoto, Japan'', ''Godzilla'': ''Chiyoda City, Tokyo, Japan'',
+        ''Heian Shrine Entrance'': ''Sakyo Ward, Kyoto, Japan'', ''Heian Shrine Gate'':
+        ''Sakyo Ward, Kyoto, Japan'', ''Heian Shrine'': ''Sakyo Ward, Kyoto, Japan'',
+        ''Higashimuki Shopping Street'': ''Nara, Japan'', ''Higashiyama Carport'':
+        ''Sakyo Ward, Kyoto, Japan'', ''Higashiyama Hill'': ''Sakyo Ward, Kyoto, Japan'',
+        ''Higashiyama Street'': ''Sakyo Ward, Kyoto, Japan'', ''Himeji Bay'': ''Himeji,
+        Hyogo, Japan'', ''Himeji Castle Courtyard'': ''Himeji, Hyogo, Japan'', ''Himeji
+        Castle from Corridor'': ''Himeji, Hyogo, Japan'', ''Himeji Castle from Park'':
+        ''Himeji, Hyogo, Japan'', ''Himeji Castle Gate'': ''Himeji, Hyogo, Japan'',
+        ''Himeji Castle Model'': ''Himeji, Hyogo, Japan'', ''Himeji Castle over Walls'':
+        ''Himeji, Hyogo, Japan'', ''Himeji Castle Room'': ''Himeji, Hyogo, Japan'',
+        ''Himeji Castle Structure'': ''Himeji, Hyogo, Japan'', ''Himeji Castle'':
+        ''Himeji, Hyogo, Japan'', ''Himeji Corridor'': ''Himeji, Hyogo, Japan'', ''Himeji
+        from Himeji Castle'': ''Himeji, Hyogo, Japan'', ''Hiroshima Bay 2'': ''Hatsukaichi,
+        Hiroshima, Japan'', ''Hiroshima Bay from Mount Misen Observatory'': ''Hatsukaichi,
+        Hiroshima, Japan'', ''Hiroshima Bay'': ''Hatsukaichi, Hiroshima, Japan'',
+        ''Hiroshima Castle Bunker'': ''Naka Ward, Hiroshima, Japan'', ''Hiroshima
+        Castle Moat'': ''Naka Ward, Hiroshima, Japan'', ''Hiroshima Castle'': ''Naka
+        Ward, Hiroshima, Japan'', ''Hiroshima Central Park'': ''Naka Ward, Hiroshima,
+        Japan'', ''Hiroshima Victims Memorial Cenotaph'': ''Naka Ward, Hiroshima,
+        Japan'', ''Ice Cave Blue Ice'': ''Narusawa, Minamitsuru District, Japan'',
+        ''Ice Cave Icicle'': ''Narusawa, Minamitsuru District, Japan'', ''Ice Cave
+        Offering'': ''Narusawa, Minamitsuru District, Japan'', ''Imperial Palace -
+        '': ''Chiyoda City, Tokyo, Japan'', ''Imperial Palace - 2'': ''Chiyoda City,
+        Tokyo, Japan'', ''Imperial Palace - Chowaden Reception Hall Courtyard'': ''Chiyoda
+        City, Tokyo, Japan'', ''Imperial Palace - Chowaden Reception Hall'': ''Chiyoda
+        City, Tokyo, Japan'', ''Imperial Palace - Fujimi-Tamon Defence House'': ''Chiyoda
+        City, Tokyo, Japan'', ''Imperial Palace - Tree Mounds'': ''Chiyoda City, Tokyo,
+        Japan'', ''Imperial Palace Turret'': ''Chiyoda City, Tokyo, Japan'', ''Itsukushima
+        Shrine at Night'': ''Hatsukaichi, Hiroshima, Japan'', ''Itsukushima Shrine
+        from Boat'': ''Hatsukaichi, Hiroshima, Japan'', ''Itsukushima Shrine from
+        Ferry'': ''Hatsukaichi, Hiroshima, Japan'', ''Itsukushima Shrine Sunset'':
+        ''Hatsukaichi, Hiroshima, Japan'', ''Itsukushima Shrine'': ''Hatsukaichi,
+        Hiroshima, Japan'', ''Jisho-Ji Mount Fuji and Sand Rows'': ''Sakyo Ward, Kyoto,
+        Japan'', ''Jisho-Ji Mount Fuji'': ''Sakyo Ward, Kyoto, Japan'', ''Jisho-Ji
+        Sand Rows'': ''Sakyo Ward, Kyoto, Japan'', ''Jisho-Ji Walking Path'': ''Sakyo
+        Ward, Kyoto, Japan'', ''Jisho-Ji'': ''Sakyo Ward, Kyoto, Japan'', ''Karp Statue'':
+        ''Naka Ward, Hiroshima, Japan'', ''Katsura Imperial Villa Bridge'': ''Nishikyo
+        Ward, Kyoto, Japan'', ''Katsura Imperial Villa Entrance'': ''Nishikyo Ward,
+        Kyoto, Japan'', ''Katsura Imperial Villa Fence'': ''Nishikyo Ward, Kyoto,
+        Japan'', ''Katsura Imperial Villa Pond Trees'': ''Nishikyo Ward, Kyoto, Japan'',
+        ''Katsura Imperial Villa Pond'': ''Nishikyo Ward, Kyoto, Japan'', ''Katsura
+        Imperial Villa Teahouse Exterior'': ''Nishikyo Ward, Kyoto, Japan'', ''Katsura
+        Imperial Villa Teahouse Fireplace'': ''Nishikyo Ward, Kyoto, Japan'', ''Katsura
+        Imperial Villa Teahouse Interior'': ''Nishikyo Ward, Kyoto, Japan'', ''Katsura
+        Imperial Villa Teahouses'': ''Nishikyo Ward, Kyoto, Japan'', ''Katsura Imperial
+        Villa Viewpoint'': ''Nishikyo Ward, Kyoto, Japan'', ''Katsura Imperial Villa
+        Walking Bridge'': ''Nishikyo Ward, Kyoto, Japan'', ''Katsura Imperial Villa
+        Walkway'': ''Nishikyo Ward, Kyoto, Japan'', ''Katsura Imperial Villa'': ''Nishikyo
+        Ward, Kyoto, Japan'', ''Katsura River'': ''Ukyo Ward, Kyoto, Japan'', ''Kimono
+        Forest'': ''Ukyo Ward, Kyoto, Japan'', ''Kofuki-Ji'': ''Nara, Japan'', ''Kyoto
+        from Arashiyama'': ''Nishikyo Ward, Kyoto, Japan'', ''Kyoto from Fushimi Inari'':
+        ''Fushimi Ward, Kyoto, Japan'', ''Kyoto from Jisho-Ji'': ''Sakyo Ward, Kyoto,
+        Japan'', ''Kyoto from Nanzen-Ji'': ''Sakyo Ward, Kyoto, Japan'', ''Kyoto National
+        Garden Exit'': ''Kamigyo Ward, Kyoto, Japan'', ''Kyoto Tower'': ''Shimogyo
+        Ward, Kyoto, Japan'', ''Lake Kawaguchi Sunrise'': ''Fujikawaguchiko, Minamitsuru
+        District, Japan'', ''Meiji Shrine '': ''Shibuya City, Tokyo, Japan'', ''Meiji
+        Shrine Purification Fountain'': ''Shibuya City, Tokyo, Japan'', ''Meiji Shrine
+        Sake Barrels'': ''Shibuya City, Tokyo, Japan'', ''Meiji Shrine Wine Barrels'':
+        ''Shibuya City, Tokyo, Japan'', ''Meiji Shrine'': ''Shibuya City, Tokyo, Japan'',
+        ''Miyajima Boat Cruise'': ''Hatsukaichi, Hiroshima, Japan'', ''Miyajima Ferry
+        Floating Shrines'': ''Hatsukaichi, Hiroshima, Japan'', ''Miyajima Ferry'':
+        ''Hatsukaichi, Hiroshima, Japan'', ''Miyajima Sunset'': ''Hatsukaichi, Hiroshima,
+        Japan'', ''Momijidani Park Bridge'': ''Hatsukaichi, Hiroshima, Japan'', ''Momijidani
+        Park Falls'': ''Hatsukaichi, Hiroshima, Japan'', ''Momijidani Park Trail'':
+        ''Hatsukaichi, Hiroshima, Japan'', ''Momijidani Park Waterfall'': ''Hatsukaichi,
+        Hiroshima, Japan'', ''Monkey Flying'': ''Nishikyo Ward, Kyoto, Japan'', ''Monkey
+        Gazing'': ''Nishikyo Ward, Kyoto, Japan'', ''Monkey Waiting'': ''Nishikyo
+        Ward, Kyoto, Japan'', ''Mount Fuji and Rokkakuda'': ''Fujikawaguchiko, Minamitsuru
+        District, Japan'', ''Mount Fuji and Ryokan from Rokkakudo'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Mount Fuji from Ryokan Roof'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Mount Fuji from Ryokan Room'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Mount Fuji from Shinkansen'': ''Odawara,
+        Kanagawa, Japan'', ''Mount Fuji of Flowers'': ''Fujikawaguchiko, Minamitsuru
+        District, Japan'', ''Mount Fuji over Flowers'': ''Fujikawaguchiko, Minamitsuru
+        District, Japan'', ''Mount Fuji over Lake Kawaguchi'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Mount Fuji Over Long Grass'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Mount Fuji over Tulips'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Mount Fuji Over Walkway'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Mount Fuji over Wildflowers'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Mount Fuji Photographer'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Mount Misen Observatory Shrine'': ''Hatsukaichi,
+        Hiroshima, Japan'', ''Mount Misen Observatory Sunset'': ''Hatsukaichi, Hiroshima,
+        Japan'', ''Mount Misen Sunset'': ''Hatsukaichi, Hiroshima, Japan'', ''Nanzen-Ji'':
+        ''Sakyo Ward, Kyoto, Japan'', ''Nara Deer'': ''Nara, Japan'', ''Nara from
+        Todai-ji'': ''Nara, Japan'', ''Nezu Museum Red Maple'': ''Minato City, Tokyo,
+        Japan'', ''Nezu Museum Waterfall'': ''Minato City, Tokyo, Japan'', '' 5500
+        Notes.txt'': ''9/21/2020 07:28'', ''Philosopher''''s Walk'': ''Sakyo Ward,
+        Kyoto, Japan'', ''Rat Shrine'': ''Sakyo Ward, Kyoto, Japan'', ''Reisen Dori'':
+        ''Sakyo Ward, Kyoto, Japan'', ''Rokkakudo Fisherman'': ''Fujikawaguchiko,
+        Minamitsuru District, Japan'', ''Rokkunda Waves'': ''Fujikawaguchiko, Minamitsuru
+        District, Japan'', ''Roppongi Hills - Northeast Tokyo'': ''Minato City, Tokyo,
+        Japan'', ''Roppongi Hills - Northwest Tokyo'': ''Minato City, Tokyo, Japan'',
+        ''Roppongi Hills - South Tokyo'': ''Minato City, Tokyo, Japan'', ''Roppongi
+        HIlls - Southeast Tokyo'': ''Minato City, Tokyo, Japan'', ''Roppongi Hills
+        - Southwest Tokyo'': ''Minato City, Tokyo, Japan'', ''Roppongi HIlls - Tokyo
+        Tower'': ''Minato City, Tokyo, Japan'', ''Roppongi Hills - West Tokyo'': ''Minato
+        City, Tokyo, Japan'', ''Roppongi HIlls Maman Spider'': ''Minato City, Tokyo,
+        Japan'', ''Ryokan Cherry Blossoms'': ''Fujikawaguchiko, Minamitsuru District,
+        Japan'', ''Sagami Bay from Shinkansen'': ''Odawara, Kanagawa, Japan'', ''Sento
+        Imperial Palace Entrance Garden'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento
+        Imperial Palace Entrance'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial
+        Palace Exit'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden
+        Bridge over Pond'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace
+        Garden Bridge'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden
+        Bridges'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden
+        Entrance'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden
+        Pond'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden Stone
+        Path'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden Stones'':
+        ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden Stream'': ''Kamigyo
+        Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden Teahouse Interior'':
+        ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden Teahouse'':
+        ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden Trees'': ''Kamigyo
+        Ward, Kyoto, Japan'', ''Sento Imperial Palace Garden'': ''Kamigyo Ward, Kyoto,
+        Japan'', ''Sento Imperial Palace Rear'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento
+        Imperial Palace Tree Roots'': ''Kamigyo Ward, Kyoto, Japan'', ''Sento Imperial
+        Palace Wall'': ''Kamigyo Ward, Kyoto, Japan'', ''Sera Comedy Show'': ''Taito
+        City, Tokyo, Japan'', ''Shibuya Crossing'': ''Shibuya City, Tokyo, Japan'',
+        ''Shinkansen'': ''Chiyoda City, Tokyo, Japan'', ''Suirokaku Water Bridge Arches'':
+        ''Sakyo Ward, Kyoto, Japan'', ''Suirokaku Water Bridge'': ''Sakyo Ward, Kyoto,
+        Japan'', ''Tamanoi-beya Sumo Stable'': ''Adachi City, Tokyo, Japan'', ''Todai-Ji
+        Lawn'': ''Nara, Japan'', ''Todai-ji Model'': ''Nara, Japan'', ''Todai-Ji Nigatsudo'':
+        ''Nara, Japan'', ''Todai-ji'': ''Nara, Japan'', ''Tokyo Station'': ''Chiyoda
+        City, Tokyo, Japan'', ''Train Wash'': ''Nishikyo Ward, Kyoto, Japan'', ''Yagizaki
+        Park'': ''Fujikawaguchiko, Minamitsuru District, Japan'' }[ states(''input_text.slide'')
+        ] }}'
+    entity_id: input_text.slide_location
+  mode: single
+- id: home_assistant_started
+  alias: Home Assistant Started
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - data:
+      payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+      topic: wallpanel/fire-tab/command
+    service: mqtt.publish
+  - data:
+      payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+      topic: wallpanel/galaxytaba/command
+    service: mqtt.publish
+  - data:
+      payload: '{"clearCache": true, "relaunch": true, "volume": 100}'
+      topic: wallpanel/galaxytabs6/command
+    service: mqtt.publish
+  - delay: 00:00:05
+  - service: light.turn_off
+    data: {}
+    entity_id: light.fire_tab,light.galaxytaba,light.galaxytabs6
+  mode: single
+- id: scene_text_input_changed
+  alias: Scene Text Input Changed
+  description: ''
+  trigger:
+  - entity_id: input_text.scene
+    platform: state
+  condition: []
+  action:
+  - service: local_file.update_file_path
+    entity_id: camera.current_scene
+    data:
+      file_path: /share/images/scenes/{{ states('input_text.scene') }}.jpg
+  mode: restart
+- id: hallway_bath_light_off
+  alias: Hallway Bath Light Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.hallway_bath_light
+    from: 'on'
+    to: 'off'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.hallway_bath_fan
+  mode: single
+- id: start_working
+  alias: Start Working
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.office_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.working
+      state: 'off'
+    - condition: template
+      value_template: '{{ as_timestamp(now()) < as_timestamp(states.calendar.holidays_in_united_states.attributes.start_time)
+        or as_timestamp(now()) > as_timestamp(states.calendar.holidays_in_united_states.attributes.end_time)
+        }}'
+    - condition: time
+      after: 08:45:00
+      before: '17:45:00'
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+  - service: switch.turn_on
+    entity_id: switch.working
+  mode: single
+- id: hue_sync_box_changed
+  alias: Hue Sync Box Changed
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.sync_box
+    attribute: source
+  condition:
+  - condition: state
+    entity_id: media_player.sync_box
+    state: playing
+  action:
+  - service: huesyncbox.set_sync_state
+    data:
+      sync: true
+      intensity: '{% if states.media_player.sync_box.attributes.source == "Roku" %}
+        high {% elif states.media_player.sync_box.attributes.source == "Playstation"
+        %} intense {% else %} moderate {% endif %} '
+      brightness: '{% if states.media_player.sync_box.attributes.source == "Roku"
+        %} 0.7 {% elif states.media_player.sync_box.attributes.source == "Playstation"
+        %} 0.7 {% else %} 0.8 {% endif %} '
+    entity_id: media_player.sync_box
+  mode: single
+- id: living_room_monitor_turned_off
+  alias: Living Room Monitor Turned Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.living_room_monitor
+    from: 'on'
+    to: 'off'
+  action:
+  - service: automation.turn_off
+    entity_id: automation.slideshow
+- id: living_room_monitor_turned_on
+  alias: Living Room Monitor Turned On
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: switch.living_room_monitor
+    from: 'off'
+    to: 'on'
+  action:
+  - service: automation.turn_on
+    entity_id: automation.slideshow
+- id: office_motion_detected_music
+  alias: Office Motion Detected - Music
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.office_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  - condition: state
+    entity_id: switch.away
+    state: 'off'
+  action:
+  - service: media_player.volume_set
+    data:
+      volume_level: '{{ states.media_player.snapcast_group_office.attributes.volume_level
+        | max(1.0) }}'
+    entity_id: media_player.snapcast_group_office
+  - service: media_player.volume_set
+    data:
+      volume_level: '{{ states.media_player.snapcast_group_master.attributes.volume_level
+        | max(0.4) }}'
+    entity_id: media_player.snapcast_group_master
+  - service: media_player.volume_set
+    data:
+      volume_level: '{{ states.media_player.snapcast_group_main.attributes.volume_level
+        | max(0.4) }}'
+    entity_id: media_player.snapcast_group_main
+  mode: queued
+  max: 10
+- id: office_motion_detected
+  alias: Office Motion Detected
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.office_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: light.office
+      state: 'off'
+    - condition: state
+      entity_id: automation.office_motion_undetected
+      state: 'on'
+  action:
+  - entity_id: light.office
+    service: light.turn_on
+    data:
+      brightness: 255
+  - delay: 00:00:03
+  - service: automation.turn_on
+    entity_id: automation.office_motion_undetected
+  mode: queued
+  max: 10
+- id: office_motion_undetected
+  alias: Office Motion Undetected
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.office_motion_sensor_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+    for: 00:01:00
+  condition:
+  - condition: state
+    entity_id: light.office
+    state: 'on'
+  - condition: state
+    entity_id: switch.working
+    state: 'off'
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  action:
+  - entity_id: light.office
+    data:
+      brightness: '{% if states.binary_sensor.dark_while_not_bedtime.state == "on"
+        %} 32 {% else %} 0 {% endif %}'
+    service: light.turn_on
+  - delay: 00:00:03
+  - service: automation.turn_on
+    entity_id: automation.office_motion_undetected
+  mode: single
+- id: data_finished_room
+  alias: Data Finished Room
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.data_valetudo_state
+    to: '3'
+    from: '18'
+  - platform: state
+    entity_id: sensor.data_valetudo_state
+    from: '18'
+    to: '10'
+  condition: []
+  action:
+  - service: '{% if room == "Master" %} counter.reset {% else %} counter.increment
+      {% endif %}'
+    entity_id: counter.rooms_since_master
+  - service: '{% if room == "Master Bath" %} counter.reset {% else %} counter.increment
+      {% endif %}'
+    entity_id: counter.rooms_since_master_bath
+  - service: '{% if room == "Hallway" %} counter.reset {% else %} counter.increment
+      {% endif %}'
+    entity_id: counter.rooms_since_hallway
+  - service: '{% if room == "Hallway Bath" %} counter.reset {% else %} counter.increment
+      {% endif %}'
+    entity_id: counter.rooms_since_hallway_bath
+  - service: '{% if room == "Office" %} counter.reset {% else %} counter.increment
+      {% endif %}'
+    entity_id: counter.rooms_since_office
+  - service: '{% if room == "Kitchen" %} counter.reset {% else %} counter.increment
+      {% endif %}'
+    entity_id: counter.rooms_since_kitchen
+  - service: '{% if room == "Dining" %} counter.reset {% else %} counter.increment
+      {% endif %}'
+    entity_id: counter.rooms_since_dining
+  - service: '{% if room == "Living Room" %} counter.reset {% else %} counter.increment
+      {% endif %}'
+    entity_id: counter.rooms_since_living_room
+  - service: '{% if room == "Theater" %} counter.reset {% else %} counter.increment
+      {% endif %}'
+    entity_id: counter.rooms_since_theater
+  - condition: state
+    entity_id: switch.away
+    state: 'on'
+  - condition: numeric_state
+    entity_id: vacuum.data
+    attribute: battery_level
+    above: '20'
+  - service: script.data_vacuum_room
+    data:
+      room: '{{ { states.counter.rooms_since_master_bath.state: "Master Bath", states.counter.rooms_since_master.state:
+        "Master", states.counter.rooms_since_hallway.state: "Hallway", states.counter.rooms_since_hallway_bath.state:
+        "Hallway Bath", states.counter.rooms_since_office.state: "Office", states.counter.rooms_since_kitchen.state:
+        "Kitchen", states.counter.rooms_since_dining.state: "Dining", states.counter.rooms_since_living_room.state:
+        "Living Room", states.counter.rooms_since_theater.state: "Theater" } ["8"]
+        }}'
+  variables:
+    room: '{{ states.input_text.data_current_room.state }}'
+  mode: single
+- id: room_motion_detected_hallway_lights
+  alias: Room Motion Detected - Hallway Lights
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.master_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.office_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.hallway
+    state: 'off'
+  action:
+  - service: light.turn_on
+    entity_id: light.hallway
+  - service: automation.turn_on
+    entity_id: automation.room_motion_undetected_hallway_lights
+  mode: single
+- id: room_motion_undetected_hallway_lights
+  alias: Room Motion Undetected - Hallway Lights
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.master_motion_sensor_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+    for: 00:00:30
+  - entity_id: binary_sensor.office_motion_sensor_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+    for: 00:00:30
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+    for: 00:00:30
+  condition:
+  - condition: state
+    entity_id: light.living_room_strips
+    state: 'off'
+  action:
+  - entity_id: light.hallway
+    service: light.turn_off
+  mode: single
+- id: theater_tv_turned_on
+  alias: Theater TV Turned On
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.theater_playing_or_paused
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - service: switch.turn_off
+    entity_id: switch.living_room_monitor
+  mode: single
+- id: theater_tv_turned_off
+  alias: Theater TV Turned Off
+  description: ''
+  trigger:
+  - entity_id: media_player.theater_tv
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  action:
+  - service: switch.turn_on
+    entity_id: switch.living_room_monitor
+  mode: single
+- id: spotify_started
+  alias: Spotify Started
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.spotify
+    attribute: source
+    to: Snapcast
+  - platform: state
+    entity_id: media_player.spotify
+    to: playing
+  condition:
+  - condition: state
+    entity_id: switch.working
+    state: 'off'
+  action:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: media_player.spotify
+      state: playing
+    - condition: state
+      entity_id: media_player.spotify
+      state: Snapcast
+      attribute: source
+  - data:
+      command: PowerOn
+      device: Onkyo AV Receiver
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+  - entity_id: media_player.sync_box
+    service: media_player.turn_on
+  - entity_id: media_player.theater_tv
+    service: media_player.turn_on
+  - service: media_player.select_source
+    entity_id: media_player.sync_box
+    data:
+      source: Raspberry Pi
+  mode: single
+- id: alexa_starts_playing_spotify
+  alias: Alexa Starts Playing Spotify
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.dining_echo_dot
+    to: playing
+  - platform: state
+    entity_id: media_player.hallway_bath_echo_flex
+    to: playing
+  - platform: state
+    entity_id: media_player.master_echo_dot
+    to: playing
+  - platform: state
+    entity_id: media_player.spotify
+    attribute: source
+    to: Dining Echo Dot
+  - platform: state
+    entity_id: media_player.spotify
+    attribute: source
+    to: Master Echo Dot
+  - platform: state
+    entity_id: media_player.spotify
+    attribute: source
+    to: Hallway Bath Echo Flex
+  condition: []
+  action:
+  - service: spotcast.start
+    data:
+      device_name: Snapcast
+  mode: single
+- id: spotify_stopped
+  alias: Spotify Stopped
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.spotify
+    attribute: source
+    from: Snapcast
+    for: 00:01:00
+  - platform: state
+    entity_id: media_player.spotify
+    to: paused
+    for: 00:01:00
+  condition:
+  - condition: state
+    entity_id: switch.working
+    state: 'off'
+  action:
+  - condition: not
+    conditions:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: media_player.spotify
+        state: playing
+      - condition: state
+        entity_id: media_player.spotify
+        state: Snapcast
+        attribute: source
+  - service: media_player.volume_set
+    entity_id:
+    - media_player.snapcast_group_main
+    - media_player.snapcast_group_master
+    - media_player.snapcast_group_office
+    data:
+      volume_level: 1.0
+  - service: script.power_off_theater_tv_if_no_video
+  - service: script.power_off_living_room_speakers_if_tv_off
+  mode: single
+- id: front_door_closed
+  alias: Front Door Closed
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kitchen_door_ias_zone
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - wait_for_trigger:
+    - platform: state
+      entity_id: sensor.kevins_iphone_connection_type
+      to: <not connected>
+    - platform: state
+      entity_id: sensor.kevins_iphone_room_presense_ble
+      to: not_home
+    timeout: 00:02:00
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.away
+  mode: restart
+- id: left_home
+  alias: Left Home
+  description: ''
+  trigger:
+  - entity_id: person.kevin_broh_kahn
+    event: leave
+    platform: zone
+    zone: zone.home
+  condition: []
+  action:
+  - service: climate.set_temperature
+    entity_id: climate.hallway_thermostat
+    data:
+      temperature: '{% if is_state("climate.hallway_thermostat", "cool") %} {{ states.climate.hallway_thermostat.attributes.temperature
+        + 2 }} {% elif is_state("climate.hallway_thermostat", "heat") %} {{ states.climate.hallway_thermostat.attributes.temperature
+        - 2 }} {% else %} {{ states.climate.hallway_thermostat.attributes.temperature
+        }} {% endif %}'
+  mode: single
+- id: galaxy_tab_a_snapcast_client_turned_off
+  alias: Galaxy Tab A Snapcast Client Turned Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.snapcast_client_galaxytaba
+    to: 'off'
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: galaxytaba/tasker/restartsnapdroid
+  mode: single
+- id: galaxy_tab_s_snapcast_client_turned_off
+  alias: Galaxy Tab S Snapcast Client Turned Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.snapcast_client_galaxytabs
+    to: 'off'
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: galaxytabs/tasker/restartsnapdroid
+  mode: single
+- id: galaxy_tab_s6_snapcast_client_turned_off
+  alias: Galaxy Tab S6 Snapcast Client Turned Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.snapcast_client_galaxytabs6
+    to: 'off'
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: galaxytabs6/tasker/restartsnapdroid
+  mode: single
+- id: fire_tab_snapcast_client_turned_off
+  alias: Fire Tab Snapcast Client Turned Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: media_player.snapcast_client_fire_tab
+    to: 'off'
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: firetab/tasker/restartsnapdroid
+  mode: single
+- id: kitchen_motion_undetected_living_room_lights
+  alias: Kitchen Motion Undetected - Living Room Lights
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    for: 00:01:00
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: light.living_room_strips
+    state: 'off'
+  - condition: state
+    entity_id: light.living_room_lanterns
+    state: 'on'
+  variables:
+    brightness: '{% if states.binary_sensor.dark_while_not_bedtime.state == "on" %}
+      32 {% else %} 0 {% endif %}'
+  action:
+  - entity_id: light.living_room_lantern_west
+    data:
+      brightness: '{{ brightness }}'
+    service: light.turn_on
+  - delay:
+      milliseconds: 500
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.living_room_lantern_center
+    data:
+      brightness: '{{ brightness }}'
+    service: light.turn_on
+  - delay:
+      milliseconds: 500
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - entity_id: light.living_room_lantern_east
+    data:
+      brightness: '{{ brightness }}'
+    service: light.turn_on
+  - delay:
+      milliseconds: 500
+  - condition: state
+    entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    state: 'off'
+  - service: automation.turn_on
+    entity_id: automation.kitchen_motion_undetected_living_room_lights
+  mode: single
+- id: kitchen_motion_detected_music
+  alias: Kitchen Motion Detected - Music
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - service: media_player.volume_set
+    data:
+      volume_level: '{{ states.media_player.snapcast_group_main.attributes.volume_level
+        | max(1.0) }}'
+    entity_id: media_player.snapcast_group_main
+  - service: media_player.volume_set
+    data:
+      volume_level: '{{ states.media_player.snapcast_group_master.attributes.volume_level
+        | max(0.4) }}'
+    entity_id: media_player.snapcast_group_master
+  - service: media_player.volume_set
+    data:
+      volume_level: '{{ states.media_player.snapcast_group_office.attributes.volume_level
+        | max(0.4) }}'
+    entity_id: media_player.snapcast_group_office
+- id: kitchen_motion_detected
+  alias: Kitchen Motion Detected
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: light.kitchen_overhead
+      state: 'off'
+    - condition: state
+      entity_id: automation.kitchen_motion_undetected
+      state: 'on'
+  action:
+  - entity_id: light.kitchen
+    service: light.turn_on
+  - service: automation.turn_on
+    entity_id: automation.kitchen_motion_undetected
+  mode: queued
+- id: kitchen_motion_detected_dining_lights
+  alias: Kitchen Motion Detected - Dining Lights
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.bedtime
+      state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: light.dining
+        state: 'off'
+      - condition: state
+        entity_id: automation.kitchen_motion_undetected_dining_lights
+        state: 'on'
+  action:
+  - entity_id: light.dining
+    service: light.turn_on
+  - service: automation.turn_on
+    entity_id: automation.kitchen_motion_undetected_dining_lights
+  mode: queued
+- id: kitchen_motion_detected_living_room_lights
+  alias: Kitchen Motion Detected - Living Room Lights
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.kitchen_motion_sensor_ias_zone
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.bedtime
+      state: 'off'
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: light.living_room
+        state: 'off'
+      - condition: state
+        entity_id: automation.kitchen_motion_undetected_living_room_lights
+        state: 'on'
+  action:
+  - entity_id: light.living_room_lanterns
+    service: light.turn_on
+    data:
+      brightness: 255
+      hs_color:
+      - 15
+      - 80
+  - service: automation.turn_on
+    entity_id: automation.kitchen_motion_undetected_living_room_lights
+  mode: queued
+- id: thermostat_start_or_stop
+  alias: Thermostat Start or Stop
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: climate.hallway_thermostat
+    attribute: hvac_action
+    from: cooling
+  - platform: state
+    entity_id: climate.hallway_thermostat
+    attribute: hvac_action
+    from: heating
+  - platform: state
+    entity_id: climate.hallway_thermostat
+    attribute: hvac_action
+    from: idle
+  condition: []
+  action:
+  - service: climate.set_temperature
+    data:
+      temperature: >
+        {% if (states.climate.hallway_thermostat.state == 'cool' and
+        states.climate.hallway_thermostat.attributes.hvac_action == 'idle')or
+        (states.climate.hallway_thermostat.state == 'heat' and states.climate.hallway_thermostat.attributes.hvac_action
+        == 'heating') %}
+        {{ states.climate.hallway_thermostat.attributes.temperature + 2 }}
+        {% elif (states.climate.hallway_thermostat.state == 'heat' and 
+        states.climate.hallway_thermostat.attributes.hvac_action == 'idle') or
+        (states.climate.hallway_thermostat.state == 'cool' and states.climate.hallway_thermostat.attributes.hvac_action
+        == 'cooling') %}
+        {{ states.climate.hallway_thermostat.attributes.temperature - 2 }}
+        {% else %}
+        {{ states.climate.hallway_thermostat.attributes.temperature }}
+        {% endif %}'
+    entity_id: climate.hallway_thermostat
+  mode: single
+- id: main_lights_secondary_angle_changed
+  alias: Main Lights Secondary Angle Changed
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_number.main_lights_secondary_angle
+  condition:
+  - condition: state
+    entity_id: light.main
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      hs_color: '{{ states.light.living_room_strips.attributes.hs_color }}'
+    entity_id: light.main
+  mode: parallel
+  max: 10
+- id: guest_visit_time_changed
+  alias: Guest Visit Time Changed
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: calendar.kbkrunner_gmail_com
+    attribute: start_time
+  - platform: state
+    entity_id: calendar.kbkrunner_gmail_com
+    attribute: end_time
+  condition:
+  - condition: or
+    conditions:
+    - condition: template
+      value_template: '{{ "guest visit" in states.calendar.kbkrunner_gmail_com.attributes.message
+        | lower }}'
+    - condition: template
+      value_template: '{{ "maid brigade" in states.calendar.kbkrunner_gmail_com.attributes.message
+        | lower }}'
+  action:
+  - service: input_datetime.set_datetime
+    data:
+      datetime: '{{ states.calendar.kbkrunner_gmail_com.attributes.start_time }}'
+    entity_id: input_datetime.guest_visit_start_time
+  - service: input_datetime.set_datetime
+    data:
+      datetime: '{{ states.calendar.kbkrunner_gmail_com.attributes.end_time }}'
+    entity_id: input_datetime.guest_visit_end_time
+  mode: single
+- id: guest_visit_start
+  alias: Guest Visit - Start
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.guest_visit_start_time
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.guests_home
+  mode: single
+- id: guest_visit_end
+  alias: Guest Visit - End
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.guest_visit_end_time
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.guests_home
+  mode: single
+- id: spotify_room_volume
+  alias: Spotify Room Volume
+  description: ''
+  trigger:
+  - platform: time_pattern
+    seconds: /15
+  condition:
+  - condition: state
+    entity_id: media_player.spotify
+    state: playing
+  - condition: state
+    entity_id: media_player.spotify
+    state: Snapcast
+    attribute: source
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: sensor.kevins_iphone_room_presence_ble
+      state: not_home
+  action:
+  - service: media_player.volume_set
+    data:
+      volume_level: '{% if states.binary_sensor.kitchen_motion_sensor_ias_zone.state
+        == "on" or states.sensor.kevins_iphone_room_presence_ble.state in ["kitchen",
+        "theater", "living-room" ] or states.sensor.kevins_apple_watch_room_presence.state in ["kitchen",
+        "theater", "living-room"] %} {{ states.media_player.snapcast_group_main.attributes.volume_level
+        | max(1.0) }} {% elif states.binary_sensor.office_motion_sensor_ias_zone.state
+        == "on"  or states.binary_sensor.master_motion_sensor_ias_zone.state == "on"
+        %}  {{ (states.media_player.snapcast_group_main.attributes.volume_level - 0.1) | max(0.4)
+        }} {% else %} {{ (states.media_player.snapcast_group_main.attributes.volume_level
+        - 0.1) | max(0.0) }} {% endif %}'
+    entity_id: media_player.snapcast_group_main
+  - service: media_player.volume_set
+    data:
+      volume_level: '{% if states.binary_sensor.office_motion_sensor_ias_zone.state
+        == "on" or states.sensor.kevins_iphone_room_presence_ble.state in ["office"
+        ] or states.sensor.kevins_apple_watch_room_presence.state in ["office"
+        ] %} {{ states.media_player.snapcast_group_office.attributes.volume_level
+        | max(1.0) }} {% elif states.binary_sensor.kitchen_motion_sensor_ias_zone.state
+        == "on"  or states.binary_sensor.master_motion_sensor_ias_zone.state == "on"
+        %}  {{ (states.media_player.snapcast_group_office.attributes.volume_level - 0.1) |
+        max(0.4) }} {% else %} {{ (states.media_player.snapcast_group_office.attributes.volume_level
+        - 0.1)  | max(0.0) }} {% endif %}'
+    entity_id: media_player.snapcast_group_office
+  - service: media_player.volume_set
+    data:
+      volume_level: '{% if states.binary_sensor.master_motion_sensor_ias_zone.state
+        == "on" or states.sensor.kevins_iphone_room_presence_ble.state in ["master", "master-bath"
+        ] or states.sensor.kevins_apple_watch_room_presence.state in ["master", "master-bath"
+        ] %} {{ states.media_player.snapcast_group_master.attributes.volume_level
+        | max(1.0) }} {% elif states.binary_sensor.kitchen_motion_sensor_ias_zone.state
+        == "on"  or states.binary_sensor.office_motion_sensor_ias_zone.state == "on"
+        %}  {{ (states.media_player.snapcast_group_master.attributes.volume_level - 0.1) |
+        max(0.4) }} {% else %} {{ (states.media_player.snapcast_group_master.attributes.volume_level
+        - 0.1)  | max(0.0) }} {% endif %}'
+    entity_id: media_player.snapcast_group_master
+  mode: single
+- id: bedtime_start
+  alias: Bedtime Start
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.kevins_iphone_battery_state
+    to: charging
+  condition:
+  - condition: time
+    after: '20:00:00'
+    before: 02:00:00
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'off'
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.bedtime
+  mode: single
+- id: bedtime_end
+  alias: Bedtime End
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.kevins_iphone_battery_state
+    to: 'Not Charging'
+  condition:
+  - condition: time
+    after: 06:00:00
+    before: '10:00:00'
+  - condition: state
+    entity_id: switch.bedtime
+    state: 'on'
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.bedtime
+  mode: single

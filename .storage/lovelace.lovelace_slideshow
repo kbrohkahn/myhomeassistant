@@ -1,0 +1,265 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_slideshow",
+    "data": {
+        "config": {
+            "kiosk_mode": {
+                "hide_header": true,
+                "hide_sidebar": true
+            },
+            "views": [
+                {
+                    "panel": true,
+                    "title": "Home",
+                    "icon": "mdi:home",
+                    "path": "home",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "picture-elements",
+                            "image": "local/images/black_16x9.png",
+                            "elements": [
+                                {
+                                    "type": "image",
+                                    "entity": "input_text.slide",
+                                    "camera_image": "camera.current_slide",
+                                    "style": {
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "76%"
+                                    },
+                                    "aspect_ratio": 0
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "weather.met_no",
+                                    "style": {
+                                        "bottom": "-96px",
+                                        "font-size": "0px",
+                                        "left": "50%",
+                                        "width": "100%",
+                                        "height": "192px",
+                                        "background": "rgba(64,64,64,.6)"
+                                    }
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "automation.slideshow",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "elements": [
+                                        {
+                                            "type": "state-label",
+                                            "entity": "input_text.slide_date_and_time",
+                                            "style": {
+                                                "bottom": "-32px",
+                                                "right": "-25%",
+                                                "width": "50%",
+                                                "text-align": "right",
+                                                "color": "white",
+                                                "font-size": "48px",
+                                                "line-height": "48px",
+                                                "white-space": "nowrap",
+                                                "overflow": "hidden",
+                                                "text-overflow": "ellipsis"
+                                            },
+                                            "tap_action": {
+                                                "action": "none"
+                                            },
+                                            "hold_action": {
+                                                "action": "none"
+                                            }
+                                        },
+                                        {
+                                            "type": "state-label",
+                                            "entity": "input_text.slide_location",
+                                            "style": {
+                                                "bottom": "32px",
+                                                "right": "-25%",
+                                                "width": "50%",
+                                                "text-align": "right",
+                                                "color": "white",
+                                                "font-size": "48px",
+                                                "line-height": "48px",
+                                                "white-space": "nowrap",
+                                                "overflow": "hidden",
+                                                "text-overflow": "ellipsis"
+                                            },
+                                            "tap_action": {
+                                                "action": "none"
+                                            },
+                                            "hold_action": {
+                                                "action": "none"
+                                            }
+                                        },
+                                        {
+                                            "type": "state-label",
+                                            "entity": "input_text.slide",
+                                            "style": {
+                                                "bottom": "96px",
+                                                "right": "-25%",
+                                                "width": "50%",
+                                                "text-align": "right",
+                                                "color": "white",
+                                                "font-size": "48px",
+                                                "line-height": "48px",
+                                                "white-space": "nowrap",
+                                                "overflow": "hidden",
+                                                "text-overflow": "ellipsis"
+                                            },
+                                            "tap_action": {
+                                                "action": "none"
+                                            },
+                                            "hold_action": {
+                                                "action": "none"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "media_player.spotify",
+                                            "state": "playing"
+                                        }
+                                    ],
+                                    "elements": [
+                                        {
+                                            "type": "state-icon",
+                                            "entity": "media_player.spotify",
+                                            "style": {
+                                                "bottom": "256px",
+                                                "left": "64px",
+                                                "transform": "scale(4.0)"
+                                            }
+                                        },
+                                        {
+                                            "type": "state-label",
+                                            "entity": "media_player.spotify",
+                                            "style": {
+                                                "bottom": "96px",
+                                                "left": "25%",
+                                                "width": "50%",
+                                                "text-align": "left",
+                                                "color": "white",
+                                                "font-size": "48px",
+                                                "line-height": "48px",
+                                                "white-space": "nowrap",
+                                                "overflow": "hidden",
+                                                "text-overflow": "ellipsis"
+                                            },
+                                            "attribute": "media_title"
+                                        },
+                                        {
+                                            "type": "state-label",
+                                            "entity": "media_player.spotify",
+                                            "style": {
+                                                "bottom": "32px",
+                                                "left": "25%",
+                                                "width": "50%",
+                                                "text-align": "left",
+                                                "color": "white",
+                                                "font-size": "48px",
+                                                "line-height": "48px",
+                                                "white-space": "nowrap",
+                                                "overflow": "hidden",
+                                                "text-overflow": "ellipsis"
+                                            },
+                                            "attribute": "media_album_name"
+                                        },
+                                        {
+                                            "type": "state-label",
+                                            "entity": "media_player.spotify",
+                                            "style": {
+                                                "bottom": "-32px",
+                                                "left": "25%",
+                                                "width": "50%",
+                                                "text-align": "left",
+                                                "color": "white",
+                                                "font-size": "48px",
+                                                "line-height": "48px",
+                                                "white-space": "nowrap",
+                                                "overflow": "hidden",
+                                                "text-overflow": "ellipsis"
+                                            },
+                                            "attribute": "media_artist"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.time",
+                                    "style": {
+                                        "left": "25%",
+                                        "width": "50%",
+                                        "top": "48px",
+                                        "color": "white",
+                                        "font-size": "48px",
+                                        "line-height": "48px"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.date",
+                                    "style": {
+                                        "left": "25%",
+                                        "width": "50%",
+                                        "top": "124px",
+                                        "color": "white",
+                                        "font-size": "48px",
+                                        "line-height": "48px"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "weather.met_no",
+                                    "attribute": "temperature",
+                                    "style": {
+                                        "right": "-48px",
+                                        "top": "212px",
+                                        "color": "white",
+                                        "border": "dashed white 3px",
+                                        "border-radius": "96px",
+                                        "width": "96px",
+                                        "height": "96px",
+                                        "line-height": "80px",
+                                        "font-size": "48px",
+                                        "padding": "8px",
+                                        "text-align": "center"
+                                    }
+                                },
+                                {
+                                    "type": "state-label",
+                                    "entity": "sensor.hallway_thermostat_air_temperature",
+                                    "style": {
+                                        "right": "-48px",
+                                        "top": "64px",
+                                        "color": "white",
+                                        "border": "solid white 3px",
+                                        "border-radius": "96px",
+                                        "width": "96px",
+                                        "height": "96px",
+                                        "line-height": "80px",
+                                        "font-size": "48px",
+                                        "padding": "8px",
+                                        "text-align": "center",
+                                        "white-space": "nowrap",
+                                        "overflow": "hidden",
+                                        "text-overflow": "ellipsis"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "custom_header": {
+                "kiosk_mode": true
+            }
+        }
+    }
+}

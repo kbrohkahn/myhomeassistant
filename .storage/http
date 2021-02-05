@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "key": "http",
+    "data": {
+        "use_x_forwarded_for": true,
+        "trusted_proxies": [
+            "127.0.0.1",
+            "10.0.2.10",
+            "::1"
+        ],
+        "cors_allowed_origins": [
+            "https://home.broh-kahn.com"
+        ],
+        "ip_ban_enabled": true,
+        "ssl_profile": "modern",
+        "server_port": 8123,
+        "login_attempts_threshold": -1
+    }
+}

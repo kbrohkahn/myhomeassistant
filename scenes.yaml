@@ -1,0 +1,1915 @@
+- id: halloween
+  name: Halloween
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 20
+      - 100
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 60
+      - 80
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 20
+      - 80
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 60
+      - 100
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 20
+      - 100
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 35
+      - 100
+      state: 'on'
+- id: gion
+  name: Gion
+  entities:
+    light.main_a:
+      brightness: 202
+      hs_color:
+      - 270
+      - 41
+      state: 'on'
+    light.main_b:
+      brightness: 209
+      hs_color:
+      - 51
+      - 83
+      state: 'on'
+    light.main_c:
+      brightness: 184
+      hs_color:
+      - 337
+      - 92
+      state: 'on'
+    light.main_d:
+      brightness: 195
+      hs_color:
+      - 335
+      - 99
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 195
+      hs_color:
+      - 335
+      - 99
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Gion
+- id: cambodian_sunset
+  name: Cambodian Sunset
+  entities:
+    light.main_a:
+      brightness: 179
+      hs_color:
+      - 246
+      - 17
+      state: 'on'
+    light.main_b:
+      brightness: 109
+      hs_color:
+      - 4
+      - 11
+      state: 'on'
+    light.main_c:
+      brightness: 153
+      hs_color:
+      - 49
+      - 51
+      state: 'on'
+    light.main_d:
+      brightness: 170
+      hs_color:
+      - 49
+      - 51
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 170
+      hs_color:
+      - 49
+      - 51
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Cambodian Sunset
+- id: fuji_over_flowers
+  name: Fuji Over Flowers
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 5
+      - 23
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 129
+      - 40
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 210
+      - 47
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 210
+      - 47
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 210
+      - 47
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Fuji Over Flowers
+- id: flower_stripes
+  name: Flower Stripes
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 54
+      - 94
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 109
+      - 93
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 284
+      - 67
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 289
+      - 98
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 289
+      - 98
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Flower Stripes
+- id: white_temple_info
+  name: White Temple Info
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 32
+      - 20
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 231
+      - 29
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 52
+      - 28
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 52
+      - 28
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 52
+      - 28
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: White Temple Info
+- id: australian_sunrise
+  name: Australian Sunrise
+  entities:
+    light.main_a:
+      brightness: 50
+      hs_color:
+      - 51
+      - 42
+      state: 'on'
+    light.main_b:
+      brightness: 45
+      hs_color:
+      - 203
+      - 52
+      state: 'on'
+    light.main_c:
+      brightness: 52
+      hs_color:
+      - 43
+      - 43
+      state: 'on'
+    light.main_d:
+      brightness: 50
+      hs_color:
+      - 43
+      - 43
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 50
+      hs_color:
+      - 43
+      - 43
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 30
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Australian Sunrise
+- id: miyajima_sunset
+  name: Miyajima Sunset
+  entities:
+    light.main_a:
+      brightness: 99
+      hs_color:
+      - 193
+      - 45
+      state: 'on'
+    light.main_b:
+      brightness: 80
+      hs_color:
+      - 345
+      - 58
+      state: 'on'
+    light.main_c:
+      brightness: 100
+      hs_color:
+      - 25
+      - 51
+      state: 'on'
+    light.main_d:
+      brightness: 99
+      hs_color:
+      - 25
+      - 51
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 99
+      hs_color:
+      - 25
+      - 51
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 30
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Miyajima Sunset
+- id: kimono_forest
+  name: Kimono Forest
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 15
+      - 33
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 150
+      - 54
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 51
+      - 66
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 51
+      - 66
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 51
+      - 66
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 30
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Kimono Forest
+- id: arashiyama
+  name: Arashiyama
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 10
+      - 9
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 114
+      - 88
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 33
+      - 96
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 34
+      - 100
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 34
+      - 100
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 30
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Arashiyama
+- id: 12_apostles
+  name: 12 Apostles
+  entities:
+    light.main_a:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 37.5
+      - 94.118
+      rgb_color:
+      - 255
+      - 164
+      - 14
+      xy_color:
+      - 0.562
+      - 0.414
+      is_hue_group: true
+      friendly_name: Main A
+      supported_features: 63
+      state: 'on'
+    light.main_b:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 44.895
+      - 56.078
+      rgb_color:
+      - 255
+      - 219
+      - 112
+      xy_color:
+      - 0.45
+      - 0.431
+      is_hue_group: true
+      friendly_name: Main B
+      supported_features: 63
+      state: 'on'
+    light.main_c:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 194.4
+      - 58.824
+      rgb_color:
+      - 104
+      - 218
+      - 255
+      xy_color:
+      - 0.185
+      - 0.284
+      is_hue_group: true
+      friendly_name: Main C
+      supported_features: 63
+      state: 'on'
+    light.main_d:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - colorloop
+      - random
+      brightness: 255
+      hs_color:
+      - 194.4
+      - 58.824
+      rgb_color:
+      - 104
+      - 218
+      - 255
+      xy_color:
+      - 0.185
+      - 0.284
+      is_hue_group: true
+      friendly_name: Main D
+      supported_features: 63
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 30
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: 12 Apostles
+- id: ginza
+  name: Ginza
+  entities:
+    light.main_a:
+      brightness: 141
+      hs_color:
+      - 239
+      - 67
+      state: 'on'
+    light.main_b:
+      brightness: 139
+      hs_color:
+      - 350
+      - 89
+      state: 'on'
+    light.main_c:
+      brightness: 139
+      hs_color:
+      - 298
+      - 68
+      state: 'on'
+    light.main_d:
+      brightness: 139
+      hs_color:
+      - 299
+      - 98
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 139
+      hs_color:
+      - 299
+      - 98
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Ginza
+- id: manly_beach
+  name: Manly Beach
+  entities:
+    light.main_a:
+      brightness: 141
+      hs_color:
+      - 21
+      - 96
+      state: 'on'
+    light.main_b:
+      brightness: 139
+      hs_color:
+      - 261
+      - 98
+      state: 'on'
+    light.main_c:
+      brightness: 139
+      hs_color:
+      - 207
+      - 80
+      state: 'on'
+    light.main_d:
+      brightness: 139
+      hs_color:
+      - 203
+      - 92
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 139
+      hs_color:
+      - 203
+      - 92
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Manly Beach
+- id: phuket
+  name: Phuket
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 170
+      - 49
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 209
+      - 76
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 98
+      - 95
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 96
+      - 100
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 96
+      - 100
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Phuket
+- id: white_temple
+  name: White Temple
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 186
+      - 3
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 204
+      - 92
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 215
+      - 36
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 215
+      - 36
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 215
+      - 36
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: White Temple
+- id: himeji
+  name: Himeji
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 216
+      - 36
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 177
+      - 31
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 206
+      - 81
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 203
+      - 92
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 203
+      - 92
+      state: 'on'
+    light.ir_strips:
+      white_value: 255
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Himeji
+- id: ice_cave
+  name: Ice Cave
+  entities:
+    light.main_a:
+      brightness: 145
+      hs_color:
+      - 205
+      - 26
+      state: 'on'
+    light.main_b:
+      brightness: 140
+      hs_color:
+      - 241
+      - 80
+      state: 'on'
+    light.main_c:
+      brightness: 142
+      hs_color:
+      - 212
+      - 83
+      state: 'on'
+    light.main_d:
+      brightness: 150
+      hs_color:
+      - 208
+      - 92
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 150
+      hs_color:
+      - 208
+      - 92
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 240
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Ice Cave
+- id: pallet_town
+  name: Pallet Town
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 222
+      - 92
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 279
+      - 99
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 244
+      - 66
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 264
+      - 96
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 264
+      - 96
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 240
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Pallet Town
+- id: mori_rain
+  name: Mori Rain
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 224
+      - 75
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 208
+      - 56
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 216
+      - 27
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 216
+      - 27
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 216
+      - 27
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 240
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Mori Rain
+- id: mori_turqoise_balloons
+  name: Mori Turqoise Balloons
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 204
+      - 29
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 170
+      - 74
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 206
+      - 80
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 218
+      - 78
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 218
+      - 78
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 240
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Mori Turquoise Balloons
+- id: grand_turk
+  name: Grand Turk
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 198
+      - 31
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 189
+      - 89
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 209
+      - 82
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 50
+      - 100
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 50
+      - 100
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 240
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Grand Turk
+- id: kodaiji_at_night
+  name: Kodaiji at Night
+  entities:
+    light.main_a:
+      brightness: 199
+      hs_color:
+      - 107
+      - 34
+      state: 'on'
+    light.main_b:
+      brightness: 200
+      hs_color:
+      - 144
+      - 97
+      state: 'on'
+    light.main_c:
+      brightness: 196
+      hs_color:
+      - 82
+      - 95
+      state: 'on'
+    light.main_d:
+      brightness: 199
+      hs_color:
+      - 51
+      - 53
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 199
+      hs_color:
+      - 51
+      - 53
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 120
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Kodaiji at Night
+- id: mori_green_balloons
+  name: Mori Green Balloons
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 163
+      - 68
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 105
+      - 97
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 45
+      - 80
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 233
+      - 75
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 233
+      - 75
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 120
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Mori Green Balloons
+- id: bamboo_forest
+  name: Bamboo Forest
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 102
+      - 95
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 52
+      - 90
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 125
+      - 68
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 191
+      - 89
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 191
+      - 89
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 120
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Bamboo Forest
+- id: sento_entrance
+  name: Sento Entrance
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 114
+      - 74
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 47
+      - 100
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 69
+      - 95
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 49
+      - 26
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 49
+      - 26
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 120
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Sento Entrance
+- id: sento_bridge
+  name: Sento Bridge
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 114
+      - 74
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 262
+      - 41
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 86
+      - 95
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 266
+      - 97
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 266
+      - 97
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 120
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Sento Bridge
+- id: kodaiji_forest_at_night
+  name: Kodaiji Forest at Night
+  entities:
+    light.main_a:
+      brightness: 150
+      hs_color:
+      - 50
+      - 93
+      state: 'on'
+    light.main_b:
+      brightness: 150
+      hs_color:
+      - 128
+      - 88
+      state: 'on'
+    light.main_c:
+      brightness: 150
+      hs_color:
+      - 37
+      - 95
+      state: 'on'
+    light.main_d:
+      brightness: 150
+      hs_color:
+      - 357
+      - 85
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 150
+      hs_color:
+      - 357
+      - 85
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 60
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Kodaiji Forest at Night
+- id: mori_flowers
+  name: Mori Flowers
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 49
+      - 94
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 261
+      - 97
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 34
+      - 96
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 314
+      - 78
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 314
+      - 78
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 60
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Mori Flowers
+- id: wild_flowers
+  name: Wild Flowers
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 61
+      - 94
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 273
+      - 99
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 46
+      - 95
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 144
+      - 97
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 144
+      - 97
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 60
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Wild Flowers
+- id: flower_fuji
+  name: Flower Fuji
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 51
+      - 84
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 261
+      - 26
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 41
+      - 65
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 311
+      - 99
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 311
+      - 99
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 60
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Flower Fuji
+- id: buddha
+  name: Buddha
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 50
+      - 95
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 16
+      - 100
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 38
+      - 95
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 214
+      - 68
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 214
+      - 68
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 60
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Buddha
+- id: osaka
+  name: Osaka
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 222
+      - 92
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 49
+      - 79
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 257
+      - 67
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 309
+      - 99
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 309
+      - 99
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 330
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Osaka
+- id: night_dragon
+  name: Night Dragon
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 250
+      - 66
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 51
+      - 78
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 268
+      - 67
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 313
+      - 99
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 313
+      - 99
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 330
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Night Dragon
+- id: mori_pink_balloons
+  name: Mori Pink Balloons
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 292
+      - 67
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 201
+      - 89
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 327
+      - 81
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 48
+      - 99
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 48
+      - 99
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 330
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Mori Pink Balloons
+- id: robot_restaurant
+  name: Robot Restaurant
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 103
+      - 93
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 253
+      - 91
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 47
+      - 95
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 316
+      - 83
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 316
+      - 83
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 330
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Robot Restaurant
+- id: flower_festival
+  name: Flower Festival
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 293
+      - 68
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 274
+      - 98
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 277
+      - 52
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 7
+      - 89
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 7
+      - 89
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 330
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Flower Festival
+- id: miyajima_cruise
+  name: Miyajima Cruise
+  entities:
+    light.main_a:
+      brightness: 42
+      hs_color:
+      - 50
+      - 81
+      state: 'on'
+    light.main_b:
+      brightness: 42
+      hs_color:
+      - 352
+      - 88
+      state: 'on'
+    light.main_c:
+      brightness: 43
+      hs_color:
+      - 13
+      - 74
+      state: 'on'
+    light.main_d:
+      brightness: 42
+      hs_color:
+      - 29
+      - 100
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 42
+      hs_color:
+      - 29
+      - 100
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 0
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Miyajima Cruise
+- id: traffic_cones
+  name: Traffic Cones
+  entities:
+    light.main_a:
+      brightness: 89
+      hs_color:
+      - 51
+      - 86
+      state: 'on'
+    light.main_b:
+      brightness: 94
+      hs_color:
+      - 0
+      - 85
+      state: 'on'
+    light.main_c:
+      brightness: 87
+      hs_color:
+      - 9
+      - 47
+      state: 'on'
+    light.main_d:
+      brightness: 101
+      hs_color:
+      - 16
+      - 98
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 101
+      hs_color:
+      - 16
+      - 98
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 0
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Traffic Cones
+- id: katsura
+  name: Katsura
+  entities:
+    light.main_a:
+      brightness: 198
+      hs_color:
+      - 15
+      - 96
+      state: 'on'
+    light.main_b:
+      brightness: 199
+      hs_color:
+      - 352
+      - 88
+      state: 'on'
+    light.main_c:
+      brightness: 198
+      hs_color:
+      - 8
+      - 48
+      state: 'on'
+    light.main_d:
+      brightness: 198
+      hs_color:
+      - 141
+      - 97
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 198
+      hs_color:
+      - 141
+      - 97
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 0
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Katsura
+- id: buddha_in_temple
+  name: Buddha in Temple
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 48
+      - 95
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 5
+      - 89
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 255
+      - 41
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 7
+      - 47
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 7
+      - 47
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 0
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Buddha in Temple
+- id: fushimi_inari
+  name: Fushimi Inari
+  entities:
+    light.main_a:
+      brightness: 255
+      hs_color:
+      - 2
+      - 56
+      state: 'on'
+    light.main_b:
+      brightness: 255
+      hs_color:
+      - 17
+      - 50
+      state: 'on'
+    light.main_c:
+      brightness: 255
+      hs_color:
+      - 4
+      - 88
+      state: 'on'
+    light.main_d:
+      brightness: 255
+      hs_color:
+      - 16
+      - 95
+      state: 'on'
+    light.display_cabinet_strip:
+      brightness: 255
+      hs_color:
+      - 16
+      - 95
+      state: 'on'
+    light.ir_strips:
+      hs_color:
+      - 0
+      - 100
+      state: 'on'
+    switch.working:
+      state: 'off'
+    automation.slideshow:
+      state: 'off'
+    input_text.scene:
+      state: Fushimi Inari
+- id: '1604797389677'
+  name: USA
+  entities:
+    light.office:
+      brightness: 169
+      friendly_name: Office
+      supported_features: 145
+      state: 'on'
+    light.kitchen:
+      brightness: 255
+      hs_color:
+      - 245.714
+      - 41.176
+      rgb_color:
+      - 160
+      - 150
+      - 255
+      xy_color:
+      - 0.246
+      - 0.195
+      friendly_name: kitchen
+      supported_features: 145
+      state: 'on'
+    light.master:
+      brightness: 250
+      hs_color:
+      - 260.706
+      - 100
+      rgb_color:
+      - 88
+      - 0
+      - 255
+      xy_color:
+      - 0.176
+      - 0.059
+      friendly_name: master
+      supported_features: 145
+      state: 'on'
+    light.living_room:
+      brightness: 255
+      hs_color:
+      - 10.118
+      - 100
+      rgb_color:
+      - 255
+      - 43
+      - 0
+      xy_color:
+      - 0.689
+      - 0.309
+      friendly_name: living_room
+      supported_features: 145
+      state: 'on'
+    light.dining:
+      brightness: 255
+      hs_color:
+      - 0
+      - 0.392
+      rgb_color:
+      - 255
+      - 254
+      - 254
+      xy_color:
+      - 0.324
+      - 0.329
+      friendly_name: dining
+      supported_features: 145
+      state: 'on'
+    light.hallway:
+      brightness: 240
+      hs_color:
+      - 354.34
+      - 83.137
+      rgb_color:
+      - 255
+      - 43
+      - 62
+      xy_color:
+      - 0.658
+      - 0.294
+      friendly_name: hallway
+      supported_features: 145
+      state: 'on'

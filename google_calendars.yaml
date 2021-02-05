@@ -1,0 +1,32 @@
+
+- cal_id: home.brohkahn@gmail.com
+  entities:
+  - device_id: home_brohkahn_gmail_com
+    ignore_availability: true
+    name: home.brohkahn@gmail.com
+    track: true
+    max_results: 30
+
+- cal_id: kbkrunner@gmail.com
+  entities:
+  - device_id: kbkrunner_gmail_com
+    ignore_availability: true
+    name: kbkrunner@gmail.com
+    track: true
+    max_results: 30
+
+- cal_id: addressbook#contacts@group.v.calendar.google.com
+  entities:
+  - device_id: contacts
+    ignore_availability: true
+    name: Contacts
+    track: true
+    max_results: 30
+
+- cal_id: en.usa#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: holidays_in_united_states
+    ignore_availability: true
+    name: Holidays in United States
+    track: true
+    max_results: 30

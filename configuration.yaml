@@ -1,0 +1,634 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  allowlist_external_dirs:
+    - /config
+    - /share
+  customize: !include customize.yaml
+  media_dirs:
+    local: /share/media
+  
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - 10.0.2.10
+    - ::1
+  cors_allowed_origins:
+    - !secret home_assistant_url
+  #ssl_certificate: /ssl/fullchain.pem
+  #ssl_key: /ssl/privkey.pem
+  #ssl_profile: intermediate
+
+recorder:
+  db_url: !secret db_location
+  exclude:
+    entities:
+      - sensor.rockrobo_map
+    entity_globs:
+      - sensor.glances*
+      - binary_sensor.glances*
+      - binary_sensor.router_iot*
+      - input_text.slide*
+      # - '*sdsa_pc*'
+      # - '*kbk_notebook*'
+      # - '*galaxy_note_10*'
+      - binary_sensor.kbk_notebook*
+      - switch.*repeat_switch
+      - switch.*shuffle_switch
+      # - '*galaxytab*'
+      - '*alexa*'
+      - '*do_not_disturb*'
+      - sensor.time
+      - sensor.date
+    domains:
+      - mobile_app
+      - weather
+      - sun
+  # include:
+  #   entities:
+  #     - sensor.kbk_notebook_room_presence
+  #   entity_globs:
+  #     - '*presence*'
+  purge_keep_days: 30
+  commit_interval: 5
+
+shell_command:
+  slideshow_current_clear: rm -f /share/images/current_slide/*
+  slideshow_select_image: shuf -zn1 -e /share/images/slideshow/* | xargs -0 cp -vt /share/images/current_slide
+  slideshow_update_image: cp /share/images/current_slide/* /share/images/current_slide.jpg
+  restart_pow: touch ~/.pow/restart.txt
+  
+# Text to speech
+tts:
+  - platform: google_translate
+  #   language: ja
+  # - platform: microsoft
+  #   api_key: 1bcdd13cf7bb4f8893324c604a70aad9
+  #   language: de-de
+  #   gender: Female
+  #   rate: 50
+
+mqtt:
+  discovery: true
+  discovery_prefix: homeassistant
+
+
+
+browser_mod:
+  prefix: "browser_"
+  devices:
+    c075d88d_d26bc1ff: 
+      name: galaxytabs
+    e76d9840_736494de:
+      name: galaxytaba
+    c3cfffc0_8195fc80:
+      name: galaxytabs6
+    bad10b20_b09cfc38:
+      name: sdsa_pc
+    7cd7beee_c06f874c:
+      name: kbk_notebook
+    8907f3d6_55e41109:
+      name: galaxynote10  
+    7990d3c8_b7794de1:
+      name: galaxys20fe
+    fc4edf06_95ef828d:
+      name: galaxys20fe_wallpanel
+    c7dbc8fd_aff38fb5:
+      name: fire_tab
+    7c430b8e_aeaab5cc:
+      name: raspberrypi_living_room
+
+# var:
+#   people_home:
+#     initial_value: on
+#     icon: mdi:home-account
+#   bedtime_announced:
+#     initial_value: off
+#     icon: mdi:sleep
+
+# zwave:
+#   usb_path: /dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_8130075A-if00-port0
+#   network_key: !secret zwave_network_key
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
+
+# ifttt:
+#   key:
+#     office_tv_power_and_volume: coRPuzeNt9A2Dz0jJUKMWL
+#     office_tv_inputs: fbWeCzTAkcktexCYVgi0q_sX1YJSC08xac3tEaXrmgs
+
+discovery:
+
+
+media_player:
+  - platform: mpd
+    host: 127.0.0.1
+  - platform: snapcast
+    host: 127.0.0.1
+
+    # - platform: soundtouch
+  #   host: SoundTouch-Dining
+  #   port: 8090
+  #   name: Dining
+  # - platform: soundtouch
+  #   host: SoundTouch-Kitchen
+  #   port: 8090
+  #   name: Kitchen
+  # - platform: soundtouch
+  #   host: SoundTouch-Living-Room
+  #   port: 8090
+  #   name: Living Room
+  - platform: universal
+    name: Snap
+    children:
+      - media_player.spotify
+    state_template: "{% if states.media_player.spotify.state == 'Playing' and 
+      states.media_player.spotify.state.attributes.source == 'Snapcast'  %}
+      on
+      {% else %}
+      off
+      {% endif %}"
+    commands:
+      turn_on:
+        service: spotcast.start
+        data:
+          device_name: Snapcast
+      turn_off:
+        entity_id: media_player.spotify
+        service: media_player.media_stop
+
+  - platform: universal
+    name: Office TV
+    children:
+      - media_player.office_roku_tv
+    state_template: "{% if states.media_player.office_roku_tv.state != 'unavailable' 
+      and states.media_player.office_roku_tv.state != 'standby' %}
+      on
+      {% else %}
+      off
+      {% endif %}"
+    commands:
+      turn_on:
+        service: switch.toggle
+        entity_id: switch.office_tv_power_on
+      turn_off:
+        service: switch.toggle
+        entity_id: switch.office_tv_power_off
+
+  - platform: universal
+    name: Theater TV
+    children:
+      - media_player.theater_roku_tv
+    state_template: "{% if states.media_player.theater_roku_tv.state != 'unavailable' 
+      and states.media_player.theater_roku_tv.state != 'standby' %}
+      on
+      {% else %}
+      off
+      {% endif %}"
+    commands:
+      turn_on:
+        data:
+          command: PowerOn
+          device: Theater TV
+        entity_id: remote.harmony_hub
+        service: remote.send_command
+      turn_off:
+        data:
+          command: PowerOff
+          device: Theater TV
+        entity_id: remote.harmony_hub
+        service: remote.send_command
+
+ourgroceries:
+  username: !secret our_groceries_username
+  password: !secret our_groceries_password
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+alexa:
+  smart_home:
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: !secret alexa_events_id
+    client_secret: !secret alexa_events_secret
+    filter:
+      include_domains:
+        - climate
+        - media_player
+        - scene
+        - script
+        - switch
+        - input_number
+        - light
+        - sensor
+        - binary_sensor
+        - vacuum
+    entity_config:
+      media_player.soundtouch_dining:
+        display_categories: MUSIC_SYSTEM
+      media_player.soundtouch_master:
+        display_categories: MUSIC_SYSTEM
+      media_player.soundtouch_kitchen:
+        display_categories: MUSIC_SYSTEM
+      media_player.snap:
+        display_categories: MUSIC_SYSTEM
+
+# vacuum:
+#   - platform: mqtt
+
+
+
+mobile_app:
+
+# badnest:
+#   issue_token: !secret badnest_issue_token
+#   cookie: !secret badnest_cookie
+#   region: us
+  
+# climate:
+#   - platform: badnest
+#     scan_interval: 10
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 30
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+apcupsd:
+  host: a722577e-apcupsd
+
+zha_map:
+
+switch: !include switches.yaml
+
+light: !include lights.yaml
+
+camera:
+  - platform: mjpeg
+    mjpeg_url: http://10.0.0.221:2971/camera/stream
+    name: Galaxy Tab S6
+  - platform: mjpeg
+    mjpeg_url: http://10.0.0.236:2971/camera/stream
+    name: Fire Tab
+  - platform: mjpeg
+    mjpeg_url: http://10.0.0.212:2971/camera/stream
+    name: Galaxy Tab A
+  - platform: local_file
+    file_path: '/share/images/slideshow/Bamboo Forest.jpg'
+    name: Current Slide
+  - platform: local_file
+    file_path: '/share/images/scenes/Bamboo Forest.jpg'
+    name: Current Scene
+
+image_processing:
+  - platform: doods
+    url: "http://10.0.2.10:8080"
+    detector: default
+    scan_interval: 10000
+    source:
+      - entity_id: camera.galaxy_tab_a
+      - entity_id: camera.galaxy_tab_s6
+      - entity_id: camera.fire_tab
+    file_out:
+      - "/config/www/{{ camera_entity.split('.')[1] }}_latest.jpg"
+      # - "/tmp/{{ camera_entity.split('.')[1] }}_latest.jpg"
+      # - "/tmp/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
+    labels:
+      - name: person
+        confidence: 50
+        area:
+          # # Exclude top 10% of image
+          # top: 0.1
+          # # Exclude right 15% of image
+          # right: 0.85
+          # Any part of the detection inside this area will trigger
+          covers: false
+      - cat
+
+device_tracker:
+  - platform: mqtt
+    devices:
+      galaxy_s20_fe_room: 'room-assistant/device_tracker/bluetooth-classic-34-82-c5-0a-49-d6-tracker/state'
+      galaxy_watch_active_2_room: 'room-assistant/device_tracker/bluetooth-classic-c0-dc-da-bb-96-af-tracker/state'
+    payload_home: 'true'
+    payload_not_home: 'false'
+    source_type: bluetooth
+
+sensor:
+  # - platform: nws_alerts
+  #   zone_id: !secret nws_zone
+
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+
+  - platform: folder
+    folder: /config
+  - platform: folder
+    folder: /share
+
+  - platform: opensky
+    name: OpenSky
+    radius: 1.5
+    latitude: 38.878355
+    longitude: -77.081755
+    altitude: 0
+
+  - platform: illuminance
+    name: Estimated Met.No Illuminance
+    entity_id: weather.met_no
+  - platform: illuminance
+    name: Estimated Accuweather Illuminance
+    entity_id: weather.accuweather
+    
+  - platform: mqtt
+    state_topic: "valetudo/data/state"
+    json_attributes_topic: "valetudo/data/map_data_parsed"
+    name: data_map
+    value_template: 'OK'
+    scan_interval: 5
+
+  - platform: template
+    sensors:
+      ups_watts:
+        friendly_name: "UPS Current Consumption"
+        value_template: '{{ (states("sensor.ups_load") | float / 100 * 330) | round (2) }}'
+        unit_of_measurement: 'W'
+      fountain_current_power:
+        friendly_name: "Fountain Current Consumption"
+        value_template: '{{ states.switch.fountain.attributes.current_power_w }}'
+        unit_of_measurement: 'W'
+      theater_systems_current_power:
+        friendly_name: "Theater Systems Current Consumption"
+        value_template: '{{ states.switch.theater_systems.attributes.current_power_w }}'
+        unit_of_measurement: 'W'
+      theater_peripherals_current_power:
+        friendly_name: "Theater Peripherals Current Consumption"
+        value_template: '{{ states.switch.theater_peripherals.attributes.current_power_w }}'
+        unit_of_measurement: 'W'
+      office_peripherals_current_power:
+        friendly_name: "Office Peripherals Current Consumption"
+        value_template: '{{ states.switch.office_peripherals.attributes.current_power_w }}'
+        unit_of_measurement: 'W'
+      starlight_current_power:
+        friendly_name: "Starlight Current Consumption"
+        value_template: '{{ states.switch.starlight_outlet.attributes.current_power_w }}'
+        unit_of_measurement: 'W'
+
+      accuweather_humidity:
+        friendly_name_template: "Humidity"
+        value_template: '{{ state_attr("weather.accuweather", "humidity") }}'
+        unit_of_measurement: '%'
+      accuweather_pressure:
+        friendly_name_template: "Pressure"
+        value_template: '{{ state_attr("weather.accuweather", "pressure") }}'
+        unit_of_measurement: 'hPa'
+      accuweather_wind_speed:
+        friendly_name_template: "Wind Speed"
+        value_template: '{{ state_attr("weather.accuweather", "wind_speed") }}'
+        unit_of_measurement: 'km/h'
+      accuweather_visibility:
+        friendly_name_template: "Visibility"
+        value_template: '{{ state_attr("weather.accuweather", "visibility") }}'
+        unit_of_measurement: 'km'
+      data_valetudo_state:
+        friendly_name_template: "Data Valetudo State"
+        value_template: '{{ states.vacuum.data.attributes.valetudo_state.id }}'
+
+      thermostat_hvac_action:
+        friendly_name_template: "Thermostat HVAC Action"
+        value_template: '{{ states.climate.hallway_thermostat.attributes.hvac_action }}'
+        icon_template: >-
+          {% if is_state('sensor.thermostat_hvac_action','idle') %}
+            mdi:sleep
+          {% elif is_state('sensor.thermostat_hvac_action','heating') %}
+            mdi:fire
+          {% elif is_state('sensor.thermostat_hvac_action','cooling') %}
+            mdi:snowflake
+          {% else %}
+            mdi:alert
+          {% endif %}
+      
+      thermostat_fan_action:
+        friendly_name_template: "Thermostat Fan Action"
+        value_template: '{{ states.climate.hallway_thermostat.attributes.fan_action }}'
+        icon_template: >-
+          {% if is_state('sensor.thermostat_fan_action','Idle') %}
+            mdi:sleep
+          {% elif is_state('sensor.thermostat_fan_action','Running') %}
+            mdi:fan
+          {% else %}
+            mdi:alert
+          {% endif %}
+
+  - platform: history_stats
+    name: Thermostat Heating Time
+    entity_id: sensor.thermostat_hvac_action
+    state: heating
+    type: time
+    end: '{{ now().replace(minute=0,second=0) }}'
+    duration: 
+      hours: 1
+  - platform: history_stats
+    name: Thermostat Heating Ratio
+    entity_id: sensor.thermostat_hvac_action
+    state: heating
+    type: ratio
+    end: '{{ now().replace(minute=0,second=0) }}'
+    duration: 
+      hours: 1
+  - platform: history_stats
+    name: Thermostat Heat Count
+    entity_id: sensor.thermostat_hvac_action
+    state: heating
+    type: count
+    end: '{{ now().replace(minute=0,second=0) }}'
+    duration: 
+      hours: 1
+
+
+  - platform: history_stats
+    name: Fan Running Time
+    entity_id: sensor.thermostat_fan_action
+    state: 'Running'
+    type: time
+    end: '{{ now().replace(minute=0,second=0) }}'
+    duration: 
+      hours: 1
+  - platform: history_stats
+    name: Fan Running Ratio
+    entity_id: sensor.thermostat_fan_action
+    state: 'Running'
+    type: ratio
+    end: '{{ now().replace(minute=0,second=0) }}'
+    duration: 
+      hours: 1
+  - platform: history_stats
+    name: Fan Run Count
+    entity_id: sensor.thermostat_fan_action
+    state: 'Running'
+    type: count
+    end: '{{ now().replace(minute=0,second=0) }}'
+    duration: 
+      hours: 1
+
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytaba/sensor/battery"
+    name: "Galaxy Tab A Battery Level"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.value }}'
+
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs6/sensor/light"
+    name: "Galaxy Tab S6 Light Level"
+    unit_of_measurement: "lx"
+    value_template: '{{ value_json.value }}'
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs6/sensor/magneticField"
+    name: "Galaxy Tab S6 Magnetic Field"
+    unit_of_measurement: "uT"
+    value_template: '{{ value_json.value }}'
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs6/sensor/battery"
+    name: "Galaxy Tab S6 Battery Level"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.value }}'
+
+  - platform: mqtt
+    state_topic: "wallpanel/fire-tab/sensor/light"
+    name: "Fire Tab Light Level"
+    unit_of_measurement: "lx"
+    value_template: '{{ value_json.value }}'
+  - platform: mqtt
+    state_topic: "wallpanel/fire-tab/sensor/battery"
+    name: "Fire Tab Battery Level"
+    unit_of_measurement: "%"
+    value_template: '{{ value_json.value }}'
+
+  - platform: apcupsd
+    resources:
+      - linev
+      - loadpct
+      - bcharge
+      - timeleft
+      - mbattchg
+      - mintimel
+      - maxtime
+      # - maxlinev
+      # - minlinev
+      # - outputv
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: disk_use
+        arg: /
+      - type: disk_free
+        arg: /
+      - type: disk_use_percent
+        arg: /dev/sda2
+      - type: disk_use
+        arg: /dev/sda2
+      - type: disk_free
+        arg: /dev/sda2
+      - type: processor_use
+      - type: processor_temperature
+      - type: memory_use_percent
+      - type: memory_use
+      - type: memory_free
+      - type: swap_use_percent
+      - type: swap_use
+      - type: swap_free
+      - type: load_1m
+      - type: load_5m
+      - type: load_15m
+      # - type: network_in
+      #   arg: enp3s0
+      # - type: network_out
+      #   arg: enp3s0
+      # - type: throughput_network_in
+      #   arg: enp3s0
+      # - type: throughput_network_out
+      #   arg: enp3s0
+      # - type: packets_in
+      #   arg: enp3s0
+      # - type: packets_out
+      #   arg: enp3s0
+      # - type: network_in
+      #   arg: hassio
+      # - type: network_out
+      #   arg: hassio
+      # - type: throughput_network_in
+      #   arg: hassio
+      # - type: throughput_network_out
+      #   arg: hassio
+      # - type: packets_in
+      #   arg: hassio
+      # - type: packets_out
+      #   arg: hassio
+
+binary_sensor:
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytabs6/sensor/motion"
+    name: "Galaxy Tab S6 Motion"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion 
+  - platform: mqtt
+    state_topic: "wallpanel/galaxytaba/sensor/motion"
+    name: "Galaxy Tab A Motion"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion 
+  - platform: mqtt
+    state_topic: "wallpanel/fire-tab/sensor/motion"
+    name: "Fire Tab Motion"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion 
+
+  - platform: template
+    sensors:
+      doods_galaxy_tab_s6_person_detected:
+        value_template: '{{ states.image_processing.doods_galaxy_tab_s6.attributes.matches["person"] | length > 0 }}'
+      doods_galaxy_tab_a_person_detected:
+        value_template: '{{ states.image_processing.doods_galaxy_tab_a.attributes.matches["person"] | length > 0 }}'
+      doods_fire_tab_person_detected:
+        value_template: '{{ states.image_processing.doods_fire_tab.attributes.matches["person"] | length > 0 }}'
+
+      theater_playing_or_paused:
+        value_template: '{{ states.media_player.theater_roku_ultra.state == "playing"
+          or states.media_player.theater_roku_ultra.state == "paused"
+          or states.media_player.playstation_4.state == "playing"
+          or states.media_player.playstation_4.state == "idle" }}'
+      dark_while_not_bedtime:
+        value_template: '{{ states.switch.bedtime.state == "off" and
+          (states.sun.sun.attributes.elevation <= 5 or 
+          ((states.sensor.estimated_accuweather_illuminance.state | int + 
+          states.sensor.estimated_met_no_illuminance.state | int)) / 2 <= 1000 ) }}'
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+panel_custom: !include panel_custom.yaml
+

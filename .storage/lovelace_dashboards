@@ -1,0 +1,77 @@
+{
+    "version": 1,
+    "key": "lovelace_dashboards",
+    "data": {
+        "items": [
+            {
+                "icon": "mdi:graph",
+                "id": "zigbee_network",
+                "mode": "storage",
+                "require_admin": false,
+                "show_in_sidebar": true,
+                "title": "Zigbee Network",
+                "url_path": "zigbee-network"
+            },
+            {
+                "icon": "mdi:sleep",
+                "id": "lovelace_screensaver",
+                "mode": "storage",
+                "require_admin": false,
+                "show_in_sidebar": false,
+                "title": "Screensaver",
+                "url_path": "lovelace-screensaver"
+            },
+            {
+                "require_admin": false,
+                "show_in_sidebar": false,
+                "title": "Slideshow",
+                "url_path": "lovelace-slideshow",
+                "mode": "storage",
+                "id": "lovelace_slideshow",
+                "icon": "mdi:image-album"
+            },
+            {
+                "require_admin": true,
+                "show_in_sidebar": false,
+                "icon": "mdi:zip-disk",
+                "title": "Backup",
+                "url_path": "lovelace-backup",
+                "mode": "storage",
+                "id": "lovelace_backup"
+            },
+            {
+                "require_admin": false,
+                "show_in_sidebar": false,
+                "icon": "mdi:server",
+                "title": "Monitor",
+                "url_path": "lovelace-monitor",
+                "mode": "storage",
+                "id": "lovelace_monitor"
+            },
+            {
+                "require_admin": false,
+                "show_in_sidebar": false,
+                "title": "VIdeo",
+                "url_path": "lovelace-video",
+                "mode": "storage",
+                "id": "lovelace_video"
+            },
+            {
+                "require_admin": false,
+                "show_in_sidebar": false,
+                "title": "Fireplace",
+                "url_path": "lovelace-fireplace",
+                "mode": "storage",
+                "id": "lovelace_fireplace"
+            },
+            {
+                "require_admin": false,
+                "show_in_sidebar": false,
+                "title": "Aquarium",
+                "url_path": "lovelace-aquarium",
+                "mode": "storage",
+                "id": "lovelace_aquarium"
+            }
+        ]
+    }
+}

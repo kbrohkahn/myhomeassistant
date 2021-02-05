@@ -1,0 +1,13 @@
+order:
+  - item: Visual Studio Code
+    bottom: true
+  - item: Community
+    bottom: true
+  - item: Adguard Home
+    bottom: true
+  - item: Glances
+    bottom: true
+  - item: Z-Wave Graph
+    bottom: true
+  - item: Zigbee Network
+    bottom: true

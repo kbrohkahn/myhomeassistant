@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "key": "input_select",
+    "data": {
+        "items": [
+            {
+                "name": "Room List",
+                "options": [
+                    "kitchen",
+                    "master_bath",
+                    "master",
+                    "hallway",
+                    "hallway_bath",
+                    "office",
+                    "dining",
+                    "living_room"
+                ],
+                "id": "room_list"
+            }
+        ]
+    }
+}
