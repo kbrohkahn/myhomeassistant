@@ -9,6 +9,7 @@
                         "entity": "remote.office_roku_tv",
                         "icon": "[[icon]]",
                         "show_name": false,
+                        "state_color": false,
                         "tap_action": {
                             "action": "call-service",
                             "service": "[[service_id]]",
@@ -25,6 +26,7 @@
                         "entity": "remote.office_roku_tv",
                         "icon": "[[icon]]",
                         "show_name": false,
+                        "state_color": false,
                         "tap_action": {
                             "action": "call-service",
                             "service": "media_player.select_source",
@@ -76,6 +78,7 @@
                         "entity": "remote.theater_roku_ultra",
                         "icon": "[[icon]]",
                         "show_name": false,
+                        "state_color": false,
                         "tap_action": {
                             "action": "call-service",
                             "service": "media_player.select_source",
@@ -90,9 +93,10 @@
                 },
                 "theater_tv_button_service": {
                     "card": {
-                        "entity": "remote.theater_roku_tv",
+                        "entity": "media_player.theater_tv",
                         "icon": "[[icon]]",
                         "show_name": false,
+                        "state_color": false,
                         "tap_action": {
                             "action": "call-service",
                             "service": "[[service_id]]",
@@ -106,7 +110,43 @@
                 },
                 "theater_tv_button": {
                     "card": {
-                        "entity": "remote.theater_roku_tv",
+                        "entity": "media_player.theater_tv",
+                        "icon": "[[icon]]",
+                        "show_name": false,
+                        "state_color": false,
+                        "tap_action": {
+                            "action": "call-service",
+                            "service": "remote.send_command",
+                            "service_data": {
+                                "command": "[[command]]",
+                                "device": "LG TV",
+                                "entity_id": "remote.harmony_hub"
+                            }
+                        },
+                        "type": "button",
+                        "style": ":host ha-card {\n  padding: 48px 0;\n}\n"
+                    }
+                },
+                "living_room_tv_button_service": {
+                    "card": {
+                        "entity": "media_player.living_room_tv",
+                        "icon": "[[icon]]",
+                        "show_name": false,
+                        "state_color": false,
+                        "tap_action": {
+                            "action": "call-service",
+                            "service": "[[service_id]]",
+                            "service_data": {
+                                "entity_id": "media_player.living_room_tv"
+                            }
+                        },
+                        "type": "button",
+                        "style": ":host ha-card {\n  padding: 48px 0;\n}\n"
+                    }
+                },
+                "living_room_tv_button": {
+                    "card": {
+                        "entity": "remote.living_room_roku_tv",
                         "icon": "[[icon]]",
                         "show_name": false,
                         "tap_action": {
@@ -114,7 +154,7 @@
                             "service": "remote.send_command",
                             "service_data": {
                                 "command": "[[command]]",
-                                "entity_id": "remote.theater_roku_tv"
+                                "entity_id": "remote.living_room_roku_tv"
                             }
                         },
                         "type": "button",
@@ -832,7 +872,7 @@
                                             },
                                             {
                                                 "icon": "mdi:laptop",
-                                                "id": "SDSA-PC",
+                                                "id": "KBK-NOTEBOOK",
                                                 "type": "source"
                                             },
                                             {
@@ -841,13 +881,13 @@
                                                 "type": "source"
                                             },
                                             {
-                                                "icon": "mdi:laptop",
-                                                "id": "KBK-NOTEBOOK",
+                                                "icon": "mdi:sony-playstation",
+                                                "id": "PS4-253",
                                                 "type": "source"
                                             },
                                             {
-                                                "icon": "mdi:sony-playstation",
-                                                "id": "PS4-253",
+                                                "icon": "mdi:laptop",
+                                                "id": "SDSA-PC",
                                                 "type": "source"
                                             },
                                             {
@@ -1820,170 +1860,152 @@
                                                     ],
                                                     "title": "Theater Roku Stick",
                                                     "card": {
+                                                        "type": "grid",
+                                                        "columns": 3,
                                                         "cards": [
                                                             {
-                                                                "cards": [
+                                                                "template": "theater_tv_button_service",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
                                                                     {
-                                                                        "template": "theater_tv_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:power"
-                                                                            },
-                                                                            {
-                                                                                "command": "PowerToggle"
-                                                                            }
-                                                                        ]
+                                                                        "icon": "mdi:power"
                                                                     },
                                                                     {
-                                                                        "template": "theater_roku_ultra_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:home"
-                                                                            },
-                                                                            {
-                                                                                "command": "Home"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "theater_roku_ultra_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:asterisk"
-                                                                            },
-                                                                            {
-                                                                                "command": "Info"
-                                                                            }
-                                                                        ]
+                                                                        "service_id": "media_player.toggle"
                                                                     }
-                                                                ],
-                                                                "type": "horizontal-stack"
+                                                                ]
                                                             },
                                                             {
-                                                                "cards": [
+                                                                "template": "theater_roku_ultra_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
                                                                     {
-                                                                        "template": "theater_tv_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:volume-mute"
-                                                                            },
-                                                                            {
-                                                                                "command": "Mute"
-                                                                            }
-                                                                        ]
+                                                                        "icon": "mdi:home"
                                                                     },
                                                                     {
-                                                                        "template": "theater_roku_ultra_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:chevron-up"
-                                                                            },
-                                                                            {
-                                                                                "command": "Up"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "theater_tv_button_service",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:volume-high"
-                                                                            },
-                                                                            {
-                                                                                "service_id": "media_player.volume_up"
-                                                                            }
-                                                                        ]
+                                                                        "command": "Home"
                                                                     }
-                                                                ],
-                                                                "type": "horizontal-stack"
+                                                                ]
                                                             },
                                                             {
-                                                                "cards": [
+                                                                "template": "theater_roku_ultra_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
                                                                     {
-                                                                        "template": "theater_roku_ultra_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:chevron-left"
-                                                                            },
-                                                                            {
-                                                                                "command": "Left"
-                                                                            }
-                                                                        ]
+                                                                        "icon": "mdi:asterisk"
                                                                     },
                                                                     {
-                                                                        "template": "theater_roku_ultra_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:check"
-                                                                            },
-                                                                            {
-                                                                                "command": "Select"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "theater_roku_ultra_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:chevron-right"
-                                                                            },
-                                                                            {
-                                                                                "command": "Right"
-                                                                            }
-                                                                        ]
+                                                                        "command": "Info"
                                                                     }
-                                                                ],
-                                                                "type": "horizontal-stack"
+                                                                ]
                                                             },
                                                             {
-                                                                "cards": [
+                                                                "template": "theater_tv_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
                                                                     {
-                                                                        "template": "theater_roku_ultra_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:arrow-left"
-                                                                            },
-                                                                            {
-                                                                                "command": "Back"
-                                                                            }
-                                                                        ]
+                                                                        "icon": "mdi:volume-mute"
                                                                     },
                                                                     {
-                                                                        "template": "theater_roku_ultra_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:chevron-down"
-                                                                            },
-                                                                            {
-                                                                                "command": "Down"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "theater_tv_button_service",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:volume-medium"
-                                                                            },
-                                                                            {
-                                                                                "service_id": "media_player.volume_down"
-                                                                            }
-                                                                        ]
+                                                                        "command": "Mute"
                                                                     }
-                                                                ],
-                                                                "type": "horizontal-stack"
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_roku_ultra_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:chevron-up"
+                                                                    },
+                                                                    {
+                                                                        "command": "Up"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_tv_button_service",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:volume-high"
+                                                                    },
+                                                                    {
+                                                                        "service_id": "media_player.volume_up"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_roku_ultra_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:chevron-left"
+                                                                    },
+                                                                    {
+                                                                        "command": "Left"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_roku_ultra_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:check"
+                                                                    },
+                                                                    {
+                                                                        "command": "Select"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_roku_ultra_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:chevron-right"
+                                                                    },
+                                                                    {
+                                                                        "command": "Right"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_roku_ultra_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:arrow-left"
+                                                                    },
+                                                                    {
+                                                                        "command": "Back"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_roku_ultra_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:chevron-down"
+                                                                    },
+                                                                    {
+                                                                        "command": "Down"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_tv_button_service",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:volume-medium"
+                                                                    },
+                                                                    {
+                                                                        "service_id": "media_player.volume_down"
+                                                                    }
+                                                                ]
                                                             },
                                                             {
                                                                 "type": "conditional",
@@ -1994,43 +2016,56 @@
                                                                     }
                                                                 ],
                                                                 "card": {
-                                                                    "type": "horizontal-stack",
-                                                                    "cards": [
+                                                                    "template": "theater_roku_ultra_button",
+                                                                    "type": "custom:decluttering-card",
+                                                                    "variables": [
                                                                         {
-                                                                            "template": "theater_roku_ultra_button",
-                                                                            "type": "custom:decluttering-card",
-                                                                            "variables": [
-                                                                                {
-                                                                                    "icon": "mdi:rewind"
-                                                                                },
-                                                                                {
-                                                                                    "command": "Rewind"
-                                                                                }
-                                                                            ]
+                                                                            "icon": "mdi:rewind"
                                                                         },
                                                                         {
-                                                                            "template": "theater_roku_ultra_button",
-                                                                            "type": "custom:decluttering-card",
-                                                                            "variables": [
-                                                                                {
-                                                                                    "icon": "mdi:play-pause"
-                                                                                },
-                                                                                {
-                                                                                    "command": "Play"
-                                                                                }
-                                                                            ]
+                                                                            "command": "Rewind"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "conditional",
+                                                                "conditions": [
+                                                                    {
+                                                                        "entity": "binary_sensor.theater_playing_or_paused",
+                                                                        "state": "on"
+                                                                    }
+                                                                ],
+                                                                "card": {
+                                                                    "template": "theater_roku_ultra_button",
+                                                                    "type": "custom:decluttering-card",
+                                                                    "variables": [
+                                                                        {
+                                                                            "icon": "mdi:play-pause"
                                                                         },
                                                                         {
-                                                                            "template": "theater_roku_ultra_button",
-                                                                            "type": "custom:decluttering-card",
-                                                                            "variables": [
-                                                                                {
-                                                                                    "icon": "mdi:fast-forward"
-                                                                                },
-                                                                                {
-                                                                                    "command": "FastForward"
-                                                                                }
-                                                                            ]
+                                                                            "command": "Play"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "conditional",
+                                                                "conditions": [
+                                                                    {
+                                                                        "entity": "binary_sensor.theater_playing_or_paused",
+                                                                        "state": "on"
+                                                                    }
+                                                                ],
+                                                                "card": {
+                                                                    "template": "theater_roku_ultra_button",
+                                                                    "type": "custom:decluttering-card",
+                                                                    "variables": [
+                                                                        {
+                                                                            "icon": "mdi:fast-forward"
+                                                                        },
+                                                                        {
+                                                                            "command": "FastForward"
                                                                         }
                                                                     ]
                                                                 }
@@ -2044,49 +2079,61 @@
                                                                     }
                                                                 ],
                                                                 "card": {
-                                                                    "type": "horizontal-stack",
-                                                                    "cards": [
+                                                                    "template": "theater_roku_ultra_button_source",
+                                                                    "type": "custom:decluttering-card",
+                                                                    "variables": [
                                                                         {
-                                                                            "template": "theater_roku_ultra_button_source",
-                                                                            "type": "custom:decluttering-card",
-                                                                            "variables": [
-                                                                                {
-                                                                                    "icon": "mdi:netflix"
-                                                                                },
-                                                                                {
-                                                                                    "source": "Netflix"
-                                                                                }
-                                                                            ]
+                                                                            "icon": "mdi:netflix"
                                                                         },
                                                                         {
-                                                                            "template": "theater_roku_ultra_button_source",
-                                                                            "type": "custom:decluttering-card",
-                                                                            "variables": [
-                                                                                {
-                                                                                    "icon": "mdi:hulu"
-                                                                                },
-                                                                                {
-                                                                                    "source": "Hulu"
-                                                                                }
-                                                                            ]
+                                                                            "source": "Netflix"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "conditional",
+                                                                "conditions": [
+                                                                    {
+                                                                        "entity": "binary_sensor.theater_playing_or_paused",
+                                                                        "state": "off"
+                                                                    }
+                                                                ],
+                                                                "card": {
+                                                                    "template": "theater_roku_ultra_button_source",
+                                                                    "type": "custom:decluttering-card",
+                                                                    "variables": [
+                                                                        {
+                                                                            "icon": "mdi:hulu"
                                                                         },
                                                                         {
-                                                                            "template": "theater_roku_ultra_button_source",
-                                                                            "type": "custom:decluttering-card",
-                                                                            "variables": [
-                                                                                {
-                                                                                    "icon": "mdi:amazon"
-                                                                                },
-                                                                                {
-                                                                                    "source": "Prime Video"
-                                                                                }
-                                                                            ]
+                                                                            "source": "Hulu"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "conditional",
+                                                                "conditions": [
+                                                                    {
+                                                                        "entity": "binary_sensor.theater_playing_or_paused",
+                                                                        "state": "off"
+                                                                    }
+                                                                ],
+                                                                "card": {
+                                                                    "template": "theater_roku_ultra_button_source",
+                                                                    "type": "custom:decluttering-card",
+                                                                    "variables": [
+                                                                        {
+                                                                            "icon": "mdi:amazon"
+                                                                        },
+                                                                        {
+                                                                            "source": "Prime Video"
                                                                         }
                                                                     ]
                                                                 }
                                                             }
-                                                        ],
-                                                        "type": "vertical-stack"
+                                                        ]
                                                     }
                                                 }
                                             }
@@ -2110,37 +2157,299 @@
                                                     "deviceID": [
                                                         "this"
                                                     ],
-                                                    "title": "Theater Roku Stick",
+                                                    "title": "Playstation",
+                                                    "card": {
+                                                        "type": "grid",
+                                                        "columns": 3,
+                                                        "cards": [
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:power"
+                                                                    },
+                                                                    {
+                                                                        "command": "PowerOff"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:back"
+                                                                    },
+                                                                    {
+                                                                        "command": "Back"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:asterisk"
+                                                                    },
+                                                                    {
+                                                                        "command": "Info"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:sony-playstation"
+                                                                    },
+                                                                    {
+                                                                        "command": "PS"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:chevron-up"
+                                                                    },
+                                                                    {
+                                                                        "command": "DirectionUp"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_tv_button_service",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:volume-high"
+                                                                    },
+                                                                    {
+                                                                        "service_id": "media_player.volume_up"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:chevron-left"
+                                                                    },
+                                                                    {
+                                                                        "command": "DirectionLeft"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:check"
+                                                                    },
+                                                                    {
+                                                                        "command": "OK"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:chevron-right"
+                                                                    },
+                                                                    {
+                                                                        "command": "DirectionRight"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:arrow-left"
+                                                                    },
+                                                                    {
+                                                                        "command": "Back"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:chevron-down"
+                                                                    },
+                                                                    {
+                                                                        "command": "DirectionDown"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "theater_tv_button_service",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:volume-medium"
+                                                                    },
+                                                                    {
+                                                                        "service_id": "media_player.volume_down"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:rewind"
+                                                                    },
+                                                                    {
+                                                                        "command": "Rewind"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:play"
+                                                                    },
+                                                                    {
+                                                                        "command": "Play"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "template": "ps4_button",
+                                                                "type": "custom:decluttering-card",
+                                                                "variables": [
+                                                                    {
+                                                                        "icon": "mdi:fast-forward"
+                                                                    },
+                                                                    {
+                                                                        "command": "FastForward"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "title": "Living Room",
+                            "cards": [
+                                {
+                                    "type": "custom:mini-media-player",
+                                    "hide": {
+                                        "controls": true,
+                                        "volume": true,
+                                        "power": true
+                                    },
+                                    "shortcuts": {
+                                        "columns": 3,
+                                        "column_height": 64,
+                                        "buttons": [
+                                            {
+                                                "cover": "https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fimage.roku.com%2Fchannels%2Fimages%2Ff5e60d25f2c94469b0f7a777918ca319-hd.jpg",
+                                                "type": "source",
+                                                "id": "Netflix"
+                                            },
+                                            {
+                                                "cover": "https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fcigars.roku.com%2Fv1%2Fresize%2F290x218%2Fhttps%253A%252F%252Frsp.web.roku.com%252Fproduction%252F629924ca-2bad-42d9-a2fa-e8a1af2143cb",
+                                                "type": "source",
+                                                "id": "Hulu"
+                                            },
+                                            {
+                                                "cover": "https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fcigars.roku.com%2Fv1%2Fresize%2F290x218%2Fhttps%253A%252F%252Frsp.web.roku.com%252Fproduction%252Ff9ac41f2-1561-474a-a4a3-5f96e26d4149",
+                                                "type": "source",
+                                                "id": "Prime Video"
+                                            },
+                                            {
+                                                "cover": "https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fimage.roku.com%2Fdeveloper_channels%2Fprod%2Fca044a686cf9108b071d8a47344060fc60359de677a948ae3245cf9abff294ca.png",
+                                                "type": "source",
+                                                "id": "HBO Max"
+                                            },
+                                            {
+                                                "cover": "https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fcigars.roku.com%2Fv1%2Fresize%2F290x218%2Fhttps%253A%252F%252Frsp.web.roku.com%252Fproduction%252F65dc30aa-0918-45c4-a993-2848cd4f00e7",
+                                                "type": "source",
+                                                "id": "Disney Plus"
+                                            },
+                                            {
+                                                "cover": "data:image/png;base64,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",
+                                                "type": "source",
+                                                "id": "Google Play Movies & TV"
+                                            },
+                                            {
+                                                "cover": "https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fcigars.roku.com%2Fv1%2Fresize%2F290x218%2Fhttps%253A%252F%252Frsp.web.roku.com%252Fproduction%252F49e3abfc-4df2-49e4-a437-d6b63d392e1a",
+                                                "type": "source",
+                                                "id": "Vudu"
+                                            },
+                                            {
+                                                "cover": "https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fimage.roku.com%2Fdeveloper_channels%2Fprod%2Fe4a84766721f1be165f9c4ae9ebfbbe9492aac32af4879224c568577ce764416.png",
+                                                "type": "source",
+                                                "id": "Plex - Stream for Free"
+                                            },
+                                            {
+                                                "cover": "https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fimage.roku.com%2Fdeveloper_channels%2Fprod%2F01ff04e620e7157e570077460ad8aa9fe1a5b2699f92e00bae7f756cac890013.png",
+                                                "type": "source",
+                                                "id": "Spotify"
+                                            },
+                                            {
+                                                "name": "Remote",
+                                                "type": "service",
+                                                "id": "browser_mod.popup",
+                                                "data": {
+                                                    "deviceID": [
+                                                        "this"
+                                                    ],
+                                                    "title": "Living Room TV",
                                                     "card": {
                                                         "cards": [
                                                             {
                                                                 "cards": [
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button_service",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
                                                                                 "icon": "mdi:power"
                                                                             },
                                                                             {
-                                                                                "command": "PowerOff"
+                                                                                "service_id": "media_player.toggle"
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
-                                                                                "icon": "mdi:back"
+                                                                                "icon": "mdi:home"
                                                                             },
                                                                             {
-                                                                                "command": "Back"
+                                                                                "command": "Home"
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
@@ -2157,31 +2466,31 @@
                                                             {
                                                                 "cards": [
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
-                                                                                "icon": "mdi:sony-playstation"
+                                                                                "icon": "mdi:volume-mute"
                                                                             },
                                                                             {
-                                                                                "command": "PS"
+                                                                                "command": "VolumeMute"
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
                                                                                 "icon": "mdi:chevron-up"
                                                                             },
                                                                             {
-                                                                                "command": "DirectionUp"
+                                                                                "command": "Up"
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "theater_tv_button_service",
+                                                                        "template": "living_room_tv_button_service",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
@@ -2198,38 +2507,38 @@
                                                             {
                                                                 "cards": [
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
                                                                                 "icon": "mdi:chevron-left"
                                                                             },
                                                                             {
-                                                                                "command": "DirectionLeft"
+                                                                                "command": "Left"
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
                                                                                 "icon": "mdi:check"
                                                                             },
                                                                             {
-                                                                                "command": "OK"
+                                                                                "command": "Select"
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
                                                                                 "icon": "mdi:chevron-right"
                                                                             },
                                                                             {
-                                                                                "command": "DirectionRight"
+                                                                                "command": "Right"
                                                                             }
                                                                         ]
                                                                     }
@@ -2239,7 +2548,7 @@
                                                             {
                                                                 "cards": [
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
@@ -2251,19 +2560,19 @@
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
                                                                                 "icon": "mdi:chevron-down"
                                                                             },
                                                                             {
-                                                                                "command": "DirectionDown"
+                                                                                "command": "Down"
                                                                             }
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "theater_tv_button_service",
+                                                                        "template": "living_room_tv_button_service",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
@@ -2280,7 +2589,7 @@
                                                             {
                                                                 "cards": [
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
@@ -2292,7 +2601,7 @@
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
@@ -2304,7 +2613,7 @@
                                                                         ]
                                                                     },
                                                                     {
-                                                                        "template": "ps4_button",
+                                                                        "template": "living_room_tv_button",
                                                                         "type": "custom:decluttering-card",
                                                                         "variables": [
                                                                             {
@@ -2324,318 +2633,8 @@
                                                 }
                                             }
                                         ]
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Living Room",
-                            "type": "vertical-stack",
-                            "cards": [
-                                {
-                                    "type": "entities",
-                                    "entities": [
-                                        {
-                                            "entity": "switch.living_room_monitor",
-                                            "name": "Monitor"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "custom:mini-media-player",
-                                    "name": "Living Room TV",
-                                    "entity": "media_player.theater_roku_ultra",
-                                    "shortcuts": {
-                                        "buttons": [
-                                            {
-                                                "name": "Remote",
-                                                "type": "service",
-                                                "id": "browser_mod.popup",
-                                                "data": {
-                                                    "title": "Theater TV Remote",
-                                                    "deviceID": [
-                                                        "this"
-                                                    ],
-                                                    "card": {
-                                                        "type": "vertical-stack",
-                                                        "cards": [
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:power-off"
-                                                                            },
-                                                                            {
-                                                                                "command": "PowerOff"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:power"
-                                                                            },
-                                                                            {
-                                                                                "command": "PowerToggle"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:power-on"
-                                                                            },
-                                                                            {
-                                                                                "command": "PowerOn"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            },
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:volume-off"
-                                                                            },
-                                                                            {
-                                                                                "command": "Mute"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:volume-medium"
-                                                                            },
-                                                                            {
-                                                                                "command": "VolumeDown"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:volume-high"
-                                                                            },
-                                                                            {
-                                                                                "command": "VolumeUp"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            },
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:raspberry-pi"
-                                                                            },
-                                                                            {
-                                                                                "command": "InputBd/Dvd"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:cast"
-                                                                            },
-                                                                            {
-                                                                                "command": "InputCbl/Sat"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:cast"
-                                                                            },
-                                                                            {
-                                                                                "command": "InputTv/Cd"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "custom:mini-media-player",
-                                    "name": "Living Room TV",
-                                    "entity": "media_player.theater_roku_ultra",
-                                    "shortcuts": {
-                                        "buttons": [
-                                            {
-                                                "name": "Remote",
-                                                "type": "service",
-                                                "id": "browser_mod.popup",
-                                                "data": {
-                                                    "title": "Theater TV Remote",
-                                                    "deviceID": [
-                                                        "this"
-                                                    ],
-                                                    "card": {
-                                                        "type": "vertical-stack",
-                                                        "cards": [
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:power-off"
-                                                                            },
-                                                                            {
-                                                                                "command": "PowerOff"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:power"
-                                                                            },
-                                                                            {
-                                                                                "command": "PowerToggle"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:power-on"
-                                                                            },
-                                                                            {
-                                                                                "command": "PowerOn"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            },
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:volume-off"
-                                                                            },
-                                                                            {
-                                                                                "command": "Mute"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:volume-medium"
-                                                                            },
-                                                                            {
-                                                                                "command": "VolumeDown"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:volume-high"
-                                                                            },
-                                                                            {
-                                                                                "command": "VolumeUp"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            },
-                                                            {
-                                                                "cards": [
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:raspberry-pi"
-                                                                            },
-                                                                            {
-                                                                                "command": "InputBd/Dvd"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:cast"
-                                                                            },
-                                                                            {
-                                                                                "command": "InputCbl/Sat"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                    {
-                                                                        "template": "onkyo_speakers_button",
-                                                                        "type": "custom:decluttering-card",
-                                                                        "variables": [
-                                                                            {
-                                                                                "icon": "mdi:cast"
-                                                                            },
-                                                                            {
-                                                                                "command": "InputTv/Cd"
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ],
-                                                                "type": "horizontal-stack"
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            }
-                                        ]
-                                    }
+                                    },
+                                    "entity": "media_player.living_room_tv"
                                 }
                             ]
                         },
@@ -3340,7 +3339,7 @@
                                     "type": "history-graph",
                                     "entities": [
                                         {
-                                            "entity": "sensor.hallway_thermostat_temperature",
+                                            "entity": "sensor.hallway_thermostat_air_temperature",
                                             "name": "Hallway"
                                         },
                                         {
@@ -3412,7 +3411,7 @@
                                             "name": "Window"
                                         },
                                         {
-                                            "entity": "sensor.hallway_thermostat_temperature",
+                                            "entity": "sensor.hallway_thermostat_air_temperature",
                                             "name": "Thermostat"
                                         }
                                     ],
@@ -4972,7 +4971,7 @@
                                                     "type": "state-icon"
                                                 },
                                                 {
-                                                    "entity": "media_player.theater_tv",
+                                                    "entity": "media_player.living_room_tv",
                                                     "style": {
                                                         "left": "79%",
                                                         "top": "16%",
@@ -4987,7 +4986,7 @@
                                                                     {
                                                                         "cards": [
                                                                             {
-                                                                                "template": "theater_tv_button_service",
+                                                                                "template": "living_room_tv_button_service",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -4999,7 +4998,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5011,7 +5010,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5028,7 +5027,7 @@
                                                                     {
                                                                         "cards": [
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5040,7 +5039,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5052,7 +5051,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button_service",
+                                                                                "template": "living_room_tv_button_service",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5069,7 +5068,7 @@
                                                                     {
                                                                         "cards": [
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5081,7 +5080,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5093,7 +5092,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5110,7 +5109,7 @@
                                                                     {
                                                                         "cards": [
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5122,7 +5121,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5134,7 +5133,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button_service",
+                                                                                "template": "living_room_tv_button_service",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5151,7 +5150,7 @@
                                                                     {
                                                                         "cards": [
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5163,7 +5162,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5175,7 +5174,7 @@
                                                                                 ]
                                                                             },
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "living_room_tv_button",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
@@ -5446,14 +5445,14 @@
                                                                     {
                                                                         "cards": [
                                                                             {
-                                                                                "template": "theater_tv_button",
+                                                                                "template": "theater_tv_button_service",
                                                                                 "type": "custom:decluttering-card",
                                                                                 "variables": [
                                                                                     {
                                                                                         "icon": "mdi:power"
                                                                                     },
                                                                                     {
-                                                                                        "command": "PowerToggle"
+                                                                                        "service_id": "media_player.toggle"
                                                                                     }
                                                                                 ]
                                                                             },
@@ -6255,7 +6254,7 @@
                                                             },
                                                             {
                                                                 "icon": "mdi:laptop",
-                                                                "id": "SDSA-PC",
+                                                                "id": "KBK-NOTEBOOK",
                                                                 "type": "source"
                                                             },
                                                             {

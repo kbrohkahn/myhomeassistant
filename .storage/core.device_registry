@@ -5,28 +5,6 @@
         "devices": [
             {
                 "config_entries": [
-                    "f56b665083104243be551dd904815b88"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hacs",
-                        "0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd"
-                    ]
-                ],
-                "manufacturer": "hacs.xyz",
-                "model": "",
-                "name": "HACS",
-                "sw_version": "1.10.1",
-                "entry_type": "service",
-                "id": "07b4348ba48e4e3ba50835054aedd047",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
                     "b3cb49c923ecd1f18c3be3b8c87779f7"
                 ],
                 "connections": [],
@@ -1605,28 +1583,6 @@
             },
             {
                 "config_entries": [
-                    "98dd239c0dd411ebbe10bd407d20d5d7"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "huesyncbox",
-                        "C42996009E6C"
-                    ]
-                ],
-                "manufacturer": "Signify",
-                "model": "HSB1",
-                "name": "Sync Box",
-                "sw_version": "1.6.3",
-                "entry_type": null,
-                "id": "9a36f95c0dd411ebb4742990081c753b",
-                "via_device_id": null,
-                "area_id": "4db32c27f93611eaa246c7c49d8e427d",
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
                     "9ed2b1841bb646a6ade63ac1d013f289"
                 ],
                 "connections": [],
@@ -2300,7 +2256,7 @@
                 ],
                 "manufacturer": "TCL",
                 "model": "55S401",
-                "name": "Theater Roku TV",
+                "name": "Living Room Roku TV",
                 "sw_version": "9.4.0",
                 "entry_type": null,
                 "id": "e6b5a16d8f5c29905c83425ab5ad2fae",
@@ -3350,6 +3306,28 @@
                 "area_id": "4db32c27f93611eaa246c7c49d8e427d",
                 "name_by_user": null,
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "7e747ff90fdf9cd81258abfaf61e885e"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hacs",
+                        "0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd"
+                    ]
+                ],
+                "manufacturer": "hacs.xyz",
+                "model": "",
+                "name": "HACS",
+                "sw_version": "1.10.1",
+                "entry_type": "service",
+                "id": "07b4348ba48e4e3ba50835054aedd047",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
             }
         ],
         "deleted_devices": [
@@ -4078,6 +4056,18 @@
                 ],
                 "id": "09913f7ffc8233d1fc87e4cbd0c7cc72",
                 "orphaned_timestamp": 1612535090.3001945
+            },
+            {
+                "config_entries": [],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "huesyncbox",
+                        "C42996009E6C"
+                    ]
+                ],
+                "id": "9a36f95c0dd411ebb4742990081c753b",
+                "orphaned_timestamp": 1612653017.4711547
             }
         ]
     }

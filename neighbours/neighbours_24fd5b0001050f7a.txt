@@ -40,7 +40,7 @@
         {
             "ieee": "00:12:4b:00:1d:43:cd:26",
             "nwk": "0x5429",
-            "lqi": 245,
+            "lqi": 253,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",

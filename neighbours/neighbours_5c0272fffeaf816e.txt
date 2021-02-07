@@ -10,7 +10,7 @@
         {
             "ieee": "00:12:4b:00:1d:84:ea:0e",
             "nwk": "0x3d08",
-            "lqi": 104,
+            "lqi": 116,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -25,7 +25,7 @@
         {
             "ieee": "5c:02:72:ff:fe:a9:ec:11",
             "nwk": "0x5ecc",
-            "lqi": 99,
+            "lqi": 126,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -40,7 +40,7 @@
         {
             "ieee": "00:12:4b:00:1d:43:cd:26",
             "nwk": "0x5429",
-            "lqi": 89,
+            "lqi": 54,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -55,7 +55,7 @@
         {
             "ieee": "00:12:4b:00:1d:84:e2:37",
             "nwk": "0x415c",
-            "lqi": 100,
+            "lqi": 96,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -70,7 +70,7 @@
         {
             "ieee": "24:fd:5b:00:01:05:0f:7a",
             "nwk": "0x50e5",
-            "lqi": 104,
+            "lqi": 135,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -85,7 +85,7 @@
         {
             "ieee": "28:6d:97:00:01:0c:77:b0",
             "nwk": "0xf3bc",
-            "lqi": 243,
+            "lqi": 242,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "EndDevice",
             "rx_on_when_idle": "Off",
@@ -100,7 +100,7 @@
         {
             "ieee": "00:12:4b:00:1d:44:f7:f1",
             "nwk": "0xe754",
-            "lqi": 52,
+            "lqi": 60,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -115,7 +115,7 @@
         {
             "ieee": "00:0d:6f:00:0b:3d:32:f5",
             "nwk": "0x0000",
-            "lqi": 145,
+            "lqi": 233,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Coordinator",
             "rx_on_when_idle": "On",

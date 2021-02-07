@@ -128,6 +128,18 @@ spotcast:
 
 discovery:
 
+huesyncbox:
+
+webostv:
+  host: 10.0.0.241
+  name: Theater TV
+  turn_on_action:
+    data:
+      command: PowerOn
+      device: LG TV
+    entity_id: remote.harmony_hub
+    service: remote.send_command
+
 
 media_player:
   - platform: mpd
@@ -185,11 +197,11 @@ media_player:
         entity_id: switch.office_tv_power_off
 
   - platform: universal
-    name: Theater TV
+    name: Living Room TV
     children:
-      - media_player.theater_roku_tv
-    state_template: "{% if states.media_player.theater_roku_tv.state != 'unavailable' 
-      and states.media_player.theater_roku_tv.state != 'standby' %}
+      - media_player.living_room_roku_tv
+    state_template: "{% if states.media_player.living_room_roku_tv.state != 'unavailable' 
+      and states.media_player.living_room_roku_tv.state != 'standby' %}
       on
       {% else %}
       off
@@ -198,13 +210,13 @@ media_player:
       turn_on:
         data:
           command: PowerOn
-          device: Theater TV
+          device: Living Room TV
         entity_id: remote.harmony_hub
         service: remote.send_command
       turn_off:
         data:
           command: PowerOff
-          device: Theater TV
+          device: Living Room TV
         entity_id: remote.harmony_hub
         service: remote.send_command
 

@@ -10,7 +10,7 @@
         {
             "ieee": "00:12:4b:00:1d:84:ea:0e",
             "nwk": "0x3d08",
-            "lqi": 191,
+            "lqi": 216,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -25,7 +25,7 @@
         {
             "ieee": "28:6d:97:00:01:0d:aa:20",
             "nwk": "0xdbb4",
-            "lqi": 165,
+            "lqi": 143,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "EndDevice",
             "rx_on_when_idle": "Off",
@@ -40,7 +40,7 @@
         {
             "ieee": "00:12:4b:00:1d:43:cd:26",
             "nwk": "0x5429",
-            "lqi": 235,
+            "lqi": 247,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -55,7 +55,7 @@
         {
             "ieee": "00:12:4b:00:1d:84:e2:37",
             "nwk": "0x415c",
-            "lqi": 134,
+            "lqi": 139,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -70,7 +70,7 @@
         {
             "ieee": "5c:02:72:ff:fe:af:81:6e",
             "nwk": "0x1dce",
-            "lqi": 98,
+            "lqi": 127,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -85,7 +85,7 @@
         {
             "ieee": "24:fd:5b:00:01:05:0f:7a",
             "nwk": "0x50e5",
-            "lqi": 120,
+            "lqi": 119,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -98,24 +98,9 @@
             "supported": true
         },
         {
-            "ieee": "28:6d:97:00:01:0a:b7:d7",
-            "nwk": "0x8f61",
-            "lqi": 196,
-            "pan_id": "ff:b7:06:07:d9:6a:72:dc",
-            "device_type": "EndDevice",
-            "rx_on_when_idle": "Off",
-            "relation": "Child",
-            "new_joins_accepted": "NotAccepting",
-            "depth": 2,
-            "model": "multi",
-            "manufacturer": "Samjin",
-            "offline": false,
-            "supported": true
-        },
-        {
             "ieee": "00:12:4b:00:1d:44:f7:f1",
             "nwk": "0xe754",
-            "lqi": 101,
+            "lqi": 117,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -130,7 +115,7 @@
         {
             "ieee": "00:0d:6f:00:0b:3d:32:f5",
             "nwk": "0x0000",
-            "lqi": 255,
+            "lqi": 249,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Coordinator",
             "rx_on_when_idle": "On",

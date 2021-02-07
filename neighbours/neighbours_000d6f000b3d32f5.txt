@@ -25,7 +25,7 @@
         {
             "ieee": "5c:02:72:ff:fe:a9:ec:11",
             "nwk": "0x5ecc",
-            "lqi": 253,
+            "lqi": 254,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -55,7 +55,7 @@
         {
             "ieee": "00:12:4b:00:1d:84:e2:37",
             "nwk": "0x415c",
-            "lqi": 204,
+            "lqi": 251,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -70,7 +70,7 @@
         {
             "ieee": "5c:02:72:ff:fe:af:81:6e",
             "nwk": "0x1dce",
-            "lqi": 238,
+            "lqi": 253,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",
@@ -79,6 +79,21 @@
             "depth": 15,
             "model": "SP 224",
             "manufacturer": "innr",
+            "offline": false,
+            "supported": true
+        },
+        {
+            "ieee": "28:6d:97:00:01:0c:86:70",
+            "nwk": "0xddbe",
+            "lqi": 255,
+            "pan_id": "ff:b7:06:07:d9:6a:72:dc",
+            "device_type": "EndDevice",
+            "rx_on_when_idle": "Off",
+            "relation": "Child",
+            "new_joins_accepted": "NotAccepting",
+            "depth": 1,
+            "model": "motion",
+            "manufacturer": "Samjin",
             "offline": false,
             "supported": true
         },
@@ -98,9 +113,24 @@
             "supported": true
         },
         {
+            "ieee": "28:6d:97:00:01:0a:b7:d7",
+            "nwk": "0x8f61",
+            "lqi": 255,
+            "pan_id": "ff:b7:06:07:d9:6a:72:dc",
+            "device_type": "EndDevice",
+            "rx_on_when_idle": "Off",
+            "relation": "Child",
+            "new_joins_accepted": "NotAccepting",
+            "depth": 1,
+            "model": "multi",
+            "manufacturer": "Samjin",
+            "offline": false,
+            "supported": true
+        },
+        {
             "ieee": "00:12:4b:00:1d:44:f7:f1",
             "nwk": "0xe754",
-            "lqi": 195,
+            "lqi": 253,
             "pan_id": "ff:b7:06:07:d9:6a:72:dc",
             "device_type": "Router",
             "rx_on_when_idle": "On",

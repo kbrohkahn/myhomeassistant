@@ -4,6 +4,6 @@
     "data": {
         "view": "Grid",
         "compact": false,
-        "onboarding_done": true
+        "onboarding_done": false
     }
 }

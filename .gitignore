@@ -13,6 +13,7 @@ tts
 home-assistant_v2.db*
 zigbee.db
 home-assistant.log
+core
 
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.

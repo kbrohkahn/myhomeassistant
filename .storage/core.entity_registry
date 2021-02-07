@@ -38,23 +38,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "sensor.hacs",
-                "config_entry_id": "f56b665083104243be551dd904815b88",
-                "device_id": "07b4348ba48e4e3ba50835054aedd047",
-                "area_id": null,
-                "unique_id": "0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd",
-                "platform": "hacs",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "pending update(s)",
-                "original_name": "hacs",
-                "original_icon": "hacs:hacs"
-            },
-            {
                 "entity_id": "device_tracker.sm_n975u1",
                 "config_entry_id": "b3cb49c923ecd1f18c3be3b8c87779f7",
                 "device_id": "26e560ef17a245d3ab0df9451d0b012a",
@@ -4427,36 +4410,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "media_player.sync_box",
-                "config_entry_id": "98dd239c0dd411ebbe10bd407d20d5d7",
-                "device_id": "9a36f95c0dd411ebb4742990081c753b",
-                "area_id": null,
-                "unique_id": "C42996009E6C",
-                "platform": "huesyncbox",
-                "name": null,
-                "icon": "mdi:television-ambient-light",
-                "disabled_by": null,
-                "capabilities": {
-                    "source_list": [
-                        "Playstation",
-                        "Raspberry Pi",
-                        "Roku",
-                        "Xbox"
-                    ],
-                    "sound_mode_list": [
-                        "subtle",
-                        "moderate",
-                        "high",
-                        "intense"
-                    ]
-                },
-                "supported_features": 88501,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Sync Box",
-                "original_icon": null
-            },
-            {
                 "entity_id": "automation.hallway_bath_light_off",
                 "config_entry_id": null,
                 "device_id": null,
@@ -8022,12 +7975,10 @@
                 "capabilities": {
                     "source_list": [
                         "KBK-NOTEBOOK",
-                        "Kevin\u2019s iPhone",
                         "Hallway Bath Echo Flex",
                         "Dining Echo Dot",
                         "Snapcast",
                         "Master Bath Echo Plus",
-                        "Master Echo Dot",
                         "SDSA-PC"
                     ]
                 },
@@ -9488,62 +9439,6 @@
                 "unit_of_measurement": null,
                 "original_name": "theater Cluster Leader",
                 "original_icon": "mdi:account-group"
-            },
-            {
-                "entity_id": "remote.theater_roku_tv",
-                "config_entry_id": "02801a8e6c57eee2390a40e8c016b57e",
-                "device_id": "e6b5a16d8f5c29905c83425ab5ad2fae",
-                "area_id": null,
-                "unique_id": "YN00HL348696",
-                "platform": "roku",
-                "name": "Theater Roku TV",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Theater Roku TV",
-                "original_icon": null
-            },
-            {
-                "entity_id": "media_player.theater_roku_tv",
-                "config_entry_id": "02801a8e6c57eee2390a40e8c016b57e",
-                "device_id": "e6b5a16d8f5c29905c83425ab5ad2fae",
-                "area_id": null,
-                "unique_id": "YN00HL348696",
-                "platform": "roku",
-                "name": "Theater Roku TV",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "source_list": [
-                        "Home",
-                        "AV",
-                        "Disney Plus",
-                        "Google Play Movies & TV",
-                        "HBO Max",
-                        "HDMI\u00a03",
-                        "Hulu",
-                        "Live\u00a0TV",
-                        "Netflix",
-                        "Plex - Stream for Free",
-                        "Prime Video",
-                        "Roku TV Intro",
-                        "Sling TV",
-                        "Soundbar",
-                        "Spotify Music",
-                        "Streaming\u00a0box",
-                        "The Roku Channel",
-                        "VUDU",
-                        "YouTube"
-                    ]
-                },
-                "supported_features": 151481,
-                "device_class": "tv",
-                "unit_of_measurement": null,
-                "original_name": "Theater Roku TV",
-                "original_icon": null
             },
             {
                 "entity_id": "light.theater_tv_bottom",
@@ -11230,7 +11125,7 @@
                 "device_class": "battery",
                 "unit_of_measurement": "%",
                 "original_name": "Kevin\u2019s iPhone Battery Level",
-                "original_icon": "mdi:battery-90"
+                "original_icon": "mdi:battery-60"
             },
             {
                 "entity_id": "sensor.kevins_iphone_battery_state",
@@ -11247,7 +11142,7 @@
                 "device_class": "battery",
                 "unit_of_measurement": null,
                 "original_name": "Kevin\u2019s iPhone Battery State",
-                "original_icon": "mdi:battery-90"
+                "original_icon": "mdi:battery-60"
             },
             {
                 "entity_id": "sensor.kevins_iphone_ssid",
@@ -12251,6 +12146,147 @@
                 "unit_of_measurement": null,
                 "original_name": "snapcast_client_bc:5f:f4:8b:f1:0b",
                 "original_icon": null
+            },
+            {
+                "entity_id": "remote.living_room_roku_tv",
+                "config_entry_id": "02801a8e6c57eee2390a40e8c016b57e",
+                "device_id": "e6b5a16d8f5c29905c83425ab5ad2fae",
+                "area_id": null,
+                "unique_id": "YN00HL348696",
+                "platform": "roku",
+                "name": "Living Room Roku TV",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Living Room Roku TV",
+                "original_icon": null
+            },
+            {
+                "entity_id": "media_player.living_room_roku_tv",
+                "config_entry_id": "02801a8e6c57eee2390a40e8c016b57e",
+                "device_id": "e6b5a16d8f5c29905c83425ab5ad2fae",
+                "area_id": null,
+                "unique_id": "YN00HL348696",
+                "platform": "roku",
+                "name": "Living Room Roku TV",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "source_list": [
+                        "Home",
+                        "AV",
+                        "Disney Plus",
+                        "Google Play Movies & TV",
+                        "HBO Max",
+                        "HDMI\u00a03",
+                        "Hulu",
+                        "Live\u00a0TV",
+                        "Netflix",
+                        "Plex - Stream for Free",
+                        "Prime Video",
+                        "Roku TV Intro",
+                        "Sling TV",
+                        "Soundbar",
+                        "Spotify Music",
+                        "Streaming\u00a0box",
+                        "The Roku Channel",
+                        "VUDU",
+                        "YouTube"
+                    ]
+                },
+                "supported_features": 151481,
+                "device_class": "tv",
+                "unit_of_measurement": null,
+                "original_name": "Living Room Roku TV",
+                "original_icon": null
+            },
+            {
+                "entity_id": "automation.living_room_tv_turned_off",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "living_room_tv_turned_off",
+                "platform": "automation",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Living Room TV Turned Off",
+                "original_icon": null
+            },
+            {
+                "entity_id": "automation.living_room_tv_turned_on",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "living_room_tv_turned_on",
+                "platform": "automation",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Living Room TV Turned On",
+                "original_icon": null
+            },
+            {
+                "entity_id": "media_player.theater_tv",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "10f8f80d181dc15f5231918d286a5dc1",
+                "platform": "webostv",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 20409,
+                "device_class": "tv",
+                "unit_of_measurement": null,
+                "original_name": "Theater TV",
+                "original_icon": null
+            },
+            {
+                "entity_id": "automation.hue_sync_box_stops_abruptly",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "hue_sync_box_stops_abruptly",
+                "platform": "automation",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Hue Sync Box Stops Abruptly",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.hacs",
+                "config_entry_id": "7e747ff90fdf9cd81258abfaf61e885e",
+                "device_id": "07b4348ba48e4e3ba50835054aedd047",
+                "area_id": null,
+                "unique_id": "0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd",
+                "platform": "hacs",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "pending update(s)",
+                "original_name": "hacs",
+                "original_icon": "hacs:hacs"
             }
         ]
     }

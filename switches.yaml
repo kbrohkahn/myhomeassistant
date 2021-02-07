@@ -95,11 +95,11 @@
           service: light.turn_off
         - service: switch.turn_off
           entity_id:
-            - switch.living_room_monitor
             - switch.fountain
             - switch.bidet
         - service: media_player.turn_off
           entity_id:
+            - media_player.living_room_tv
             - media_player.theater_tv
             - media_player.office_tv
         - data:
@@ -134,10 +134,9 @@
             topic: wallpanel/galaxytabs6/command
           service: mqtt.publish
         - service: switch.turn_on
-          entity_id:
-            - switch.living_room_monitor
-            # - switch.home_speakers
-            - switch.bidet
+          entity_id: switch.bidet
+        - service: media_player.turn_on
+          entity_id: media_player.living_room_tv
     away:
       unique_id: switch.away
       value_template: "{{ is_state('input_boolean.away', 'on') }}"
@@ -187,7 +186,6 @@
         - data:
             entity_id:
             - switch.fountain
-            - switch.living_room_monitor
             - switch.master_bath_fan
             - switch.hallway_bath_fan
             # - switch.home_speakers
@@ -195,6 +193,7 @@
           service: switch.turn_off
         - service: media_player.turn_off
           entity_id:
+            - media_player.living_room_tv
             - media_player.theater_tv
             - media_player.office_tv
         - data:
@@ -229,15 +228,16 @@
         - service: automation.turn_off
           entity_id: automation.nightlight
           data: {}
-        - service: switch.turn_on
-          entity_id: 
-            - switch.living_room_monitor
-            - switch.bidet
         - service: automation.trigger
           entity_id:
             - automation.kitchen_motion_detected
             - automation.kitchen_motion_detected_dining_lights
             - automation.kitchen_motion_detected_living_room_lights
+        - service: switch.turn_on
+          entity_id: 
+            - switch.bidet
+        - service: media_player.turn_on
+          entity_id: media_player.living_room_tv
 
     guests_home:
       unique_id: switch.guests_home

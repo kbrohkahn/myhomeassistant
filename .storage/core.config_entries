@@ -4,27 +4,6 @@
     "data": {
         "entries": [
             {
-                "entry_id": "f56b665083104243be551dd904815b88",
-                "version": 1,
-                "domain": "hacs",
-                "title": "",
-                "data": {
-                    "appdaemon": false,
-                    "python_script": false,
-                    "sidepanel_icon": "mdi:alpha-c-box",
-                    "sidepanel_title": "Community",
-                    "theme": false,
-                    "token": "d085db78d621a927dd78b0c954e3cdfef64396c3"
-                },
-                "options": {},
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "source": "user",
-                "connection_class": "cloud_poll",
-                "unique_id": null
-            },
-            {
                 "entry_id": "9ed2b1841bb646a6ade63ac1d013f289",
                 "version": 1,
                 "domain": "mqtt",
@@ -257,29 +236,6 @@
                 "unique_id": "io.homeassistant.companion.android-24b5d128fbeadbb0"
             },
             {
-                "entry_id": "98dd239c0dd411ebbe10bd407d20d5d7",
-                "version": 1,
-                "domain": "huesyncbox",
-                "title": "Sync Box (C42996009E6C)",
-                "data": {
-                    "host": "10.0.0.232",
-                    "name": "Sync Box",
-                    "path": "/api",
-                    "port": 443,
-                    "unique_id": "C42996009E6C",
-                    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDI2NDkyMzAzMzcsImlzcyI6ImhzYi1DNDI5OTYwMDlFNkMiLCJyb2xlIjoidXNlciIsInJpZCI6NCwicmFuIjoiSG9tZSBBc3Npc3RhbnQiLCJyaW4iOiJIb21lIn0=.WNzyjFlup9FGQ+HtnmjDuRaAWCkw5P9ICmPHZAEJh48=",
-                    "registration_id": "4",
-                    "devicetype": "HSB1"
-                },
-                "options": {},
-                "system_options": {
-                    "disable_new_entities": false
-                },
-                "source": "zeroconf",
-                "connection_class": "local_poll",
-                "unique_id": "C42996009E6C"
-            },
-            {
                 "entry_id": "4d7cffc72a9fbb664c3a42aa87c271df",
                 "version": 1,
                 "domain": "harmony",
@@ -410,12 +366,12 @@
                 "data": {
                     "auth_implementation": "spotify",
                     "token": {
-                        "access_token": "BQAQJ142SQMMRioyJUuYFJhlXvBIgk6Cq3ATdKXP3nar7oNmBmBsxRAX115pu2bRxNyjxuN5Qs_Uek0YiD8r2kd9Tx-HPe10VMz5b5QvmpIaVLVkqCehWbMgH8BWemrcX1QQkZnqrp-ZinA_hNslFiSOw9-WC-YyZ6-5tgIWJE6avi3O3MH70Dfr-q4vnBIU3r-4yAEH4Q",
+                        "access_token": "BQDI8PrYtDlG-eQoOBS7ZFdCLflsyGDC6Lf8WlGtyhdWRY12F7owgnMCbGB2MGhoL7HWsR6JS9MWnlk47INOpHhyxtKLxq0GZYbVZE4A94166im4uUkgy-OjOg-langWt2wPXYQ4Qm8XAKSs8CppO6dCTog75Lrz5TmMTlkI_d32BrSq3b4D4_O36FamHrOi3G_fmF2dFw",
                         "token_type": "Bearer",
                         "expires_in": 3600,
                         "refresh_token": "AQBh6HQhCdyHRkDRLGGxRDt9MoA70BW_tYmav88sNBw_Bir18O5zDpsSMkC6ZaRUGQ3m07ubQ0Ewf7hHRsJRx7Atc5tELtXZe9ea3kGUj2mLXIG3gWRpJmwhX4z0VjOI52E",
                         "scope": "playlist-read-private playlist-read-collaborative user-modify-playback-state user-library-read user-follow-read user-read-playback-state user-read-recently-played user-read-playback-position user-read-private user-top-read",
-                        "expires_at": 1612545619.1850488
+                        "expires_at": 1612736384.6761959
                     },
                     "id": "125975319",
                     "name": "kbkrunner"
@@ -461,9 +417,9 @@
                     "exclude_devices": "",
                     "securitycode": "",
                     "oauth": {
-                        "access_token": "Atna|EwICIEfvAq_7LQzvC-P65sg34DqgkF0vD_-cFjhG5ZzhuQZhkf1yiydiAhuPY5B5YoWj8ZzanP2_1P3JsWmi22TzTMv9haqVoMe1oKEbO_SI7Tgk93XqZXD_Eo37TDSTAj6Rnp5ukJlvVRZcrMzT_1GEHjWLmXm5AmhtWXcBtrj-5uOWLBnJDVn5vcMTL1z_jlf0ZNV4rjeG2M7Hw8yKv6uQQbYx8Qlvyw2pTViKjNvX4ccRtUl8w5ER-9pVK7WAp_1BLEm8KURZ2KSUA2Bw1-VVcrB5HbWAsY9piSuUv6U2vVVI4w",
-                        "refresh_token": "Atnr|EwICIF_RoDHSAFM3MZtlOeufuIobmCMPYqNA1r6orMHqaz5VnhxQGyVg9X7pUikrxYepZ1StLvXk8I1GptF15Ha3nhO-7xJfUYB8VikCFctm_TtRb4lACHsZbidojd3C-Uau6eTx1MD-Ql3UFsVSRm3HoICQJ7ozuk8mqIErPILo6zFESLP5bk6zYr7I366OAS-C-M7zOEnTbD_L-Vudi1KYgvcYnuqb2ipqHzlQ5DO-C8CUq9Limo9PufxIZiZwbtIaAb7AqVqSqW2AOXVTkRFlh-iS",
-                        "expires_in": 1612545358.168133
+                        "access_token": "Atna|EwICIO-4pMQ_BDt8EJgu46jS2YZ9tBVEiOEj_jBjIjhrQSXBj0oi04XZ63Qpwar0xKnRiG6p9OZy9IskbI7k_he54MkHwoWQvl-TgTo6za6n6Ic2qlxw-WHiZoflqbg_tded-RVPlvxBXrP-AtebjJrutBHZ_01lHn9UCU_8i-mL9jwOZ9GDACUiSlovALPnWwtaocuDmj_V15W46KMZtcjfAaAudezQ4U17Mjhehhal4zLRnEt9M4X3yZIEQY3dbNyB6K6PvnmjIk7JZJNqdD-YM0HGY6bnhzwtI6mJeTD-RRquxQ",
+                        "refresh_token": "Atnr|EwICIJV2VL1rwWivh_NZi495XIk_Z69Kp-3zPZ3nzsSlKJtoYI0ZyM3BNbwhv7wk67YI8vglJeun6x3vTpX304916A3Vl-bceC1zp2oO9hm4tabxmto84DttgkZWYKqeXkeSaMg0z4lB9SJobK-Qg2uDh4NbY4yJ4o7v1_1PTRpAV1iCVHiiCXGQFtf4mqquT4zAuS61tPOXpAoNfLDhGR1yXwwSsZnTF9jhKazHKUWT6eoJf6uJFlXMZjpq4Yd1YmyuGgm-VzO75DhBVE_DXN4KokO7",
+                        "expires_in": 1612725723.188348
                     }
                 },
                 "options": {},
@@ -492,7 +448,7 @@
                 "entry_id": "02801a8e6c57eee2390a40e8c016b57e",
                 "version": 1,
                 "domain": "roku",
-                "title": "TCL\u2022Roku TV - YN00HL348696",
+                "title": "Living Room Roku TV",
                 "data": {
                     "host": "10.0.0.159",
                     "name": "TCL\u2022Roku TV - YN00HL348696"
@@ -543,7 +499,7 @@
                 "title": "Home",
                 "data": {
                     "access_token": "a413195b-bf09-4bce-b459-6b347e0ef7b6",
-                    "refresh_token": "48ffb553-bb3a-4181-833e-b50d3f098572",
+                    "refresh_token": "76d77462-2605-43df-b5e8-745f5384a4bd",
                     "client_id": "36a2a444-68f8-430d-b903-e3b68f006b95",
                     "client_secret": "a7d75c45-5291-44f7-9519-d1772318786d",
                     "location_id": "9c58daa6-46f4-4274-872a-6fa82ab59499",
@@ -578,7 +534,7 @@
                 "domain": "roku",
                 "title": "Office Roku TV",
                 "data": {
-                    "host": "10.0.0.250",
+                    "host": "10.0.0.210",
                     "name": "Office Roku TV"
                 },
                 "options": {},
@@ -710,6 +666,36 @@
                 "source": "user",
                 "connection_class": "cloud_poll",
                 "unique_id": "38.89119148956352_-77.08185696596956"
+            },
+            {
+                "entry_id": "93dd4b003b5a7ec72290f31917e52b2e",
+                "version": 1,
+                "domain": "homekit_controller",
+                "title": "LG webOS TV 1BE6 via HomeKit Accessory Protocol",
+                "data": {},
+                "options": {},
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "source": "ignore",
+                "connection_class": "local_push",
+                "unique_id": "f5:ea:bd:b1:5a:b7"
+            },
+            {
+                "entry_id": "7e747ff90fdf9cd81258abfaf61e885e",
+                "version": 1,
+                "domain": "hacs",
+                "title": "",
+                "data": {
+                    "token": "38feec8bd78ff5a88a6be8bc30cdd63536b3e763"
+                },
+                "options": {},
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "source": "user",
+                "connection_class": "cloud_poll",
+                "unique_id": null
             }
         ]
     }
